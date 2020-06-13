@@ -5,7 +5,28 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { categories, messages, } from "./components/mobile-chat/res/view/mobile-dialogs/res/interface/common.interface";
 export namespace Components {
+    interface DialogCard {
+        /**
+          * карточка диалога
+         */
+        "mess": any;
+    }
+    interface MobileChat {
+    }
+    interface MobileDialogs {
+        /**
+          * массив категорий диалогов
+         */
+        "categories": categories[];
+        /**
+          * массив сообщений
+         */
+        "messages": messages[];
+    }
+    interface MobilePersonal {
+    }
     interface MyComponent {
         /**
           * The first name
@@ -22,6 +43,30 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLDialogCardElement extends Components.DialogCard, HTMLStencilElement {
+    }
+    var HTMLDialogCardElement: {
+        prototype: HTMLDialogCardElement;
+        new (): HTMLDialogCardElement;
+    };
+    interface HTMLMobileChatElement extends Components.MobileChat, HTMLStencilElement {
+    }
+    var HTMLMobileChatElement: {
+        prototype: HTMLMobileChatElement;
+        new (): HTMLMobileChatElement;
+    };
+    interface HTMLMobileDialogsElement extends Components.MobileDialogs, HTMLStencilElement {
+    }
+    var HTMLMobileDialogsElement: {
+        prototype: HTMLMobileDialogsElement;
+        new (): HTMLMobileDialogsElement;
+    };
+    interface HTMLMobilePersonalElement extends Components.MobilePersonal, HTMLStencilElement {
+    }
+    var HTMLMobilePersonalElement: {
+        prototype: HTMLMobilePersonalElement;
+        new (): HTMLMobilePersonalElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -29,10 +74,50 @@ declare global {
         new (): HTMLMyComponentElement;
     };
     interface HTMLElementTagNameMap {
+        "dialog-card": HTMLDialogCardElement;
+        "mobile-chat": HTMLMobileChatElement;
+        "mobile-dialogs": HTMLMobileDialogsElement;
+        "mobile-personal": HTMLMobilePersonalElement;
         "my-component": HTMLMyComponentElement;
     }
 }
 declare namespace LocalJSX {
+    interface DialogCard {
+        /**
+          * карточка диалога
+         */
+        "mess"?: any;
+        /**
+          * clock on navigate
+         */
+        "onSelectDialog"?: (event: CustomEvent<any>) => void;
+    }
+    interface MobileChat {
+    }
+    interface MobileDialogs {
+        /**
+          * массив категорий диалогов
+         */
+        "categories"?: categories[];
+        /**
+          * массив сообщений
+         */
+        "messages"?: messages[];
+        /**
+          * clock on Category
+         */
+        "onClickCategory"?: (event: CustomEvent<any>) => void;
+        /**
+          * clock on navigate
+         */
+        "onSelectDialog"?: (event: CustomEvent<any>) => void;
+    }
+    interface MobilePersonal {
+        /**
+          * clock on navigate
+         */
+        "onSelectDialog"?: (event: CustomEvent<any>) => void;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -48,6 +133,10 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
     interface IntrinsicElements {
+        "dialog-card": DialogCard;
+        "mobile-chat": MobileChat;
+        "mobile-dialogs": MobileDialogs;
+        "mobile-personal": MobilePersonal;
         "my-component": MyComponent;
     }
 }
@@ -55,6 +144,10 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "dialog-card": LocalJSX.DialogCard & JSXBase.HTMLAttributes<HTMLDialogCardElement>;
+            "mobile-chat": LocalJSX.MobileChat & JSXBase.HTMLAttributes<HTMLMobileChatElement>;
+            "mobile-dialogs": LocalJSX.MobileDialogs & JSXBase.HTMLAttributes<HTMLMobileDialogsElement>;
+            "mobile-personal": LocalJSX.MobilePersonal & JSXBase.HTMLAttributes<HTMLMobilePersonalElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }
