@@ -1,4 +1,4 @@
-import {MessageTypeEnum, MessageDirectionEnum} from '../components/mobile-chat/res/view/mobile-personal/res/interface/common.interface';
+import {MessageTypeEnum, MessageDirectionEnum} from '../components/mobile/mobile-chat/res/view/mobile-personal/res/interface/common.interface';
 
 export const dialogs = [
   {

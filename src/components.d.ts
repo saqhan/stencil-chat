@@ -5,8 +5,10 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { categories, dialogs, } from "./components/mobile-chat/res/view/mobile-dialogs/res/interface/common.interface";
-import { Message, } from "./components/mobile-chat/res/view/mobile-personal/res/interface/common.interface";
+import { categories, dialogs, } from "./components/mobile/mobile-chat/res/view/mobile-dialogs/res/interface/common.interface";
+import { Message, } from "./components/mobile/mobile-chat/res/view/mobile-personal/res/interface/common.interface";
+import { dialogs as dialogs1, } from "./components/comp/s-adam-contacts/res/interface/common.interface";
+import { logo, navItems, } from "./components/comp/s-adam-navigate/res/interface/common.interface";
 export namespace Components {
     interface DialogCard {
         /**
@@ -60,6 +62,36 @@ export namespace Components {
     }
     interface PersonalFooter {
     }
+    interface SAdamContacts {
+        /**
+          * Массив с элементами диалога
+         */
+        "dialogs": dialogs[];
+    }
+    interface SAdamDialogs {
+        /**
+          * Массив с элементами диалога
+         */
+        "dialog": any;
+    }
+    interface SAdamNavItem {
+        /**
+          * Иконки навигации
+         */
+        "navItems": any;
+    }
+    interface SAdamNavigate {
+        /**
+          * Логотип
+         */
+        "logo": logo;
+        /**
+          * Иконки навигации
+         */
+        "navItems": navItems[];
+    }
+    interface SAdamProfile {
+    }
 }
 declare global {
     interface HTMLDialogCardElement extends Components.DialogCard, HTMLStencilElement {
@@ -110,6 +142,36 @@ declare global {
         prototype: HTMLPersonalFooterElement;
         new (): HTMLPersonalFooterElement;
     };
+    interface HTMLSAdamContactsElement extends Components.SAdamContacts, HTMLStencilElement {
+    }
+    var HTMLSAdamContactsElement: {
+        prototype: HTMLSAdamContactsElement;
+        new (): HTMLSAdamContactsElement;
+    };
+    interface HTMLSAdamDialogsElement extends Components.SAdamDialogs, HTMLStencilElement {
+    }
+    var HTMLSAdamDialogsElement: {
+        prototype: HTMLSAdamDialogsElement;
+        new (): HTMLSAdamDialogsElement;
+    };
+    interface HTMLSAdamNavItemElement extends Components.SAdamNavItem, HTMLStencilElement {
+    }
+    var HTMLSAdamNavItemElement: {
+        prototype: HTMLSAdamNavItemElement;
+        new (): HTMLSAdamNavItemElement;
+    };
+    interface HTMLSAdamNavigateElement extends Components.SAdamNavigate, HTMLStencilElement {
+    }
+    var HTMLSAdamNavigateElement: {
+        prototype: HTMLSAdamNavigateElement;
+        new (): HTMLSAdamNavigateElement;
+    };
+    interface HTMLSAdamProfileElement extends Components.SAdamProfile, HTMLStencilElement {
+    }
+    var HTMLSAdamProfileElement: {
+        prototype: HTMLSAdamProfileElement;
+        new (): HTMLSAdamProfileElement;
+    };
     interface HTMLElementTagNameMap {
         "dialog-card": HTMLDialogCardElement;
         "mess-from-me": HTMLMessFromMeElement;
@@ -119,6 +181,11 @@ declare global {
         "mobile-personal": HTMLMobilePersonalElement;
         "my-component": HTMLMyComponentElement;
         "personal-footer": HTMLPersonalFooterElement;
+        "s-adam-contacts": HTMLSAdamContactsElement;
+        "s-adam-dialogs": HTMLSAdamDialogsElement;
+        "s-adam-nav-item": HTMLSAdamNavItemElement;
+        "s-adam-navigate": HTMLSAdamNavigateElement;
+        "s-adam-profile": HTMLSAdamProfileElement;
     }
 }
 declare namespace LocalJSX {
@@ -190,6 +257,44 @@ declare namespace LocalJSX {
     }
     interface PersonalFooter {
     }
+    interface SAdamContacts {
+        /**
+          * Массив с элементами диалога
+         */
+        "dialogs"?: dialogs[];
+        /**
+          * Событие для переключения пустой страницы на личный чат
+         */
+        "onToggleChat"?: (event: CustomEvent<any>) => void;
+    }
+    interface SAdamDialogs {
+        /**
+          * Массив с элементами диалога
+         */
+        "dialog"?: any;
+        /**
+          * Событие для переключения пустой страницы на личный чат
+         */
+        "onToggleChat"?: (event: CustomEvent<any>) => void;
+    }
+    interface SAdamNavItem {
+        /**
+          * Иконки навигации
+         */
+        "navItems"?: any;
+    }
+    interface SAdamNavigate {
+        /**
+          * Логотип
+         */
+        "logo"?: logo;
+        /**
+          * Иконки навигации
+         */
+        "navItems"?: navItems[];
+    }
+    interface SAdamProfile {
+    }
     interface IntrinsicElements {
         "dialog-card": DialogCard;
         "mess-from-me": MessFromMe;
@@ -199,6 +304,11 @@ declare namespace LocalJSX {
         "mobile-personal": MobilePersonal;
         "my-component": MyComponent;
         "personal-footer": PersonalFooter;
+        "s-adam-contacts": SAdamContacts;
+        "s-adam-dialogs": SAdamDialogs;
+        "s-adam-nav-item": SAdamNavItem;
+        "s-adam-navigate": SAdamNavigate;
+        "s-adam-profile": SAdamProfile;
     }
 }
 export { LocalJSX as JSX };
@@ -213,6 +323,11 @@ declare module "@stencil/core" {
             "mobile-personal": LocalJSX.MobilePersonal & JSXBase.HTMLAttributes<HTMLMobilePersonalElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "personal-footer": LocalJSX.PersonalFooter & JSXBase.HTMLAttributes<HTMLPersonalFooterElement>;
+            "s-adam-contacts": LocalJSX.SAdamContacts & JSXBase.HTMLAttributes<HTMLSAdamContactsElement>;
+            "s-adam-dialogs": LocalJSX.SAdamDialogs & JSXBase.HTMLAttributes<HTMLSAdamDialogsElement>;
+            "s-adam-nav-item": LocalJSX.SAdamNavItem & JSXBase.HTMLAttributes<HTMLSAdamNavItemElement>;
+            "s-adam-navigate": LocalJSX.SAdamNavigate & JSXBase.HTMLAttributes<HTMLSAdamNavigateElement>;
+            "s-adam-profile": LocalJSX.SAdamProfile & JSXBase.HTMLAttributes<HTMLSAdamProfileElement>;
         }
     }
 }
