@@ -5,13 +5,26 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { categories, messages, } from "./components/mobile-chat/res/view/mobile-dialogs/res/interface/common.interface";
+import { categories, dialogs, } from "./components/mobile-chat/res/view/mobile-dialogs/res/interface/common.interface";
+import { Message, } from "./components/mobile-chat/res/view/mobile-personal/res/interface/common.interface";
 export namespace Components {
     interface DialogCard {
         /**
           * карточка диалога
          */
         "mess": any;
+    }
+    interface MessFromMe {
+        /**
+          * Принимаем сообщения для пользователя
+         */
+        "message": any;
+    }
+    interface MessToMe {
+        /**
+          * Принимаем сообщения от пользователя
+         */
+        "message": any;
     }
     interface MobileChat {
     }
@@ -23,9 +36,13 @@ export namespace Components {
         /**
           * массив сообщений
          */
-        "messages": messages[];
+        "dialogs": dialogs[];
     }
     interface MobilePersonal {
+        /**
+          * array data personal messages
+         */
+        "messageMock": Message[];
     }
     interface MyComponent {
         /**
@@ -41,6 +58,8 @@ export namespace Components {
          */
         "middle": string;
     }
+    interface PersonalFooter {
+    }
 }
 declare global {
     interface HTMLDialogCardElement extends Components.DialogCard, HTMLStencilElement {
@@ -48,6 +67,18 @@ declare global {
     var HTMLDialogCardElement: {
         prototype: HTMLDialogCardElement;
         new (): HTMLDialogCardElement;
+    };
+    interface HTMLMessFromMeElement extends Components.MessFromMe, HTMLStencilElement {
+    }
+    var HTMLMessFromMeElement: {
+        prototype: HTMLMessFromMeElement;
+        new (): HTMLMessFromMeElement;
+    };
+    interface HTMLMessToMeElement extends Components.MessToMe, HTMLStencilElement {
+    }
+    var HTMLMessToMeElement: {
+        prototype: HTMLMessToMeElement;
+        new (): HTMLMessToMeElement;
     };
     interface HTMLMobileChatElement extends Components.MobileChat, HTMLStencilElement {
     }
@@ -73,12 +104,21 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLPersonalFooterElement extends Components.PersonalFooter, HTMLStencilElement {
+    }
+    var HTMLPersonalFooterElement: {
+        prototype: HTMLPersonalFooterElement;
+        new (): HTMLPersonalFooterElement;
+    };
     interface HTMLElementTagNameMap {
         "dialog-card": HTMLDialogCardElement;
+        "mess-from-me": HTMLMessFromMeElement;
+        "mess-to-me": HTMLMessToMeElement;
         "mobile-chat": HTMLMobileChatElement;
         "mobile-dialogs": HTMLMobileDialogsElement;
         "mobile-personal": HTMLMobilePersonalElement;
         "my-component": HTMLMyComponentElement;
+        "personal-footer": HTMLPersonalFooterElement;
     }
 }
 declare namespace LocalJSX {
@@ -92,6 +132,18 @@ declare namespace LocalJSX {
          */
         "onSelectDialog"?: (event: CustomEvent<any>) => void;
     }
+    interface MessFromMe {
+        /**
+          * Принимаем сообщения для пользователя
+         */
+        "message"?: any;
+    }
+    interface MessToMe {
+        /**
+          * Принимаем сообщения от пользователя
+         */
+        "message"?: any;
+    }
     interface MobileChat {
     }
     interface MobileDialogs {
@@ -102,7 +154,7 @@ declare namespace LocalJSX {
         /**
           * массив сообщений
          */
-        "messages"?: messages[];
+        "dialogs"?: dialogs[];
         /**
           * clock on Category
          */
@@ -113,6 +165,10 @@ declare namespace LocalJSX {
         "onSelectDialog"?: (event: CustomEvent<any>) => void;
     }
     interface MobilePersonal {
+        /**
+          * array data personal messages
+         */
+        "messageMock"?: Message[];
         /**
           * clock on navigate
          */
@@ -132,12 +188,17 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
+    interface PersonalFooter {
+    }
     interface IntrinsicElements {
         "dialog-card": DialogCard;
+        "mess-from-me": MessFromMe;
+        "mess-to-me": MessToMe;
         "mobile-chat": MobileChat;
         "mobile-dialogs": MobileDialogs;
         "mobile-personal": MobilePersonal;
         "my-component": MyComponent;
+        "personal-footer": PersonalFooter;
     }
 }
 export { LocalJSX as JSX };
@@ -145,10 +206,13 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "dialog-card": LocalJSX.DialogCard & JSXBase.HTMLAttributes<HTMLDialogCardElement>;
+            "mess-from-me": LocalJSX.MessFromMe & JSXBase.HTMLAttributes<HTMLMessFromMeElement>;
+            "mess-to-me": LocalJSX.MessToMe & JSXBase.HTMLAttributes<HTMLMessToMeElement>;
             "mobile-chat": LocalJSX.MobileChat & JSXBase.HTMLAttributes<HTMLMobileChatElement>;
             "mobile-dialogs": LocalJSX.MobileDialogs & JSXBase.HTMLAttributes<HTMLMobileDialogsElement>;
             "mobile-personal": LocalJSX.MobilePersonal & JSXBase.HTMLAttributes<HTMLMobilePersonalElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "personal-footer": LocalJSX.PersonalFooter & JSXBase.HTMLAttributes<HTMLPersonalFooterElement>;
         }
     }
 }

@@ -40,7 +40,9 @@
   height: 30px;
   margin: 3px;
   border-radius: 50%;
-  background-image: url(https://via.placeholder.com/300x300?text=User);
+  background-image: url('https://via.placeholder.com/300x300?text=User');
+  background-size: cover;
+  background-position: center;
 }
 
 .img-user-current {
@@ -48,6 +50,7 @@
   text-align: center;
   border: 2px solid #4c567d;
   border-radius: 50%;
+
 }
 
 .img-user-current .img {
@@ -56,12 +59,27 @@
   margin: 3px;
   border-radius: 50%;
   background-image: url("https://via.placeholder.com/300x300?text=User");
+  background-size: cover;
+  background-position: center;
 }
 
 
 
 
 /*personal body*/
+
+.text-wrapper {
+  width: 75%;
+}
+.info-wrapper {
+  width: 25%;
+  min-width: 55px;
+  text-align: right;
+}
+
+.user-mess-wrapper, .admin-mess-wrapper {
+  margin: 15px 0;
+}
 
 .personal-message {
   padding: 20px;
@@ -72,7 +90,7 @@
 .user-mess-wrapp {
   display: flex;
   justify-content: end;
-  margin: 15px 0px;
+
 }
 
 .user-mess-wrapp .img {
@@ -80,17 +98,15 @@
   height: 30px;
   margin-right: 10px;
   border-radius: 50%;
-  background-image: url("https://via.placeholder.com/300x300?text=User");
+  background-size: cover;
+  background-position: center;
 }
 
 .user-mess {
-  width: 70%;
+  max-width: 250px;
   padding: 10px;
   border: 1px solid #ccc;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-  border-bottom-left-radius: 20px;
+  border-radius: 0px 20px 20px 20px;
   font-size: 14px;
   color: #979eab;
   display: flex;
@@ -102,28 +118,26 @@
 .admin-mess-wrapp {
   display: flex;
   justify-content: flex-end;
-  margin: 15px 0px;
 }
 .admin-mess {
+  max-width: 250px;
   padding: 10px;
   border: 1px solid #c7d0e8;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 20px;
-  border-bottom-left-radius: 20px;
+  border-radius: 20px 0px 20px 20px;
   background-color: #ebf0fe;
   color: #799af8;
   font-size: 14px;
+  display: flex;
 }
 
 .personal-mess-date {
   font-size: 10px;
-  margin-left: 20px;
+  margin-left: 5px;
 }
 
 .user-mess .check {
-  font-size: 12px;
-  margin-left: 10px;
+  font-size: 10px;
+  margin-left: 5px;
 }
 
 .admin-mess-wrapper {
@@ -132,11 +146,11 @@
 }
 
 .admin-mess .check {
-  font-size: 12px;
-  margin-left: 10px;
+  font-size: 10px;
+  margin-left: 5px;
 }
 
-.mess-img-admin {
+.admin-mess-wrapper .mess-img {
   width: 70%;
   height: 150px;
   border-top-left-radius: 20px;
@@ -148,47 +162,34 @@
   background-size: cover;
 }
 
+.user-mess-wrapper .mess-img {
+  width: 70%;
+  height: 150px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background-image: url("https://via.placeholder.com/300x300?text=User");
+  background-position: center;
+  background-size: cover;
+}
 
 
 .mess-img-admin .check {
   position: relative;
   top: 80%;
   left: 92%;
-  font-size: 12px;
+  font-size: 10px;
+  color: #fff;
+}
+.mess-img .check {
+  position: relative;
+  top: 80%;
+  left: 90%;
+  font-size: 10px;
   color: #fff;
 }
 
-/*form*/
-
-.footer-wrapper {
-  display: flex;
-  justify-content: space-between;
-  border-radius: 20px;
-  align-items: center;
-  padding: 10px 15px 10px;
-  box-shadow: 0px 0px 10px 5px #ccc;
-  font-size: 18px;
-  color: #979eab;
-}
-
-.file,  .audio {
-  width: 10%;
-  text-align: center;
-}
-
-.input-wrapper {
-  width: 80%;
-}
-
-.input-wrapper input {
-  width: 100%;
-  text-align: center;
-  color: #4c567d;
-  padding: 10px 0;
-  border:none;
-  font-size: 16px;
-  outline: none;
-}
 
 @media (max-width: 768px) and (max-height: 1024px){
   .personal-message {

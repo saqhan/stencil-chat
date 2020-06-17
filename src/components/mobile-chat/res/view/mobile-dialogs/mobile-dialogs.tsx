@@ -1,5 +1,5 @@
 import {Component, ComponentInterface, EventEmitter, Event,  h, Prop} from "@stencil/core";
-import { messages, categories } from "./res/interface/common.interface";
+import { dialogs, categories } from "./res/interface/common.interface";
 @Component({
   tag: "mobile-dialogs",
   styleUrl: "mobile-dialogs.css",
@@ -9,7 +9,7 @@ export class MobileDialogs implements ComponentInterface {
   /**
    * массив сообщений
    * */
-  @Prop() messages: messages[];
+  @Prop() dialogs: dialogs[];
   // @Prop() messages: any;
   /**
    * массив категорий диалогов
@@ -42,7 +42,7 @@ export class MobileDialogs implements ComponentInterface {
           <div class="btns-nav">{this.getCategories(this.categories)}</div>
         </div>
         <div class="m-chat-dialogs">
-          <Dialog mess={this.messages}></Dialog>
+          <Dialog mess={this.dialogs}></Dialog>
         </div>
         <div class="m-chat-footer">
           <span>
@@ -69,8 +69,6 @@ export class MobileDialogs implements ComponentInterface {
       </span>
     ));
   }
-
-
 }
 
 /**

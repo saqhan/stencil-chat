@@ -27,13 +27,30 @@ export class DialogCard implements ComponentInterface {
             <div class="message-user">{this.mess.mess}</div>
           </div>
           <div class="data-message">
-            <div class="date">{this.mess.date}</div>
+            <div class="date"> {this.createSendTime(this.mess.time.created)}</div>
             {/*<div class="new-message">Yesterday</div>*/}
             <span class="add-new-message">1</span>
           </div>
         </div>
       </div>
     );
+  }
+  /**
+   * Метод вывода времени отправки сообщения
+   * */
+  public createSendTime(array) {
+    const timeNow = array;
+
+    let hours = timeNow.getHours();
+    let minutes = timeNow.getMinutes();
+
+    // add zero for minutes
+    if (minutes < 10) {
+      minutes = "0" + minutes;
+    }
+
+
+    return `${hours} : ${minutes}`;
   }
 }
 

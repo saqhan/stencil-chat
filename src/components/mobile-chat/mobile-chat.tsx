@@ -1,5 +1,5 @@
 import { Component, ComponentInterface, h, State } from "@stencil/core";
-import { messages, categories } from "../../utils/mock";
+import { dialogs, categories, MessageMock } from "../../utils/mock";
 
 @Component({
   tag: "mobile-chat",
@@ -11,20 +11,30 @@ export class MobileChat implements ComponentInterface {
    * Выбираем какой контент показывать
    * */
   @State() showContent = "dialogs";
+  /**
+   * массив данных для диалогов
+   * */
+  @State() dialogs = dialogs;
+  /**
+   * массив данных личных диалогово
+   * */
+  @State() messageMock = MessageMock;
 
   render() {
     return (
-      //<div class="temp">
+     // <div class="temp">
       <div>{this.getContent(this.showContent)}</div>
-      // </div>
+     // </div>
     );
+  }
+  componentWillLoad(): Promise<void> | void {
+    this.dialogs = dialogs;
   }
 
   /**
    * Функция переключения между диалогами и личными сообщениями
    **/
-  public selectDialog({detail}) {
-    console.log('click', detail)
+  public selectDialog({ detail }) {
     if (detail.place === "showPersonal") {
       return (this.showContent = "personal");
     } else if (detail.place === "showDialogs") {
@@ -36,14 +46,10 @@ export class MobileChat implements ComponentInterface {
    * Фильтруем по кликнутой категории
    * */
   public clickCategory({ detail }) {
-
-    console.log("click category", detail);
-    if (detail !== "all") {
-      return messages.filter(item => item.category === detail);
-
-    } else {
-      return messages;
-    }
+    this.dialogs =
+      detail !== "all"
+        ? dialogs.filter((item) => item.category === detail)
+        : dialogs;
   }
 
   /**
@@ -57,17 +63,18 @@ export class MobileChat implements ComponentInterface {
             onSelectDialog={(item) => this.selectDialog(item)}
             onClickCategory={(item) => this.clickCategory(item)}
             categories={categories}
-            messages={messages}
+            dialogs={this.dialogs}
           ></mobile-dialogs>
         );
       case "personal":
         return (
           <mobile-personal
             onSelectDialog={(item) => this.selectDialog(item)}
+            messageMock={this.messageMock}
           ></mobile-personal>
         );
       default:
-        "no content";
+        return <div>no content</div>;
     }
   }
 }

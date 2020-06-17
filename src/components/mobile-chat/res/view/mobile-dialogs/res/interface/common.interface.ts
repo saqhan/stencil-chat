@@ -2,12 +2,19 @@
 /**
  * Interface for array dialogs
  * */
-export interface messages  {
+export interface dialogs  {
   id : number;
   img : string;
   name : string;
   mess : string;
-  date : string;
+  time: {
+    /** время создания */
+    created: any;
+    /** время доставки */
+    delivery?: any;
+    /** время прочтения */
+    read?: any;
+  };
   category : string;
   online : boolean;
 }

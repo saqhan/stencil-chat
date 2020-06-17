@@ -4,7 +4,9 @@ import {
   Event,
   EventEmitter,
   h,
+  Prop,
 } from "@stencil/core";
+import {Message, MessageDirectionEnum} from "./res/interface/common.interface";
 
 @Component({
   tag: "mobile-personal",
@@ -12,6 +14,11 @@ import {
   shadow: false,
 })
 export class MobilePersonal implements ComponentInterface {
+  /**
+   * array data personal messages
+   * */
+  @Prop() messageMock: Message[];
+
   /**
    * clock on navigate
    * */
@@ -22,8 +29,9 @@ export class MobilePersonal implements ComponentInterface {
       <div class="personal-wrapper">
         <div class="personal-header">
           <div class="header-nav">
-            <span class="custom-link"
-                  onClick={()=> this.selectDialog.emit({place:'showDialogs'})}
+            <span
+              class="custom-link"
+              onClick={() => this.selectDialog.emit({ place: "showDialogs" })}
             >
               <i class="fas fa-arrow-left"></i>
             </span>
@@ -51,111 +59,29 @@ export class MobilePersonal implements ComponentInterface {
           </div>
         </div>
         <div class="personal-message">
-          <div class="user-mess-wrapper">
-            <div class="user-mess-wrapp">
-              <span class="img"></span>
-              <div class="user-mess">
-                <span class="message-text">Wazzup, how are you? Mmm?</span>
-                <span class="personal-mess-date"> 9:36</span>
-                <span class="check">
-                  <i class="fa fa-check-double"></i>
-                </span>
-              </div>
-            </div>
-          </div>
-          <div class="admin-mess-wrapper">
-            <div class="admin-mess-wrapp">
-              <div class="admin-mess">
-                <span class="message-text">Wazzup, how are you? Mmm?</span>
-                <span class="personal-mess-date"> 9: 36</span>
-                <span class="check">
-                  <i class="fa fa-check-double"></i>
-                </span>
-              </div>
-            </div>
-          </div>
-          <div class="user-mess-wrapper">
-            <div class="user-mess-wrapp">
-              <span class="img"></span>
-              <div class="user-mess">
-                <span class="message-text">Wazzup?</span>
-                <span class="personal-mess-date"> 12: 00</span>
-                <span class="check">
-                  <i class="fa fa-check-double"></i>
-                </span>
-              </div>
-            </div>
-          </div>
-          <div class="admin-mess-wrapper">
-            <div class="admin-mess-wrapp">
-              <div class="admin-mess">
-                <span class="message-text">Wazzup, how are you? Mmm?</span>
-                <span class="personal-mess-date"> 9: 36</span>
-                <span class="check">
-                  <i class="fa fa-check-double"></i>
-                </span>
-              </div>
-            </div>
-          </div>
-          <div class="admin-mess-wrapper">
-            <div class="mess-img-admin">
-              <span class="check">
-                <i class="fa fa-check-double"></i>
-              </span>
-            </div>
-          </div>
-          <div class="user-mess-wrapper">
-            <div class="user-mess-wrapp">
-              <span class="img"></span>
-              <div class="user-mess">
-                <span class="message-text">
-                  it's a Joke? Really? it's a Joke? Really? it's a Joke? Really?
-                </span>
-                <span class="personal-mess-date"> 12:00</span>
-                <span class="check">
-                  <i class="fa fa-check-double"></i>
-                </span>
-              </div>
-            </div>
-          </div>
-          <div class="user-mess-wrapper">
-            <div class="user-mess-wrapp">
-              <span class="img"></span>
-              <div class="user-mess">
-                <span class="message-text">Wazzup, how are you? Mmm?</span>
-                <span class="personal-mess-date"> 9:36</span>
-                <span class="check">
-                  <i class="fa fa-check-double"></i>
-                </span>
-              </div>
-            </div>
-          </div>
-          <div class="admin-mess-wrapper">
-            <div class="admin-mess-wrapp">
-              <div class="admin-mess">
-                <span class="message-text">Wazzup, how are you? Mmm?</span>
-                <span class="personal-mess-date"> 9: 36</span>
-                <span class="check">
-                  <i class="fa fa-check-double"></i>
-                </span>
-              </div>
-            </div>
-          </div>
+          {this.createMessagesElements(this.messageMock)}
         </div>
-        <div class="personal-footer">
-          <div class="footer-wrapper">
-            <div class="file">
-              <i class="fas fa-file-alt"></i>
-            </div>
-            <div class="input-wrapper">
-              <input type="text" placeholder="Type something ..." />{" "}
-            </div>
-            <div class="audio">
-              <i class="fas fa-microphone"></i>
-            </div>
-          </div>
-        </div>
+        <personal-footer></personal-footer>
       </div>
     );
+  }
+
+  /**
+   * Создаем сообщение которое отправлено/прислано и сообщение по центру
+   * */
+  public createMessagesElements(array) {
+    return array.map((item) => {
+      switch (item.direction) {
+        //Если это сообщение для меня
+        case MessageDirectionEnum.toMe:
+          return <mess-to-me message={item}></mess-to-me>;
+        //Если это сообщение от меня
+        case MessageDirectionEnum.fromMe:
+          return <mess-from-me message={item}></mess-from-me>;
+        // Сообщение по центру
+        case MessageDirectionEnum.center:
+          return <div>Today</div>;
+      }
+    });
   }
 }
