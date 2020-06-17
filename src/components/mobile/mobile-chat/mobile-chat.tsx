@@ -1,5 +1,5 @@
 import { Component, ComponentInterface, h, State } from "@stencil/core";
-import { dialogs, categories, MessageMock } from "../../utils/mock";
+import { dialogs, categories, MessageMock } from "../../../utils/mock";
 
 @Component({
   tag: "mobile-chat",
