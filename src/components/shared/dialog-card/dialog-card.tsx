@@ -13,10 +13,10 @@ export class DialogCard implements ComponentInterface {
   /**
    * clock on navigate
    * */
-  @Event() selectDialog: EventEmitter;
+  @Event() clickToLink: EventEmitter;
   render() {
     return (
-      <div class="m-dialog-card" onClick={()=> this.selectDialog.emit({place:'showPersonal'})} >
+      <div class="m-dialog-card" onClick={()=> this.clickToLink.emit({place:'showPersonalDialog', item: this.mess })} >
         <div class="img-user">
           <div class={this.mess.online ? 'img online': 'img'}
           style={{backgroundImage: `url(${this.mess.img})`}}></div>

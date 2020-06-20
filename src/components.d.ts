@@ -197,7 +197,7 @@ declare namespace LocalJSX {
         /**
           * clock on navigate
          */
-        "onSelectDialog"?: (event: CustomEvent<any>) => void;
+        "onClickToLink"?: (event: CustomEvent<any>) => void;
     }
     interface MessFromMe {
         /**
@@ -223,13 +223,9 @@ declare namespace LocalJSX {
          */
         "dialogs"?: dialogs[];
         /**
-          * clock on Category
+          * clock on clickToLink
          */
-        "onClickCategory"?: (event: CustomEvent<any>) => void;
-        /**
-          * clock on navigate
-         */
-        "onSelectDialog"?: (event: CustomEvent<any>) => void;
+        "onClickToLink"?: (event: CustomEvent<any>) => void;
     }
     interface MobilePersonal {
         /**
@@ -239,7 +235,7 @@ declare namespace LocalJSX {
         /**
           * clock on navigate
          */
-        "onSelectDialog"?: (event: CustomEvent<any>) => void;
+        "onClickToLink"?: (event: CustomEvent<any>) => void;
     }
     interface MyComponent {
         /**
@@ -256,6 +252,10 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
     interface PersonalFooter {
+        /**
+          * clock on navigate
+         */
+        "onClickToLink"?: (event: CustomEvent<any>) => void;
     }
     interface SAdamContacts {
         /**

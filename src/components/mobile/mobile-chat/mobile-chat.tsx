@@ -22,9 +22,20 @@ export class MobileChat implements ComponentInterface {
 
   render() {
     return (
-     // <div class="temp">
-      <div>{this.getContent(this.showContent)}</div>
-     // </div>
+      // <div class="temp">
+      //  <div>{this.getContent(this.showContent)}</div>
+      <div>
+        <mobile-dialogs
+          onClickToLink={(item) => this.clickToLink(item)}
+          categories={categories}
+          dialogs={this.dialogs}
+        ></mobile-dialogs>
+        {/*<mobile-personal*/}
+        {/*  onClickToLink={(item) => this.clickToLink(item)}*/}
+        {/*  messageMock={this.messageMock}*/}
+        {/*></mobile-personal>*/}
+      </div>
+      // </div>
     );
   }
   componentWillLoad(): Promise<void> | void {
@@ -34,47 +45,49 @@ export class MobileChat implements ComponentInterface {
   /**
    * Функция переключения между диалогами и личными сообщениями
    **/
-  public selectDialog({ detail }) {
-    if (detail.place === "showPersonal") {
-      return (this.showContent = "personal");
-    } else if (detail.place === "showDialogs") {
-      return (this.showContent = "dialogs");
-    }
-  }
+  // public selectDialog({ detail }) {
+  //   if (detail.place === "showPersonal") {
+  //     return (this.showContent = "personal");
+  //   } else if (detail.place === "showDialogs") {
+  //     return (this.showContent = "dialogs");
+  //   }
+  // }
 
   /**
    * Фильтруем по кликнутой категории
    * */
-  public clickCategory({ detail }) {
-    this.dialogs =
-      detail !== "all"
-        ? dialogs.filter((item) => item.category === detail)
-        : dialogs;
+  // public clickCategory({ detail }) {
+  //   this.dialogs =
+  //     detail !== "all"
+  //       ? dialogs.filter((item) => item.category === detail)
+  //       : dialogs;
+  // }
+  public clickToLink({ detail }) {
+    console.log(detail);
   }
 
   /**
    * Метод для вывода определенного контента
    * */
-  getContent(content) {
-    switch (content) {
-      case "dialogs":
-        return (
-          <mobile-dialogs
-            onSelectDialog={(item) => this.selectDialog(item)}
-            onClickCategory={(item) => this.clickCategory(item)}
-            categories={categories}
-            dialogs={this.dialogs}
-          ></mobile-dialogs>
-        );
-      case "personal":
-        return (
-          <mobile-personal
-            onSelectDialog={(item) => this.selectDialog(item)}
-            messageMock={this.messageMock}
-          ></mobile-personal>
-        );
-      default:
-        return <div>no content</div>;
-    }
-  }
+  // getContent(content) {
+  //   switch (content) {
+  //     case "dialogs":
+  //       return (
+  //         <mobile-dialogs
+  //           onClickToLink={(item) => this.clickToLink(item)}
+  //           categories={categories}
+  //           dialogs={this.dialogs}
+  //         ></mobile-dialogs>
+  //       );
+  //     case "personal":
+  //       return (
+  //         <mobile-personal
+  //           onClickToLink={(item) => this.clickToLink(item)}
+  //           messageMock={this.messageMock}
+  //         ></mobile-personal>
+  //       );
+  //     default:
+  //       return <div>no content</div>;
+  //   }
+  // }
 }
