@@ -17,13 +17,10 @@ export class MobileDialogs implements ComponentInterface {
   @Prop() categories: categories[];
 
   /**
-   * clock on Category
+   * clock on clickToLink
    * */
-  @Event() clickCategory: EventEmitter;
-  /**
-   * clock on navigate
-   * */
-  @Event() selectDialog: EventEmitter;
+  @Event() clickToLink: EventEmitter;
+
 
 
   render() {
@@ -31,11 +28,11 @@ export class MobileDialogs implements ComponentInterface {
       <div class="m-chat-wrapper">
         <div class="m-chat-header">
           <div class="title-wrapper">
-            <span class="search custom-link">
+            <span class="search custom-link" onClick={() => this.clickToLink.emit({place: 'search-dialog'})}>
               <i class="fas fa-search"></i>
             </span>
             <span class="title">Messages</span>
-            <span class="add custom-link">
+            <span class="add custom-link" onClick={() => this.clickToLink.emit({place: 'add-dialog'})}>
               <i class="fas fa-plus-circle"></i>
             </span>
           </div>
@@ -45,13 +42,13 @@ export class MobileDialogs implements ComponentInterface {
           <Dialog mess={this.dialogs}></Dialog>
         </div>
         <div class="m-chat-footer">
-          <span>
+          <span onClick={() => this.clickToLink.emit({place: 'new-mess'})}>
             <i class="far fa-comment"></i>
           </span>
-          <span>
+          <span onClick={() => this.clickToLink.emit({place: 'contacts'})}>
             <i class="fas fa-user-friends"></i>
           </span>
-          <span>
+          <span onClick={() => this.clickToLink.emit({place: 'menu-bar'})}>
             <i class="fas fa-bars"></i>
           </span>
         </div>
@@ -64,7 +61,7 @@ export class MobileDialogs implements ComponentInterface {
    * */
   public getCategories(array) {
     return array.map((item) => (
-      <span class={item.id} onClick={() => this.clickCategory.emit(item.id)}>
+      <span class={item.id} onClick={() => this.clickToLink.emit({place: 'item-category', item})}>
         {item.name}
       </span>
     ));

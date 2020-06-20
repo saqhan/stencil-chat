@@ -22,7 +22,7 @@ export class MobilePersonal implements ComponentInterface {
   /**
    * clock on navigate
    * */
-  @Event() selectDialog: EventEmitter;
+  @Event() clickToLink: EventEmitter;
 
   render() {
     return (
@@ -31,12 +31,14 @@ export class MobilePersonal implements ComponentInterface {
           <div class="header-nav">
             <span
               class="custom-link"
-              onClick={() => this.selectDialog.emit({ place: "showDialogs" })}
+              onClick={() => this.clickToLink.emit({ place: "showDialogs" })}
             >
               <i class="fas fa-arrow-left"></i>
             </span>
             <span class="title">Tim Ostin</span>
-            <span class="custom-link">
+            <span class="custom-link"
+                  onClick={() => this.clickToLink.emit({ place: "showDetails" })}
+            >
               <i class="fas fa-ellipsis-h"></i>
             </span>
           </div>

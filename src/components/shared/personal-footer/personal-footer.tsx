@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, h } from '@stencil/core';
+import {Component, ComponentInterface, Event, EventEmitter, h} from '@stencil/core';
 
 @Component({
   tag: 'personal-footer',
@@ -6,18 +6,26 @@ import { Component, ComponentInterface, h } from '@stencil/core';
   shadow: false,
 })
 export class PersonalFooter implements ComponentInterface {
+  /**
+   * clock on navigate
+   * */
+  @Event() clickToLink: EventEmitter;
 
   render() {
     return (
       <div class="personal-footer">
         <div class="footer-wrapper">
-          <div class="file">
+          <div class="file"
+               onClick={() => this.clickToLink.emit({ place: "add-file-mess" })}
+          >
             <i class="fas fa-paperclip"></i>
           </div>
           <div class="input-wrapper">
             <input type="text" placeholder="Type something ..." />
           </div>
-          <div class="audio">
+          <div class="audio"
+               onClick={() => this.clickToLink.emit({ place: "add-audio-mess" })}
+          >
             <i class="fas fa-microphone"></i>
           </div>
         </div>
