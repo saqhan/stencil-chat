@@ -1,6 +1,7 @@
 .contacts-column {
   background-color: #f7f8f9;
   padding: 20px;
+  height: 100vh;
 }
 .search-contact-wrapper {
   position: relative;
@@ -17,9 +18,12 @@
   padding: 10px 40px;
   width: 100%;
 }
+.search-contact-block {
+  padding-bottom: 20px;
+}
 .contacts {
   overflow-y: auto;
-  max-height: 90vh;
+  max-height: 85vh;
 }
 .dialog {
   display: flex;
@@ -54,8 +58,16 @@
   margin-left: auto;
   color: lightgray;
 }
-
-
+::-webkit-scrollbar { /* chrome based */
+  width: 0px; /* ширина scrollbar'a */
+  background: transparent; /* опционально */
+}
+input::-moz-placeholder {
+  color: #979eab;
+}
+input::-webkit-input-placeholder {
+  color: #979eab;
+}
 
 
 

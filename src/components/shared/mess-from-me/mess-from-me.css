@@ -3,16 +3,54 @@
 }
 
 .admin-mess-wrapper .mess-img {
-
   height: 150px;
   border-top-left-radius: 20px;
   border-top-right-radius: 0px;
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
-  background-image: url("https://via.placeholder.com/300x300?text=User");
   background-position: center;
   background-size: cover;
 }
+
+/*personal body*/
+.admin-mess-wrapper {
+  margin: 15px 0;
+}
+
+.admin-mess-wrapp {
+  display: flex;
+  justify-content: flex-end;
+}
+.admin-mess {
+  max-width: 250px;
+  padding: 10px;
+  border: 1px solid #c7d0e8;
+  border-radius: 20px 0px 20px 20px;
+  background-color: #ebf0fe;
+  color: #799af8;
+  font-size: 14px;
+  display: flex;
+}
+
+.admin-mess-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.admin-mess .check {
+  font-size: 10px;
+  margin-left: 5px;
+}
+
+.admin-mess-wrapper .mess-img {
+  width: 70%;
+  height: 150px;
+  border-radius: 0 20px 20px 20px;
+  background-position: center;
+  background-size: cover;
+  cursor: pointer;
+}
+
 .mess-img-admin .check {
   position: relative;
   top: 80%;
@@ -23,9 +61,7 @@
 .mess-img .check {
   position: relative;
   top: 80%;
-  left: 90%;
+  left: 95%;
   font-size: 10px;
   color: #fff;
 }
-
-

@@ -21,14 +21,19 @@
 
 ## Dependencies
 
+### Used by
+
+ - [s-adam-chat](../s-adam-chat)
+
 ### Depends on
 
-- [s-adam-dialogs](./res/view/s-adam-dialogs)
+- [dialog-card](../../shared/dialog-card)
 
 ### Graph
 ```mermaid
 graph TD;
-  s-adam-contacts --> s-adam-dialogs
+  s-adam-contacts --> dialog-card
+  s-adam-chat --> s-adam-contacts
   style s-adam-contacts fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

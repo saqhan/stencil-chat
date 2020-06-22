@@ -15,19 +15,21 @@ export class SAdamContacts implements ComponentInterface {
   /**
    * Событие для переключения пустой страницы на личный чат
    */
-  @Event() toggleChat: EventEmitter;
+  @Event() clickToLink: EventEmitter;
 
   render() {
     return (
       <div class="contacts-column">
-        <div class="search-contact-wrapper">
-          <i class="fas fa-search"></i>
-          <input  class="search-contact" type="text" placeholder="Search contact"/>
+        <div class="search-contact-block">
+          <div class="search-contact-wrapper">
+            <i class="fas fa-search"></i>
+            <input  class="search-contact" type="text" placeholder="Search contact"/>
+          </div>
         </div>
         <div class="contacts">
           {this.dialogs.map(dialog => {
             return (
-              <s-adam-dialogs dialog={dialog}></s-adam-dialogs>
+              <dialog-card mess={dialog}></dialog-card>
             );
           })}
         </div>
