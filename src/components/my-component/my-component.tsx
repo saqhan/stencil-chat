@@ -24,6 +24,10 @@ export class MyComponent {
 
 
   render() {
+<<<<<<< HEAD
+=======
+    // return <mobile-chat></mobile-chat>
+>>>>>>> master
     return <s-adam-chat></s-adam-chat>
   }
 }

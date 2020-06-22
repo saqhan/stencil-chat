@@ -255,6 +255,10 @@ declare namespace LocalJSX {
          */
         "dialogs"?: dialogs[];
         /**
+          * clock on Category
+         */
+        "onClickToCategory"?: (event: CustomEvent<any>) => void;
+        /**
           * clock on clickToLink
          */
         "onClickToLink"?: (event: CustomEvent<any>) => void;

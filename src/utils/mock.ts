@@ -232,7 +232,10 @@ export const MessageMock = [
   },
 ];
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 export const logo = {
   id: 'logo',
   logo: 'https://via.placeholder.com/100x100?text=Text'

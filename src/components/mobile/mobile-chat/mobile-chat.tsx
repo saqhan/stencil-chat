@@ -27,6 +27,7 @@ export class MobileChat implements ComponentInterface {
       <div>
         <mobile-dialogs
           onClickToLink={(item) => this.clickToLink(item)}
+          onClickToCategory={(item) => this.clickToCategory(item)}
           categories={categories}
           dialogs={this.dialogs}
         ></mobile-dialogs>
@@ -41,28 +42,16 @@ export class MobileChat implements ComponentInterface {
   componentWillLoad(): Promise<void> | void {
     this.dialogs = dialogs;
   }
-
-  /**
-   * Функция переключения между диалогами и личными сообщениями
-   **/
-  // public selectDialog({ detail }) {
-  //   if (detail.place === "showPersonal") {
-  //     return (this.showContent = "personal");
-  //   } else if (detail.place === "showDialogs") {
-  //     return (this.showContent = "dialogs");
-  //   }
-  // }
-
-  /**
-   * Фильтруем по кликнутой категории
-   * */
-  // public clickCategory({ detail }) {
-  //   this.dialogs =
-  //     detail !== "all"
-  //       ? dialogs.filter((item) => item.category === detail)
-  //       : dialogs;
-  // }
+/**
+ * click to Link
+ * */
   public clickToLink({ detail }) {
+    console.log(detail);
+  }
+  /**
+   * Click to category filter
+   * */
+  public clickToCategory({ detail }) {
     console.log(detail);
   }
 

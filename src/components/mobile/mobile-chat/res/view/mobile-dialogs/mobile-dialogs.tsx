@@ -20,6 +20,10 @@ export class MobileDialogs implements ComponentInterface {
    * clock on clickToLink
    * */
   @Event() clickToLink: EventEmitter;
+  /**
+   * clock on Category
+   * */
+  @Event() clickToCategory: EventEmitter;
 
 
 
@@ -61,7 +65,7 @@ export class MobileDialogs implements ComponentInterface {
    * */
   public getCategories(array) {
     return array.map((item) => (
-      <span class={item.id} onClick={() => this.clickToLink.emit({place: 'item-category', item})}>
+      <span class={item.id} onClick={() => this.clickToCategory.emit({place: 'item-category', item})}>
         {item.name}
       </span>
     ));
