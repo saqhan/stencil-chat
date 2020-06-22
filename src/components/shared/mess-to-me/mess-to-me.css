@@ -1,26 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-.text-wrapper {
-  width: 75%;
-}
-.info-wrapper {
-  width: 25%;
-  min-width: 55px;
-  text-align: right;
-}
-
-.user-mess-wrapper {
-  margin: 15px 0;
-}
-
-.user-mess-wrapp {
-  display: flex;
-  justify-content: end;
-}
-
-=======
-=======
->>>>>>> master
 /*.user-mess-wrapper .mess-img {*/
 /*  width: 70%;*/
 /*  height: 150px;*/
@@ -31,55 +8,6 @@
 /*  background-position: center;*/
 /*  background-size: cover;*/
 /*}*/
-<<<<<<< HEAD
-
-/*personal body*/
-
-.text-wrapper {
-  width: 75%;
-}
-.info-wrapper {
-  width: 25%;
-  min-width: 55px;
-  text-align: right;
-}
-
-.user-mess-wrapper {
-  margin: 15px 0;
-}
-
-.user-mess-wrapp {
-  display: flex;
-  justify-content: end;
-}
-
->>>>>>> master
-.user-mess-wrapp .img {
-  width: 30px;
-  height: 30px;
-  margin-right: 10px;
-  border-radius: 50%;
-  background-size: cover;
-  background-position: center;
-<<<<<<< HEAD
-  cursor: pointer;
-=======
->>>>>>> master
-}
-
-.user-mess {
-  max-width: 250px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 0px 20px 20px 20px;
-  font-size: 14px;
-  color: #979eab;
-  display: flex;
-  align-items: unset;
-  justify-content: space-between;
-}
-
-=======
 
 /*personal body*/
 
@@ -122,7 +50,6 @@
   justify-content: space-between;
 }
 
->>>>>>> master
 .personal-mess-date {
   font-size: 10px;
   margin-left: 5px;
@@ -136,18 +63,9 @@
 .user-mess-wrapper .mess-img {
   width: 70%;
   height: 150px;
-<<<<<<< HEAD
-<<<<<<< HEAD
-  border-radius: 0 20px 20px 20px;
-=======
   border-radius: 20px 0px 20px 20px;
->>>>>>> master
-=======
-  border-radius: 20px 0px 20px 20px;
->>>>>>> master
   background-position: center;
   background-size: cover;
-  cursor: pointer;
 }
 
 .mess-img .check {
