@@ -4,7 +4,10 @@
 
 .admin-mess-wrapper .mess-img {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> master
   height: 150px;
   border-top-left-radius: 20px;
   border-top-right-radius: 0px;
@@ -46,6 +49,9 @@
 
 .admin-mess-wrapper .mess-img {
   width: 70%;
+<<<<<<< HEAD
+>>>>>>> master
+=======
 >>>>>>> master
   height: 150px;
   border-top-left-radius: 20px;
@@ -56,6 +62,7 @@
   background-size: cover;
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 /*personal body*/
 .admin-mess-wrapper {
@@ -96,6 +103,8 @@
   cursor: pointer;
 }
 
+=======
+>>>>>>> master
 =======
 >>>>>>> master
 .mess-img-admin .check {
