@@ -17,11 +17,13 @@
 ### Used by
 
  - [mobile-personal](../../mobile/mobile-chat/res/view/mobile-personal)
+ - [s-adam-direct](../../comp/s-adam-direct)
 
 ### Graph
 ```mermaid
 graph TD;
   mobile-personal --> mess-to-me
+  s-adam-direct --> mess-to-me
   style mess-to-me fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

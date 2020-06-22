@@ -15,6 +15,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [s-adam-chat](../s-adam-chat)
+
 ### Depends on
 
 - [s-adam-nav-item](./res/view/s-adam-nav-item)
@@ -23,6 +27,7 @@
 ```mermaid
 graph TD;
   s-adam-navigate --> s-adam-nav-item
+  s-adam-chat --> s-adam-navigate
   style s-adam-navigate fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

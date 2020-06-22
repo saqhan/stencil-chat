@@ -231,3 +231,31 @@ export const MessageMock = [
     },
   },
 ];
+
+export const logo = {
+  id: 'logo',
+  logo: 'https://via.placeholder.com/100x100?text=Text'
+};
+
+export const navItems = [
+  {
+    id: 1,
+    icon: 'fas fa-comment-alt'
+  },
+  {
+    id: 2,
+    icon: 'fas fa-shopping-bag'
+  },
+  {
+    id: 3,
+    icon: 'fas fa-cart-arrow-down'
+  },
+  {
+    id: 5,
+    icon: 'fas fa-calendar-alt'
+  },
+  {
+    id: 6,
+    icon: 'fas fa-cog'
+  }
+];
