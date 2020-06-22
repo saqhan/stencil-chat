@@ -15,9 +15,10 @@
 
 ## Events
 
-| Event         | Description          | Type               |
-| ------------- | -------------------- | ------------------ |
-| `clickToLink` | clock on clickToLink | `CustomEvent<any>` |
+| Event             | Description          | Type               |
+| ----------------- | -------------------- | ------------------ |
+| `clickToCategory` | clock on Category    | `CustomEvent<any>` |
+| `clickToLink`     | clock on clickToLink | `CustomEvent<any>` |
 
 
 ## Dependencies

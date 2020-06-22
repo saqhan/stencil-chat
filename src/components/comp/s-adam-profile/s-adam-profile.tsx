@@ -23,9 +23,9 @@ export class SAdamProfile implements ComponentInterface {
             timostin@gmail.com
           </div>
           <div class="user-contact">
-            <i class="fas fa-phone-alt"></i>
-            <i class="fas fa-video"></i>
-            <i class="fas fa-envelope"></i>
+            <i class="fas fa-phone-alt hover-link"></i>
+            <i class="fas fa-video hover-link"></i>
+            <i class="fas fa-envelope hover-link"></i>
           </div>
         </div>
         <div class="user-social">
@@ -34,15 +34,15 @@ export class SAdamProfile implements ComponentInterface {
           </div>
           <div class="user-social-block">
             <div class="user-social-link">
-              <i class="fab fa-instagram"></i>
+              <i class="fab fa-instagram hover-link"></i>
               <span class="user-social-name">TimOstin</span>
             </div>
             <div class="user-social-link">
-              <i class="fab fa-twitter"></i>
+              <i class="fab fa-twitter hover-link"></i>
               <span class="user-social-name">Tim Ostin</span>
             </div>
             <div class="user-social-link">
-              <i class="fab fa-facebook-f"></i>
+              <i class="fab fa-facebook-f р"></i>
               <span class="user-social-name">Tim Ostin</span>
             </div>
 

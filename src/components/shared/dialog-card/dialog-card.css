@@ -1,3 +1,73 @@
-:host {
-  display: block;
+
+/* dialogs */
+
+
+.m-dialog-card {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  cursor: pointer;
 }
+
+.img-user {
+  margin-right: 20px;
+  text-align: center;
+}
+
+.img-user .img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-position: center;
+  background-size: cover;
+  background-image: url("https://via.placeholder.com/300x300?text=User");
+}
+
+
+
+.info-card {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.unfo-user {
+  width: 80%;
+  overflow: hidden;
+}
+
+.name-user {
+  font-size: 14px;
+  font-weight: 600;
+  color: #4c567d;
+}
+
+.message-user {
+  font-size: 14px;
+  color: #979eab;
+  white-space: nowrap;
+}
+
+.data-message {
+  text-align: center;
+}
+
+.data-message .date {
+  font-size: 10px;
+  color: #979eab;
+}
+.data-message .new-message {
+  font-size: 10px;
+  color: #979eab;
+}
+
+.add-new-message {
+  background-color: #ff7e7f;
+  font-size: 10px;
+  padding: 1px 5px;
+  border-radius: 50%;
+  color: #fff;
+}
+
+

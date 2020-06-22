@@ -10,6 +10,17 @@
   background-size: cover;
   background-position: center;
   margin-bottom: 50px;
+  border-radius: 100%;
+  cursor: pointer;
+}
+.fas, .fab {
+  color: #bacbe3;
+}
+.hover-link:hover {
+  color: #6328f8;
+}
+.hover-link:active {
+  color: #6328f8;
 }
 .nav-item {
   margin-bottom: 20px;

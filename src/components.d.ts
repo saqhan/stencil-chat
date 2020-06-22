@@ -8,6 +8,7 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { categories, dialogs, } from "./components/mobile/mobile-chat/res/view/mobile-dialogs/res/interface/common.interface";
 import { Message, } from "./components/mobile/mobile-chat/res/view/mobile-personal/res/interface/common.interface";
 import { dialogs as dialogs1, } from "./components/comp/s-adam-contacts/res/interface/common.interface";
+import { Message as Message1, } from "./components/comp/s-adam-direct/res/interface/common.interface";
 import { logo, navItems, } from "./components/comp/s-adam-navigate/res/interface/common.interface";
 export namespace Components {
     interface DialogCard {
@@ -62,6 +63,8 @@ export namespace Components {
     }
     interface PersonalFooter {
     }
+    interface SAdamChat {
+    }
     interface SAdamContacts {
         /**
           * Массив с элементами диалога
@@ -73,6 +76,12 @@ export namespace Components {
           * Массив с элементами диалога
          */
         "dialog": any;
+    }
+    interface SAdamDirect {
+        /**
+          * Личный диалог
+         */
+        "message": Message[];
     }
     interface SAdamNavItem {
         /**
@@ -89,6 +98,8 @@ export namespace Components {
           * Иконки навигации
          */
         "navItems": navItems[];
+    }
+    interface SAdamNoChat {
     }
     interface SAdamProfile {
     }
@@ -142,6 +153,12 @@ declare global {
         prototype: HTMLPersonalFooterElement;
         new (): HTMLPersonalFooterElement;
     };
+    interface HTMLSAdamChatElement extends Components.SAdamChat, HTMLStencilElement {
+    }
+    var HTMLSAdamChatElement: {
+        prototype: HTMLSAdamChatElement;
+        new (): HTMLSAdamChatElement;
+    };
     interface HTMLSAdamContactsElement extends Components.SAdamContacts, HTMLStencilElement {
     }
     var HTMLSAdamContactsElement: {
@@ -154,6 +171,12 @@ declare global {
         prototype: HTMLSAdamDialogsElement;
         new (): HTMLSAdamDialogsElement;
     };
+    interface HTMLSAdamDirectElement extends Components.SAdamDirect, HTMLStencilElement {
+    }
+    var HTMLSAdamDirectElement: {
+        prototype: HTMLSAdamDirectElement;
+        new (): HTMLSAdamDirectElement;
+    };
     interface HTMLSAdamNavItemElement extends Components.SAdamNavItem, HTMLStencilElement {
     }
     var HTMLSAdamNavItemElement: {
@@ -165,6 +188,12 @@ declare global {
     var HTMLSAdamNavigateElement: {
         prototype: HTMLSAdamNavigateElement;
         new (): HTMLSAdamNavigateElement;
+    };
+    interface HTMLSAdamNoChatElement extends Components.SAdamNoChat, HTMLStencilElement {
+    }
+    var HTMLSAdamNoChatElement: {
+        prototype: HTMLSAdamNoChatElement;
+        new (): HTMLSAdamNoChatElement;
     };
     interface HTMLSAdamProfileElement extends Components.SAdamProfile, HTMLStencilElement {
     }
@@ -181,10 +210,13 @@ declare global {
         "mobile-personal": HTMLMobilePersonalElement;
         "my-component": HTMLMyComponentElement;
         "personal-footer": HTMLPersonalFooterElement;
+        "s-adam-chat": HTMLSAdamChatElement;
         "s-adam-contacts": HTMLSAdamContactsElement;
         "s-adam-dialogs": HTMLSAdamDialogsElement;
+        "s-adam-direct": HTMLSAdamDirectElement;
         "s-adam-nav-item": HTMLSAdamNavItemElement;
         "s-adam-navigate": HTMLSAdamNavigateElement;
+        "s-adam-no-chat": HTMLSAdamNoChatElement;
         "s-adam-profile": HTMLSAdamProfileElement;
     }
 }
@@ -223,6 +255,10 @@ declare namespace LocalJSX {
          */
         "dialogs"?: dialogs[];
         /**
+          * clock on Category
+         */
+        "onClickToCategory"?: (event: CustomEvent<any>) => void;
+        /**
           * clock on clickToLink
          */
         "onClickToLink"?: (event: CustomEvent<any>) => void;
@@ -257,6 +293,8 @@ declare namespace LocalJSX {
          */
         "onClickToLink"?: (event: CustomEvent<any>) => void;
     }
+    interface SAdamChat {
+    }
     interface SAdamContacts {
         /**
           * Массив с элементами диалога
@@ -265,7 +303,7 @@ declare namespace LocalJSX {
         /**
           * Событие для переключения пустой страницы на личный чат
          */
-        "onToggleChat"?: (event: CustomEvent<any>) => void;
+        "onClickToLink"?: (event: CustomEvent<any>) => void;
     }
     interface SAdamDialogs {
         /**
@@ -276,6 +314,12 @@ declare namespace LocalJSX {
           * Событие для переключения пустой страницы на личный чат
          */
         "onToggleChat"?: (event: CustomEvent<any>) => void;
+    }
+    interface SAdamDirect {
+        /**
+          * Личный диалог
+         */
+        "message"?: Message[];
     }
     interface SAdamNavItem {
         /**
@@ -293,6 +337,8 @@ declare namespace LocalJSX {
          */
         "navItems"?: navItems[];
     }
+    interface SAdamNoChat {
+    }
     interface SAdamProfile {
     }
     interface IntrinsicElements {
@@ -304,10 +350,13 @@ declare namespace LocalJSX {
         "mobile-personal": MobilePersonal;
         "my-component": MyComponent;
         "personal-footer": PersonalFooter;
+        "s-adam-chat": SAdamChat;
         "s-adam-contacts": SAdamContacts;
         "s-adam-dialogs": SAdamDialogs;
+        "s-adam-direct": SAdamDirect;
         "s-adam-nav-item": SAdamNavItem;
         "s-adam-navigate": SAdamNavigate;
+        "s-adam-no-chat": SAdamNoChat;
         "s-adam-profile": SAdamProfile;
     }
 }
@@ -323,10 +372,13 @@ declare module "@stencil/core" {
             "mobile-personal": LocalJSX.MobilePersonal & JSXBase.HTMLAttributes<HTMLMobilePersonalElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "personal-footer": LocalJSX.PersonalFooter & JSXBase.HTMLAttributes<HTMLPersonalFooterElement>;
+            "s-adam-chat": LocalJSX.SAdamChat & JSXBase.HTMLAttributes<HTMLSAdamChatElement>;
             "s-adam-contacts": LocalJSX.SAdamContacts & JSXBase.HTMLAttributes<HTMLSAdamContactsElement>;
             "s-adam-dialogs": LocalJSX.SAdamDialogs & JSXBase.HTMLAttributes<HTMLSAdamDialogsElement>;
+            "s-adam-direct": LocalJSX.SAdamDirect & JSXBase.HTMLAttributes<HTMLSAdamDirectElement>;
             "s-adam-nav-item": LocalJSX.SAdamNavItem & JSXBase.HTMLAttributes<HTMLSAdamNavItemElement>;
             "s-adam-navigate": LocalJSX.SAdamNavigate & JSXBase.HTMLAttributes<HTMLSAdamNavigateElement>;
+            "s-adam-no-chat": LocalJSX.SAdamNoChat & JSXBase.HTMLAttributes<HTMLSAdamNoChatElement>;
             "s-adam-profile": LocalJSX.SAdamProfile & JSXBase.HTMLAttributes<HTMLSAdamProfileElement>;
         }
     }

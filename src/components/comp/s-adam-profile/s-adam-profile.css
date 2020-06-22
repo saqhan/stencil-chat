@@ -3,12 +3,13 @@
   background-color: #f7f8f9;
   padding: 20px;
   height: 100vh;
+  overflow: auto;
 }
 .about-user {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 80px;
+  margin-bottom: 70px;
 }
 .profile-user-photo {
   width: 80px;
@@ -16,6 +17,8 @@
   background-size: cover;
   background-position: center;
   margin-bottom: 20px;
+  border-radius: 100%;
+  cursor: pointer;
 }
 .profile .user-name {
   font-size: 14px;
@@ -92,4 +95,15 @@
   color: white;
   font-size: 8px;
   font-weight: 600;
+}
+.fas, .fab {
+  color: #bacbe3;
+  cursor: pointer;
+}
+.hover-link:hover {
+  color: #6328f8;
+}
+::-webkit-scrollbar { /* chrome based */
+  width: 0px; /* ширина scrollbar'a */
+  background: transparent; /* опционально */
 }
