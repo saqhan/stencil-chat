@@ -1,6 +1,4 @@
-
 /* dialogs */
-
 
 .m-dialog-card {
   display: flex;
@@ -20,10 +18,7 @@
   border-radius: 50%;
   background-position: center;
   background-size: cover;
-  background-image: url("https://via.placeholder.com/300x300?text=User");
 }
-
-
 
 .info-card {
   display: flex;
@@ -70,4 +65,18 @@
   color: #fff;
 }
 
-
+@media (min-width: 1024px) {
+  .info-card {
+    width: 70%;
+  }
+  .m-dialog-card {
+    padding: 20px 10px;
+    margin: 0;
+  }
+  .m-dialog-card:hover {
+    background-color: white;
+  }
+  .data-message {
+    height: 100%;
+  }
+}
