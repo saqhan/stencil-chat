@@ -1,30 +1,19 @@
-import { Component, Prop, h } from '@stencil/core';
+import { Component, h } from "@stencil/core";
 
 @Component({
-  tag: 'my-component',
-  styleUrl: 'my-component.css',
-  shadow: false
+  tag: "my-component",
+  styleUrl: "my-component.css",
+  shadow: false,
 })
 export class MyComponent {
-  /**
-   * The first name
-   */
-  @Prop() first: string;
-
-  /**
-   * The middle name
-   */
-  @Prop() middle: string;
-
-  /**
-   * The last name
-   */
-  @Prop() last: string;
-
 
 
   render() {
+<<<<<<< HEAD
     return <mobile-chat></mobile-chat>
+=======
+    return <mobile-chat></mobile-chat>;
+>>>>>>> 5200af941ce1b50cd5de4946e1b0b8ed1b5c75ca
     // return <s-adam-chat></s-adam-chat>
   }
 }
