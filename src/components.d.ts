@@ -16,6 +16,10 @@ export namespace Components {
           * карточка диалога
          */
         "mess": any;
+        /**
+          * карточка диалога
+         */
+        "theme": "comp" | "mobile";
     }
     interface MessFromMe {
         /**
@@ -48,18 +52,6 @@ export namespace Components {
         "messageMock": Message[];
     }
     interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
     }
     interface PersonalFooter {
     }
@@ -230,6 +222,10 @@ declare namespace LocalJSX {
           * clock on navigate
          */
         "onClickToLink"?: (event: CustomEvent<any>) => void;
+        /**
+          * карточка диалога
+         */
+        "theme"?: "comp" | "mobile";
     }
     interface MessFromMe {
         /**
@@ -274,18 +270,6 @@ declare namespace LocalJSX {
         "onClickToLink"?: (event: CustomEvent<any>) => void;
     }
     interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
     }
     interface PersonalFooter {
         /**
