@@ -65,18 +65,21 @@
   color: #fff;
 }
 
-@media (min-width: 1024px) {
-  .info-card {
-    width: 70%;
-  }
-  .m-dialog-card {
-    padding: 20px 10px;
-    margin: 0;
-  }
-  .m-dialog-card:hover {
-    background-color: white;
-  }
-  .data-message {
-    height: 100%;
-  }
+.comp .info-card
+{
+  width: 70%;
+}
+
+.comp .m-dialog-card
+{
+  padding: 20px 10px;
+  margin: 0;
+}
+.comp .m-dialog-card:hover
+{
+  padding: 20px 10px;
+  margin: 0;
+}
+.comp .data-message {
+  height: 100%;
 }
