@@ -48,18 +48,6 @@ export namespace Components {
         "messageMock": Message[];
     }
     interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
     }
     interface PersonalFooter {
     }
@@ -274,18 +262,6 @@ declare namespace LocalJSX {
         "onClickToLink"?: (event: CustomEvent<any>) => void;
     }
     interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
     }
     interface PersonalFooter {
         /**

@@ -1,9 +1,6 @@
 # my-component
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -13,7 +10,6 @@
 | `last`   | `last`    | The last name   | `string` | `undefined` |
 | `middle` | `middle`  | The middle name | `string` | `undefined` |
 
-
 ## Dependencies
 
 ### Depends on
@@ -21,6 +17,7 @@
 - [mobile-chat](../mobile/mobile-chat)
 
 ### Graph
+
 ```mermaid
 graph TD;
   my-component --> mobile-chat
@@ -29,6 +26,6 @@ graph TD;
   style my-component fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_
