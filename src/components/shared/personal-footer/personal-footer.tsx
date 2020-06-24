@@ -21,7 +21,7 @@ export class PersonalFooter implements ComponentInterface {
             <i class="fas fa-paperclip"></i>
           </div>
           <div class="input-wrapper">
-            <input type="text" placeholder="Type something ..." />
+            <form ><input type="text" placeholder="Type something ..." /></form>
           </div>
           <div class="audio"
                onClick={() => this.clickToLink.emit({ place: "add-audio-mess" })}
