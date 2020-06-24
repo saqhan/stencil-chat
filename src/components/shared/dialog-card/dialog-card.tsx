@@ -68,7 +68,7 @@ export class DialogCard implements ComponentInterface {
       minutes = "0" + minutes;
     }
 
-
+    // выводим время в минутах/часах
     return `${hours} : ${minutes}`;
   }
 }
