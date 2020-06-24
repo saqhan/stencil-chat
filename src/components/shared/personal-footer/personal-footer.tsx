@@ -1,8 +1,14 @@
-import {Component, ComponentInterface, Event, EventEmitter, h} from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Event,
+  EventEmitter,
+  h,
+} from "@stencil/core";
 
 @Component({
-  tag: 'personal-footer',
-  styleUrl: 'personal-footer.css',
+  tag: "personal-footer",
+  styleUrl: "personal-footer.css",
   shadow: false,
 })
 export class PersonalFooter implements ComponentInterface {
@@ -15,16 +21,20 @@ export class PersonalFooter implements ComponentInterface {
     return (
       <div class="personal-footer">
         <div class="footer-wrapper">
-          <div class="file"
-               onClick={() => this.clickToLink.emit({ place: "add-file-mess" })}
+          <div
+            class="file"
+            onClick={() => this.clickToLink.emit({ place: "add-file-mess" })}
           >
             <i class="fas fa-paperclip"></i>
           </div>
           <div class="input-wrapper">
-            <input type="text" placeholder="Type something ..." />
+            <form action="">
+              <input type="text" placeholder="Type something ..." />
+            </form>
           </div>
-          <div class="audio"
-               onClick={() => this.clickToLink.emit({ place: "add-audio-mess" })}
+          <div
+            class="audio"
+            onClick={() => this.clickToLink.emit({ place: "add-audio-mess" })}
           >
             <i class="fas fa-microphone"></i>
           </div>
@@ -32,5 +42,4 @@ export class PersonalFooter implements ComponentInterface {
       </div>
     );
   }
-
 }
