@@ -16,6 +16,10 @@ export namespace Components {
           * карточка диалога
          */
         "mess": any;
+        /**
+          * карточка диалога
+         */
+        "theme": "comp" | "mobile";
     }
     interface MessFromMe {
         /**
@@ -218,6 +222,10 @@ declare namespace LocalJSX {
           * clock on navigate
          */
         "onClickToLink"?: (event: CustomEvent<any>) => void;
+        /**
+          * карточка диалога
+         */
+        "theme"?: "comp" | "mobile";
     }
     interface MessFromMe {
         /**

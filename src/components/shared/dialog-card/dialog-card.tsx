@@ -11,12 +11,19 @@ export class DialogCard implements ComponentInterface {
    * */
   @Prop() mess:any;
   /**
+   * карточка диалога
+   * */
+  @Prop() theme: 'comp' | 'mobile' = 'mobile';
+
+
+
+  /**
    * clock on navigate
    * */
   @Event() clickToLink: EventEmitter;
   render() {
     return (
-      <div class="m-dialog-card" onClick={()=> this.clickToLink.emit({place:'showPersonalDialog', item: this.mess })} >
+      <div class={this.getClassForHost()} onClick={()=> this.clickToLink.emit({place:'showPersonalDialog', item: this.mess })} >
         <div class="img-user">
           <div class={this.mess.online ? 'img online': 'img'}
           style={{backgroundImage: `url(${this.mess.img})`}}></div>
@@ -35,6 +42,18 @@ export class DialogCard implements ComponentInterface {
       </div>
     );
   }
+
+  /**
+   *
+   * */
+  public getClassForHost ()
+  {
+    return {
+      'm-dialog-card': true,
+      [this.theme]: true
+    }
+  }
+
   /**
    * Метод вывода времени отправки сообщения
    * */
