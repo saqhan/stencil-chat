@@ -29,8 +29,8 @@ export class SAdamChat implements ComponentInterface  {
     }
   }
 
-  public toggleProfile(item) {
-    if (item.place === 'userName') {
+  public toggleProfile({detail}) {
+    if (detail.place === 'userName') {
       this.profileVisible = !this.profileVisible;
     }
   }
