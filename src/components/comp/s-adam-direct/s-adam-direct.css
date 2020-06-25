@@ -1,7 +1,4 @@
-.chat {
-  position: relative;
-  height: 95vh;
-}
+
 .header {
   display: flex;
   justify-content: space-between;
