@@ -28,8 +28,8 @@ export class PersonalFooter implements ComponentInterface {
             <i class="fas fa-paperclip"></i>
           </div>
           <div class="input-wrapper">
-            <form onSubmit={(event) => (event.preventDefault())}>
-              <input type="text" placeholder="Type something ..." />
+            <form onSubmit={(e) => this.sendingNewMess(e)}>
+              <input class="sendNewMess" type="text" placeholder="Type something ..." />
             </form>
           </div>
           <div
@@ -41,5 +41,14 @@ export class PersonalFooter implements ComponentInterface {
         </div>
       </div>
     );
+  }
+  /**
+   * when sending message
+   * */
+  public sendingNewMess(e) {
+    e.preventDefault();
+    console.log("sendNewMess", e.currentTarget.querySelector('input').value);
+    e.currentTarget.querySelector('input').value = '';
+
   }
 }
