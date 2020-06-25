@@ -71,8 +71,8 @@ export class SAdamChat implements ComponentInterface  {
     }
   }
 
-  public showProfile (content) {
-    if(content === true) {
+  public showProfile (item) {
+    if(item === true) {
       return (
         <div class="col-3">
           <s-adam-profile></s-adam-profile>

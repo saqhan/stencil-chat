@@ -25,7 +25,7 @@ export class SAdamDirect implements ComponentInterface {
             <i class="fas fa-search hover-link"></i>
           </div>
           <div class="user">
-            <div class="user-name" onClick={() => this.clickOnUsername.emit(console.log({place: 'userName'})) }>Tim Ostin</div>
+            <div class="user-name" onClick={(item) => this.clickOnUsername.emit(console.log({place: 'userName', item})) }>Tim Ostin</div>
             <div class="online-marker">
             </div>
           </div>
