@@ -55,6 +55,7 @@
 
 .admin-mess-wrapper .mess-img {
   max-width: 350px;
+  min-width: 300px;
   height: 150px;
   border-top-left-radius: 20px;
   border-top-right-radius: 0px;

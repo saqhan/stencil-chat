@@ -70,6 +70,7 @@
 
 .user-mess-wrapper .mess-img {
   max-width: 350px;
+  min-width: 300px;
   height: 150px;
   border-radius: 0px 20px 20px 20px;
   background-position: center;
