@@ -25,17 +25,17 @@ export class MobileChat implements ComponentInterface {
       // <div class="temp">
       //  <div>{this.getContent(this.showContent)}</div>
       <div>
-        {/*<mobile-dialogs*/}
-        {/*  onClickToLink={(item) => this.clickToLink(item)}*/}
-        {/*  onClickToCategory={(item) => this.clickToCategory(item)}*/}
-        {/*  categories={categories}*/}
-        {/*  dialogs={this.dialogs}*/}
-        {/*></mobile-dialogs>*/}
-        <mobile-personal
-
+        <mobile-dialogs
           onClickToLink={(item) => this.clickToLink(item)}
-          messageMock={this.messageMock}
-        ></mobile-personal>
+          onClickToCategory={(item) => this.clickToCategory(item)}
+          categories={categories}
+          dialogs={this.dialogs}
+        ></mobile-dialogs>
+        {/*<mobile-personal*/}
+
+        {/*  onClickToLink={(item) => this.clickToLink(item)}*/}
+        {/*  messageMock={this.messageMock}*/}
+        {/*></mobile-personal>*/}
       </div>
       // </div>
     );
