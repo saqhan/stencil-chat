@@ -304,6 +304,10 @@ declare namespace LocalJSX {
           * Личный диалог
          */
         "message"?: Message[];
+        /**
+          * клик по имени юзера в личной переписке
+         */
+        "onClickOnUsername"?: (event: CustomEvent<any>) => void;
     }
     interface SAdamNavItem {
         /**
