@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, h, Prop } from '@stencil/core';
+import {Component, ComponentInterface, EventEmitter, h, Prop, Event} from '@stencil/core';
 import {Message, MessageDirectionEnum} from "./res/interface/common.interface";
 
 @Component({
@@ -12,6 +12,11 @@ export class SAdamDirect implements ComponentInterface {
    */
   @Prop() message: Message[]=[];
 
+  /**
+   * клик по имени юзера в личной переписке
+   */
+  @Event() clickOnUsername: EventEmitter;
+
   render() {
     return (
       <div>
@@ -20,7 +25,7 @@ export class SAdamDirect implements ComponentInterface {
             <i class="fas fa-search hover-link"></i>
           </div>
           <div class="user">
-            <div class="user-name">Tim Ostin</div>
+            <div class="user-name" onClick={() => this.clickOnUsername.emit(console.log({place: 'userName'})) }>Tim Ostin</div>
             <div class="online-marker">
             </div>
           </div>
