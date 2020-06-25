@@ -42,8 +42,19 @@
   margin-left: 5px;
 }
 
+/*.admin-mess-wrapper .mess-img {*/
+/*  width: 70%;*/
+/*  height: 150px;*/
+/*  border-top-left-radius: 20px;*/
+/*  border-top-right-radius: 0px;*/
+/*  border-bottom-right-radius: 20px;*/
+/*  border-bottom-left-radius: 20px;*/
+/*  background-position: center;*/
+/*  background-size: cover;*/
+/*}*/
+
 .admin-mess-wrapper .mess-img {
-  width: 70%;
+  max-width: 350px;
   height: 150px;
   border-top-left-radius: 20px;
   border-top-right-radius: 0px;

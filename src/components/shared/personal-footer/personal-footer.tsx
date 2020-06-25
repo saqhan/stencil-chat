@@ -28,7 +28,7 @@ export class PersonalFooter implements ComponentInterface {
             <i class="fas fa-paperclip"></i>
           </div>
           <div class="input-wrapper">
-            <form action="">
+            <form onSubmit={(event) => (event.preventDefault())}>
               <input type="text" placeholder="Type something ..." />
             </form>
           </div>
