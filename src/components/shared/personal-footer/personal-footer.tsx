@@ -13,7 +13,7 @@ import {
 })
 export class PersonalFooter implements ComponentInterface {
   /**
-   * clock on navigate
+   * click on navigate
    * */
   @Event() clickToLink: EventEmitter;
 

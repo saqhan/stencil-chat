@@ -273,7 +273,7 @@ declare namespace LocalJSX {
     }
     interface PersonalFooter {
         /**
-          * clock on navigate
+          * click on navigate
          */
         "onClickToLink"?: (event: CustomEvent<any>) => void;
     }
@@ -308,6 +308,10 @@ declare namespace LocalJSX {
           * клик по имени юзера в личной переписке
          */
         "onClickOnUsername"?: (event: CustomEvent<any>) => void;
+        /**
+          * click on navigate
+         */
+        "onClickToLink"?: (event: CustomEvent<any>) => void;
     }
     interface SAdamNavItem {
         /**

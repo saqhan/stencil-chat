@@ -17,6 +17,11 @@ export class SAdamDirect implements ComponentInterface {
    */
   @Event() clickOnUsername: EventEmitter;
 
+  /**
+   * click on navigate
+   * */
+  @Event() clickToLink: EventEmitter;
+
   render() {
     return (
       <div>

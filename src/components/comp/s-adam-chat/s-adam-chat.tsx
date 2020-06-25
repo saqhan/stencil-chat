@@ -64,7 +64,11 @@ export class SAdamChat implements ComponentInterface  {
   public showChat (content){
     switch (content) {
       case 'showChat':
-        return <s-adam-direct onClickOnUsername={(item) => {this.toggleProfile(item)}}  message={MessageMock}>
+        return <s-adam-direct
+          onClickToLink={({detail}) => this.clickToLink({detail})}
+          onClickOnUsername={(item) => {this.toggleProfile(item)}}
+          message={MessageMock}
+        >
         </s-adam-direct>;
       case 'noChat':
         return <s-adam-no-chat></s-adam-no-chat>;
@@ -83,4 +87,10 @@ export class SAdamChat implements ComponentInterface  {
       return '';
     }
   }
+/**
+* click to Link
+* */
+public clickToLink({ detail }) {
+  console.log(detail);
+}
 }
