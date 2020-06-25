@@ -9,7 +9,7 @@
 
 ### Used by
 
- - [s-adam-chat](../s-adam-chat)
+ - [s-adam-chat](../../comp/s-adam-chat)
 
 ### Graph
 ```mermaid

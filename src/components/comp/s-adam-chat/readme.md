@@ -17,7 +17,7 @@
 - [s-adam-contacts](../s-adam-contacts)
 - [s-adam-direct](../s-adam-direct)
 - [s-adam-no-chat](../s-adam-no-chat)
-- [s-adam-profile](../s-adam-profile)
+- [s-adam-profile](../../shared/s-adam-profile)
 
 ### Graph
 ```mermaid
