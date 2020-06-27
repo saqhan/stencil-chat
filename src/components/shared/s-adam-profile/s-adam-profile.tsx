@@ -25,7 +25,7 @@ export class SAdamProfile implements ComponentInterface {
       <section class="profile">
         <div class={this.getClassForHost()}>
           <div class="links-wrapper">
-            <a onClick={() => this.clickToLink.emit({ place: "showDialogs" })}>
+            <a onClick={() => this.clickToLink.emit({ place: "showPersonalDialog" })}>
               {" "}
               <i class="fas fa-arrow-left"></i>
             </a>
