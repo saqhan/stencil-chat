@@ -7,6 +7,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [my-component](../../my-component)
+
 ### Depends on
 
 - [s-adam-navigate](../s-adam-navigate)
@@ -28,6 +32,7 @@ graph TD;
   s-adam-direct --> mess-to-me
   s-adam-direct --> mess-from-me
   s-adam-direct --> personal-footer
+  my-component --> s-adam-chat
   style s-adam-chat fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
