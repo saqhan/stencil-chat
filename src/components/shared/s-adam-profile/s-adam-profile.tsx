@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, h } from '@stencil/core';
+import {Component, ComponentInterface, EventEmitter, Event, h, Prop} from '@stencil/core';
 
 @Component({
   tag: 's-adam-profile',
@@ -7,9 +7,21 @@ import { Component, ComponentInterface, h } from '@stencil/core';
 })
 export class SAdamProfile implements ComponentInterface {
 
+  /**
+   * Задаем стиль для мобильной/пк версии
+   * */
+  @Prop() theme: 'comp' | 'mobile' = 'comp';
+
+  @Event() clickToLink:EventEmitter;
+
   render() {
     return (
       <section class="profile">
+        <div class="mobile">
+          <div class="links-wrapper">
+            <a onClick={() => this.clickToLink.emit({ place: "showDialogs" })} > <i class="fas fa-arrow-left"></i></a>
+          </div>
+        </div>
         <div class="about-user">
           <div
             class="profile-user-photo border-radius"
@@ -72,5 +84,13 @@ export class SAdamProfile implements ComponentInterface {
       </section>
     );
   }
-
+  /**
+   * выводим класс
+   * */
+  public getClassForHost ()
+  {
+    return {
+      [this.theme]: true
+    }
+  }
 }

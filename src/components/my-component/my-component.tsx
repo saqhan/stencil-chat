@@ -6,11 +6,8 @@ import { Component, h } from "@stencil/core";
   shadow: false,
 })
 export class MyComponent {
-
-
   render() {
-
-    return <mobile-chat></mobile-chat>;
-    // return <s-adam-chat></s-adam-chat>
+    // return <mobile-chat></mobile-chat>;
+    return <s-adam-chat></s-adam-chat>
   }
 }

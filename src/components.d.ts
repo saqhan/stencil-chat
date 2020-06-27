@@ -94,6 +94,12 @@ export namespace Components {
     interface SAdamNoChat {
     }
     interface SAdamProfile {
+        /**
+          * Задаем стиль для мобильной/пк версии
+         */
+        "theme": "comp" | "mobile";
+    }
+    interface UserProfile {
     }
 }
 declare global {
@@ -193,6 +199,12 @@ declare global {
         prototype: HTMLSAdamProfileElement;
         new (): HTMLSAdamProfileElement;
     };
+    interface HTMLUserProfileElement extends Components.UserProfile, HTMLStencilElement {
+    }
+    var HTMLUserProfileElement: {
+        prototype: HTMLUserProfileElement;
+        new (): HTMLUserProfileElement;
+    };
     interface HTMLElementTagNameMap {
         "dialog-card": HTMLDialogCardElement;
         "mess-from-me": HTMLMessFromMeElement;
@@ -210,6 +222,7 @@ declare global {
         "s-adam-navigate": HTMLSAdamNavigateElement;
         "s-adam-no-chat": HTMLSAdamNoChatElement;
         "s-adam-profile": HTMLSAdamProfileElement;
+        "user-profile": HTMLUserProfileElement;
     }
 }
 declare namespace LocalJSX {
@@ -332,6 +345,14 @@ declare namespace LocalJSX {
     interface SAdamNoChat {
     }
     interface SAdamProfile {
+        "onClickToLink"?: (event: CustomEvent<any>) => void;
+        /**
+          * Задаем стиль для мобильной/пк версии
+         */
+        "theme"?: "comp" | "mobile";
+    }
+    interface UserProfile {
+        "onClickToLink"?: (event: CustomEvent<any>) => void;
     }
     interface IntrinsicElements {
         "dialog-card": DialogCard;
@@ -350,6 +371,7 @@ declare namespace LocalJSX {
         "s-adam-navigate": SAdamNavigate;
         "s-adam-no-chat": SAdamNoChat;
         "s-adam-profile": SAdamProfile;
+        "user-profile": UserProfile;
     }
 }
 export { LocalJSX as JSX };
@@ -372,6 +394,7 @@ declare module "@stencil/core" {
             "s-adam-navigate": LocalJSX.SAdamNavigate & JSXBase.HTMLAttributes<HTMLSAdamNavigateElement>;
             "s-adam-no-chat": LocalJSX.SAdamNoChat & JSXBase.HTMLAttributes<HTMLSAdamNoChatElement>;
             "s-adam-profile": LocalJSX.SAdamProfile & JSXBase.HTMLAttributes<HTMLSAdamProfileElement>;
+            "user-profile": LocalJSX.UserProfile & JSXBase.HTMLAttributes<HTMLUserProfileElement>;
         }
     }
 }

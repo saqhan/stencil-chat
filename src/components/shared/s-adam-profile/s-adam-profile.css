@@ -107,3 +107,14 @@
   width: 0px; /* ширина scrollbar'a */
   background: transparent; /* опционально */
 }
+
+
+/* mobile */
+
+.comp .links-wpapper  {
+  display: none;
+}
+
+.mobile .links-wpapper {
+  display: flex;
+}
