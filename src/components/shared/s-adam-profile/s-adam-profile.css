@@ -8,6 +8,10 @@
   display: flex;
 }
 
+.mobile  .about-user {
+  margin-bottom: 30px;
+}
+
 /* mobile */
 
 .profile {
