@@ -1,0 +1,16 @@
+
+.btn-new-ask {
+  text-align: center;
+  margin-top: 10px;
+}
+.btn-add-question {
+  border-radius: 30px;
+  padding: 10px 30px;
+  border: none;
+  background-color: #72b94d;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 12px;
+  outline: none;
+  letter-spacing: 1px;
+}
