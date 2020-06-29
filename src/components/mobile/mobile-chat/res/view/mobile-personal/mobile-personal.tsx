@@ -6,10 +6,8 @@ import {
   h,
   Prop,
 } from "@stencil/core";
-import {
-  Message,
-  MessageDirectionEnum,
-} from "./res/interface/common.interface";
+import {Message, MessageDirectionEnum} from "../../../../../shared/interface/common.interface";
+;
 
 @Component({
   tag: "mobile-personal",

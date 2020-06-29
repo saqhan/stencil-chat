@@ -6,9 +6,8 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { categories, dialogs, } from "./components/mobile/mobile-chat/res/view/mobile-dialogs/res/interface/common.interface";
-import { Message, } from "./components/mobile/mobile-chat/res/view/mobile-personal/res/interface/common.interface";
+import { Message, } from "./components/shared/interface/common.interface";
 import { dialogs as dialogs1, } from "./components/comp/s-adam-contacts/res/interface/common.interface";
-import { Message as Message1, } from "./components/comp/s-adam-direct/res/interface/common.interface";
 import { logo, navItems, } from "./components/comp/s-adam-navigate/res/interface/common.interface";
 export namespace Components {
     interface ChatUserCard {
@@ -24,26 +23,22 @@ export namespace Components {
          */
         "theme": "comp" | "mobile";
     }
-    interface MessFromMe {
-        /**
-          * Принимаем сообщения для пользователя
-         */
-        "message": any;
-    }
-    interface MessToMe {
-        /**
-          * Принимаем сообщения от пользователя
-         */
-        "message": any;
-    }
     interface MessageFrom {
         /**
           * Принимаем сообщения для пользователя
          */
         "message": any;
     }
+    interface MessageImg {
+        /**
+          * Принимаем сообщения для пользователя
+         */
+        "message": any;
+    }
     interface MessageText {
-        "createSendTime": any;
+        /**
+          * Принимаем сообщения для пользователя
+         */
         "message": any;
     }
     interface MobileChat {
@@ -164,23 +159,17 @@ declare global {
         prototype: HTMLDialogCardElement;
         new (): HTMLDialogCardElement;
     };
-    interface HTMLMessFromMeElement extends Components.MessFromMe, HTMLStencilElement {
-    }
-    var HTMLMessFromMeElement: {
-        prototype: HTMLMessFromMeElement;
-        new (): HTMLMessFromMeElement;
-    };
-    interface HTMLMessToMeElement extends Components.MessToMe, HTMLStencilElement {
-    }
-    var HTMLMessToMeElement: {
-        prototype: HTMLMessToMeElement;
-        new (): HTMLMessToMeElement;
-    };
     interface HTMLMessageFromElement extends Components.MessageFrom, HTMLStencilElement {
     }
     var HTMLMessageFromElement: {
         prototype: HTMLMessageFromElement;
         new (): HTMLMessageFromElement;
+    };
+    interface HTMLMessageImgElement extends Components.MessageImg, HTMLStencilElement {
+    }
+    var HTMLMessageImgElement: {
+        prototype: HTMLMessageImgElement;
+        new (): HTMLMessageImgElement;
     };
     interface HTMLMessageTextElement extends Components.MessageText, HTMLStencilElement {
     }
@@ -347,9 +336,8 @@ declare global {
     interface HTMLElementTagNameMap {
         "chat-user-card": HTMLChatUserCardElement;
         "dialog-card": HTMLDialogCardElement;
-        "mess-from-me": HTMLMessFromMeElement;
-        "mess-to-me": HTMLMessToMeElement;
         "message-from": HTMLMessageFromElement;
+        "message-img": HTMLMessageImgElement;
         "message-text": HTMLMessageTextElement;
         "mobile-chat": HTMLMobileChatElement;
         "mobile-dialogs": HTMLMobileDialogsElement;
@@ -398,26 +386,22 @@ declare namespace LocalJSX {
          */
         "theme"?: "comp" | "mobile";
     }
-    interface MessFromMe {
-        /**
-          * Принимаем сообщения для пользователя
-         */
-        "message"?: any;
-    }
-    interface MessToMe {
-        /**
-          * Принимаем сообщения от пользователя
-         */
-        "message"?: any;
-    }
     interface MessageFrom {
         /**
           * Принимаем сообщения для пользователя
          */
         "message"?: any;
     }
+    interface MessageImg {
+        /**
+          * Принимаем сообщения для пользователя
+         */
+        "message"?: any;
+    }
     interface MessageText {
-        "createSendTime"?: any;
+        /**
+          * Принимаем сообщения для пользователя
+         */
         "message"?: any;
     }
     interface MobileChat {
@@ -600,9 +584,8 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "chat-user-card": ChatUserCard;
         "dialog-card": DialogCard;
-        "mess-from-me": MessFromMe;
-        "mess-to-me": MessToMe;
         "message-from": MessageFrom;
+        "message-img": MessageImg;
         "message-text": MessageText;
         "mobile-chat": MobileChat;
         "mobile-dialogs": MobileDialogs;
@@ -638,9 +621,8 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "chat-user-card": LocalJSX.ChatUserCard & JSXBase.HTMLAttributes<HTMLChatUserCardElement>;
             "dialog-card": LocalJSX.DialogCard & JSXBase.HTMLAttributes<HTMLDialogCardElement>;
-            "mess-from-me": LocalJSX.MessFromMe & JSXBase.HTMLAttributes<HTMLMessFromMeElement>;
-            "mess-to-me": LocalJSX.MessToMe & JSXBase.HTMLAttributes<HTMLMessToMeElement>;
             "message-from": LocalJSX.MessageFrom & JSXBase.HTMLAttributes<HTMLMessageFromElement>;
+            "message-img": LocalJSX.MessageImg & JSXBase.HTMLAttributes<HTMLMessageImgElement>;
             "message-text": LocalJSX.MessageText & JSXBase.HTMLAttributes<HTMLMessageTextElement>;
             "mobile-chat": LocalJSX.MobileChat & JSXBase.HTMLAttributes<HTMLMobileChatElement>;
             "mobile-dialogs": LocalJSX.MobileDialogs & JSXBase.HTMLAttributes<HTMLMobileDialogsElement>;

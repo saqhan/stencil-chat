@@ -1,7 +1,5 @@
-import {
-  MessageTypeEnum,
-  MessageDirectionEnum,
-} from "../components/mobile/mobile-chat/res/view/mobile-personal/res/interface/common.interface";
+import {MessageDirectionEnum, MessageTypeEnum} from "../components/shared/interface/common.interface";
+
 
 export const dialogs = [
   {
@@ -137,7 +135,21 @@ export const categories = [
 
 export const MessageMock = [
   {
-    content: "Как твои дела",
+    content: "Привет, как дела?",
+    sender: {
+      uid: "test-id-1",
+      icon: "https://via.placeholder.com/60x60?text=User",
+      name: "Сайхан",
+      phone: "79291234567",
+    },
+    type: MessageTypeEnum.text,
+    direction: MessageDirectionEnum.toMe,
+    time: {
+      created: new Date(),
+    },
+  },
+  {
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit",
     sender: {
       uid: "test-id-1",
       icon: "https://via.placeholder.com/60x60?text=User",
@@ -165,7 +177,21 @@ export const MessageMock = [
     },
   },
   {
-    content: "Нормально",
+    content: "Все гуд!",
+    sender: {
+      uid: "test-id-2",
+      icon: "https://via.placeholder.com/60x60?text=User",
+      name: "Адам",
+      phone: "79291234567",
+    },
+    type: MessageTypeEnum.text,
+    direction: MessageDirectionEnum.fromMe,
+    time: {
+      created: new Date(),
+    },
+  },
+  {
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit df sss",
     sender: {
       uid: "test-id-2",
       icon: "https://via.placeholder.com/60x60?text=User",
