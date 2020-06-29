@@ -1,6 +1,5 @@
 import { Component, ComponentInterface, h, Prop } from "@stencil/core";
-import { MessageTypeEnum } from "../../mobile/mobile-chat/res/view/mobile-personal/res/interface/common.interface";
-import { MessageDirectionEnum } from "../../comp/s-adam-direct/res/interface/common.interface";
+import {MessageDirectionEnum, MessageTypeEnum} from "../../interface/common.interface";
 
 @Component({
   tag: "message-from",

@@ -23,7 +23,7 @@
 }
 
 .from-mess-wrapper .from-mess {
-  max-width: 250px;
+  width: fit-content;
   padding: 10px;
   border: 1px solid #c7d0e8;
   border-radius: 20px 0px 20px 20px;
@@ -54,12 +54,12 @@
   margin: 15px 0;
 }
 
-.to-me-mess-wrapp {
+.to-me-mess-wrap {
   display: flex;
   justify-content: end;
 }
 
-.to-me-mess-wrapp .img {
+.to-me-mess-wrap .img {
   width: 30px;
   height: 30px;
   margin-right: 10px;
@@ -67,6 +67,7 @@
   background-size: cover;
   background-position: center;
 }
+
 /*
 _________________________________
  */
@@ -81,7 +82,7 @@ _________________________________
 }
 
 .to-me-mess-wrapper .from-mess {
-  max-width: 250px;
+  width: fit-content;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 0px 20px 20px 20px;

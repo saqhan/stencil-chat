@@ -6,9 +6,8 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { categories, dialogs, } from "./components/mobile/mobile-chat/res/view/mobile-dialogs/res/interface/common.interface";
-import { Message, } from "./components/mobile/mobile-chat/res/view/mobile-personal/res/interface/common.interface";
+import { Message, } from "./components/shared/interface/common.interface";
 import { dialogs as dialogs1, } from "./components/comp/s-adam-contacts/res/interface/common.interface";
-import { Message as Message1, } from "./components/comp/s-adam-direct/res/interface/common.interface";
 import { logo, navItems, } from "./components/comp/s-adam-navigate/res/interface/common.interface";
 export namespace Components {
     interface DialogCard {
@@ -21,18 +20,6 @@ export namespace Components {
          */
         "theme": "comp" | "mobile";
     }
-    interface MessFromMe {
-        /**
-          * Принимаем сообщения для пользователя
-         */
-        "message": any;
-    }
-    interface MessToMe {
-        /**
-          * Принимаем сообщения от пользователя
-         */
-        "message": any;
-    }
     interface MessageFrom {
         /**
           * Принимаем сообщения для пользователя
@@ -40,7 +27,6 @@ export namespace Components {
         "message": any;
     }
     interface MessageText {
-        "createSendTime": any;
         "message": any;
     }
     interface MobileChat {
@@ -118,18 +104,6 @@ declare global {
     var HTMLDialogCardElement: {
         prototype: HTMLDialogCardElement;
         new (): HTMLDialogCardElement;
-    };
-    interface HTMLMessFromMeElement extends Components.MessFromMe, HTMLStencilElement {
-    }
-    var HTMLMessFromMeElement: {
-        prototype: HTMLMessFromMeElement;
-        new (): HTMLMessFromMeElement;
-    };
-    interface HTMLMessToMeElement extends Components.MessToMe, HTMLStencilElement {
-    }
-    var HTMLMessToMeElement: {
-        prototype: HTMLMessToMeElement;
-        new (): HTMLMessToMeElement;
     };
     interface HTMLMessageFromElement extends Components.MessageFrom, HTMLStencilElement {
     }
@@ -229,8 +203,6 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "dialog-card": HTMLDialogCardElement;
-        "mess-from-me": HTMLMessFromMeElement;
-        "mess-to-me": HTMLMessToMeElement;
         "message-from": HTMLMessageFromElement;
         "message-text": HTMLMessageTextElement;
         "mobile-chat": HTMLMobileChatElement;
@@ -264,18 +236,6 @@ declare namespace LocalJSX {
          */
         "theme"?: "comp" | "mobile";
     }
-    interface MessFromMe {
-        /**
-          * Принимаем сообщения для пользователя
-         */
-        "message"?: any;
-    }
-    interface MessToMe {
-        /**
-          * Принимаем сообщения от пользователя
-         */
-        "message"?: any;
-    }
     interface MessageFrom {
         /**
           * Принимаем сообщения для пользователя
@@ -283,7 +243,6 @@ declare namespace LocalJSX {
         "message"?: any;
     }
     interface MessageText {
-        "createSendTime"?: any;
         "message"?: any;
     }
     interface MobileChat {
@@ -390,8 +349,6 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "dialog-card": DialogCard;
-        "mess-from-me": MessFromMe;
-        "mess-to-me": MessToMe;
         "message-from": MessageFrom;
         "message-text": MessageText;
         "mobile-chat": MobileChat;
@@ -415,8 +372,6 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "dialog-card": LocalJSX.DialogCard & JSXBase.HTMLAttributes<HTMLDialogCardElement>;
-            "mess-from-me": LocalJSX.MessFromMe & JSXBase.HTMLAttributes<HTMLMessFromMeElement>;
-            "mess-to-me": LocalJSX.MessToMe & JSXBase.HTMLAttributes<HTMLMessToMeElement>;
             "message-from": LocalJSX.MessageFrom & JSXBase.HTMLAttributes<HTMLMessageFromElement>;
             "message-text": LocalJSX.MessageText & JSXBase.HTMLAttributes<HTMLMessageTextElement>;
             "mobile-chat": LocalJSX.MobileChat & JSXBase.HTMLAttributes<HTMLMobileChatElement>;

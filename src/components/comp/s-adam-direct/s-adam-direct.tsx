@@ -1,5 +1,5 @@
 import {Component, ComponentInterface, EventEmitter, h, Prop, Event} from '@stencil/core';
-import {Message} from "./res/interface/common.interface";
+import {Message} from "../../shared/interface/common.interface";
 
 @Component({
   tag: 's-adam-direct',
