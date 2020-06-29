@@ -12,6 +12,14 @@
 | `message` | --        | Личный диалог | `Message[]` | `[]`    |
 
 
+## Events
+
+| Event             | Description                            | Type               |
+| ----------------- | -------------------------------------- | ------------------ |
+| `clickOnUsername` | клик по имени юзера в личной переписке | `CustomEvent<any>` |
+| `clickToLink`     | click on navigate                      | `CustomEvent<any>` |
+
+
 ## Dependencies
 
 ### Used by

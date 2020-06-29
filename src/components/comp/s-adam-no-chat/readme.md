@@ -1,4 +1,4 @@
-# s-adam-profile
+# s-adam-no-chat
 
 
 
@@ -14,8 +14,8 @@
 ### Graph
 ```mermaid
 graph TD;
-  s-adam-chat --> s-adam-profile
-  style s-adam-profile fill:#f9f,stroke:#333,stroke-width:4px
+  s-adam-chat --> s-adam-no-chat
+  style s-adam-no-chat fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

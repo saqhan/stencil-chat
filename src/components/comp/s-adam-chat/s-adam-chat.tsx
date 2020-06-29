@@ -15,12 +15,23 @@ export class SAdamChat implements ComponentInterface  {
   @State() dialogVisible = 'noChat';
 
   /**
+   * Стейт для показа профиля пользователя
+   */
+  @State() profileVisible = false;
+
+  /**
    * Метод для переключения на личный чат
    * @param detail
    */
   public toggleChat({detail}) {
     if(detail.place === 'showPersonalDialog') {
       this.dialogVisible = 'showChat';
+    }
+  }
+
+  public toggleProfile({detail}) {
+    if (detail.place === 'userName') {
+      this.profileVisible = !this.profileVisible;
     }
   }
 
@@ -35,14 +46,12 @@ export class SAdamChat implements ComponentInterface  {
             <s-adam-contacts onClickToLink={({detail}) => {this.toggleChat({detail})}} dialogs={dialogs}>
             </s-adam-contacts>
           </div>
-          <div class="col-5">
+          <div class="col">
             <section class="chat">
               {this.showChat(this.dialogVisible)}
             </section>
           </div>
-          <div class="col-3">
-            <s-adam-profile></s-adam-profile>
-          </div>
+          {this.showProfile(this.profileVisible)}
         </div>
       </div>
     </main>
@@ -55,9 +64,33 @@ export class SAdamChat implements ComponentInterface  {
   public showChat (content){
     switch (content) {
       case 'showChat':
-        return <s-adam-direct message={MessageMock}></s-adam-direct>;
+        return <s-adam-direct
+          onClickToLink={({detail}) => this.clickToLink({detail})}
+          onClickOnUsername={(item) => {this.toggleProfile(item)}}
+          message={MessageMock}
+        >
+        </s-adam-direct>;
       case 'noChat':
         return <s-adam-no-chat></s-adam-no-chat>;
     }
   }
+
+  public showProfile (item) {
+    if(item === true) {
+      return (
+        <div class="col-3">
+          <s-adam-profile></s-adam-profile>
+        </div>
+      )
+    }
+    else {
+      return '';
+    }
+  }
+/**
+* click to Link
+* */
+public clickToLink({ detail }) {
+  console.log(detail);
+}
 }

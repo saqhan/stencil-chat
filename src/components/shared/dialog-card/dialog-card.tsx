@@ -11,30 +11,50 @@ export class DialogCard implements ComponentInterface {
    * */
   @Prop() mess:any;
   /**
+   * карточка диалога
+   * */
+  @Prop() theme: 'comp' | 'mobile' = 'mobile';
+
+
+
+  /**
    * clock on navigate
    * */
   @Event() clickToLink: EventEmitter;
   render() {
     return (
-      <div class="m-dialog-card" onClick={()=> this.clickToLink.emit({place:'showPersonalDialog', item: this.mess })} >
-        <div class="img-user">
-          <div class={this.mess.online ? 'img online': 'img'}
-          style={{backgroundImage: `url(${this.mess.img})`}}></div>
-        </div>
-        <div class="info-card">
-          <div class="unfo-user">
-            <div class="name-user">{this.mess.name}</div>
-            <div class="message-user">{this.mess.mess}</div>
+      <div class={this.getClassForHost()}>
+        <div class="m-dialog-card" onClick={()=> this.clickToLink.emit({place:'showPersonalDialog', item: this.mess })} >
+          <div class="img-user">
+            <div class={this.mess.online ? 'img online': 'img'}
+                 style={{backgroundImage: `url(${this.mess.img})`}}></div>
           </div>
-          <div class="data-message">
-            <div class="date"> {this.createSendTime(this.mess.time.created)}</div>
-            {/*<div class="new-message">Yesterday</div>*/}
-            <span class="add-new-message">1</span>
+          <div class="info-card">
+            <div class="unfo-user">
+              <div class="name-user">{this.mess.name}</div>
+              <div class="message-user">{this.mess.mess}</div>
+            </div>
+            <div class="data-message">
+              <div class="date"> {this.createSendTime(this.mess.time.created)}</div>
+              {/*<div class="new-message">Yesterday</div>*/}
+              <span class="add-new-message">1</span>
+            </div>
           </div>
         </div>
       </div>
     );
   }
+
+  /**
+   *
+   * */
+  public getClassForHost ()
+  {
+    return {
+      [this.theme]: true
+    }
+  }
+
   /**
    * Метод вывода времени отправки сообщения
    * */
@@ -49,7 +69,7 @@ export class DialogCard implements ComponentInterface {
       minutes = "0" + minutes;
     }
 
-
+    // выводим время в минутах/часах
     return `${hours} : ${minutes}`;
   }
 }

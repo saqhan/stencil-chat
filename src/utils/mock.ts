@@ -1,4 +1,7 @@
-import {MessageTypeEnum, MessageDirectionEnum} from '../components/mobile/mobile-chat/res/view/mobile-personal/res/interface/common.interface';
+import {
+  MessageTypeEnum,
+  MessageDirectionEnum,
+} from "../components/mobile/mobile-chat/res/view/mobile-personal/res/interface/common.interface";
 
 export const dialogs = [
   {
@@ -113,7 +116,6 @@ export const dialogs = [
   },
 ];
 
-
 export const categories = [
   {
     name: "All",
@@ -175,7 +177,8 @@ export const MessageMock = [
     time: {
       created: new Date(),
     },
-  },  {
+  },
+  {
     content: "https://via.placeholder.com/500",
     sender: {
       uid: "test-id-2",
@@ -234,31 +237,29 @@ export const MessageMock = [
 ];
 
 export const logo = {
-  id: 'logo',
-  logo: 'https://via.placeholder.com/100x100?text=Text'
+  id: "logo",
+  logo: "https://via.placeholder.com/100x100?text=Text",
 };
 
 export const navItems = [
   {
     id: 1,
-    icon: 'fas fa-comment-alt'
+    icon: "fas fa-comment-alt",
   },
   {
     id: 2,
-    icon: 'fas fa-shopping-bag'
+    icon: "fas fa-shopping-bag",
   },
   {
     id: 3,
-    icon: 'fas fa-cart-arrow-down'
+    icon: "fas fa-cart-arrow-down",
   },
   {
     id: 5,
-    icon: 'fas fa-calendar-alt'
+    icon: "fas fa-calendar-alt",
   },
   {
     id: 6,
-    icon: 'fas fa-cog'
-  }
+    icon: "fas fa-cog",
+  },
 ];
-
-
