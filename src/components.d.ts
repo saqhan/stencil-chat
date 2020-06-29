@@ -26,7 +26,16 @@ export namespace Components {
          */
         "message": any;
     }
+    interface MessageImg {
+        /**
+          * Принимаем сообщения для пользователя
+         */
+        "message": any;
+    }
     interface MessageText {
+        /**
+          * Принимаем сообщения для пользователя
+         */
         "message": any;
     }
     interface MobileChat {
@@ -110,6 +119,12 @@ declare global {
     var HTMLMessageFromElement: {
         prototype: HTMLMessageFromElement;
         new (): HTMLMessageFromElement;
+    };
+    interface HTMLMessageImgElement extends Components.MessageImg, HTMLStencilElement {
+    }
+    var HTMLMessageImgElement: {
+        prototype: HTMLMessageImgElement;
+        new (): HTMLMessageImgElement;
     };
     interface HTMLMessageTextElement extends Components.MessageText, HTMLStencilElement {
     }
@@ -204,6 +219,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "dialog-card": HTMLDialogCardElement;
         "message-from": HTMLMessageFromElement;
+        "message-img": HTMLMessageImgElement;
         "message-text": HTMLMessageTextElement;
         "mobile-chat": HTMLMobileChatElement;
         "mobile-dialogs": HTMLMobileDialogsElement;
@@ -242,7 +258,16 @@ declare namespace LocalJSX {
          */
         "message"?: any;
     }
+    interface MessageImg {
+        /**
+          * Принимаем сообщения для пользователя
+         */
+        "message"?: any;
+    }
     interface MessageText {
+        /**
+          * Принимаем сообщения для пользователя
+         */
         "message"?: any;
     }
     interface MobileChat {
@@ -350,6 +375,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "dialog-card": DialogCard;
         "message-from": MessageFrom;
+        "message-img": MessageImg;
         "message-text": MessageText;
         "mobile-chat": MobileChat;
         "mobile-dialogs": MobileDialogs;
@@ -373,6 +399,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "dialog-card": LocalJSX.DialogCard & JSXBase.HTMLAttributes<HTMLDialogCardElement>;
             "message-from": LocalJSX.MessageFrom & JSXBase.HTMLAttributes<HTMLMessageFromElement>;
+            "message-img": LocalJSX.MessageImg & JSXBase.HTMLAttributes<HTMLMessageImgElement>;
             "message-text": LocalJSX.MessageText & JSXBase.HTMLAttributes<HTMLMessageTextElement>;
             "mobile-chat": LocalJSX.MobileChat & JSXBase.HTMLAttributes<HTMLMobileChatElement>;
             "mobile-dialogs": LocalJSX.MobileDialogs & JSXBase.HTMLAttributes<HTMLMobileDialogsElement>;

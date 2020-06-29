@@ -1,5 +1,8 @@
 import { Component, ComponentInterface, h, Prop } from "@stencil/core";
-import {MessageDirectionEnum, MessageTypeEnum} from "../../interface/common.interface";
+import {
+  MessageDirectionEnum,
+  MessageTypeEnum,
+} from "../../interface/common.interface";
 
 @Component({
   tag: "message-from",
@@ -16,6 +19,10 @@ export class MessageFrom implements ComponentInterface {
     return <div>{this.messageFrom(this.message)}</div>;
   }
 
+  /**
+   * Определяем от кого сообщение
+   * @param array
+   */
   public messageFrom(array) {
     switch (array.direction) {
       case MessageDirectionEnum.fromMe:
@@ -43,30 +50,24 @@ export class MessageFrom implements ComponentInterface {
     }
   }
 
+  /**
+   * Определяем тип сообщения
+   * @param array
+   */
+
   public createType(array) {
     switch (array.type) {
       case MessageTypeEnum.text:
-        return (
-          <message-text message={array}></message-text>
-        );
+        return <message-text message={array}></message-text>;
       case MessageTypeEnum.image:
-        return (
-          <div
-            class="mess-img"
-            style={{ backgroundImage: `url(${this.message.content})` }}
-          >
-            <span class="check">
-              <i class="fa fa-check-double"></i>
-            </span>
-          </div>
-        );
+        return <message-img message={array}></message-img>
     }
   }
 
   /**
    * Метод вывода времени отправки сообщения
    * */
-  public createSendTime (array) {
+  public createSendTime(array) {
     const timeNow = array;
 
     let hours = timeNow.getHours();

@@ -1,5 +1,5 @@
 import { Component, ComponentInterface, h, Prop } from "@stencil/core";
-import {MessageDirectionEnum} from "../../../../../interface/common.interface";
+import { MessageDirectionEnum } from "../../../../../interface/common.interface";
 
 @Component({
   tag: "message-text",
@@ -7,6 +7,9 @@ import {MessageDirectionEnum} from "../../../../../interface/common.interface";
   shadow: false,
 })
 export class MessageText implements ComponentInterface {
+  /**
+   * Принимаем сообщения для пользователя
+   * */
   @Prop() message: any;
 
   render() {
@@ -18,13 +21,13 @@ export class MessageText implements ComponentInterface {
         <div class="info-wrapper">
           <span class="personal-mess-date"></span>
 
-          {this.message.direction === MessageDirectionEnum.fromMe ?
+          {this.message.direction === MessageDirectionEnum.fromMe ? (
             <span class="check">
               <i class="fa fa-check-double"></i>
-             </span>
-            :
-            ' '
-          }
+            </span>
+          ) : (
+            " "
+          )}
         </div>
       </div>
     );
