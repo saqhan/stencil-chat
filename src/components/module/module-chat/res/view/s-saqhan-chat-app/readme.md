@@ -32,7 +32,7 @@
 
 ### Depends on
 
-- [s-saqhan-chat-wrapper](./res/view/s-saqhan-chat-wrapper)
+- [s-saqhan-chat-wrapper](res/view/s-saqhan-chat-wrapper)
 
 ### Graph
 ```mermaid

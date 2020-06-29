@@ -22,7 +22,7 @@
 ### Depends on
 
 - [s-saqhan-chat-main-user](./res/view/s-saqhan-chat-main-user)
-- [s-saqhan-chat-user](./res/view/s-saqhan-chat-user)
+- [s-saqhan-chat-user](res/view/s-saqhan-chat-user)
 
 ### Graph
 ```mermaid

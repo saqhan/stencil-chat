@@ -11,6 +11,9 @@ import { dialogs as dialogs1, } from "./components/comp/s-adam-contacts/res/inte
 import { Message as Message1, } from "./components/comp/s-adam-direct/res/interface/common.interface";
 import { logo, navItems, } from "./components/comp/s-adam-navigate/res/interface/common.interface";
 export namespace Components {
+    interface ChatUserCard {
+        "user": any;
+    }
     interface DialogCard {
         /**
           * карточка диалога
@@ -50,6 +53,8 @@ export namespace Components {
           * array data personal messages
          */
         "messageMock": Message[];
+    }
+    interface ModuleChat {
     }
     interface MyComponent {
     }
@@ -99,10 +104,50 @@ export namespace Components {
          */
         "theme": "comp" | "mobile";
     }
+    interface SSaqhanChatAddQuestion {
+    }
+    interface SSaqhanChatApp {
+        /**
+          * Массив данных для обычных пользователей
+         */
+        "messages": any;
+    }
+    interface SSaqhanChatFiles {
+    }
+    interface SSaqhanChatFilesWrapper {
+    }
+    interface SSaqhanChatFormSearch {
+    }
+    interface SSaqhanChatFormSearchFiles {
+    }
+    interface SSaqhanChatPersonal {
+    }
+    interface SSaqhanChatUser {
+        /**
+          * массив с диалогами
+         */
+        "messages": any;
+    }
+    interface SSaqhanChatUsers {
+        "messages": any;
+    }
+    interface SSaqhanChatUsersWrapper {
+        "messages": any;
+    }
+    interface SSaqhanChatWrapper {
+        "messages": any;
+        "showContent": string;
+    }
     interface UserProfile {
     }
 }
 declare global {
+    interface HTMLChatUserCardElement extends Components.ChatUserCard, HTMLStencilElement {
+    }
+    var HTMLChatUserCardElement: {
+        prototype: HTMLChatUserCardElement;
+        new (): HTMLChatUserCardElement;
+    };
     interface HTMLDialogCardElement extends Components.DialogCard, HTMLStencilElement {
     }
     var HTMLDialogCardElement: {
@@ -138,6 +183,12 @@ declare global {
     var HTMLMobilePersonalElement: {
         prototype: HTMLMobilePersonalElement;
         new (): HTMLMobilePersonalElement;
+    };
+    interface HTMLModuleChatElement extends Components.ModuleChat, HTMLStencilElement {
+    }
+    var HTMLModuleChatElement: {
+        prototype: HTMLModuleChatElement;
+        new (): HTMLModuleChatElement;
     };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
@@ -199,6 +250,72 @@ declare global {
         prototype: HTMLSAdamProfileElement;
         new (): HTMLSAdamProfileElement;
     };
+    interface HTMLSSaqhanChatAddQuestionElement extends Components.SSaqhanChatAddQuestion, HTMLStencilElement {
+    }
+    var HTMLSSaqhanChatAddQuestionElement: {
+        prototype: HTMLSSaqhanChatAddQuestionElement;
+        new (): HTMLSSaqhanChatAddQuestionElement;
+    };
+    interface HTMLSSaqhanChatAppElement extends Components.SSaqhanChatApp, HTMLStencilElement {
+    }
+    var HTMLSSaqhanChatAppElement: {
+        prototype: HTMLSSaqhanChatAppElement;
+        new (): HTMLSSaqhanChatAppElement;
+    };
+    interface HTMLSSaqhanChatFilesElement extends Components.SSaqhanChatFiles, HTMLStencilElement {
+    }
+    var HTMLSSaqhanChatFilesElement: {
+        prototype: HTMLSSaqhanChatFilesElement;
+        new (): HTMLSSaqhanChatFilesElement;
+    };
+    interface HTMLSSaqhanChatFilesWrapperElement extends Components.SSaqhanChatFilesWrapper, HTMLStencilElement {
+    }
+    var HTMLSSaqhanChatFilesWrapperElement: {
+        prototype: HTMLSSaqhanChatFilesWrapperElement;
+        new (): HTMLSSaqhanChatFilesWrapperElement;
+    };
+    interface HTMLSSaqhanChatFormSearchElement extends Components.SSaqhanChatFormSearch, HTMLStencilElement {
+    }
+    var HTMLSSaqhanChatFormSearchElement: {
+        prototype: HTMLSSaqhanChatFormSearchElement;
+        new (): HTMLSSaqhanChatFormSearchElement;
+    };
+    interface HTMLSSaqhanChatFormSearchFilesElement extends Components.SSaqhanChatFormSearchFiles, HTMLStencilElement {
+    }
+    var HTMLSSaqhanChatFormSearchFilesElement: {
+        prototype: HTMLSSaqhanChatFormSearchFilesElement;
+        new (): HTMLSSaqhanChatFormSearchFilesElement;
+    };
+    interface HTMLSSaqhanChatPersonalElement extends Components.SSaqhanChatPersonal, HTMLStencilElement {
+    }
+    var HTMLSSaqhanChatPersonalElement: {
+        prototype: HTMLSSaqhanChatPersonalElement;
+        new (): HTMLSSaqhanChatPersonalElement;
+    };
+    interface HTMLSSaqhanChatUserElement extends Components.SSaqhanChatUser, HTMLStencilElement {
+    }
+    var HTMLSSaqhanChatUserElement: {
+        prototype: HTMLSSaqhanChatUserElement;
+        new (): HTMLSSaqhanChatUserElement;
+    };
+    interface HTMLSSaqhanChatUsersElement extends Components.SSaqhanChatUsers, HTMLStencilElement {
+    }
+    var HTMLSSaqhanChatUsersElement: {
+        prototype: HTMLSSaqhanChatUsersElement;
+        new (): HTMLSSaqhanChatUsersElement;
+    };
+    interface HTMLSSaqhanChatUsersWrapperElement extends Components.SSaqhanChatUsersWrapper, HTMLStencilElement {
+    }
+    var HTMLSSaqhanChatUsersWrapperElement: {
+        prototype: HTMLSSaqhanChatUsersWrapperElement;
+        new (): HTMLSSaqhanChatUsersWrapperElement;
+    };
+    interface HTMLSSaqhanChatWrapperElement extends Components.SSaqhanChatWrapper, HTMLStencilElement {
+    }
+    var HTMLSSaqhanChatWrapperElement: {
+        prototype: HTMLSSaqhanChatWrapperElement;
+        new (): HTMLSSaqhanChatWrapperElement;
+    };
     interface HTMLUserProfileElement extends Components.UserProfile, HTMLStencilElement {
     }
     var HTMLUserProfileElement: {
@@ -206,12 +323,14 @@ declare global {
         new (): HTMLUserProfileElement;
     };
     interface HTMLElementTagNameMap {
+        "chat-user-card": HTMLChatUserCardElement;
         "dialog-card": HTMLDialogCardElement;
         "mess-from-me": HTMLMessFromMeElement;
         "mess-to-me": HTMLMessToMeElement;
         "mobile-chat": HTMLMobileChatElement;
         "mobile-dialogs": HTMLMobileDialogsElement;
         "mobile-personal": HTMLMobilePersonalElement;
+        "module-chat": HTMLModuleChatElement;
         "my-component": HTMLMyComponentElement;
         "personal-footer": HTMLPersonalFooterElement;
         "s-adam-chat": HTMLSAdamChatElement;
@@ -222,10 +341,25 @@ declare global {
         "s-adam-navigate": HTMLSAdamNavigateElement;
         "s-adam-no-chat": HTMLSAdamNoChatElement;
         "s-adam-profile": HTMLSAdamProfileElement;
+        "s-saqhan-chat-add-question": HTMLSSaqhanChatAddQuestionElement;
+        "s-saqhan-chat-app": HTMLSSaqhanChatAppElement;
+        "s-saqhan-chat-files": HTMLSSaqhanChatFilesElement;
+        "s-saqhan-chat-files-wrapper": HTMLSSaqhanChatFilesWrapperElement;
+        "s-saqhan-chat-form-search": HTMLSSaqhanChatFormSearchElement;
+        "s-saqhan-chat-form-search-files": HTMLSSaqhanChatFormSearchFilesElement;
+        "s-saqhan-chat-personal": HTMLSSaqhanChatPersonalElement;
+        "s-saqhan-chat-user": HTMLSSaqhanChatUserElement;
+        "s-saqhan-chat-users": HTMLSSaqhanChatUsersElement;
+        "s-saqhan-chat-users-wrapper": HTMLSSaqhanChatUsersWrapperElement;
+        "s-saqhan-chat-wrapper": HTMLSSaqhanChatWrapperElement;
         "user-profile": HTMLUserProfileElement;
     }
 }
 declare namespace LocalJSX {
+    interface ChatUserCard {
+        "onSelectPersonal"?: (event: CustomEvent<any>) => void;
+        "user"?: any;
+    }
     interface DialogCard {
         /**
           * карточка диалога
@@ -281,6 +415,8 @@ declare namespace LocalJSX {
           * clock on navigate
          */
         "onClickToLink"?: (event: CustomEvent<any>) => void;
+    }
+    interface ModuleChat {
     }
     interface MyComponent {
     }
@@ -351,16 +487,91 @@ declare namespace LocalJSX {
          */
         "theme"?: "comp" | "mobile";
     }
+    interface SSaqhanChatAddQuestion {
+    }
+    interface SSaqhanChatApp {
+        /**
+          * Массив данных для обычных пользователей
+         */
+        "messages"?: any;
+        /**
+          * Клик по кнопке в чате
+         */
+        "onClickOnSearchChat"?: (event: CustomEvent<any>) => void;
+        /**
+          * Клик по кнопке в чате
+         */
+        "onClickToLink"?: (event: CustomEvent<any>) => void;
+        /**
+          * Переменная для закрытия модального чата
+         */
+        "onClose"?: (event: CustomEvent<any>) => void;
+        /**
+          * Открываем файлы чата
+         */
+        "onSelectFiles"?: (event: CustomEvent<any>) => void;
+        /**
+          * Событие при клике на диалог, открываем личные сообщения
+         */
+        "onSelectPersonal"?: (event: CustomEvent<any>) => void;
+        /**
+          * Открываем диалоги
+         */
+        "onSelectUsers"?: (event: CustomEvent<any>) => void;
+    }
+    interface SSaqhanChatFiles {
+    }
+    interface SSaqhanChatFilesWrapper {
+    }
+    interface SSaqhanChatFormSearch {
+        /**
+          * Клик по кнопке в чате
+         */
+        "onClickOnSearchChat"?: (event: CustomEvent<any>) => void;
+        /**
+          * Клик по кнопке files
+         */
+        "onSelectFiles"?: (event: CustomEvent<any>) => void;
+    }
+    interface SSaqhanChatFormSearchFiles {
+        "onSelectUsers"?: (event: CustomEvent<any>) => void;
+    }
+    interface SSaqhanChatPersonal {
+        "onSelectUsers"?: (event: CustomEvent<any>) => void;
+    }
+    interface SSaqhanChatUser {
+        /**
+          * массив с диалогами
+         */
+        "messages"?: any;
+    }
+    interface SSaqhanChatUsers {
+        "messages"?: any;
+    }
+    interface SSaqhanChatUsersWrapper {
+        "messages"?: any;
+    }
+    interface SSaqhanChatWrapper {
+        "messages"?: any;
+        "onClickToLink"?: (event: CustomEvent<any>) => void;
+        "onClose"?: (event: CustomEvent<any>) => void;
+        "onSelectFiles"?: (event: CustomEvent<any>) => void;
+        "onSelectPersonal"?: (event: CustomEvent<any>) => void;
+        "onSelectUsers"?: (event: CustomEvent<any>) => void;
+        "showContent"?: string;
+    }
     interface UserProfile {
         "onClickToLink"?: (event: CustomEvent<any>) => void;
     }
     interface IntrinsicElements {
+        "chat-user-card": ChatUserCard;
         "dialog-card": DialogCard;
         "mess-from-me": MessFromMe;
         "mess-to-me": MessToMe;
         "mobile-chat": MobileChat;
         "mobile-dialogs": MobileDialogs;
         "mobile-personal": MobilePersonal;
+        "module-chat": ModuleChat;
         "my-component": MyComponent;
         "personal-footer": PersonalFooter;
         "s-adam-chat": SAdamChat;
@@ -371,6 +582,17 @@ declare namespace LocalJSX {
         "s-adam-navigate": SAdamNavigate;
         "s-adam-no-chat": SAdamNoChat;
         "s-adam-profile": SAdamProfile;
+        "s-saqhan-chat-add-question": SSaqhanChatAddQuestion;
+        "s-saqhan-chat-app": SSaqhanChatApp;
+        "s-saqhan-chat-files": SSaqhanChatFiles;
+        "s-saqhan-chat-files-wrapper": SSaqhanChatFilesWrapper;
+        "s-saqhan-chat-form-search": SSaqhanChatFormSearch;
+        "s-saqhan-chat-form-search-files": SSaqhanChatFormSearchFiles;
+        "s-saqhan-chat-personal": SSaqhanChatPersonal;
+        "s-saqhan-chat-user": SSaqhanChatUser;
+        "s-saqhan-chat-users": SSaqhanChatUsers;
+        "s-saqhan-chat-users-wrapper": SSaqhanChatUsersWrapper;
+        "s-saqhan-chat-wrapper": SSaqhanChatWrapper;
         "user-profile": UserProfile;
     }
 }
@@ -378,12 +600,14 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "chat-user-card": LocalJSX.ChatUserCard & JSXBase.HTMLAttributes<HTMLChatUserCardElement>;
             "dialog-card": LocalJSX.DialogCard & JSXBase.HTMLAttributes<HTMLDialogCardElement>;
             "mess-from-me": LocalJSX.MessFromMe & JSXBase.HTMLAttributes<HTMLMessFromMeElement>;
             "mess-to-me": LocalJSX.MessToMe & JSXBase.HTMLAttributes<HTMLMessToMeElement>;
             "mobile-chat": LocalJSX.MobileChat & JSXBase.HTMLAttributes<HTMLMobileChatElement>;
             "mobile-dialogs": LocalJSX.MobileDialogs & JSXBase.HTMLAttributes<HTMLMobileDialogsElement>;
             "mobile-personal": LocalJSX.MobilePersonal & JSXBase.HTMLAttributes<HTMLMobilePersonalElement>;
+            "module-chat": LocalJSX.ModuleChat & JSXBase.HTMLAttributes<HTMLModuleChatElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "personal-footer": LocalJSX.PersonalFooter & JSXBase.HTMLAttributes<HTMLPersonalFooterElement>;
             "s-adam-chat": LocalJSX.SAdamChat & JSXBase.HTMLAttributes<HTMLSAdamChatElement>;
@@ -394,6 +618,17 @@ declare module "@stencil/core" {
             "s-adam-navigate": LocalJSX.SAdamNavigate & JSXBase.HTMLAttributes<HTMLSAdamNavigateElement>;
             "s-adam-no-chat": LocalJSX.SAdamNoChat & JSXBase.HTMLAttributes<HTMLSAdamNoChatElement>;
             "s-adam-profile": LocalJSX.SAdamProfile & JSXBase.HTMLAttributes<HTMLSAdamProfileElement>;
+            "s-saqhan-chat-add-question": LocalJSX.SSaqhanChatAddQuestion & JSXBase.HTMLAttributes<HTMLSSaqhanChatAddQuestionElement>;
+            "s-saqhan-chat-app": LocalJSX.SSaqhanChatApp & JSXBase.HTMLAttributes<HTMLSSaqhanChatAppElement>;
+            "s-saqhan-chat-files": LocalJSX.SSaqhanChatFiles & JSXBase.HTMLAttributes<HTMLSSaqhanChatFilesElement>;
+            "s-saqhan-chat-files-wrapper": LocalJSX.SSaqhanChatFilesWrapper & JSXBase.HTMLAttributes<HTMLSSaqhanChatFilesWrapperElement>;
+            "s-saqhan-chat-form-search": LocalJSX.SSaqhanChatFormSearch & JSXBase.HTMLAttributes<HTMLSSaqhanChatFormSearchElement>;
+            "s-saqhan-chat-form-search-files": LocalJSX.SSaqhanChatFormSearchFiles & JSXBase.HTMLAttributes<HTMLSSaqhanChatFormSearchFilesElement>;
+            "s-saqhan-chat-personal": LocalJSX.SSaqhanChatPersonal & JSXBase.HTMLAttributes<HTMLSSaqhanChatPersonalElement>;
+            "s-saqhan-chat-user": LocalJSX.SSaqhanChatUser & JSXBase.HTMLAttributes<HTMLSSaqhanChatUserElement>;
+            "s-saqhan-chat-users": LocalJSX.SSaqhanChatUsers & JSXBase.HTMLAttributes<HTMLSSaqhanChatUsersElement>;
+            "s-saqhan-chat-users-wrapper": LocalJSX.SSaqhanChatUsersWrapper & JSXBase.HTMLAttributes<HTMLSSaqhanChatUsersWrapperElement>;
+            "s-saqhan-chat-wrapper": LocalJSX.SSaqhanChatWrapper & JSXBase.HTMLAttributes<HTMLSSaqhanChatWrapperElement>;
             "user-profile": LocalJSX.UserProfile & JSXBase.HTMLAttributes<HTMLUserProfileElement>;
         }
     }

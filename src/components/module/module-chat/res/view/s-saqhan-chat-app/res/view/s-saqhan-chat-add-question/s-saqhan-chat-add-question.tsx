@@ -11,7 +11,7 @@ export class SSaqhanChatAddQuestion implements ComponentInterface {
     return (
       <div class="btn-new-wrap">
         <div class="btn-new-ask">
-          <button class="btn-add-question">Задать новый вопрос</button>
+          <button class="btn-add-question">Написать нам</button>
         </div>
       </div>
     );

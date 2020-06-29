@@ -1,4 +1,9 @@
-import { Component, ComponentInterface, h, Prop } from "@stencil/core";
+import {
+  Component,
+  ComponentInterface,
+  h,
+  Prop,
+} from "@stencil/core";
 
 @Component({
   tag: "s-saqhan-chat-user",
@@ -6,11 +11,12 @@ import { Component, ComponentInterface, h, Prop } from "@stencil/core";
   shadow: false,
 })
 export class SSaqhanChatUser implements ComponentInterface {
+  /**
+   * массив с диалогами
+   * */
   @Prop() messages: any;
 
-  // getUser(arr): any[] {
-  //   return arr.map((item) => item.main);
-  // }
+
 
   render() {
     return (
@@ -21,9 +27,13 @@ export class SSaqhanChatUser implements ComponentInterface {
   }
 }
 
+
+/**
+ * компонентная функция
+ * */
 const UserMessage = (props) => {
-  return props.user.map(item => {
-    // return <s-saqhan-chat-user-card user={item}></s-saqhan-chat-user-card>
-    return <dialog-card mess={item} ></dialog-card>
-  })
-}
+  return props.user.map((item) => {
+    // return <chat-user-card user={item}></chat-user-card>
+    return <dialog-card mess={item}></dialog-card>;
+  });
+};

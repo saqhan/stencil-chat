@@ -1,11 +1,11 @@
 import {Component, ComponentInterface, Event, EventEmitter, h, Prop} from "@stencil/core";
 
 @Component({
-  tag: "s-saqhan-chat-user-card",
-  styleUrl: "s-saqhan-chat-user-card.css",
+  tag: "chat-user-card",
+  styleUrl: "chat-user-card.css",
   shadow: false,
 })
-export class SSaqhanChatUserCard implements ComponentInterface {
+export class ChatUserCard implements ComponentInterface {
 
   @Prop() user:any;
   @Event() selectPersonal: EventEmitter;

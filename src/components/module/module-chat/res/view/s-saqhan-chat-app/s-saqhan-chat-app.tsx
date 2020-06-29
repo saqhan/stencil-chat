@@ -15,10 +15,6 @@ import {
 })
 export class SSaqhanChatApp implements ComponentInterface {
   /**
-   * Массив данных для главного пользователя (админа)
-   **/
-  @Prop() mainUser: any;
-  /**
    * Массив данных для обычных пользователей
    * */
   @Prop() messages: any;
@@ -50,6 +46,11 @@ export class SSaqhanChatApp implements ComponentInterface {
    * Клик по кнопке в чате
    * */
   @Event() clickOnSearchChat: EventEmitter;
+
+  /**
+   * Клик по кнопке в чате
+   * */
+  @Event() clickToLink: EventEmitter;
 
   render() {
     return (
@@ -111,6 +112,11 @@ export class SSaqhanChatApp implements ComponentInterface {
    * */
   public onSelectFiles() {
     return (this.showContent = "files");
-
+  }
+  /**
+   * Метод для выбора раздела файлов
+   * */
+  public onClickToLink({detail}) {
+    return console.log(detail);
   }
 }

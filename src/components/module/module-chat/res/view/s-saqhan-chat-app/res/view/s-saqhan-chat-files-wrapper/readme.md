@@ -13,8 +13,8 @@
 
 ### Depends on
 
-- [s-saqhan-chat-form-search-files](./res/view/s-saqhan-chat-form-search-files)
-- [s-saqhan-chat-files](./res/view/s-saqhan-chat-files)
+- [s-saqhan-chat-form-search-files](res/view/s-saqhan-chat-form-search-files)
+- [s-saqhan-chat-files](res/view/s-saqhan-chat-files)
 
 ### Graph
 ```mermaid

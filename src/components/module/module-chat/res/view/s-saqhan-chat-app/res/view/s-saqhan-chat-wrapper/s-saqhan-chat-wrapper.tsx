@@ -18,6 +18,7 @@ export class SSaqhanChatWrapper implements ComponentInterface {
   @Event() selectPersonal: EventEmitter;
   @Event() selectUsers: EventEmitter;
   @Event() selectFiles: EventEmitter;
+  @Event() clickToLink: EventEmitter;
   @Prop() messages: any;
   @Prop() showContent: string;
 

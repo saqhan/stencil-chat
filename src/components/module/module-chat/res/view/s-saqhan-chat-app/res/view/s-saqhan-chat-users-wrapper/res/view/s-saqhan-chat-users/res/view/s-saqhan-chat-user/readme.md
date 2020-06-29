@@ -20,7 +20,7 @@
 
 ### Depends on
 
-- [s-saqhan-chat-user-card](./res/view/s-saqhan-chat-user-card)
+- [s-saqhan-chat-user-card](res/view/s-saqhan-chat-user-card)
 
 ### Graph
 ```mermaid
