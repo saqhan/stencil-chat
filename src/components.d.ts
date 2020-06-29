@@ -540,6 +540,10 @@ declare namespace LocalJSX {
     interface SSaqhanChatFiles {
     }
     interface SSaqhanChatFilesWrapper {
+        /**
+          * click to link
+         */
+        "onClickToLink"?: (event: CustomEvent<any>) => void;
     }
     interface SSaqhanChatFormSearch {
         /**
@@ -552,7 +556,7 @@ declare namespace LocalJSX {
         "onSelectFiles"?: (event: CustomEvent<any>) => void;
     }
     interface SSaqhanChatFormSearchFiles {
-        "onSelectUsers"?: (event: CustomEvent<any>) => void;
+        "onClickToLink"?: (event: CustomEvent<any>) => void;
     }
     interface SSaqhanChatPersonal {
         "onSelectUsers"?: (event: CustomEvent<any>) => void;

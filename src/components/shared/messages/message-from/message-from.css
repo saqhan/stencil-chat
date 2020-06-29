@@ -142,12 +142,32 @@ _________________________________
 }
 
 @media (max-width: 414px) {
-  .from-mess-wrapper .mess-img {
-    max-width: 60%;
-    min-width: inherit;
+  .from-mess-wrapper .mess-img, .to-me-mess-wrapper .mess-img {
+    min-width: 230px;
   }
   .mess-img .check {
     left: 90%;
 
   }
+  .from-mess-wrapper .from-mess, .to-me-mess-wrapper .from-mess {
+    max-width: 230px;
+  }
+
+}
+
+@media (max-width: 320px) {
+  .from-mess-wrapper .mess-img, .to-me-mess-wrapper .mess-img {
+    min-width: 200px;
+  }
+  .mess-img .check {
+    left: 90%;
+
+  }
+  .from-mess-wrapper .from-mess, .to-me-mess-wrapper .from-mess {
+    max-width: 200px;
+  }
+  .info-wrapper {
+    min-width: 30px;
+  }
+
 }

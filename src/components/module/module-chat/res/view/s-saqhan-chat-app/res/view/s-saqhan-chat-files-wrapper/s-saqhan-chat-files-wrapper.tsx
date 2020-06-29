@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, h } from '@stencil/core';
+import {Component, ComponentInterface, EventEmitter, Event, h} from '@stencil/core';
 
 @Component({
   tag: 's-saqhan-chat-files-wrapper',
@@ -6,6 +6,11 @@ import { Component, ComponentInterface, h } from '@stencil/core';
   shadow: false,
 })
 export class SSaqhanChatFilesWrapper implements ComponentInterface {
+
+  /**
+   * click to link
+   * */
+  @Event() clickToLink: EventEmitter;
 
   render() {
     return (

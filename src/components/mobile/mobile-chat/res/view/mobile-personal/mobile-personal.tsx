@@ -6,9 +6,10 @@ import {
   h,
   Prop,
 } from "@stencil/core";
-import {Message, MessageDirectionEnum} from "../../../../../shared/interface/common.interface";
-;
-
+import {
+  Message,
+  MessageDirectionEnum,
+} from "../../../../../shared/interface/common.interface";
 @Component({
   tag: "mobile-personal",
   styleUrl: "mobile-personal.css",
@@ -43,14 +44,6 @@ export class MobilePersonal implements ComponentInterface {
               }
             >
               {this.getNameUser()}
-
-              {/*{this.messageMock*/}
-              {/*  .map((item) =>*/}
-              {/*    item.direction === MessageDirectionEnum.toMe*/}
-              {/*      ? item.sender.name*/}
-              {/*      : "no name"*/}
-              {/*  )*/}
-              {/*  .slice(0, 1)}*/}
             </span>
             <span
               class="custom-link"
@@ -78,7 +71,10 @@ export class MobilePersonal implements ComponentInterface {
           </div>
         </div>
         <div class="personal-message">
-          {this.createMessagesElements(this.messageMock)}
+          {this.messageMock.map(message => {
+            return <message-from message={message}></message-from>;
+          })
+          }
         </div>
         <personal-footer></personal-footer>
       </div>

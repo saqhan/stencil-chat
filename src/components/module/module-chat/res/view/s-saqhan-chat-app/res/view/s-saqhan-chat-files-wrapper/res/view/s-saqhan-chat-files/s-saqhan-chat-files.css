@@ -2,7 +2,10 @@
   height: 65vh;
   padding: 0px 10px;
 }
-
+.block-input {
+  width: 80%;
+  display: flex;
+}
 .block-file {
   cursor: pointer;
 }

@@ -12,13 +12,13 @@ import {
   shadow: false,
 })
 export class SSaqhanChatFormSearchFiles implements ComponentInterface {
-  @Event() selectUsers: EventEmitter;
+  @Event() clickToLink: EventEmitter;
 
   render() {
     return (
       <div class="header-wrapper">
         <div class=" chat-files">
-          <div class="btn-back" onClick={() => this.selectUsers.emit()}>
+          <div class="btn-back" onClick={() => this.clickToLink.emit({place: 'showDialogs' })}>
             <span>
               <i class="fas fa-chevron-left"></i>
             </span>
