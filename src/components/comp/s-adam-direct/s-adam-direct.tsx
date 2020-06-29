@@ -1,5 +1,5 @@
 import {Component, ComponentInterface, EventEmitter, h, Prop, Event} from '@stencil/core';
-import {Message, MessageDirectionEnum} from "./res/interface/common.interface";
+import {Message} from "./res/interface/common.interface";
 
 @Component({
   tag: 's-adam-direct',
@@ -40,19 +40,11 @@ export class SAdamDirect implements ComponentInterface {
         </div>
         <div class="chat-messages">
           {this.message.map(message => {
-            switch (message.direction) {
-              case MessageDirectionEnum.toMe:
-                return <mess-to-me message={message}></mess-to-me>;
-              case MessageDirectionEnum.fromMe:
-                return <mess-from-me message={message}></mess-from-me>;
-              case MessageDirectionEnum.center:
-                return <div>Today</div>
-            }
+              return <message-from message={message}></message-from>;
           })
           }
         </div>
         <personal-footer></personal-footer>
-
       </div>
 
     );

@@ -36,6 +36,16 @@ export namespace Components {
          */
         "message": any;
     }
+    interface MessageFrom {
+        /**
+          * Принимаем сообщения для пользователя
+         */
+        "message": any;
+    }
+    interface MessageText {
+        "createSendTime": any;
+        "message": any;
+    }
     interface MobileChat {
     }
     interface MobileDialogs {
@@ -165,6 +175,18 @@ declare global {
     var HTMLMessToMeElement: {
         prototype: HTMLMessToMeElement;
         new (): HTMLMessToMeElement;
+    };
+    interface HTMLMessageFromElement extends Components.MessageFrom, HTMLStencilElement {
+    }
+    var HTMLMessageFromElement: {
+        prototype: HTMLMessageFromElement;
+        new (): HTMLMessageFromElement;
+    };
+    interface HTMLMessageTextElement extends Components.MessageText, HTMLStencilElement {
+    }
+    var HTMLMessageTextElement: {
+        prototype: HTMLMessageTextElement;
+        new (): HTMLMessageTextElement;
     };
     interface HTMLMobileChatElement extends Components.MobileChat, HTMLStencilElement {
     }
@@ -327,6 +349,8 @@ declare global {
         "dialog-card": HTMLDialogCardElement;
         "mess-from-me": HTMLMessFromMeElement;
         "mess-to-me": HTMLMessToMeElement;
+        "message-from": HTMLMessageFromElement;
+        "message-text": HTMLMessageTextElement;
         "mobile-chat": HTMLMobileChatElement;
         "mobile-dialogs": HTMLMobileDialogsElement;
         "mobile-personal": HTMLMobilePersonalElement;
@@ -384,6 +408,16 @@ declare namespace LocalJSX {
         /**
           * Принимаем сообщения от пользователя
          */
+        "message"?: any;
+    }
+    interface MessageFrom {
+        /**
+          * Принимаем сообщения для пользователя
+         */
+        "message"?: any;
+    }
+    interface MessageText {
+        "createSendTime"?: any;
         "message"?: any;
     }
     interface MobileChat {
@@ -568,6 +602,8 @@ declare namespace LocalJSX {
         "dialog-card": DialogCard;
         "mess-from-me": MessFromMe;
         "mess-to-me": MessToMe;
+        "message-from": MessageFrom;
+        "message-text": MessageText;
         "mobile-chat": MobileChat;
         "mobile-dialogs": MobileDialogs;
         "mobile-personal": MobilePersonal;
@@ -604,6 +640,8 @@ declare module "@stencil/core" {
             "dialog-card": LocalJSX.DialogCard & JSXBase.HTMLAttributes<HTMLDialogCardElement>;
             "mess-from-me": LocalJSX.MessFromMe & JSXBase.HTMLAttributes<HTMLMessFromMeElement>;
             "mess-to-me": LocalJSX.MessToMe & JSXBase.HTMLAttributes<HTMLMessToMeElement>;
+            "message-from": LocalJSX.MessageFrom & JSXBase.HTMLAttributes<HTMLMessageFromElement>;
+            "message-text": LocalJSX.MessageText & JSXBase.HTMLAttributes<HTMLMessageTextElement>;
             "mobile-chat": LocalJSX.MobileChat & JSXBase.HTMLAttributes<HTMLMobileChatElement>;
             "mobile-dialogs": LocalJSX.MobileDialogs & JSXBase.HTMLAttributes<HTMLMobileDialogsElement>;
             "mobile-personal": LocalJSX.MobilePersonal & JSXBase.HTMLAttributes<HTMLMobilePersonalElement>;
