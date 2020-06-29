@@ -20,7 +20,7 @@ export class MessageText implements ComponentInterface {
         </div>
         <div class="info-wrapper">
               <span class="personal-mess-date">
-
+                  15:40
               </span>
           <span class="check">
                 <i class="fa fa-check-double"></i>
