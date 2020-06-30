@@ -11,7 +11,10 @@ export class MessageImg implements ComponentInterface {
    * Принимаем сообщения для пользователя
    * */
   @Prop() message: any;
-
+  /**
+   * Проверка статуса доставки сообщения
+   * */
+  @Prop() checkSendMess: any;
   render() {
     return (
       <div
@@ -20,12 +23,7 @@ export class MessageImg implements ComponentInterface {
       >
         {
           this.message.direction === MessageDirectionEnum.fromMe
-          ?
-          <span class="check">
-            <i class="fa fa-check-double"></i>
-          </span>
-          :
-          " "
+          ? this.checkSendMess :  ''
         }
       </div>
     );
