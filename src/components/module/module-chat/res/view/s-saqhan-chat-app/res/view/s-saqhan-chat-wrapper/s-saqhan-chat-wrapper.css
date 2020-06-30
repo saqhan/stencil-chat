@@ -1,10 +1,14 @@
 .wrapper-chat {
   box-shadow: 0 0 10px 1px #828282;
   border-radius: 5px;
-  margin-bottom: 10px;
   width: 400px;
+  overflow: hidden;
   height: calc(100vh - 135px);
   background-color: #fff;
+}
+
+.content-chat {
+
 }
 .header-chat {
   background-color: #ececec;

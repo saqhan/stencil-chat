@@ -24,6 +24,7 @@ export class MessageFrom implements ComponentInterface {
    * @param array
    */
   public messageFrom(array) {
+
     switch (array.direction) {
       case MessageDirectionEnum.fromMe:
         return (

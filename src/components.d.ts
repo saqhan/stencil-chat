@@ -125,9 +125,13 @@ export namespace Components {
     }
     interface SSaqhanChatApp {
         /**
-          * Массив данных для обычных пользователей
+          * Массив данных для диалогов
          */
         "messages": any;
+        /**
+          * Массив данных для личного чата
+         */
+        "personalMessage": any;
     }
     interface SSaqhanChatFiles {
     }
@@ -138,27 +142,41 @@ export namespace Components {
     interface SSaqhanChatFormSearchFiles {
     }
     interface SSaqhanChatPersonal {
+        "personalMessage": any;
     }
     interface SSaqhanChatUser {
         /**
           * массив с диалогами
          */
         "messages": any;
+        /**
+          * Массив данных с личным чатом
+         */
+        "personalMessage": any;
     }
     interface SSaqhanChatUsers {
         /**
           * Массив данных с диалогами
          */
         "messages": any;
+        /**
+          * Массив данных с личным чатом
+         */
+        "personalMessage": any;
     }
     interface SSaqhanChatUsersWrapper {
         /**
           * Массив данных с диалогами
          */
         "messages": any;
+        /**
+          * Массив данных с личным чатом
+         */
+        "personalMessage": any;
     }
     interface SSaqhanChatWrapper {
         "messages": any;
+        "personalMessage": any;
         "showContent": string;
     }
     interface UserProfile {
@@ -539,17 +557,13 @@ declare namespace LocalJSX {
     }
     interface SSaqhanChatApp {
         /**
-          * Массив данных для обычных пользователей
+          * Массив данных для диалогов
          */
         "messages"?: any;
         /**
           * Клик по кнопке в чате
          */
         "onClickOnSearchChat"?: (event: CustomEvent<any>) => void;
-        /**
-          * Клик по кнопке в чате
-         */
-        "onClickToLink"?: (event: CustomEvent<any>) => void;
         /**
           * Переменная для закрытия модального чата
          */
@@ -566,6 +580,10 @@ declare namespace LocalJSX {
           * Открываем диалоги
          */
         "onSelectUsers"?: (event: CustomEvent<any>) => void;
+        /**
+          * Массив данных для личного чата
+         */
+        "personalMessage"?: any;
     }
     interface SSaqhanChatFiles {
     }
@@ -583,39 +601,52 @@ declare namespace LocalJSX {
         /**
           * Клик по кнопке files
          */
-        "onSelectFiles"?: (event: CustomEvent<any>) => void;
+        "onClickToLink"?: (event: CustomEvent<any>) => void;
     }
     interface SSaqhanChatFormSearchFiles {
         "onClickToLink"?: (event: CustomEvent<any>) => void;
     }
     interface SSaqhanChatPersonal {
         "onSelectUsers"?: (event: CustomEvent<any>) => void;
+        "personalMessage"?: any;
     }
     interface SSaqhanChatUser {
         /**
           * массив с диалогами
          */
         "messages"?: any;
+        /**
+          * Массив данных с личным чатом
+         */
+        "personalMessage"?: any;
     }
     interface SSaqhanChatUsers {
         /**
           * Массив данных с диалогами
          */
         "messages"?: any;
+        /**
+          * Массив данных с личным чатом
+         */
+        "personalMessage"?: any;
     }
     interface SSaqhanChatUsersWrapper {
         /**
           * Массив данных с диалогами
          */
         "messages"?: any;
+        /**
+          * Массив данных с личным чатом
+         */
+        "personalMessage"?: any;
     }
     interface SSaqhanChatWrapper {
         "messages"?: any;
         "onClickToLink"?: (event: CustomEvent<any>) => void;
         "onClose"?: (event: CustomEvent<any>) => void;
-        "onSelectFiles"?: (event: CustomEvent<any>) => void;
         "onSelectPersonal"?: (event: CustomEvent<any>) => void;
         "onSelectUsers"?: (event: CustomEvent<any>) => void;
+        "personalMessage"?: any;
         "showContent"?: string;
     }
     interface UserProfile {

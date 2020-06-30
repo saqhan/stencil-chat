@@ -15,7 +15,7 @@ export class SSaqhanChatFormSearch implements ComponentInterface {
   /**
    * Клик по кнопке files
    * */
-  @Event() selectFiles: EventEmitter;
+  @Event() clickToLink: EventEmitter;
   /**
    * Клик по кнопке в чате
    * */
@@ -33,7 +33,7 @@ export class SSaqhanChatFormSearch implements ComponentInterface {
               onInput={(event)=> this.clickOnSearchChat.emit(event)}
             />
           </div>
-          <div class="block-file" onClick={() => this.selectFiles.emit()} >
+          <div class="block-file" onClick={() => this.clickToLink.emit({place: 'showFile'})} >
             <i class="far fa-file-alt"></i>
           </div>
         </div>
