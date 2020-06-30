@@ -135,9 +135,15 @@ export namespace Components {
         "messages": any;
     }
     interface SSaqhanChatUsers {
+        /**
+          * Массив данных с диалогами
+         */
         "messages": any;
     }
     interface SSaqhanChatUsersWrapper {
+        /**
+          * Массив данных с диалогами
+         */
         "messages": any;
     }
     interface SSaqhanChatWrapper {
@@ -570,9 +576,15 @@ declare namespace LocalJSX {
         "messages"?: any;
     }
     interface SSaqhanChatUsers {
+        /**
+          * Массив данных с диалогами
+         */
         "messages"?: any;
     }
     interface SSaqhanChatUsersWrapper {
+        /**
+          * Массив данных с диалогами
+         */
         "messages"?: any;
     }
     interface SSaqhanChatWrapper {

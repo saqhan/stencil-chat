@@ -33,7 +33,6 @@ export class SSaqhanChatUser implements ComponentInterface {
  * */
 const UserMessage = (props) => {
   return props.user.map((item) => {
-    // return <chat-user-card user={item}></chat-user-card>
     return <dialog-card mess={item}></dialog-card>;
   });
 };

@@ -6,12 +6,14 @@ import { Component, ComponentInterface, h, Prop } from "@stencil/core";
   shadow: false,
 })
 export class SSaqhanChatUsers implements ComponentInterface {
-  @Prop() messages: any;
+  /**
+   * Массив данных с диалогами
+   * */
+  @Prop() messages:any;
 
   render() {
     return (
       <div class="user-wrapper">
-        {/*<s-saqhan-chat-main-user mainUser={this.mainUser} ></s-saqhan-chat-main-user>*/}
         <s-saqhan-chat-user messages={this.messages}></s-saqhan-chat-user>
       </div>
     );

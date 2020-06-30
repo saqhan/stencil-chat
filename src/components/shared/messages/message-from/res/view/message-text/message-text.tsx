@@ -21,19 +21,16 @@ export class MessageText implements ComponentInterface {
           <span class="message-text">{this.message.content}</span>
         </div>
         <div class="info-wrapper">
-          <span class="personal-mess-date">15:42</span>
-          {
-            this.message.direction === MessageDirectionEnum.fromMe
-            ?
+          <span class="personal-mess-date">{this.createSendTime}</span>
+          {this.message.direction === MessageDirectionEnum.fromMe ? (
             <span class="check">
               <i class="fa fa-check-double"></i>
             </span>
-            :
+          ) : (
             " "
-          }
+          )}
         </div>
       </div>
     );
   }
-
 }

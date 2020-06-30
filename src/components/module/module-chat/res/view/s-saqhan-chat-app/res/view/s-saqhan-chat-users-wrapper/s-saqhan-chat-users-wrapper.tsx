@@ -1,6 +1,4 @@
 import {Component, ComponentInterface, h, Prop} from '@stencil/core';
-// import {messages, mainUser} from "../../../../../../utils/mock";
-// import {MessageMock} from "../../../../../../utils/mock";
 
 @Component({
   tag: 's-saqhan-chat-users-wrapper',
@@ -9,9 +7,11 @@ import {Component, ComponentInterface, h, Prop} from '@stencil/core';
 })
 export class SSaqhanChatUsersWrapper implements ComponentInterface {
 
-
+  /**
+   * Массив данных с диалогами
+   * */
   @Prop() messages:any;
-  // @Prop() mainUser:any;
+
 
   render() {
     return (
