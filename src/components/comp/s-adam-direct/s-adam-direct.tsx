@@ -1,16 +1,23 @@
-import {Component, ComponentInterface, EventEmitter, h, Prop, Event} from '@stencil/core';
-import {Message, MessageDirectionEnum} from "./res/interface/common.interface";
+import {
+  Component,
+  ComponentInterface,
+  EventEmitter,
+  h,
+  Prop,
+  Event,
+} from "@stencil/core";
+import { Message } from "../../shared/interface/common.interface";
 
 @Component({
-  tag: 's-adam-direct',
-  styleUrl: 's-adam-direct.css',
+  tag: "s-adam-direct",
+  styleUrl: "s-adam-direct.css",
   shadow: false,
 })
 export class SAdamDirect implements ComponentInterface {
   /**
    * Личный диалог
    */
-  @Prop() message: Message[]=[];
+  @Prop() message: Message[] = [];
 
   /**
    * клик по имени юзера в личной переписке
@@ -30,32 +37,42 @@ export class SAdamDirect implements ComponentInterface {
             <i class="fas fa-search hover-link"></i>
           </div>
           <div class="user">
-            <div class="user-name" onClick={(item) => this.clickOnUsername.emit({place: 'userName', item}) }>Tim Ostin</div>
-            <div class="online-marker">
+            <div
+              class="user-name"
+              onClick={(item) =>
+                this.clickOnUsername.emit({ place: "userName", item })
+              }
+            >
+              {this.getNameUser()}
             </div>
+            <div class="online-marker"></div>
           </div>
           <div class="settings">
             <i class="fas fa-cog hover-link"></i>
           </div>
         </div>
         <div class="chat-messages">
-          {this.message.map(message => {
-            switch (message.direction) {
-              case MessageDirectionEnum.toMe:
-                return <mess-to-me message={message}></mess-to-me>;
-              case MessageDirectionEnum.fromMe:
-                return <mess-from-me message={message}></mess-from-me>;
-              case MessageDirectionEnum.center:
-                return <div>Today</div>
-            }
-          })
-          }
+          {this.message.map((message) => {
+            return <message-from message={message}></message-from>;
+          })}
         </div>
         <personal-footer></personal-footer>
-
       </div>
-
     );
   }
 
+  /**
+   * get name user
+   * */
+  public getNameUser() {
+    let name = "";
+
+    this.message.forEach((item) => {
+      if (name.indexOf(item.sender.name) === -1) {
+        name = item.sender.name;
+      }
+    });
+
+    return name;
+  }
 }

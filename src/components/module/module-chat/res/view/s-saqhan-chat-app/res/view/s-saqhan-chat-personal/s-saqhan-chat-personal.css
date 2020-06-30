@@ -1,0 +1,177 @@
+
+.header-chat a {
+  position: relative;
+  right: -25%;
+  display: block;
+  top: 3px;
+  padding-bottom: 3px;
+  border-radius: 50%;
+  width: 25px;
+}
+.header-chat a i {
+  font-size: 25px;
+  color: #ccc;
+}
+
+.header-chat a i:hover {
+  color: #72b94d;
+}
+
+.personal-messages .user {
+  align-items: center;
+}
+
+.personal-messages {
+  width: 100%;
+}
+
+.personal-messages .chat-user-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px;
+  padding-left: 15px;
+}
+
+.personal-messages .chat-user-main .user-img {
+  width: 50px;
+  padding-right: 5px;
+}
+
+
+.name {
+  font-weight: 500;
+}
+
+.menu-personal i {
+  color: #ccc;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.btn-back::after {
+  content: "1";
+  background-color: #c73f45;
+  padding: 1px 6px;
+  color: #fff;
+  font-size: 10px;
+  border-radius: 30px;
+  position: relative;
+  right: 7px;
+  top: -15px;
+  z-index: 999;
+}
+.btn-back {
+  cursor: pointer;
+}
+.btn-back span i {
+  color: #a9a9a9;
+  font-size: 15px;
+}
+
+.personal-mess,
+.admin-mess {
+  padding: 0 15px;
+  font-size: 14px;
+}
+
+.personal-mess {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.mess-user {
+  padding: 10px;
+  background-color: #feffc5;
+  border-radius: 3px;
+  width: 80%;
+  margin: 5px 0;
+}
+
+.mess-admin {
+  background-color: #ececec;
+  width: 80%;
+  padding: 10px;
+  border-radius: 3px;
+  margin: 10px 0;
+}
+
+.position-admin span {
+  font-size: 12px;
+  color: #8e8e8e;
+  font-weight: 500;
+}
+
+.mess-date {
+  font-size: 11px;
+  color: #8e8e8e;
+  margin-left: 5px;
+}
+
+.mess-date::before {
+  content: "\f058";
+  font-family: "Font Awesome 5 Free";
+  color: #9a9ab5;
+  font-size: 10px;
+  margin-right: 3px;
+}
+.messages-block {
+  height: 66vh;
+}
+
+.messages-block {
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+@media (max-width: 414px) {
+  .messages-block {
+    height: 74vh;
+  }
+}
+
+@media (max-width: 375px) {
+  .messages-block {
+    height: 72vh;
+  }
+}
+@media (max-width: 320px) {
+  .wrapper-chat {
+    width: 100%;
+    height: 100vh;
+  }
+  .messages-block {
+    height: 67vh;
+  }
+}
+
+@media (height: 1366px) and (width: 1024px ) {
+  .messages-block {
+    height: 72vh;
+  }
+}
+
+/*@media (max-height: 1024px) {*/
+/*  .messages-block {*/
+/*    height: 68vh;*/
+/*  }*/
+/*}*/
+
+
+/*@media (max-height: 812px) {*/
+/*  .messages-block {*/
+/*    height: 77vh;*/
+/*  }*/
+/*}*/
+/*@media (max-height: 667px) {*/
+/*  .messages-block {*/
+/*    height: 72vh;*/
+/*  }*/
+/*}*/
+
+/*@media (max-height: 568px) {*/
+/*  .messages-block {*/
+/*    height: 67vh;*/
+/*  }*/
+/*}*/
+

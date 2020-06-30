@@ -1,0 +1,50 @@
+.block-file {
+  cursor: pointer;
+}
+.chat-files {
+  text-align: center;
+  padding: 10px 0px;
+  border-bottom: 1px solid #ececec;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.chat-files .row {
+  align-items: center;
+}
+
+.input-search-files {
+  width: 100%;
+  border-radius: 3px;
+  border: none;
+  background-color: #ececec;
+  padding: 10px 40px;
+  outline: none;
+}
+
+.chat-files .block-input::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 400;
+  content: "\f274";
+  position: relative;
+  left: 20px;
+  z-index: 999;
+  color: #5a5a5a;
+}
+
+.block-file i {
+  font-size: 18px;
+  color: #5a5a5a;
+}
+
+@media (max-width: 375px) {
+  .chat-files {
+  }
+  .input-search {
+    width: auto;
+    padding: 10px 30px;
+  }
+}
+
+
