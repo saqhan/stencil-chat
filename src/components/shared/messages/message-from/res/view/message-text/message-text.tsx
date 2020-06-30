@@ -12,6 +12,8 @@ export class MessageText implements ComponentInterface {
    * */
   @Prop() message: any;
 
+  @Prop() createSendTime: any;
+
   render() {
     return (
       <div class="from-mess">
@@ -20,16 +22,18 @@ export class MessageText implements ComponentInterface {
         </div>
         <div class="info-wrapper">
           <span class="personal-mess-date">15:42</span>
-
-          {this.message.direction === MessageDirectionEnum.fromMe ? (
+          {
+            this.message.direction === MessageDirectionEnum.fromMe
+            ?
             <span class="check">
               <i class="fa fa-check-double"></i>
             </span>
-          ) : (
+            :
             " "
-          )}
+          }
         </div>
       </div>
     );
   }
+
 }

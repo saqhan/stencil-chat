@@ -36,6 +36,7 @@ export namespace Components {
         "message": any;
     }
     interface MessageText {
+        "createSendTime": any;
         /**
           * Принимаем сообщения для пользователя
          */
@@ -399,6 +400,7 @@ declare namespace LocalJSX {
         "message"?: any;
     }
     interface MessageText {
+        "createSendTime"?: any;
         /**
           * Принимаем сообщения для пользователя
          */

@@ -18,13 +18,15 @@ export class MessageImg implements ComponentInterface {
         class="mess-img"
         style={{ backgroundImage: `url(${this.message.content})` }}
       >
-        {this.message.direction === MessageDirectionEnum.fromMe ? (
+        {
+          this.message.direction === MessageDirectionEnum.fromMe
+          ?
           <span class="check">
             <i class="fa fa-check-double"></i>
           </span>
-        ) : (
+          :
           " "
-        )}
+        }
       </div>
     );
   }
