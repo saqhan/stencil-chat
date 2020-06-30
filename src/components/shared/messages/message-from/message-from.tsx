@@ -58,14 +58,19 @@ export class MessageFrom implements ComponentInterface {
   public createType(array) {
     switch (array.type) {
       case MessageTypeEnum.text:
-        return <message-text createSendTime={this.createSendTime(array.time.created)} message={array}></message-text>;
+        return (
+          <message-text
+            createSendTime={this.createSendTime(array.time.created)}
+            message={array}
+          ></message-text>
+        );
       case MessageTypeEnum.image:
-        return <message-img message={array}></message-img>
+        return <message-img message={array}></message-img>;
     }
   }
 
   /**
-   * Метод вывода времени отправки сообщения
+   * Метод вывода времени отправки
    * */
   public createSendTime(array) {
     const timeNow = array;
