@@ -1,9 +1,9 @@
-import {Component, ComponentInterface, h, State} from '@stencil/core';
+import { Component, ComponentInterface, h, State } from "@stencil/core";
 import { dialogs } from "../../../utils/mock";
 
 @Component({
-  tag: 'module-chat',
-  styleUrl: 'module-chat.css',
+  tag: "module-chat",
+  styleUrl: "module-chat.css",
   shadow: false,
 })
 export class ModuleChat implements ComponentInterface {
@@ -24,7 +24,7 @@ export class ModuleChat implements ComponentInterface {
   /**
    *  Метод поиска по чату
    * */
-  public clickOnSearchChat({detail}) {
+  public clickOnSearchChat({ detail }) {
     return console.log(detail.data);
   }
   /**

@@ -29,9 +29,10 @@ graph TD;
   s-adam-chat --> s-adam-profile
   s-adam-navigate --> s-adam-nav-item
   s-adam-contacts --> dialog-card
-  s-adam-direct --> mess-to-me
-  s-adam-direct --> mess-from-me
+  s-adam-direct --> message-from
   s-adam-direct --> personal-footer
+  message-from --> message-text
+  message-from --> message-img
   my-component --> s-adam-chat
   style s-adam-chat fill:#f9f,stroke:#333,stroke-width:4px
 ```

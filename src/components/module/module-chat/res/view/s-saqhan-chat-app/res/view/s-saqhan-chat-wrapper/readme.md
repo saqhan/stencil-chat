@@ -9,7 +9,6 @@
 
 | Property      | Attribute      | Description | Type     | Default     |
 | ------------- | -------------- | ----------- | -------- | ----------- |
-| `mainUser`    | `main-user`    |             | `any`    | `undefined` |
 | `messages`    | `messages`     |             | `any`    | `undefined` |
 | `showContent` | `show-content` |             | `string` | `undefined` |
 
@@ -18,6 +17,7 @@
 
 | Event            | Description | Type               |
 | ---------------- | ----------- | ------------------ |
+| `clickToLink`    |             | `CustomEvent<any>` |
 | `close`          |             | `CustomEvent<any>` |
 | `selectFiles`    |             | `CustomEvent<any>` |
 | `selectPersonal` |             | `CustomEvent<any>` |
@@ -46,10 +46,8 @@ graph TD;
   s-saqhan-chat-users-wrapper --> s-saqhan-chat-form-search
   s-saqhan-chat-users-wrapper --> s-saqhan-chat-users
   s-saqhan-chat-users-wrapper --> s-saqhan-chat-add-question
-  s-saqhan-chat-users --> s-saqhan-chat-main-user
   s-saqhan-chat-users --> s-saqhan-chat-user
-  s-saqhan-chat-main-user --> s-saqhan-chat-main-user-card
-  s-saqhan-chat-user --> s-saqhan-chat-user-card
+  s-saqhan-chat-user --> dialog-card
   s-saqhan-chat-files-wrapper --> s-saqhan-chat-form-search-files
   s-saqhan-chat-files-wrapper --> s-saqhan-chat-files
   s-saqhan-chat-app --> s-saqhan-chat-wrapper

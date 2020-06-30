@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property   | Attribute  | Description | Type  | Default     |
-| ---------- | ---------- | ----------- | ----- | ----------- |
-| `messages` | `messages` |             | `any` | `undefined` |
+| Property   | Attribute  | Description        | Type  | Default     |
+| ---------- | ---------- | ------------------ | ----- | ----------- |
+| `messages` | `messages` | массив с диалогами | `any` | `undefined` |
 
 
 ## Dependencies
@@ -20,12 +20,12 @@
 
 ### Depends on
 
-- [s-saqhan-chat-user-card](res/view/s-saqhan-chat-user-card)
+- [dialog-card](../../../../../../../../../../../../../../shared/dialog-card)
 
 ### Graph
 ```mermaid
 graph TD;
-  s-saqhan-chat-user --> s-saqhan-chat-user-card
+  s-saqhan-chat-user --> dialog-card
   s-saqhan-chat-users --> s-saqhan-chat-user
   style s-saqhan-chat-user fill:#f9f,stroke:#333,stroke-width:4px
 ```

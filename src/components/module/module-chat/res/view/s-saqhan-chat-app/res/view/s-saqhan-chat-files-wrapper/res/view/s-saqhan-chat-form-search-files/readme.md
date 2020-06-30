@@ -9,7 +9,7 @@
 
 | Event         | Description | Type               |
 | ------------- | ----------- | ------------------ |
-| `selectUsers` |             | `CustomEvent<any>` |
+| `clickToLink` |             | `CustomEvent<any>` |
 
 
 ## Dependencies
