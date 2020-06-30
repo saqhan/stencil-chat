@@ -31,11 +31,22 @@ export namespace Components {
     }
     interface MessageImg {
         /**
+          * Проверка статуса доставки сообщения
+         */
+        "checkSendMess": any;
+        /**
           * Принимаем сообщения для пользователя
          */
         "message": any;
     }
     interface MessageText {
+        /**
+          * Проверка статуса доставки сообщения
+         */
+        "checkSendMess": any;
+        /**
+          * Получаем время оттправки сообщения
+         */
         "createSendTime": any;
         /**
           * Принимаем сообщения для пользователя
@@ -401,11 +412,22 @@ declare namespace LocalJSX {
     }
     interface MessageImg {
         /**
+          * Проверка статуса доставки сообщения
+         */
+        "checkSendMess"?: any;
+        /**
           * Принимаем сообщения для пользователя
          */
         "message"?: any;
     }
     interface MessageText {
+        /**
+          * Проверка статуса доставки сообщения
+         */
+        "checkSendMess"?: any;
+        /**
+          * Получаем время оттправки сообщения
+         */
         "createSendTime"?: any;
         /**
           * Принимаем сообщения для пользователя

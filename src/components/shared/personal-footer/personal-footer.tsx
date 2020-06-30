@@ -43,7 +43,7 @@ export class PersonalFooter implements ComponentInterface {
     );
   }
   /**
-   * when sending message
+   * when sending message-from
    * */
   public sendingNewMess(e) {
     e.preventDefault();

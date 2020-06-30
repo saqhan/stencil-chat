@@ -58,14 +58,25 @@ export class MessageFrom implements ComponentInterface {
   public createType(array) {
     switch (array.type) {
       case MessageTypeEnum.text:
-        return <message-text createSendTime={this.createSendTime(array.time.created)} message={array}></message-text>;
+        return (
+          <message-text
+            checkSendMess={this.checkSendMess(array)}
+            createSendTime={this.createSendTime(array.time.created)}
+            message={array}
+          ></message-text>
+        );
       case MessageTypeEnum.image:
-        return <message-img message={array}></message-img>
+        return (
+          <message-img
+            checkSendMess={this.checkSendMess(array)}
+            message={array}
+          ></message-img>
+        );
     }
   }
 
   /**
-   * Метод вывода времени отправки сообщения
+   * Метод вывода времени отправки
    * */
   public createSendTime(array) {
     const timeNow = array;
@@ -79,5 +90,29 @@ export class MessageFrom implements ComponentInterface {
     }
 
     return `${hours} : ${minutes}`;
+  }
+  /**
+   * Проверка статуса доставки сообщения
+   * */
+  public checkSendMess(array) {
+    if (array.time.read) {
+      return (
+        <span class="check">
+          <i class="fa fa-check-double"></i>
+        </span>
+      );
+    } else if (array.time.delivery) {
+      return (
+        <span class="check">
+          <i class="fa fa-check"></i>
+        </span>
+      );
+    } else {
+      return (
+        <span class="check">
+          <i class="fa fa-check"></i>
+        </span>
+      );
+    }
   }
 }
