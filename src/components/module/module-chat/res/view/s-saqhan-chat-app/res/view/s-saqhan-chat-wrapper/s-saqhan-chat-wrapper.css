@@ -3,7 +3,7 @@
   border-radius: 5px;
   margin-bottom: 10px;
   width: 400px;
-  height: 85vh;
+  height: calc(100vh - 135px);
   background-color: #fff;
 }
 .header-chat {
