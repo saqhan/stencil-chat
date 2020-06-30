@@ -9,7 +9,7 @@
 
 | Property      | Attribute | Description                  | Type        | Default     |
 | ------------- | --------- | ---------------------------- | ----------- | ----------- |
-| `messageMock` | --        | array data personal messages | `Message[]` | `undefined` |
+| `messageMock` | --        | array data personal messages | `MessageFrom[]` | `undefined` |
 
 
 ## Events
