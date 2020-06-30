@@ -75,13 +75,11 @@ _________________________________
  */
 
 .text-wrapper {
-  width: auto;
+  flex: 1;
 }
 .info-wrapper {
-  width: 45px;
   display: flex;
   text-align: right;
-  justify-content: space-around;
 }
 
 .to-me-mess-wrapper .from-mess {
@@ -100,7 +98,7 @@ _________________________________
 
 .personal-mess-date {
   font-size: 10px;
-  margin-left: 5px;
+  margin-left: 10px;
 }
 
 .user-mess .check {
