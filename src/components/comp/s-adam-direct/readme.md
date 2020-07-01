@@ -9,7 +9,7 @@
 
 | Property  | Attribute | Description   | Type        | Default |
 | --------- | --------- | ------------- | ----------- | ------- |
-| `message` | --        | Личный диалог | `MessageFrom[]` | `[]`    |
+| `message` | --        | Личный диалог | `Message[]` | `[]`    |
 
 
 ## Events

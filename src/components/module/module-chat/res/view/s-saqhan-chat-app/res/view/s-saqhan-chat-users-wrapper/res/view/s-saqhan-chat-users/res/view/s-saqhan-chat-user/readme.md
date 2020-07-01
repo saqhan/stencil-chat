@@ -7,9 +7,10 @@
 
 ## Properties
 
-| Property   | Attribute  | Description        | Type  | Default     |
-| ---------- | ---------- | ------------------ | ----- | ----------- |
-| `messages` | `messages` | массив с диалогами | `any` | `undefined` |
+| Property          | Attribute          | Description                  | Type  | Default     |
+| ----------------- | ------------------ | ---------------------------- | ----- | ----------- |
+| `messages`        | `messages`         | массив с диалогами           | `any` | `undefined` |
+| `personalMessage` | `personal-message` | Массив данных с личным чатом | `any` | `undefined` |
 
 
 ## Dependencies

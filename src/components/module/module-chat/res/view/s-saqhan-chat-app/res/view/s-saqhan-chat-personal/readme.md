@@ -5,6 +5,13 @@
 <!-- Auto Generated Below -->
 
 
+## Properties
+
+| Property          | Attribute          | Description | Type  | Default     |
+| ----------------- | ------------------ | ----------- | ----- | ----------- |
+| `personalMessage` | `personal-message` |             | `any` | `undefined` |
+
+
 ## Events
 
 | Event         | Description | Type               |
@@ -14,10 +21,6 @@
 
 ## Dependencies
 
-### Used by
-
- - [s-saqhan-chat-wrapper](../s-saqhan-chat-wrapper)
-
 ### Depends on
 
 - [s-saqhan-chat-add-question](../s-saqhan-chat-add-question)
@@ -26,7 +29,6 @@
 ```mermaid
 graph TD;
   s-saqhan-chat-personal --> s-saqhan-chat-add-question
-  s-saqhan-chat-wrapper --> s-saqhan-chat-personal
   style s-saqhan-chat-personal fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

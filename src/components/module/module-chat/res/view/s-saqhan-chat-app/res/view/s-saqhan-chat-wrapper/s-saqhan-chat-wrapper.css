@@ -1,6 +1,6 @@
 .wrapper-chat {
   box-shadow: 0 0 10px 1px #828282;
-  border-radius: 5px 0px 30px 30px;
+  border-radius: 5px;
   width: 400px;
   overflow: hidden;
   height: calc(100vh - 135px);
@@ -9,6 +9,10 @@
 
 .content-chat .personal-wrapper .personal-message {
   height: calc(100vh - 370px);
+}
+
+.content-chat .personal-footer .footer-wrapper {
+  border-radius: 10px 10px 5px 5px;
 }
 .header-chat {
   background-color: #ececec;

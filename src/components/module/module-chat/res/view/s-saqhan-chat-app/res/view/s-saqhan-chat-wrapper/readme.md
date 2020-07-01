@@ -7,10 +7,11 @@
 
 ## Properties
 
-| Property      | Attribute      | Description | Type     | Default     |
-| ------------- | -------------- | ----------- | -------- | ----------- |
-| `messages`    | `messages`     |             | `any`    | `undefined` |
-| `showContent` | `show-content` |             | `string` | `undefined` |
+| Property          | Attribute          | Description | Type     | Default     |
+| ----------------- | ------------------ | ----------- | -------- | ----------- |
+| `messages`        | `messages`         |             | `any`    | `undefined` |
+| `personalMessage` | `personal-message` |             | `any`    | `undefined` |
+| `showContent`     | `show-content`     |             | `string` | `undefined` |
 
 
 ## Events
@@ -19,7 +20,6 @@
 | ---------------- | ----------- | ------------------ |
 | `clickToLink`    |             | `CustomEvent<any>` |
 | `close`          |             | `CustomEvent<any>` |
-| `selectFiles`    |             | `CustomEvent<any>` |
 | `selectPersonal` |             | `CustomEvent<any>` |
 | `selectUsers`    |             | `CustomEvent<any>` |
 
@@ -32,17 +32,20 @@
 
 ### Depends on
 
-- [s-saqhan-chat-personal](../s-saqhan-chat-personal)
+- [mobile-personal](../../../../../../../../mobile/mobile-chat/res/view/mobile-personal)
 - [s-saqhan-chat-users-wrapper](../s-saqhan-chat-users-wrapper)
 - [s-saqhan-chat-files-wrapper](../s-saqhan-chat-files-wrapper)
 
 ### Graph
 ```mermaid
 graph TD;
-  s-saqhan-chat-wrapper --> s-saqhan-chat-personal
+  s-saqhan-chat-wrapper --> mobile-personal
   s-saqhan-chat-wrapper --> s-saqhan-chat-users-wrapper
   s-saqhan-chat-wrapper --> s-saqhan-chat-files-wrapper
-  s-saqhan-chat-personal --> s-saqhan-chat-add-question
+  mobile-personal --> message-from
+  mobile-personal --> personal-footer
+  message-from --> message-text
+  message-from --> message-img
   s-saqhan-chat-users-wrapper --> s-saqhan-chat-form-search
   s-saqhan-chat-users-wrapper --> s-saqhan-chat-users
   s-saqhan-chat-users-wrapper --> s-saqhan-chat-add-question
