@@ -61,6 +61,5 @@ export class PersonalFooter implements ComponentInterface {
       return this.iconFooterInput = <i class="fas fa-location-arrow"></i>;
     }
     else this.iconFooterInput =  <i class="fas fa-microphone"></i>;
-    console.log('swithIconInput', e.target.value)
   }
 }
