@@ -47,7 +47,9 @@ export class MessageFrom implements ComponentInterface {
           </div>
         );
       case MessageDirectionEnum.center:
-        return <div>Today</div>;
+        return (
+          <div class='system-message' ><span>{this.checkTypeSystemMessage(this.message.content)}</span></div>
+        )
     }
   }
 
@@ -114,6 +116,17 @@ export class MessageFrom implements ComponentInterface {
           <i class="fa fa-check"></i>
         </span>
       );
+    }
+  }
+  /**
+   * Проверка на тип полученного системного сообщения
+   * */
+
+  public checkTypeSystemMessage(message){
+    if ((typeof(message) === "string")) {
+      return 'text'
+    } else if ((typeof(message) === "number")) {
+      return message;
     }
   }
 }

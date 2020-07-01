@@ -9,7 +9,7 @@
 }
 
 .from-mess-wrapper {
-  margin: 15px 0;
+  margin: 15px 10px;
   display: flex;
   justify-content: flex-end;
 }
@@ -51,7 +51,7 @@
   to me
  */
 .to-me-mess-wrapper {
-  margin: 15px 0;
+  margin: 15px 10px;
 }
 
 .to-me-mess-wrap {
@@ -130,6 +130,24 @@ _________________________________
   color: #fff;
 }
 
+/*system-message*/
+
+.system-message {
+  text-align: center;
+  font-size: 14px;
+  color: #969696;
+  margin: 25px 0px;
+  border-bottom: 1px solid #ccc;
+}
+.system-message span {
+  border: 1px solid #969696;
+  padding: 5px 8px;
+  border-radius: 15px;
+  background-color: #fff;
+}
+
+/*system-message*/
+
 @media (max-width: 414px) {
   .from-mess-wrapper .mess-img,
   .to-me-mess-wrapper .mess-img {
@@ -156,5 +174,4 @@ _________________________________
   .to-me-mess-wrapper .from-mess {
     max-width: 200px;
   }
-
 }
