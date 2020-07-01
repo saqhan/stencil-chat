@@ -2,7 +2,7 @@ export interface Message {
   /**
    * содержимое сообщения
    * */
-  content: any;
+  content: any | Date;
 
   /**
    * тип сообщения
@@ -88,7 +88,12 @@ export enum MessageTypeEnum {
   /**
    * файл из устройства отправителя
    * */
-  file = 'file'
+  file = 'file',
+
+  /**
+   * timestamp
+   * */
+  date = 'date'
 }
 
 

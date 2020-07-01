@@ -1,4 +1,4 @@
-import {MessageDirectionEnum, MessageTypeEnum} from "../components/shared/interface/common.interface";
+import {Message, MessageDirectionEnum, MessageTypeEnum} from "../components/shared/interface/common.interface";
 
 
 export const dialogs = [
@@ -133,7 +133,7 @@ export const categories = [
   },
 ];
 
-export const MessageMock = [
+export const MessageMock: Message[] = [
   {
     content: "Привет, как дела?",
     sender: {
@@ -163,6 +163,20 @@ export const MessageMock = [
     },
   },
   {
+    content: "Олег подключился к чату",
+    sender: {
+      uid: null,
+      icon: null,
+      name: null,
+      phone: null,
+    },
+    type: MessageTypeEnum.text,
+    direction: MessageDirectionEnum.center,
+    time: {
+      created: new Date(),
+    },
+  },
+  {
     content: "https://via.placeholder.com/500",
     sender: {
       uid: "test-id-2",
@@ -176,6 +190,20 @@ export const MessageMock = [
       created: new Date(),
       delivery: new Date(),
       read: new Date(),
+    },
+  },
+  {
+    content: 1593606947701,
+    sender: {
+      uid: null,
+      icon: null,
+      name: null,
+      phone: null,
+    },
+    type: MessageTypeEnum.date,
+    direction: MessageDirectionEnum.center,
+    time: {
+      created: new Date(),
     },
   },
   {
