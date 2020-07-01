@@ -36,7 +36,7 @@ export class DialogCard implements ComponentInterface {
             </div>
             <div class="data-message">
               <div class="date"> {this.createSendTime(this.mess.time.created)}</div>
-              {/*<div class="new-message">Yesterday</div>*/}
+              {/*<div class="new-message-from">Yesterday</div>*/}
               <span class="add-new-message">1</span>
             </div>
           </div>

@@ -15,9 +15,13 @@ import {
 })
 export class SSaqhanChatApp implements ComponentInterface {
   /**
-   * Массив данных для обычных пользователей
+   * Массив данных для диалогов
    * */
   @Prop() messages: any;
+  /**
+   * Массив данных для личного чата
+   * */
+  @Prop() personalMessage: any;
   /**
    * Перменная для включения/отключения показа чата в развернутом виде
    * */
@@ -47,11 +51,6 @@ export class SSaqhanChatApp implements ComponentInterface {
    * */
   @Event() clickOnSearchChat: EventEmitter;
 
-  /**
-   * Клик по кнопке в чате
-   * */
-  @Event() clickToLink: EventEmitter;
-
   render() {
     return (
       <div class="wrapper-modal">
@@ -59,10 +58,11 @@ export class SSaqhanChatApp implements ComponentInterface {
           <s-saqhan-chat-wrapper
             onSelectPersonal={() => this.onSelectPersonal()}
             onSelectUsers={() => this.onSelectUsers()}
-            onSelectFiles={() => this.onSelectFiles()}
+            onClickToLink={(item) => this.clickToLink(item)}
             onClose={() => this.onClose()}
             showContent={this.showContent}
             messages={this.messages}
+            personalMessage={this.personalMessage}
           ></s-saqhan-chat-wrapper>
         ) : (
           ""
@@ -107,16 +107,23 @@ export class SSaqhanChatApp implements ComponentInterface {
   public onSelectUsers() {
     return (this.showContent = "users");
   }
+
   /**
-   * Метод для выбора раздела файлов
+   * click to Link
    * */
-  public onSelectFiles() {
-    return (this.showContent = "files");
-  }
-  /**
-   * Метод для выбора раздела файлов
-   * */
-  public onClickToLink({detail}) {
-    return console.log(detail);
+  public clickToLink({ detail }) {
+    console.log(detail.place);
+    switch (detail.place) {
+      case 'showFile' :
+        return this.showContent = "files";
+      case 'showDialogs':
+        return this.showContent = 'users';
+      case 'showPersonalDialog':
+        return this.showContent = 'personal';
+      case 'user-name-personal':
+        return this.showContent = 'profile';
+      default: this.showContent = 'users';
+    }
+
   }
 }

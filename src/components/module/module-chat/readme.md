@@ -16,10 +16,13 @@
 graph TD;
   module-chat --> s-saqhan-chat-app
   s-saqhan-chat-app --> s-saqhan-chat-wrapper
-  s-saqhan-chat-wrapper --> s-saqhan-chat-personal
+  s-saqhan-chat-wrapper --> mobile-personal
   s-saqhan-chat-wrapper --> s-saqhan-chat-users-wrapper
   s-saqhan-chat-wrapper --> s-saqhan-chat-files-wrapper
-  s-saqhan-chat-personal --> s-saqhan-chat-add-question
+  mobile-personal --> message-from
+  mobile-personal --> personal-footer
+  message-from --> message-text
+  message-from --> message-img
   s-saqhan-chat-users-wrapper --> s-saqhan-chat-form-search
   s-saqhan-chat-users-wrapper --> s-saqhan-chat-users
   s-saqhan-chat-users-wrapper --> s-saqhan-chat-add-question

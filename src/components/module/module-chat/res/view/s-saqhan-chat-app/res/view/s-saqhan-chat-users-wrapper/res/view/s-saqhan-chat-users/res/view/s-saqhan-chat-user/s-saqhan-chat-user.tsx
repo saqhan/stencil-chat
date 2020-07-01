@@ -16,7 +16,10 @@ export class SSaqhanChatUser implements ComponentInterface {
    * */
   @Prop() messages: any;
 
-
+  /**
+   * Массив данных с личным чатом
+   * */
+  @Prop() personalMessage:any;
 
   render() {
     return (

@@ -7,9 +7,10 @@
 
 ## Properties
 
-| Property  | Attribute | Description                          | Type  | Default     |
-| --------- | --------- | ------------------------------------ | ----- | ----------- |
-| `message` | `message` | Принимаем сообщения для пользователя | `any` | `undefined` |
+| Property        | Attribute         | Description                          | Type  | Default     |
+| --------------- | ----------------- | ------------------------------------ | ----- | ----------- |
+| `checkSendMess` | `check-send-mess` | Проверка статуса доставки сообщения  | `any` | `undefined` |
+| `message`       | `message`         | Принимаем сообщения для пользователя | `any` | `undefined` |
 
 
 ## Dependencies

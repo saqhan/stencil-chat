@@ -13,31 +13,13 @@ import {
   shadow: false,
 })
 export class SSaqhanChatWrapper implements ComponentInterface {
-
   @Event() close: EventEmitter;
   @Event() selectPersonal: EventEmitter;
   @Event() selectUsers: EventEmitter;
-  @Event() selectFiles: EventEmitter;
   @Event() clickToLink: EventEmitter;
   @Prop() messages: any;
+  @Prop() personalMessage: any;
   @Prop() showContent: string;
-
-
-
-
-  public ShowContent = (content) => {
-    switch (content) {
-      case "personal":
-        return <s-saqhan-chat-personal></s-saqhan-chat-personal>;
-      case "users":
-        return <s-saqhan-chat-users-wrapper  messages={this.messages}  ></s-saqhan-chat-users-wrapper>;
-      case "files":
-        return <s-saqhan-chat-files-wrapper></s-saqhan-chat-files-wrapper>;
-
-      default:
-        "files";
-    }
-  };
 
   render() {
     return (
@@ -49,9 +31,33 @@ export class SSaqhanChatWrapper implements ComponentInterface {
           </a>
         </div>
 
-        <div class="content-chat">{this.ShowContent(this.showContent )}</div>
+        <div class="content-chat">
+          {this.ShowContent(this.showContent)}
+        </div>
       </div>
     );
   }
 
+  public ShowContent = (content) => {
+    switch (content) {
+      case "personal":
+        // return <s-saqhan-chat-personal personalMessage={this.personalMessage}></s-saqhan-chat-personal>;
+        return         <mobile-personal
+          messageMock={this.personalMessage}
+        ></mobile-personal>
+      case "users":
+        return (
+          <s-saqhan-chat-users-wrapper
+            messages={this.messages}
+          ></s-saqhan-chat-users-wrapper>
+        );
+      case "files":
+        return <s-saqhan-chat-files-wrapper></s-saqhan-chat-files-wrapper>;
+      case "profile":
+        return <s-adam-profile theme={'mobile'} ></s-adam-profile>;
+
+      default:
+        "files";
+    }
+  };
 }

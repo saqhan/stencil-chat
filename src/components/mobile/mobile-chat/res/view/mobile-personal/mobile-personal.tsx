@@ -38,7 +38,7 @@ export class MobilePersonal implements ComponentInterface {
               <i class="fas fa-arrow-left"></i>
             </span>
             <span
-              class="user-name-personal"
+              class="custom-link user-name-personal"
               onClick={() =>
                 this.clickToLink.emit({ place: "user-name-personal" })
               }

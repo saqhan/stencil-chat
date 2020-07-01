@@ -10,7 +10,7 @@
 | Event               | Description           | Type               |
 | ------------------- | --------------------- | ------------------ |
 | `clickOnSearchChat` | Клик по кнопке в чате | `CustomEvent<any>` |
-| `selectFiles`       | Клик по кнопке files  | `CustomEvent<any>` |
+| `clickToLink`       | Клик по кнопке files  | `CustomEvent<any>` |
 
 
 ## Dependencies

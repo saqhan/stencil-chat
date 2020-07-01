@@ -1,18 +1,18 @@
 // import { newSpecPage } from '@stencil/core/testing';
-// import { MessageImg } from './message-img';
+// import { MessageImg } from './message-from-img';
 //
-// describe('message-img', () => {
+// describe('message-from-img', () => {
 //   it('renders', async () => {
 //     const page = await newSpecPage({
 //       components: [MessageImg],
-//       html: `<message-img></message-img>`,
+//       html: `<message-from-img></message-from-img>`,
 //     });
 //     expect(page.root).toEqualHtml(`
-//       <message-img>
+//       <message-from-img>
 //         <mock:shadow-root>
 //           <slot></slot>
 //         </mock:shadow-root>
-//       </message-img>
+//       </message-from-img>
 //     `);
 //   });
 // });

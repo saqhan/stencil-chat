@@ -174,6 +174,8 @@ export const MessageMock = [
     direction: MessageDirectionEnum.toMe,
     time: {
       created: new Date(),
+      delivery: new Date(),
+      read: new Date(),
     },
   },
   {
@@ -188,6 +190,8 @@ export const MessageMock = [
     direction: MessageDirectionEnum.fromMe,
     time: {
       created: new Date(),
+      delivery: new Date(),
+      read: new Date(),
     },
   },
   {
@@ -202,6 +206,7 @@ export const MessageMock = [
     direction: MessageDirectionEnum.fromMe,
     time: {
       created: new Date(),
+      read: new Date(),
     },
   },
   {

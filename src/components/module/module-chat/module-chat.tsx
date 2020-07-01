@@ -1,5 +1,5 @@
 import { Component, ComponentInterface, h, State } from "@stencil/core";
-import { dialogs } from "../../../utils/mock";
+import { dialogs, MessageMock } from "../../../utils/mock";
 
 @Component({
   tag: "module-chat",
@@ -11,12 +11,13 @@ export class ModuleChat implements ComponentInterface {
    * массив данных для диалогов
    * */
   @State() dialogs = dialogs;
+  @State() personalMessage = MessageMock;
 
   render() {
     return (
       <s-saqhan-chat-app
         messages={this.dialogs}
-        onClickToLink={(item) => this.clickToLink(item)}
+        personalMessage={this.personalMessage}
         onClickOnSearchChat={(event) => this.clickOnSearchChat(event)}
       ></s-saqhan-chat-app>
     );
@@ -25,12 +26,7 @@ export class ModuleChat implements ComponentInterface {
    *  Метод поиска по чату
    * */
   public clickOnSearchChat({ detail }) {
-    return console.log(detail.data);
+    return console.log('clickOnSearchChat',detail.data);
   }
-  /**
-   * click to Link
-   * */
-  public clickToLink({ detail }) {
-    console.log(detail);
-  }
+
 }

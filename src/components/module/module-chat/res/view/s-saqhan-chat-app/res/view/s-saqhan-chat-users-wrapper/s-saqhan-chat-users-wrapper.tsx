@@ -11,6 +11,10 @@ export class SSaqhanChatUsersWrapper implements ComponentInterface {
    * Массив данных с диалогами
    * */
   @Prop() messages:any;
+  /**
+   * Массив данных с личным чатом
+   * */
+  @Prop() personalMessage:any;
 
 
   render() {
@@ -18,7 +22,7 @@ export class SSaqhanChatUsersWrapper implements ComponentInterface {
       <div>
         <s-saqhan-chat-form-search></s-saqhan-chat-form-search>
         <div class="chat-wrap">
-          <s-saqhan-chat-users messages={this.messages} ></s-saqhan-chat-users>
+          <s-saqhan-chat-users messages={this.messages} personalMessage={this.personalMessage} ></s-saqhan-chat-users>
         </div>
         <s-saqhan-chat-add-question></s-saqhan-chat-add-question>
       </div>
