@@ -7,14 +7,9 @@ import { Component, h } from "@stencil/core";
 })
 export class MyComponent {
   render() {
-<<<<<<< HEAD
 
-    return <mobile-chat></mobile-chat>;
-    // return <s-adam-chat></s-adam-chat>
-=======
+    return <s-adam-chat></s-adam-chat>
     // return <mobile-chat></mobile-chat>;
-    // return <s-adam-chat></s-adam-chat>;
-    return <module-chat></module-chat>;
->>>>>>> 996cbb18e705ab7cd9e2d8bd797584623091cba5
+     //return <module-chat></module-chat>;
   }
 }
