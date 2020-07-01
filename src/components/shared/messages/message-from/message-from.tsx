@@ -3,6 +3,7 @@ import {
   MessageDirectionEnum,
   MessageTypeEnum,
 } from "../../interface/common.interface";
+import dayjs from "dayjs";
 
 @Component({
   tag: "message-from",
@@ -124,9 +125,9 @@ export class MessageFrom implements ComponentInterface {
 
   public checkTypeSystemMessage(message){
     if ((typeof(message) === "string")) {
-      return 'text'
+      return message
     } else if ((typeof(message) === "number")) {
-      return message;
+      return dayjs(message).format('DD MMMM');
     }
   }
 }
