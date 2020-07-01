@@ -35,6 +35,9 @@ export class MobileChat implements ComponentInterface {
         {/*  onClickToLink={(item) => this.clickToLink(item)}*/}
         {/*  messageMock={this.messageMock}*/}
         {/*></mobile-personal>*/}
+        {/*<user-profile*/}
+        {/*  onClickToLink={(item) => this.clickToLink(item)}*/}
+        {/*></user-profile>*/}
       </div>
       // </div>
     );
@@ -42,9 +45,9 @@ export class MobileChat implements ComponentInterface {
   componentWillLoad(): Promise<void> | void {
     this.dialogs = dialogs;
   }
-/**
- * click to Link
- * */
+  /**
+   * click to Link
+   * */
   public clickToLink({ detail }) {
     console.log(detail);
   }

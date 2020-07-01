@@ -23,20 +23,22 @@ export class DialogCard implements ComponentInterface {
   @Event() clickToLink: EventEmitter;
   render() {
     return (
-      <div class={this.getClassForHost()} onClick={()=> this.clickToLink.emit({place:'showPersonalDialog', item: this.mess })} >
-        <div class="img-user">
-          <div class={this.mess.online ? 'img online': 'img'}
-          style={{backgroundImage: `url(${this.mess.img})`}}></div>
-        </div>
-        <div class="info-card">
-          <div class="unfo-user">
-            <div class="name-user">{this.mess.name}</div>
-            <div class="message-user">{this.mess.mess}</div>
+      <div class={this.getClassForHost()}>
+        <div class="m-dialog-card" onClick={()=> this.clickToLink.emit({place:'showPersonalDialog', item: this.mess })} >
+          <div class="img-user">
+            <div class={this.mess.online ? 'img online': 'img'}
+                 style={{backgroundImage: `url(${this.mess.img})`}}></div>
           </div>
-          <div class="data-message">
-            <div class="date"> {this.createSendTime(this.mess.time.created)}</div>
-            {/*<div class="new-message">Yesterday</div>*/}
-            <span class="add-new-message">1</span>
+          <div class="info-card">
+            <div class="unfo-user">
+              <div class="name-user">{this.mess.name}</div>
+              <div class="message-user">{this.mess.mess}</div>
+            </div>
+            <div class="data-message">
+              <div class="date"> {this.createSendTime(this.mess.time.created)}</div>
+              {/*<div class="new-message-from">Yesterday</div>*/}
+              <span class="add-new-message">1</span>
+            </div>
           </div>
         </div>
       </div>
@@ -49,7 +51,6 @@ export class DialogCard implements ComponentInterface {
   public getClassForHost ()
   {
     return {
-      'm-dialog-card': true,
       [this.theme]: true
     }
   }

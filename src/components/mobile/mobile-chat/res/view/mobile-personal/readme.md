@@ -21,18 +21,23 @@
 
 ## Dependencies
 
+### Used by
+
+ - [s-saqhan-chat-wrapper](../../../../../module/module-chat/res/view/s-saqhan-chat-app/res/view/s-saqhan-chat-wrapper)
+
 ### Depends on
 
+- [message-from](../../../../../shared/messages/message-from)
 - [personal-footer](../../../../../shared/personal-footer)
-- [mess-to-me](../../../../../shared/mess-to-me)
-- [mess-from-me](../../../../../shared/mess-from-me)
 
 ### Graph
 ```mermaid
 graph TD;
+  mobile-personal --> message-from
   mobile-personal --> personal-footer
-  mobile-personal --> mess-to-me
-  mobile-personal --> mess-from-me
+  message-from --> message-text
+  message-from --> message-img
+  s-saqhan-chat-wrapper --> mobile-personal
   style mobile-personal fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -12,6 +12,14 @@
 | `message` | --        | Личный диалог | `Message[]` | `[]`    |
 
 
+## Events
+
+| Event             | Description                            | Type               |
+| ----------------- | -------------------------------------- | ------------------ |
+| `clickOnUsername` | клик по имени юзера в личной переписке | `CustomEvent<any>` |
+| `clickToLink`     | click on navigate                      | `CustomEvent<any>` |
+
+
 ## Dependencies
 
 ### Used by
@@ -20,16 +28,16 @@
 
 ### Depends on
 
-- [mess-to-me](../../shared/mess-to-me)
-- [mess-from-me](../../shared/mess-from-me)
+- [message-from](../../shared/messages/message-from)
 - [personal-footer](../../shared/personal-footer)
 
 ### Graph
 ```mermaid
 graph TD;
-  s-adam-direct --> mess-to-me
-  s-adam-direct --> mess-from-me
+  s-adam-direct --> message-from
   s-adam-direct --> personal-footer
+  message-from --> message-text
+  message-from --> message-img
   s-adam-chat --> s-adam-direct
   style s-adam-direct fill:#f9f,stroke:#333,stroke-width:4px
 ```

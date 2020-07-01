@@ -1,0 +1,128 @@
+/* mobile */
+
+.comp .links-wrapper a {
+  display: none;
+}
+
+.mobile .links-wpapper {
+  display: flex;
+}
+
+.mobile  .about-user {
+  margin-bottom: 30px;
+}
+
+/* mobile */
+
+.profile {
+  background-color: #f7f8f9;
+  padding: 20px;
+  height: 95vh;
+  overflow: auto;
+}
+.about-user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 70px;
+}
+.profile-user-photo {
+  width: 80px;
+  height: 80px;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 20px;
+  border-radius: 100%;
+  cursor: pointer;
+}
+.profile .user-name {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.user-mail {
+  margin-bottom: 30px;
+  font-size: 12px;
+  color: #8d8d8d;
+}
+.about-user .fas {
+  margin: 0 15px;
+}
+.user-social {
+  margin-bottom: 40px;
+}
+.user-social-title,
+.media-title {
+  font-weight: 700;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+.user-social-block {
+  background: white;
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+.user-social-block .fab {
+  width: 16px;
+  text-align: center;
+  margin-right: 20px;
+}
+.user-social-name,
+.mediafile-desc {
+  font-size: 12px;
+  color: #8d8d8d;
+  font-weight: 600;
+}
+.media-header {
+  display: flex;
+  justify-content: space-between;
+}
+.media-descr {
+  font-size: 8px;
+  color: #8d8d8d;
+}
+.media-item {
+  padding: 10px;
+  background: white;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+.mediafile {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  margin-right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pdf {
+  background-color: #ff908c;
+}
+.zip {
+  background-color: #58c4c9;
+}
+.doc {
+  background-color: #73a4e9;
+}
+.mediafile span {
+  color: white;
+  font-size: 8px;
+  font-weight: 600;
+}
+.fas,
+.fab {
+  color: #bacbe3;
+  cursor: pointer;
+}
+.hover-link:hover {
+  color: #6328f8;
+}
+::-webkit-scrollbar {
+  /* chrome based */
+  width: 0px; /* ширина scrollbar'a */
+  background: transparent; /* опционально */
+}

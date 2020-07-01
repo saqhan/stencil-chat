@@ -9,7 +9,7 @@
 
 | Event         | Description       | Type               |
 | ------------- | ----------------- | ------------------ |
-| `clickToLink` | clock on navigate | `CustomEvent<any>` |
+| `clickToLink` | click on navigate | `CustomEvent<any>` |
 
 
 ## Dependencies

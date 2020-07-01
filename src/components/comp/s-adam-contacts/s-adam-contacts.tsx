@@ -29,7 +29,7 @@ export class SAdamContacts implements ComponentInterface {
         <div class="contacts">
           {this.dialogs.map(dialog => {
             return (
-              <dialog-card mess={dialog}></dialog-card>
+              <dialog-card theme={'comp'} mess={dialog}></dialog-card>
             );
           })}
         </div>

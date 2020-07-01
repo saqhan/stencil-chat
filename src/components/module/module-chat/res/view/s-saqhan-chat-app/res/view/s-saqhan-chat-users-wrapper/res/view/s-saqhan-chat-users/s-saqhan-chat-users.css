@@ -1,0 +1,13 @@
+.user-wrapper {
+  cursor: pointer;
+  padding: 0px 10px;
+  padding-right: 15px;
+}
+
+@media (max-width: 375px) {
+  .user-wrapper {
+    cursor: pointer;
+    padding: 0px 0px;
+    padding-right: 0px;
+  }
+}

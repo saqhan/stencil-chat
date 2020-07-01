@@ -6,8 +6,10 @@ import {
   h,
   Prop,
 } from "@stencil/core";
-import {Message, MessageDirectionEnum} from "./res/interface/common.interface";
-
+import {
+  Message,
+  MessageDirectionEnum,
+} from "../../../../../shared/interface/common.interface";
 @Component({
   tag: "mobile-personal",
   styleUrl: "mobile-personal.css",
@@ -35,9 +37,17 @@ export class MobilePersonal implements ComponentInterface {
             >
               <i class="fas fa-arrow-left"></i>
             </span>
-            <span class="title">Tim Ostin</span>
-            <span class="custom-link"
-                  onClick={() => this.clickToLink.emit({ place: "showDetails" })}
+            <span
+              class="custom-link user-name-personal"
+              onClick={() =>
+                this.clickToLink.emit({ place: "user-name-personal" })
+              }
+            >
+              {this.getNameUser()}
+            </span>
+            <span
+              class="custom-link"
+              onClick={() => this.clickToLink.emit({ place: "showDetails" })}
             >
               <i class="fas fa-ellipsis-h"></i>
             </span>
@@ -61,7 +71,10 @@ export class MobilePersonal implements ComponentInterface {
           </div>
         </div>
         <div class="personal-message">
-          {this.createMessagesElements(this.messageMock)}
+          {this.messageMock.map(message => {
+            return <message-from message={message}></message-from>;
+          })
+          }
         </div>
         <personal-footer></personal-footer>
       </div>
@@ -85,5 +98,19 @@ export class MobilePersonal implements ComponentInterface {
           return <div>Today</div>;
       }
     });
+  }
+  /**
+   * get name user
+   * */
+  public getNameUser() {
+    let name = "";
+
+    this.messageMock.forEach((item) => {
+      if (name.indexOf(item.sender.name) === -1) {
+        name = item.sender.name;
+      }
+    });
+
+    return name;
   }
 }
