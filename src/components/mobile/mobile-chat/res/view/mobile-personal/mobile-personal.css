@@ -1,3 +1,6 @@
+
+
+
 /*personal*/
 
 .personal-header {
@@ -61,6 +64,11 @@
 }
 
 /*personal body*/
+
+.personal-wrapper .personal-footer .footer-wrapper {
+  border-radius: 15px 15px 0px 0px;
+}
+
 
 .text-wrapper {
   width: 75%;
