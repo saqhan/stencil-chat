@@ -78,7 +78,7 @@
 
 .personal-message {
   padding: 20px;
-  height: 80vh;
+  height: calc(100vh - 185px);
   overflow: auto;
 }
 
