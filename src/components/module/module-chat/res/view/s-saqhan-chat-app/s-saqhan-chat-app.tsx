@@ -120,6 +120,8 @@ export class SSaqhanChatApp implements ComponentInterface {
         return this.showContent = 'users';
       case 'showPersonalDialog':
         return this.showContent = 'personal';
+      case 'user-name-personal':
+        return this.showContent = 'profile';
       default: this.showContent = 'users';
     }
 

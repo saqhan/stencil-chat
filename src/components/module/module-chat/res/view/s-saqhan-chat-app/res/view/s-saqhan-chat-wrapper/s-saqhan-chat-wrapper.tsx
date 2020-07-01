@@ -53,6 +53,8 @@ export class SSaqhanChatWrapper implements ComponentInterface {
         );
       case "files":
         return <s-saqhan-chat-files-wrapper></s-saqhan-chat-files-wrapper>;
+      case "profile":
+        return <s-adam-profile theme={'mobile'} ></s-adam-profile>;
 
       default:
         "files";

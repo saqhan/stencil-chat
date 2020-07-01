@@ -14,6 +14,11 @@
 .content-chat .personal-footer .footer-wrapper {
   border-radius: 10px 10px 5px 5px;
 }
+
+.content-chat .profile .mobile {
+  height: 100vh;
+  overflow: auto;
+}
 .header-chat {
   background-color: #ececec;
   text-align: center;

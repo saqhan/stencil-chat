@@ -71,6 +71,14 @@
   text-align: right;
 }
 
+.header-nav div {
+  cursor: pointer;
+}
+
+.user-name-persona {
+  cursor: pointer;
+}
+
 .user-mess-wrapper,
 .admin-mess-wrapper {
   margin: 15px 0;
