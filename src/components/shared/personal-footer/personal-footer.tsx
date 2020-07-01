@@ -29,7 +29,7 @@ export class PersonalFooter implements ComponentInterface {
           </div>
           <div class="input-wrapper">
             <form onSubmit={(e) => this.sendingNewMess(e)}>
-              <input  type="text" placeholder="Type something ..." />
+              <input type="text" placeholder="Type something ..." />
             </form>
           </div>
           <div
@@ -47,7 +47,7 @@ export class PersonalFooter implements ComponentInterface {
    * */
   public sendingNewMess(e) {
     e.preventDefault();
-    console.log("sendingNewMess", e.currentTarget.querySelector('input').value);
-    e.currentTarget.querySelector('input').value = '';
+    console.log("sendingNewMess", e.currentTarget.querySelector("input").value);
+    e.currentTarget.querySelector("input").value = "";
   }
 }
