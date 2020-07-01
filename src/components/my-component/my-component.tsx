@@ -10,6 +10,6 @@ export class MyComponent {
 
     return <s-adam-chat></s-adam-chat>
     // return <mobile-chat></mobile-chat>;
-     //return <module-chat></module-chat>;
+    //return <module-chat></module-chat>;
   }
 }

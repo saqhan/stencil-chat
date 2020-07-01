@@ -80,6 +80,7 @@ _________________________________
 .info-wrapper {
   display: flex;
   text-align: right;
+  white-space: nowrap;
 }
 
 .to-me-mess-wrapper .from-mess {

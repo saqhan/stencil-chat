@@ -165,10 +165,10 @@ export const MessageMock: Message[] = [
   {
     content: "Олег подключился к чату",
     sender: {
-      uid: null,
-      icon: null,
-      name: null,
-      phone: null,
+      uid: '',
+      icon: '',
+      name: '',
+      phone: '',
     },
     type: MessageTypeEnum.text,
     direction: MessageDirectionEnum.center,
@@ -195,10 +195,10 @@ export const MessageMock: Message[] = [
   {
     content: 1593606947701,
     sender: {
-      uid: null,
-      icon: null,
-      name: null,
-      phone: null,
+      uid: '',
+      icon: '',
+      name: '',
+      phone: '',
     },
     type: MessageTypeEnum.date,
     direction: MessageDirectionEnum.center,
