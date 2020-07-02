@@ -30,7 +30,7 @@ export class MobilePersonal implements ComponentInterface {
       <div class="personal-wrapper">
         <personal-header messageMock={this.messageMock} ></personal-header>
         <personal-message messageMock={this.messageMock} ></personal-message>
-        <personal-footer></personal-footer>
+        <personal-footer theme={'mobile'} ></personal-footer>
       </div>
     );
   }

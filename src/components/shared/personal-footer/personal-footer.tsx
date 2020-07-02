@@ -3,7 +3,7 @@ import {
   ComponentInterface,
   Event,
   EventEmitter,
-  h,
+  h, Prop,
   State,
 } from "@stencil/core";
 
@@ -13,6 +13,9 @@ import {
   shadow: false,
 })
 export class PersonalFooter implements ComponentInterface {
+
+  @Prop() theme: 'comp' | 'mobile' = 'comp';
+
   /**
    * click on navigate
    * */
@@ -22,28 +25,30 @@ export class PersonalFooter implements ComponentInterface {
 
   render() {
     return (
-      <div class="personal-footer">
-        <div class="footer-wrapper">
-          <div
-            class="file"
-            onClick={() => this.clickToLink.emit({ place: "add-file-mess" })}
-          >
-            <i class="fas fa-paperclip"></i>
-          </div>
-          <div class="input-wrapper">
-            <form onSubmit={(e) => this.sendingNewMess(e)}>
-              <input
-                type="text"
-                onInput={(e) => this.swithIconInput(e)}
-                placeholder="Type something ..."
-              />
-            </form>
-          </div>
-          <div
-            class="audio"
-            onClick={() => this.clickToLink.emit({ place: "add-audio-mess" })}
-          >
-            {this.iconFooterInput}
+      <div class={this.getClassForHost()}>
+        <div class="personal-footer">
+          <div class="footer-wrapper">
+            <div
+              class="file"
+              onClick={() => this.clickToLink.emit({ place: "add-file-mess" })}
+            >
+              <i class="fas fa-paperclip"></i>
+            </div>
+            <div class="input-wrapper">
+              <form onSubmit={(e) => this.sendingNewMess(e)}>
+                <input
+                  type="text"
+                  onInput={(e) => this.swithIconInput(e)}
+                  placeholder="Type something ..."
+                />
+              </form>
+            </div>
+            <div
+              class="audio"
+              onClick={() => this.clickToLink.emit({ place: "add-audio-mess" })}
+            >
+              {this.iconFooterInput}
+            </div>
           </div>
         </div>
       </div>
@@ -72,5 +77,11 @@ export class PersonalFooter implements ComponentInterface {
     e.target.value === ''
       ? (this.iconFooterInput = <i class="fas fa-microphone"></i>)
       : (this.iconFooterInput = <i class="fas fa-location-arrow"></i>);
+  }
+  public getClassForHost ()
+  {
+    return {
+      [this.theme]: true
+    }
   }
 }

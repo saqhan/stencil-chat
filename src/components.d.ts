@@ -102,6 +102,7 @@ export namespace Components {
     interface MyComponent {
     }
     interface PersonalFooter {
+        "theme": "comp" | "mobile";
     }
     interface PersonalHeader {
         /**
@@ -666,6 +667,7 @@ declare namespace LocalJSX {
           * click on navigate
          */
         "onClickToLink"?: (event: CustomEvent<any>) => void;
+        "theme"?: "comp" | "mobile";
     }
     interface PersonalHeader {
         /**
