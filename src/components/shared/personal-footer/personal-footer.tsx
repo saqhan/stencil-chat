@@ -3,7 +3,8 @@ import {
   ComponentInterface,
   Event,
   EventEmitter,
-  h, State,
+  h,
+  State,
 } from "@stencil/core";
 
 @Component({
@@ -17,7 +18,7 @@ export class PersonalFooter implements ComponentInterface {
    * */
   @Event() clickToLink: EventEmitter;
 
-  @State() iconFooterInput = <i class="fas fa-microphone"></i>
+  @State() iconFooterInput = (<i class="fas fa-microphone"></i>);
 
   render() {
     return (
@@ -31,7 +32,11 @@ export class PersonalFooter implements ComponentInterface {
           </div>
           <div class="input-wrapper">
             <form onSubmit={(e) => this.sendingNewMess(e)}>
-              <input type="text" onInput={(e) => this.swithIconInput(e)} placeholder="Type something ..." />
+              <input
+                type="text"
+                onInput={(e) => this.swithIconInput(e)}
+                placeholder="Type something ..."
+              />
             </form>
           </div>
           <div
@@ -49,18 +54,23 @@ export class PersonalFooter implements ComponentInterface {
    * */
   public sendingNewMess(e) {
     e.preventDefault();
-    console.log("sendingNewMess", e.currentTarget.querySelector("input").value);
-    e.currentTarget.querySelector("input").value = '';
-    this.iconFooterInput = <i class="fas fa-microphone"></i>;
+
+    if (e.currentTarget.querySelector("input").value === '') {
+        return false;
+    } else {
+      console.log("send mess:", e.currentTarget.querySelector("input").value);
+      e.currentTarget.querySelector("input").value = "";
+      this.iconFooterInput = <i class="fas fa-microphone"></i>;
+    }
+
   }
 
   /**
    * Функция для для отправки сообщения
    * */
   public swithIconInput(e) {
-    if (e.target.value === '') {
-      return this.iconFooterInput = <i class="fas fa-microphone"></i>;
-    }
-    else this.iconFooterInput = <i class="fas fa-location-arrow"></i> ;
+    e.target.value === ''
+      ? (this.iconFooterInput = <i class="fas fa-microphone"></i>)
+      : (this.iconFooterInput = <i class="fas fa-location-arrow"></i>);
   }
 }
