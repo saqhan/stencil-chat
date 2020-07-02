@@ -1,0 +1,14 @@
+/*footer*/
+
+.m-chat-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px;
+  padding: 0px 30px;
+}
+
+.m-chat-footer span i {
+  color: #979eab;
+  font-size: 18px;
+}

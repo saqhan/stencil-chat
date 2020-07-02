@@ -3,65 +3,6 @@
 
 /*personal*/
 
-.personal-header {
-  padding: 20px 20px 20px;
-  border-bottom: 1px solid #ccc;
-}
-
-.header-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.header-nav span i {
-  color: #979eab;
-}
-
-.header-nav .user-name-personal {
-  font-weight: 600;
-  color: #4c567d;
-}
-
-.users-nav {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 60%;
-  margin: auto;
-  margin-top: 15px;
-}
-
-.img-user-other {
-  text-align: center;
-  border-radius: 50%;
-}
-
-.img-user-other .img {
-  width: 30px;
-  height: 30px;
-  margin: 3px;
-  border-radius: 50%;
-  background-image: url("https://via.placeholder.com/300x300?text=User");
-  background-size: cover;
-  background-position: center;
-}
-
-.img-user-current {
-  text-align: center;
-  border: 2px solid #4c567d;
-  border-radius: 50%;
-}
-
-.img-user-current .img {
-  width: 35px;
-  height: 35px;
-  margin: 3px;
-  border-radius: 50%;
-  background-image: url("https://via.placeholder.com/300x300?text=User");
-  background-size: cover;
-  background-position: center;
-}
 
 /*personal body*/
 

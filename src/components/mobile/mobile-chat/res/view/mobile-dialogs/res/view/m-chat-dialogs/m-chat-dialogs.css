@@ -1,0 +1,7 @@
+
+.m-chat-dialogs {
+  padding: 20px 30px 0px;
+  border-bottom: 1px solid #ccc;
+  height: calc(100vh - 145px);
+  overflow: auto;
+}

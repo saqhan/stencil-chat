@@ -20,6 +20,7 @@ graph TD;
   s-adam-chat --> s-adam-profile
   s-adam-navigate --> s-adam-nav-item
   s-adam-contacts --> dialog-card
+  s-adam-direct --> s-adam-personal-header
   s-adam-direct --> message-from
   s-adam-direct --> personal-footer
   message-from --> message-text

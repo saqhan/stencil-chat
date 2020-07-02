@@ -29,53 +29,8 @@ export class MobilePersonal implements ComponentInterface {
   render() {
     return (
       <div class="personal-wrapper">
-        <div class="personal-header">
-          <div class="header-nav">
-            <span
-              class="custom-link"
-              onClick={() => this.clickToLink.emit({ place: "showDialogs" })}
-            >
-              <i class="fas fa-arrow-left"></i>
-            </span>
-            <span
-              class="custom-link user-name-personal"
-              onClick={() =>
-                this.clickToLink.emit({ place: "user-name-personal" })
-              }
-            >
-              {this.getNameUser()}
-            </span>
-            <span
-              class="custom-link"
-              onClick={() => this.clickToLink.emit({ place: "showDetails" })}
-            >
-              <i class="fas fa-ellipsis-h"></i>
-            </span>
-          </div>
-          <div class="users-nav">
-            <div class="img-user-other">
-              <div class="img online"></div>
-            </div>
-            <div class="img-user-other">
-              <div class="img online"></div>
-            </div>
-            <div class="img-user-current">
-              <div class="img online"></div>
-            </div>
-            <div class="img-user-other">
-              <div class="img online"></div>
-            </div>
-            <div class="img-user-other">
-              <div class="img online"></div>
-            </div>
-          </div>
-        </div>
-        <div class="personal-message">
-          {this.messageMock.map(message => {
-            return <message-from message={message}></message-from>;
-          })
-          }
-        </div>
+        <personal-header messageMock={this.messageMock} ></personal-header>
+        <personal-message messageMock={this.messageMock} ></personal-message>
         <personal-footer></personal-footer>
       </div>
     );
@@ -99,18 +54,5 @@ export class MobilePersonal implements ComponentInterface {
       }
     });
   }
-  /**
-   * get name user
-   * */
-  public getNameUser() {
-    let name = "";
 
-    this.messageMock.forEach((item) => {
-      if (name.indexOf(item.sender.name) === -1) {
-        name = item.sender.name;
-      }
-    });
-
-    return name;
-  }
 }
