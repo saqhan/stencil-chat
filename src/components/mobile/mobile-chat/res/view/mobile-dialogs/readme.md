@@ -29,12 +29,17 @@
 
 ### Depends on
 
-- [dialog-card](../../../../../shared/dialog-card)
+- [m-chat-header](./res/view/m-chat-header)
+- [m-chat-dialogs](./res/view/m-chat-dialogs)
+- [m-chat-footer](./res/view/m-chat-footer)
 
 ### Graph
 ```mermaid
 graph TD;
-  mobile-dialogs --> dialog-card
+  mobile-dialogs --> m-chat-header
+  mobile-dialogs --> m-chat-dialogs
+  mobile-dialogs --> m-chat-footer
+  m-chat-dialogs --> dialog-card
   mobile-chat --> mobile-dialogs
   style mobile-dialogs fill:#f9f,stroke:#333,stroke-width:4px
 ```

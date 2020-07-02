@@ -27,14 +27,17 @@
 
 ### Depends on
 
-- [message-from](../../../../../shared/messages/message-from)
+- [personal-header](./res/view/personal-header)
+- [personal-message](./res/view/personal-message)
 - [personal-footer](../../../../../shared/personal-footer)
 
 ### Graph
 ```mermaid
 graph TD;
-  mobile-personal --> message-from
+  mobile-personal --> personal-header
+  mobile-personal --> personal-message
   mobile-personal --> personal-footer
+  personal-message --> message-from
   message-from --> message-text
   message-from --> message-img
   s-saqhan-chat-wrapper --> mobile-personal

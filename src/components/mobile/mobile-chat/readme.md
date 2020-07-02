@@ -7,6 +7,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [my-component](../../my-component)
+
 ### Depends on
 
 - [mobile-dialogs](./res/view/mobile-dialogs)
@@ -15,7 +19,11 @@
 ```mermaid
 graph TD;
   mobile-chat --> mobile-dialogs
-  mobile-dialogs --> dialog-card
+  mobile-dialogs --> m-chat-header
+  mobile-dialogs --> m-chat-dialogs
+  mobile-dialogs --> m-chat-footer
+  m-chat-dialogs --> dialog-card
+  my-component --> mobile-chat
   style mobile-chat fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
