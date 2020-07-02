@@ -9,6 +9,7 @@ import { categories, dialogs, } from "./components/mobile/mobile-chat/res/view/m
 import { Message, } from "./components/shared/interface/common.interface";
 import { dialogs as dialogs1, } from "./components/comp/s-adam-contacts/res/interface/common.interface";
 import { logo, navItems, } from "./components/comp/s-adam-navigate/res/interface/common.interface";
+import { Message as Message1, } from ".";
 export namespace Components {
     interface ChatUserCard {
         "user": any;
@@ -114,6 +115,12 @@ export namespace Components {
         "navItems": navItems[];
     }
     interface SAdamNoChat {
+    }
+    interface SAdamPersonalHeader {
+        /**
+          * Личный диалог
+         */
+        "message": Message[];
     }
     interface SAdamProfile {
         /**
@@ -291,6 +298,12 @@ declare global {
         prototype: HTMLSAdamNoChatElement;
         new (): HTMLSAdamNoChatElement;
     };
+    interface HTMLSAdamPersonalHeaderElement extends Components.SAdamPersonalHeader, HTMLStencilElement {
+    }
+    var HTMLSAdamPersonalHeaderElement: {
+        prototype: HTMLSAdamPersonalHeaderElement;
+        new (): HTMLSAdamPersonalHeaderElement;
+    };
     interface HTMLSAdamProfileElement extends Components.SAdamProfile, HTMLStencilElement {
     }
     var HTMLSAdamProfileElement: {
@@ -388,6 +401,7 @@ declare global {
         "s-adam-nav-item": HTMLSAdamNavItemElement;
         "s-adam-navigate": HTMLSAdamNavigateElement;
         "s-adam-no-chat": HTMLSAdamNoChatElement;
+        "s-adam-personal-header": HTMLSAdamPersonalHeaderElement;
         "s-adam-profile": HTMLSAdamProfileElement;
         "s-saqhan-chat-add-question": HTMLSSaqhanChatAddQuestionElement;
         "s-saqhan-chat-app": HTMLSSaqhanChatAppElement;
@@ -546,6 +560,16 @@ declare namespace LocalJSX {
     }
     interface SAdamNoChat {
     }
+    interface SAdamPersonalHeader {
+        /**
+          * Личный диалог
+         */
+        "message"?: Message[];
+        /**
+          * клик по имени юзера в личной переписке
+         */
+        "onClickOnUsername"?: (event: CustomEvent<any>) => void;
+    }
     interface SAdamProfile {
         "onClickToLink"?: (event: CustomEvent<any>) => void;
         /**
@@ -671,6 +695,7 @@ declare namespace LocalJSX {
         "s-adam-nav-item": SAdamNavItem;
         "s-adam-navigate": SAdamNavigate;
         "s-adam-no-chat": SAdamNoChat;
+        "s-adam-personal-header": SAdamPersonalHeader;
         "s-adam-profile": SAdamProfile;
         "s-saqhan-chat-add-question": SSaqhanChatAddQuestion;
         "s-saqhan-chat-app": SSaqhanChatApp;
@@ -708,6 +733,7 @@ declare module "@stencil/core" {
             "s-adam-nav-item": LocalJSX.SAdamNavItem & JSXBase.HTMLAttributes<HTMLSAdamNavItemElement>;
             "s-adam-navigate": LocalJSX.SAdamNavigate & JSXBase.HTMLAttributes<HTMLSAdamNavigateElement>;
             "s-adam-no-chat": LocalJSX.SAdamNoChat & JSXBase.HTMLAttributes<HTMLSAdamNoChatElement>;
+            "s-adam-personal-header": LocalJSX.SAdamPersonalHeader & JSXBase.HTMLAttributes<HTMLSAdamPersonalHeaderElement>;
             "s-adam-profile": LocalJSX.SAdamProfile & JSXBase.HTMLAttributes<HTMLSAdamProfileElement>;
             "s-saqhan-chat-add-question": LocalJSX.SSaqhanChatAddQuestion & JSXBase.HTMLAttributes<HTMLSSaqhanChatAddQuestionElement>;
             "s-saqhan-chat-app": LocalJSX.SSaqhanChatApp & JSXBase.HTMLAttributes<HTMLSSaqhanChatAppElement>;

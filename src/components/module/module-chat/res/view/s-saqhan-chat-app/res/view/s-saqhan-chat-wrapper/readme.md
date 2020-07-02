@@ -35,6 +35,7 @@
 - [mobile-personal](../../../../../../../../mobile/mobile-chat/res/view/mobile-personal)
 - [s-saqhan-chat-users-wrapper](../s-saqhan-chat-users-wrapper)
 - [s-saqhan-chat-files-wrapper](../s-saqhan-chat-files-wrapper)
+- [s-adam-profile](../../../../../../../../shared/s-adam-profile)
 
 ### Graph
 ```mermaid
@@ -42,6 +43,7 @@ graph TD;
   s-saqhan-chat-wrapper --> mobile-personal
   s-saqhan-chat-wrapper --> s-saqhan-chat-users-wrapper
   s-saqhan-chat-wrapper --> s-saqhan-chat-files-wrapper
+  s-saqhan-chat-wrapper --> s-adam-profile
   mobile-personal --> message-from
   mobile-personal --> personal-footer
   message-from --> message-text

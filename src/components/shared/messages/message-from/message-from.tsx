@@ -49,7 +49,7 @@ export class MessageFrom implements ComponentInterface {
         );
       case MessageDirectionEnum.center:
         return (
-          <div class='system-message' ><span>{this.checkTypeSystemMessage(this.message.content)}</span></div>
+          <div class='system-message' ><div>{this.checkTypeSystemMessage(this.message.content)}</div></div>
         )
     }
   }

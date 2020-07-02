@@ -23,10 +23,6 @@
 
 ## Dependencies
 
-### Used by
-
- - [mobile-chat](../../..)
-
 ### Depends on
 
 - [dialog-card](../../../../../shared/dialog-card)
@@ -35,7 +31,6 @@
 ```mermaid
 graph TD;
   mobile-dialogs --> dialog-card
-  mobile-chat --> mobile-dialogs
   style mobile-dialogs fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

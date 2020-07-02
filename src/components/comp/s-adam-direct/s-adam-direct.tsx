@@ -20,37 +20,19 @@ export class SAdamDirect implements ComponentInterface {
   @Prop() message: Message[] = [];
 
   /**
-   * клик по имени юзера в личной переписке
-   */
-  @Event() clickOnUsername: EventEmitter;
-
-  /**
    * click on navigate
    * */
   @Event() clickToLink: EventEmitter;
 
+  /**
+   * клик по имени юзера в личной переписке
+   */
+  @Event() clickOnUsername: EventEmitter;
+
   render() {
     return (
-      <div>
-        <div class="header">
-          <div class="search-message">
-            <i class="fas fa-search hover-link"></i>
-          </div>
-          <div class="user">
-            <div
-              class="user-name"
-              onClick={(item) =>
-                this.clickOnUsername.emit({ place: "userName", item })
-              }
-            >
-              {this.getNameUser()}
-            </div>
-            <div class="online-marker"></div>
-          </div>
-          <div class="settings">
-            <i class="fas fa-cog hover-link"></i>
-          </div>
-        </div>
+      <div class="direct-comp">
+        <s-adam-personal-header message={this.message}></s-adam-personal-header>
         <div class="chat-messages">
           {this.message.map((message) => {
             return <message-from message={message}></message-from>;
@@ -59,20 +41,5 @@ export class SAdamDirect implements ComponentInterface {
         <personal-footer></personal-footer>
       </div>
     );
-  }
-
-  /**
-   * get name user
-   * */
-  public getNameUser() {
-    let name = "";
-
-    this.message.forEach((item) => {
-      if (name.indexOf(item.sender.name) === -1) {
-        name = item.sender.name;
-      }
-    });
-
-    return name;
   }
 }
