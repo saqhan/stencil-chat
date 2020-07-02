@@ -22,6 +22,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [mobile-chat](../../../../../..)
+
 ### Depends on
 
 - [contacts-list-header](./res/view/contacts-list-header)
@@ -35,6 +39,7 @@ graph TD;
   contacts-list --> contacts-list-body
   contacts-list --> m-chat-footer
   contacts-list-body --> contact-card
+  mobile-chat --> contacts-list
   style contacts-list fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

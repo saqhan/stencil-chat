@@ -30,31 +30,7 @@ export class MobileChat implements ComponentInterface {
   @State() messageMock = MessageMock;
 
   render() {
-    return (
-      // <div class="temp">
-      //  <div>{this.getContent(this.showContent)}</div>
-      <div>
-        {/*<mobile-dialogs*/}
-        {/*  onClickToLink={(item) => this.clickToLink(item)}*/}
-        {/*  onClickToCategory={(item) => this.clickToCategory(item)}*/}
-        {/*  categories={categories}*/}
-        {/*  dialogs={this.dialogs}*/}
-        {/*></mobile-dialogs>*/}
-        <mobile-personal
-          onClickToLink={(item) => this.clickToLink(item)}
-          messageMock={this.messageMock}
-        ></mobile-personal>
-        {/*<user-profile*/}
-        {/*  onClickToLink={(item) => this.clickToLink(item)}*/}
-        {/*></user-profile>*/}
-        {/*<contacts-list*/}
-        {/*  onClickToLink={(item) => this.clickToLink(item)}*/}
-        {/*  contacts={this.contacts}*/}
-        {/*  onSearchContact={(item) =>this.searchContact(item)}*/}
-        {/*></contacts-list>*/}
-      </div>
-      // </div>
-    );
+    return <div>{this.getContent("personal")}</div>;
   }
   componentWillLoad(): Promise<void> | void {
     this.dialogs = dialogs;
@@ -75,32 +51,47 @@ export class MobileChat implements ComponentInterface {
   /**
    * Поиск контактов
    * */
-  public searchContact(item) {
-    console.log('searchContact', item.target.value);
+  public searchContact(e) {
+    console.log("searchContact", e.currentTarget.querySelector("input").value);
   }
 
   /**
    * Метод для вывода определенного контента
    * */
-  // getContent(content) {
-  //   switch (content) {
-  //     case "dialogs":
-  //       return (
-  //         <mobile-dialogs
-  //           onClickToLink={(item) => this.clickToLink(item)}
-  //           categories={categories}
-  //           dialogs={this.dialogs}
-  //         ></mobile-dialogs>
-  //       );
-  //     case "personal":
-  //       return (
-  //         <mobile-personal
-  //           onClickToLink={(item) => this.clickToLink(item)}
-  //           messageMock={this.messageMock}
-  //         ></mobile-personal>
-  //       );
-  //     default:
-  //       return <div>no content</div>;
-  //   }
-  // }
+  getContent(content) {
+    switch (content) {
+      case "dialogs":
+        return (
+          <mobile-dialogs
+            onClickToLink={(item) => this.clickToLink(item)}
+            onClickToCategory={(item) => this.clickToCategory(item)}
+            categories={categories}
+            dialogs={this.dialogs}
+          ></mobile-dialogs>
+        );
+      case "personal":
+        return (
+          <mobile-personal
+            onClickToLink={(item) => this.clickToLink(item)}
+            messageMock={this.messageMock}
+          ></mobile-personal>
+        );
+      case "profile":
+        return (
+          <user-profile
+            onClickToLink={(item) => this.clickToLink(item)}
+          ></user-profile>
+        );
+      case "contacts":
+        return (
+          <contacts-list
+            onClickToLink={(item) => this.clickToLink(item)}
+            contacts={this.contacts}
+            onSearchContact={(item) => this.searchContact(item)}
+          ></contacts-list>
+        );
+      default:
+        return <div>no content</div>;
+    }
+  }
 }
