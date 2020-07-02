@@ -14,6 +14,20 @@ export namespace Components {
     interface ChatUserCard {
         "user": any;
     }
+    interface ContactCard {
+        /**
+          * Принимаем контакт
+         */
+        "contact": any;
+    }
+    interface ContactsList {
+        "contacts": any;
+    }
+    interface ContactsListBody {
+        "contacts": any;
+    }
+    interface ContactsListHeader {
+    }
     interface DialogCard {
         /**
           * карточка диалога
@@ -218,6 +232,30 @@ declare global {
     var HTMLChatUserCardElement: {
         prototype: HTMLChatUserCardElement;
         new (): HTMLChatUserCardElement;
+    };
+    interface HTMLContactCardElement extends Components.ContactCard, HTMLStencilElement {
+    }
+    var HTMLContactCardElement: {
+        prototype: HTMLContactCardElement;
+        new (): HTMLContactCardElement;
+    };
+    interface HTMLContactsListElement extends Components.ContactsList, HTMLStencilElement {
+    }
+    var HTMLContactsListElement: {
+        prototype: HTMLContactsListElement;
+        new (): HTMLContactsListElement;
+    };
+    interface HTMLContactsListBodyElement extends Components.ContactsListBody, HTMLStencilElement {
+    }
+    var HTMLContactsListBodyElement: {
+        prototype: HTMLContactsListBodyElement;
+        new (): HTMLContactsListBodyElement;
+    };
+    interface HTMLContactsListHeaderElement extends Components.ContactsListHeader, HTMLStencilElement {
+    }
+    var HTMLContactsListHeaderElement: {
+        prototype: HTMLContactsListHeaderElement;
+        new (): HTMLContactsListHeaderElement;
     };
     interface HTMLDialogCardElement extends Components.DialogCard, HTMLStencilElement {
     }
@@ -437,6 +475,10 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "chat-user-card": HTMLChatUserCardElement;
+        "contact-card": HTMLContactCardElement;
+        "contacts-list": HTMLContactsListElement;
+        "contacts-list-body": HTMLContactsListBodyElement;
+        "contacts-list-header": HTMLContactsListHeaderElement;
         "dialog-card": HTMLDialogCardElement;
         "m-chat-dialogs": HTMLMChatDialogsElement;
         "m-chat-footer": HTMLMChatFooterElement;
@@ -479,6 +521,40 @@ declare namespace LocalJSX {
     interface ChatUserCard {
         "onSelectPersonal"?: (event: CustomEvent<any>) => void;
         "user"?: any;
+    }
+    interface ContactCard {
+        /**
+          * Принимаем контакт
+         */
+        "contact"?: any;
+        /**
+          * clock on navigate
+         */
+        "onClickToLink"?: (event: CustomEvent<any>) => void;
+    }
+    interface ContactsList {
+        "contacts"?: any;
+        /**
+          * clock on clickToLink
+         */
+        "onClickToLink"?: (event: CustomEvent<any>) => void;
+    }
+    interface ContactsListBody {
+        "contacts"?: any;
+        /**
+          * clock on clickToLink
+         */
+        "onClickToLink"?: (event: CustomEvent<any>) => void;
+    }
+    interface ContactsListHeader {
+        /**
+          * clock on clickToLink
+         */
+        "onClickToLink"?: (event: CustomEvent<any>) => void;
+        /**
+          * search contact
+         */
+        "onSearchContact"?: (event: CustomEvent<any>) => void;
     }
     interface DialogCard {
         /**
@@ -775,6 +851,10 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "chat-user-card": ChatUserCard;
+        "contact-card": ContactCard;
+        "contacts-list": ContactsList;
+        "contacts-list-body": ContactsListBody;
+        "contacts-list-header": ContactsListHeader;
         "dialog-card": DialogCard;
         "m-chat-dialogs": MChatDialogs;
         "m-chat-footer": MChatFooter;
@@ -818,6 +898,10 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "chat-user-card": LocalJSX.ChatUserCard & JSXBase.HTMLAttributes<HTMLChatUserCardElement>;
+            "contact-card": LocalJSX.ContactCard & JSXBase.HTMLAttributes<HTMLContactCardElement>;
+            "contacts-list": LocalJSX.ContactsList & JSXBase.HTMLAttributes<HTMLContactsListElement>;
+            "contacts-list-body": LocalJSX.ContactsListBody & JSXBase.HTMLAttributes<HTMLContactsListBodyElement>;
+            "contacts-list-header": LocalJSX.ContactsListHeader & JSXBase.HTMLAttributes<HTMLContactsListHeaderElement>;
             "dialog-card": LocalJSX.DialogCard & JSXBase.HTMLAttributes<HTMLDialogCardElement>;
             "m-chat-dialogs": LocalJSX.MChatDialogs & JSXBase.HTMLAttributes<HTMLMChatDialogsElement>;
             "m-chat-footer": LocalJSX.MChatFooter & JSXBase.HTMLAttributes<HTMLMChatFooterElement>;

@@ -1,5 +1,10 @@
 import { Component, ComponentInterface, h, State } from "@stencil/core";
-import { dialogs, categories, MessageMock } from "../../../utils/mock";
+import {
+  dialogs,
+  categories,
+  MessageMock,
+  contacts,
+} from "../../../utils/mock";
 
 @Component({
   tag: "mobile-chat",
@@ -15,6 +20,10 @@ export class MobileChat implements ComponentInterface {
    * массив данных для диалогов
    * */
   @State() dialogs = dialogs;
+  /**
+   * массив данных для контактов
+   * */
+  @State() contacts = contacts;
   /**
    * массив данных личных диалогово
    * */
@@ -38,6 +47,11 @@ export class MobileChat implements ComponentInterface {
         {/*<user-profile*/}
         {/*  onClickToLink={(item) => this.clickToLink(item)}*/}
         {/*></user-profile>*/}
+        {/*<contacts-list*/}
+        {/*  onClickToLink={(item) => this.clickToLink(item)}*/}
+        {/*  contacts={this.contacts}*/}
+        {/*  onSearchContact={(item) =>this.searchContact(item)}*/}
+        {/*></contacts-list>*/}
       </div>
       // </div>
     );
@@ -56,6 +70,13 @@ export class MobileChat implements ComponentInterface {
    * */
   public clickToCategory({ detail }) {
     console.log(detail);
+  }
+
+  /**
+   * Поиск контактов
+   * */
+  public searchContact(item) {
+    console.log('searchContact', item.target.value);
   }
 
   /**
