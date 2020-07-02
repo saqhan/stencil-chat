@@ -18,6 +18,10 @@ export class ContactsList implements ComponentInterface {
    * clock on clickToLink
    * */
   @Event() clickToLink: EventEmitter;
+  /**
+   * search contact
+   * */
+  @Event() searchContact: EventEmitter;
 
   render() {
     return (

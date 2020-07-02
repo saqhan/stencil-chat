@@ -16,11 +16,13 @@
 
 ### Used by
 
+ - [contacts-list](../contacts-list)
  - [mobile-dialogs](../../..)
 
 ### Graph
 ```mermaid
 graph TD;
+  contacts-list --> m-chat-footer
   mobile-dialogs --> m-chat-footer
   style m-chat-footer fill:#f9f,stroke:#333,stroke-width:4px
 ```

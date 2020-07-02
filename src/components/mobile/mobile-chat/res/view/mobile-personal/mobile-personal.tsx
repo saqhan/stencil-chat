@@ -7,8 +7,7 @@ import {
   Prop,
 } from "@stencil/core";
 import {
-  Message,
-  MessageDirectionEnum,
+  Message
 } from "../../../../../shared/interface/common.interface";
 @Component({
   tag: "mobile-personal",
@@ -39,20 +38,20 @@ export class MobilePersonal implements ComponentInterface {
   /**
    * Создаем сообщение которое отправлено/прислано и сообщение по центру
    * */
-  public createMessagesElements(array) {
-    return array.map((item) => {
-      switch (item.direction) {
-        //Если это сообщение для меня
-        case MessageDirectionEnum.toMe:
-          return <mess-to-me message={item}></mess-to-me>;
-        //Если это сообщение от меня
-        case MessageDirectionEnum.fromMe:
-          return <mess-from-me message={item}></mess-from-me>;
-        // Сообщение по центру
-        case MessageDirectionEnum.center:
-          return <div>Today</div>;
-      }
-    });
-  }
+  // public createMessagesElements(array) {
+  //   return array.map((item) => {
+  //     switch (item.direction) {
+  //       //Если это сообщение для меня
+  //       case MessageDirectionEnum.toMe:
+  //         return <mess-to-me message={item}></mess-to-me>;
+  //       //Если это сообщение от меня
+  //       case MessageDirectionEnum.fromMe:
+  //         return <mess-from-me message={item}></mess-from-me>;
+  //       // Сообщение по центру
+  //       case MessageDirectionEnum.center:
+  //         return <div>Today</div>;
+  //     }
+  //   });
+  // }
 
 }

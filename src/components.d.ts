@@ -538,6 +538,10 @@ declare namespace LocalJSX {
           * clock on clickToLink
          */
         "onClickToLink"?: (event: CustomEvent<any>) => void;
+        /**
+          * search contact
+         */
+        "onSearchContact"?: (event: CustomEvent<any>) => void;
     }
     interface ContactsListBody {
         "contacts"?: any;

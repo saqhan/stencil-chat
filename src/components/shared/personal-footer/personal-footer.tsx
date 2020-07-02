@@ -50,16 +50,17 @@ export class PersonalFooter implements ComponentInterface {
   public sendingNewMess(e) {
     e.preventDefault();
     console.log("sendingNewMess", e.currentTarget.querySelector("input").value);
-    e.currentTarget.querySelector("input").value = "";
+    e.currentTarget.querySelector("input").value = '';
+    this.iconFooterInput = <i class="fas fa-microphone"></i>;
   }
 
   /**
    * Функция для для отправки сообщения
    * */
   public swithIconInput(e) {
-    if (e.target.value) {
-      return this.iconFooterInput = <i class="fas fa-location-arrow"></i>;
+    if (e.target.value === '') {
+      return this.iconFooterInput = <i class="fas fa-microphone"></i>;
     }
-    else this.iconFooterInput =  <i class="fas fa-microphone"></i>;
+    else this.iconFooterInput = <i class="fas fa-location-arrow"></i> ;
   }
 }

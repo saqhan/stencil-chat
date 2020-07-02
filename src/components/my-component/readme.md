@@ -7,17 +7,24 @@
 
 ### Depends on
 
-- [mobile-chat](../mobile/mobile-chat)
+- [s-adam-chat](../comp/s-adam-chat)
 
 ### Graph
 ```mermaid
 graph TD;
-  my-component --> mobile-chat
-  mobile-chat --> mobile-dialogs
-  mobile-dialogs --> m-chat-header
-  mobile-dialogs --> m-chat-dialogs
-  mobile-dialogs --> m-chat-footer
-  m-chat-dialogs --> dialog-card
+  my-component --> s-adam-chat
+  s-adam-chat --> s-adam-navigate
+  s-adam-chat --> s-adam-contacts
+  s-adam-chat --> s-adam-direct
+  s-adam-chat --> s-adam-no-chat
+  s-adam-chat --> s-adam-profile
+  s-adam-navigate --> s-adam-nav-item
+  s-adam-contacts --> dialog-card
+  s-adam-direct --> s-adam-personal-header
+  s-adam-direct --> message-from
+  s-adam-direct --> personal-footer
+  message-from --> message-text
+  message-from --> message-img
   style my-component fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

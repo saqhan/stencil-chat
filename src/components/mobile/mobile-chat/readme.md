@@ -7,10 +7,6 @@
 
 ## Dependencies
 
-### Used by
-
- - [my-component](../../my-component)
-
 ### Depends on
 
 - [mobile-dialogs](./res/view/mobile-dialogs)
@@ -23,7 +19,6 @@ graph TD;
   mobile-dialogs --> m-chat-dialogs
   mobile-dialogs --> m-chat-footer
   m-chat-dialogs --> dialog-card
-  my-component --> mobile-chat
   style mobile-chat fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
