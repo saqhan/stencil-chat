@@ -696,6 +696,10 @@ declare namespace LocalJSX {
           * Событие для переключения пустой страницы на личный чат
          */
         "onClickToLink"?: (event: CustomEvent<any>) => void;
+        /**
+          * search contact
+         */
+        "onSearchContact"?: (event: CustomEvent<any>) => void;
     }
     interface SAdamDialogs {
         /**
