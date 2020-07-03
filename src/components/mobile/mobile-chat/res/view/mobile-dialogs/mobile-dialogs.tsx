@@ -25,6 +25,8 @@ export class MobileDialogs implements ComponentInterface {
    * */
   @Event() clickToCategory: EventEmitter;
 
+  @Event() searchContact: EventEmitter;
+
 
 
   render() {
