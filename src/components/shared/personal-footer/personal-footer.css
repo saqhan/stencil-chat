@@ -57,3 +57,8 @@
 .chat .input-wrapper  input {
   text-align: left;
 }
+
+
+.mobile .footer-wrapper {
+  border-radius: 15px 15px 0px 0px;
+}

@@ -16,7 +16,7 @@
 
 ### Used by
 
- - [mobile-personal](../../../mobile/mobile-chat/res/view/mobile-personal)
+ - [personal-message](../../../mobile/mobile-chat/res/view/mobile-personal/res/view/personal-message)
  - [s-adam-direct](../../../comp/s-adam-direct)
 
 ### Depends on
@@ -29,7 +29,7 @@
 graph TD;
   message-from --> message-text
   message-from --> message-img
-  mobile-personal --> message-from
+  personal-message --> message-from
   s-adam-direct --> message-from
   style message-from fill:#f9f,stroke:#333,stroke-width:4px
 ```

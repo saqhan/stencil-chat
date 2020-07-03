@@ -14,6 +14,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [mobile-chat](../../..)
+
 ### Depends on
 
 - [s-adam-profile](../../../../../shared/s-adam-profile)
@@ -22,6 +26,7 @@
 ```mermaid
 graph TD;
   user-profile --> s-adam-profile
+  mobile-chat --> user-profile
   style user-profile fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

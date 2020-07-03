@@ -1,0 +1,60 @@
+/*header*/
+
+.contacts-list-header {
+  border-bottom: 1px solid #eaeaea;
+  background-color: #eaeaea45;
+  padding: 20px 0px 10px 0px;
+}
+
+.custom-link {
+  cursor: pointer;
+}
+
+.contacts-list-description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.contacts-list-arraw-back i {
+  font-size: 14px;
+  color: #979eab;
+  position: absolute;
+  left: 6%;
+  bottom: 20%;
+}
+
+.contacts-list-title {
+  font-weight: 600;
+  color: #4c567d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contacts-list-input {
+  text-align: center;
+  margin: 10px 0px;
+  position: relative;
+}
+
+.contacts-list-input input {
+  text-align: center;
+  border-radius: 5px;
+  border: none;
+  background-color: #eaeaea;
+  width: 90%;
+  padding: 5px;
+  font-size: 14px;
+  outline: none;
+}
+
+.contacts-list-input i {
+  position: absolute;
+  top: 30%;
+  z-index: 2;
+  left: 39%;
+  font-size: 14px;
+  color: #979eab;
+}
