@@ -24,17 +24,6 @@ export namespace Components {
          */
         "theme": "comp" | "mobile";
     }
-    interface MChatDialogs {
-        "dialogs": any;
-    }
-    interface MChatFooter {
-    }
-    interface MChatHeader {
-        /**
-          * массив категорий диалогов
-         */
-        "categories": any;
-    }
     interface MessageFrom {
         /**
           * Принимаем сообщения для пользователя
@@ -88,18 +77,6 @@ export namespace Components {
     interface MyComponent {
     }
     interface PersonalFooter {
-    }
-    interface PersonalHeader {
-        /**
-          * array data personal messages
-         */
-        "messageMock": any;
-    }
-    interface PersonalMessage {
-        /**
-          * array data personal messages
-         */
-        "messageMock": any;
     }
     interface SAdamChat {
     }
@@ -225,24 +202,6 @@ declare global {
         prototype: HTMLDialogCardElement;
         new (): HTMLDialogCardElement;
     };
-    interface HTMLMChatDialogsElement extends Components.MChatDialogs, HTMLStencilElement {
-    }
-    var HTMLMChatDialogsElement: {
-        prototype: HTMLMChatDialogsElement;
-        new (): HTMLMChatDialogsElement;
-    };
-    interface HTMLMChatFooterElement extends Components.MChatFooter, HTMLStencilElement {
-    }
-    var HTMLMChatFooterElement: {
-        prototype: HTMLMChatFooterElement;
-        new (): HTMLMChatFooterElement;
-    };
-    interface HTMLMChatHeaderElement extends Components.MChatHeader, HTMLStencilElement {
-    }
-    var HTMLMChatHeaderElement: {
-        prototype: HTMLMChatHeaderElement;
-        new (): HTMLMChatHeaderElement;
-    };
     interface HTMLMessageFromElement extends Components.MessageFrom, HTMLStencilElement {
     }
     var HTMLMessageFromElement: {
@@ -296,18 +255,6 @@ declare global {
     var HTMLPersonalFooterElement: {
         prototype: HTMLPersonalFooterElement;
         new (): HTMLPersonalFooterElement;
-    };
-    interface HTMLPersonalHeaderElement extends Components.PersonalHeader, HTMLStencilElement {
-    }
-    var HTMLPersonalHeaderElement: {
-        prototype: HTMLPersonalHeaderElement;
-        new (): HTMLPersonalHeaderElement;
-    };
-    interface HTMLPersonalMessageElement extends Components.PersonalMessage, HTMLStencilElement {
-    }
-    var HTMLPersonalMessageElement: {
-        prototype: HTMLPersonalMessageElement;
-        new (): HTMLPersonalMessageElement;
     };
     interface HTMLSAdamChatElement extends Components.SAdamChat, HTMLStencilElement {
     }
@@ -438,9 +385,6 @@ declare global {
     interface HTMLElementTagNameMap {
         "chat-user-card": HTMLChatUserCardElement;
         "dialog-card": HTMLDialogCardElement;
-        "m-chat-dialogs": HTMLMChatDialogsElement;
-        "m-chat-footer": HTMLMChatFooterElement;
-        "m-chat-header": HTMLMChatHeaderElement;
         "message-from": HTMLMessageFromElement;
         "message-img": HTMLMessageImgElement;
         "message-text": HTMLMessageTextElement;
@@ -450,8 +394,6 @@ declare global {
         "module-chat": HTMLModuleChatElement;
         "my-component": HTMLMyComponentElement;
         "personal-footer": HTMLPersonalFooterElement;
-        "personal-header": HTMLPersonalHeaderElement;
-        "personal-message": HTMLPersonalMessageElement;
         "s-adam-chat": HTMLSAdamChatElement;
         "s-adam-contacts": HTMLSAdamContactsElement;
         "s-adam-dialogs": HTMLSAdamDialogsElement;
@@ -493,29 +435,6 @@ declare namespace LocalJSX {
           * карточка диалога
          */
         "theme"?: "comp" | "mobile";
-    }
-    interface MChatDialogs {
-        "dialogs"?: any;
-    }
-    interface MChatFooter {
-        /**
-          * clock on clickToLink
-         */
-        "onClickToLink"?: (event: CustomEvent<any>) => void;
-    }
-    interface MChatHeader {
-        /**
-          * массив категорий диалогов
-         */
-        "categories"?: any;
-        /**
-          * clock on Category
-         */
-        "onClickToCategory"?: (event: CustomEvent<any>) => void;
-        /**
-          * clock on clickToLink
-         */
-        "onClickToLink"?: (event: CustomEvent<any>) => void;
     }
     interface MessageFrom {
         /**
@@ -586,22 +505,6 @@ declare namespace LocalJSX {
           * click on navigate
          */
         "onClickToLink"?: (event: CustomEvent<any>) => void;
-    }
-    interface PersonalHeader {
-        /**
-          * array data personal messages
-         */
-        "messageMock"?: any;
-        /**
-          * clock on navigate
-         */
-        "onClickToLink"?: (event: CustomEvent<any>) => void;
-    }
-    interface PersonalMessage {
-        /**
-          * array data personal messages
-         */
-        "messageMock"?: any;
     }
     interface SAdamChat {
     }
@@ -776,9 +679,6 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "chat-user-card": ChatUserCard;
         "dialog-card": DialogCard;
-        "m-chat-dialogs": MChatDialogs;
-        "m-chat-footer": MChatFooter;
-        "m-chat-header": MChatHeader;
         "message-from": MessageFrom;
         "message-img": MessageImg;
         "message-text": MessageText;
@@ -788,8 +688,6 @@ declare namespace LocalJSX {
         "module-chat": ModuleChat;
         "my-component": MyComponent;
         "personal-footer": PersonalFooter;
-        "personal-header": PersonalHeader;
-        "personal-message": PersonalMessage;
         "s-adam-chat": SAdamChat;
         "s-adam-contacts": SAdamContacts;
         "s-adam-dialogs": SAdamDialogs;
@@ -819,9 +717,6 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "chat-user-card": LocalJSX.ChatUserCard & JSXBase.HTMLAttributes<HTMLChatUserCardElement>;
             "dialog-card": LocalJSX.DialogCard & JSXBase.HTMLAttributes<HTMLDialogCardElement>;
-            "m-chat-dialogs": LocalJSX.MChatDialogs & JSXBase.HTMLAttributes<HTMLMChatDialogsElement>;
-            "m-chat-footer": LocalJSX.MChatFooter & JSXBase.HTMLAttributes<HTMLMChatFooterElement>;
-            "m-chat-header": LocalJSX.MChatHeader & JSXBase.HTMLAttributes<HTMLMChatHeaderElement>;
             "message-from": LocalJSX.MessageFrom & JSXBase.HTMLAttributes<HTMLMessageFromElement>;
             "message-img": LocalJSX.MessageImg & JSXBase.HTMLAttributes<HTMLMessageImgElement>;
             "message-text": LocalJSX.MessageText & JSXBase.HTMLAttributes<HTMLMessageTextElement>;
@@ -831,8 +726,6 @@ declare module "@stencil/core" {
             "module-chat": LocalJSX.ModuleChat & JSXBase.HTMLAttributes<HTMLModuleChatElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "personal-footer": LocalJSX.PersonalFooter & JSXBase.HTMLAttributes<HTMLPersonalFooterElement>;
-            "personal-header": LocalJSX.PersonalHeader & JSXBase.HTMLAttributes<HTMLPersonalHeaderElement>;
-            "personal-message": LocalJSX.PersonalMessage & JSXBase.HTMLAttributes<HTMLPersonalMessageElement>;
             "s-adam-chat": LocalJSX.SAdamChat & JSXBase.HTMLAttributes<HTMLSAdamChatElement>;
             "s-adam-contacts": LocalJSX.SAdamContacts & JSXBase.HTMLAttributes<HTMLSAdamContactsElement>;
             "s-adam-dialogs": LocalJSX.SAdamDialogs & JSXBase.HTMLAttributes<HTMLSAdamDialogsElement>;
