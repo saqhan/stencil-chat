@@ -1,6 +1,30 @@
 
+/*modal*/
+
+.modal-wrapper  {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  height: 50px;
+  transition: 0.4s ease-in-out;
+
+}
+
+.modal-wrapper input {
+  text-align: center;
+  border-radius: 5px;
+  border: none;
+  background-color: #eaeaea;
+  width: 90%;
+  padding: 5px;
+  font-size: 14px;
+  outline: none;
+}
+
+/**/
 .m-chat-header {
-  padding: 20px 20px 0px;
+
   border-bottom: 1px solid #ccc;
 }
 
@@ -23,6 +47,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 20px 20px 0px;
 }
 
 .custom-link {
@@ -34,7 +59,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px 10px 0px;
+  padding: 20px 0px 0px;
 }
 
 .btns-nav span {

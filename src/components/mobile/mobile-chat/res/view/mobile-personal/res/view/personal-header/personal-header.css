@@ -1,7 +1,54 @@
 
+.drop-down {
+  position: absolute;
+  right: 20px;
+  padding: 10px;
+  background-color: #dadada8f;
+  border-radius: 10px 0px 10px 10px;
+}
+
+.drop-down ul li{
+  list-style: none;
+}
+
+.searchPersonalmess {
+  padding: 20px 20px 20px;
+  border-bottom: 1px solid #ccc;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.searchPersonalmess input {
+  text-align: center;
+  border-radius: 5px;
+  border: none;
+  background-color: #eaeaea;
+  width: 80%;
+  padding: 5px;
+  height: 40px;
+  font-size: 16px;
+  outline: none;
+}
+
+.cancel-search {
+  padding: 5px;
+}
+
+
+.search-wrapper .user-name-personal {
+  font-weight: 600;
+  color: #4c567d;
+  text-align: center;
+  margin-top: 20px;
+}
+
+
 .personal-header {
   padding: 20px 20px 20px;
   border-bottom: 1px solid #ccc;
+  position: relative;
 }
 
 .header-nav {

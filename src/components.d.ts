@@ -597,6 +597,7 @@ declare namespace LocalJSX {
           * clock on clickToLink
          */
         "onClickToLink"?: (event: CustomEvent<any>) => void;
+        "onSearchContact"?: (event: CustomEvent<any>) => void;
     }
     interface MessageFrom {
         /**
@@ -647,6 +648,7 @@ declare namespace LocalJSX {
           * clock on clickToLink
          */
         "onClickToLink"?: (event: CustomEvent<any>) => void;
+        "onSearchContact"?: (event: CustomEvent<any>) => void;
     }
     interface MobilePersonal {
         /**
@@ -657,6 +659,7 @@ declare namespace LocalJSX {
           * clock on navigate
          */
         "onClickToLink"?: (event: CustomEvent<any>) => void;
+        "onSearchContact"?: (event: CustomEvent<any>) => void;
     }
     interface ModuleChat {
     }
@@ -678,6 +681,7 @@ declare namespace LocalJSX {
           * clock on navigate
          */
         "onClickToLink"?: (event: CustomEvent<any>) => void;
+        "onSearchContact"?: (event: CustomEvent<any>) => void;
     }
     interface PersonalMessage {
         /**
