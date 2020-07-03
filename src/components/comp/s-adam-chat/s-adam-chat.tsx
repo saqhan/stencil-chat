@@ -47,6 +47,7 @@ export class SAdamChat implements ComponentInterface {
               </div>
               <div class="col-3">
                 <s-adam-contacts
+                  onSearchContact={(item) => this.searchContact(item)}
                   onClickToLink={({ detail }) => {
                     this.toggleChat({ detail });
                   }}
@@ -103,5 +104,8 @@ export class SAdamChat implements ComponentInterface {
    * */
   public clickToLink({ detail }) {
     console.log(detail);
+  }
+  public searchContact({detail}) {
+    console.log('searchContact', detail)
   }
 }
