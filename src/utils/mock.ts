@@ -1,5 +1,8 @@
-import {Message, MessageDirectionEnum, MessageTypeEnum} from "../components/shared/interface/common.interface";
-
+import {
+  Message,
+  MessageDirectionEnum,
+  MessageTypeEnum,
+} from "../components/shared/interface/common.interface";
 
 export const dialogs = [
   {
@@ -149,7 +152,8 @@ export const MessageMock: Message[] = [
     },
   },
   {
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit",
     sender: {
       uid: "test-id-1",
       icon: "https://via.placeholder.com/60x60?text=User",
@@ -165,10 +169,10 @@ export const MessageMock: Message[] = [
   {
     content: "Олег подключился к чату",
     sender: {
-      uid: '',
-      icon: '',
-      name: '',
-      phone: '',
+      uid: "",
+      icon: "",
+      name: "",
+      phone: "",
     },
     type: MessageTypeEnum.text,
     direction: MessageDirectionEnum.center,
@@ -195,10 +199,10 @@ export const MessageMock: Message[] = [
   {
     content: 1593606947701,
     sender: {
-      uid: '',
-      icon: '',
-      name: '',
-      phone: '',
+      uid: "",
+      icon: "",
+      name: "",
+      phone: "",
     },
     type: MessageTypeEnum.date,
     direction: MessageDirectionEnum.center,
@@ -223,7 +227,8 @@ export const MessageMock: Message[] = [
     },
   },
   {
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit df sss",
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit df sss",
     sender: {
       uid: "test-id-2",
       icon: "https://via.placeholder.com/60x60?text=User",
@@ -293,6 +298,20 @@ export const MessageMock: Message[] = [
       created: new Date(),
     },
   },
+  {
+    content: "",
+    sender: {
+      uid: "test-id-1",
+      icon: "https://via.placeholder.com/60x60?text=User",
+      name: "Сайхан",
+      phone: "79291234567",
+    },
+    type: MessageTypeEnum.loading,
+    direction: MessageDirectionEnum.toMe,
+    time: {
+      created: new Date(),
+    },
+  },
 ];
 
 export const logo = {
@@ -356,7 +375,8 @@ export const contacts = [
     },
     category: "work",
     online: true,
-  },  {
+  },
+  {
     id: 4,
     img: "https://via.placeholder.com/300x300?text=User",
     name: "Isaac Jack King",
@@ -454,13 +474,12 @@ export const contacts = [
     },
     category: "work",
     online: true,
-  }
+  },
 ];
 
 /**
-* module
-* */
-
+ * module
+ * */
 
 export const messages = [
   {

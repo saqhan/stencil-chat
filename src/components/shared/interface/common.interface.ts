@@ -50,7 +50,7 @@ export enum MessageDirectionEnum {
   /**
    * сообщения которое будет отображаться в центре
    * */
-  center
+  center,
 }
 
 /**
@@ -60,40 +60,43 @@ export enum MessageTypeEnum {
   /**
    * сообщения написал кто то другой, и получено мною
    * */
-  text = 'text',
+  text = "text",
   /**
    * аудио сообщения записанное самим пользователем
    * */
-  liveAudio = 'live-audio',
+  liveAudio = "live-audio",
   /**
    * аудио сообщение любое которое не записано самим пользователем
    * */
-  audio = 'audio',
+  audio = "audio",
   /**
    * фотка сделанная на устройстве пользователя и отправленная сразу
    * */
-  liveImage = 'live-image',
+  liveImage = "live-image",
   /**
    * фотка из устройства отправителя
    * */
-  image = 'image',
+  image = "image",
   /**
    * видео сделанная на устройстве пользователя и отправленная сразу
    * */
-  liveVideo = 'live-video',
+  liveVideo = "live-video",
   /**
    * видео из устройства отправителя
    * */
-  video = 'video',
+  video = "video",
   /**
    * файл из устройства отправителя
    * */
-  file = 'file',
+  file = "file",
 
   /**
    * timestamp
    * */
-  date = 'date'
+  date = "date",
+
+  /**
+   * Печатает сообщение
+   */
+  loading = "loading",
 }
-
-

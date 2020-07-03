@@ -3,6 +3,9 @@
   justify-content: space-between;
   font-size: 14px;
   padding: 20px;
+}
+.header-search-block {
+  padding: 20px;
   border-bottom: 1px solid #f7f8f9;
 }
 .user {
@@ -20,7 +23,27 @@
   background-color: #5dc969;
   margin-left: 10px;
 }
-.search-message, .settings {
+.search-message,
+.settings {
   color: #bacbe3;
+  cursor: pointer;
+}
+.search-message-wrapper {
+  width: 100%;
+  position: relative;
+}
+.search-message-wrapper input {
+  padding: 10px 40px;
+  width: 100%;
+  margin: 0 auto;
+  border: none;
+  background-color: #f7f8f9;
+  outline: none;
+}
+.search-message-wrapper .fas {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
   cursor: pointer;
 }

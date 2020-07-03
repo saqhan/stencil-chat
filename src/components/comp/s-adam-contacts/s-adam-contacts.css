@@ -17,6 +17,7 @@
   border: none;
   padding: 10px 40px;
   width: 100%;
+  outline: none;
 }
 .search-contact-block {
   padding-bottom: 20px;

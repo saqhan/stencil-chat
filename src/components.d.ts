@@ -717,6 +717,10 @@ declare namespace LocalJSX {
          */
         "message"?: Message[];
         /**
+          * Клик по иконке поиска
+         */
+        "onClickOnSearchMessage"?: (event: CustomEvent<any>) => void;
+        /**
           * клик по имени юзера в личной переписке
          */
         "onClickOnUsername"?: (event: CustomEvent<any>) => void;
@@ -748,6 +752,10 @@ declare namespace LocalJSX {
           * Личный диалог
          */
         "message"?: Message[];
+        /**
+          * Клик по иконке поиска
+         */
+        "onClickOnSearchMessage"?: (event: CustomEvent<any>) => void;
         /**
           * клик по имени юзера в личной переписке
          */

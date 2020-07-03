@@ -1,5 +1,5 @@
 import { Component, ComponentInterface, h, Prop } from "@stencil/core";
-import { MessageDirectionEnum} from "../../../../../interface/common.interface";
+import { MessageDirectionEnum } from "../../../../../interface/common.interface";
 
 @Component({
   tag: "message-text",
