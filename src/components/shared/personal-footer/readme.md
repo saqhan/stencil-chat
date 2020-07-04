@@ -5,6 +5,13 @@
 <!-- Auto Generated Below -->
 
 
+## Properties
+
+| Property | Attribute | Description | Type                 | Default  |
+| -------- | --------- | ----------- | -------------------- | -------- |
+| `theme`  | `theme`   |             | `"comp" \| "mobile"` | `'comp'` |
+
+
 ## Events
 
 | Event         | Description       | Type               |

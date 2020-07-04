@@ -3,6 +3,7 @@ import {
   MessageDirectionEnum,
   MessageTypeEnum,
 } from "../../interface/common.interface";
+import dayjs from "dayjs";
 
 @Component({
   tag: "message-from",
@@ -47,7 +48,9 @@ export class MessageFrom implements ComponentInterface {
           </div>
         );
       case MessageDirectionEnum.center:
-        return <div>Today</div>;
+        return (
+          <div class='system-message' ><div>{this.checkTypeSystemMessage(this.message.content)}</div></div>
+        )
     }
   }
 
@@ -114,6 +117,17 @@ export class MessageFrom implements ComponentInterface {
           <i class="fa fa-check"></i>
         </span>
       );
+    }
+  }
+  /**
+   * Проверка на тип полученного системного сообщения
+   * */
+
+  public checkTypeSystemMessage(message){
+    if ((typeof(message) === "string")) {
+      return message
+    } else if ((typeof(message) === "number")) {
+      return dayjs(message).format('DD MMMM');
     }
   }
 }

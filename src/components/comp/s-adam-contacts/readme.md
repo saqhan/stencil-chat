@@ -14,9 +14,10 @@
 
 ## Events
 
-| Event         | Description                                            | Type               |
-| ------------- | ------------------------------------------------------ | ------------------ |
-| `clickToLink` | Событие для переключения пустой страницы на личный чат | `CustomEvent<any>` |
+| Event           | Description                                            | Type               |
+| --------------- | ------------------------------------------------------ | ------------------ |
+| `clickToLink`   | Событие для переключения пустой страницы на личный чат | `CustomEvent<any>` |
+| `searchContact` | search contact                                         | `CustomEvent<any>` |
 
 
 ## Dependencies

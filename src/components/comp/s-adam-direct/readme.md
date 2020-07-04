@@ -28,12 +28,14 @@
 
 ### Depends on
 
+- [s-adam-personal-header](../s-adam-personal-header)
 - [message-from](../../shared/messages/message-from)
 - [personal-footer](../../shared/personal-footer)
 
 ### Graph
 ```mermaid
 graph TD;
+  s-adam-direct --> s-adam-personal-header
   s-adam-direct --> message-from
   s-adam-direct --> personal-footer
   message-from --> message-text

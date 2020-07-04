@@ -19,8 +19,11 @@ graph TD;
   s-saqhan-chat-wrapper --> mobile-personal
   s-saqhan-chat-wrapper --> s-saqhan-chat-users-wrapper
   s-saqhan-chat-wrapper --> s-saqhan-chat-files-wrapper
-  mobile-personal --> message-from
+  s-saqhan-chat-wrapper --> s-adam-profile
+  mobile-personal --> personal-header
+  mobile-personal --> personal-message
   mobile-personal --> personal-footer
+  personal-message --> message-from
   message-from --> message-text
   message-from --> message-img
   s-saqhan-chat-users-wrapper --> s-saqhan-chat-form-search

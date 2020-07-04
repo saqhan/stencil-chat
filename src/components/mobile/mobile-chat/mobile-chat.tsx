@@ -1,5 +1,10 @@
 import { Component, ComponentInterface, h, State } from "@stencil/core";
-import { dialogs, categories, MessageMock } from "../../../utils/mock";
+import {
+  dialogs,
+  categories,
+  MessageMock,
+  contacts,
+} from "../../../utils/mock";
 
 @Component({
   tag: "mobile-chat",
@@ -16,31 +21,16 @@ export class MobileChat implements ComponentInterface {
    * */
   @State() dialogs = dialogs;
   /**
+   * массив данных для контактов
+   * */
+  @State() contacts = contacts;
+  /**
    * массив данных личных диалогово
    * */
   @State() messageMock = MessageMock;
 
   render() {
-    return (
-      // <div class="temp">
-      //  <div>{this.getContent(this.showContent)}</div>
-      <div>
-        <mobile-dialogs
-          onClickToLink={(item) => this.clickToLink(item)}
-          onClickToCategory={(item) => this.clickToCategory(item)}
-          categories={categories}
-          dialogs={this.dialogs}
-        ></mobile-dialogs>
-        {/*<mobile-personal*/}
-        {/*  onClickToLink={(item) => this.clickToLink(item)}*/}
-        {/*  messageMock={this.messageMock}*/}
-        {/*></mobile-personal>*/}
-        {/*<user-profile*/}
-        {/*  onClickToLink={(item) => this.clickToLink(item)}*/}
-        {/*></user-profile>*/}
-      </div>
-      // </div>
-    );
+    return <div>{this.getContent("dialogs")}</div>;
   }
   componentWillLoad(): Promise<void> | void {
     this.dialogs = dialogs;
@@ -59,27 +49,51 @@ export class MobileChat implements ComponentInterface {
   }
 
   /**
+   * Поиск контактов
+   * */
+  public searchContact(e) {
+    console.log("searchContact", e.currentTarget.querySelector("input").value);
+  }
+
+  /**
    * Метод для вывода определенного контента
    * */
-  // getContent(content) {
-  //   switch (content) {
-  //     case "dialogs":
-  //       return (
-  //         <mobile-dialogs
-  //           onClickToLink={(item) => this.clickToLink(item)}
-  //           categories={categories}
-  //           dialogs={this.dialogs}
-  //         ></mobile-dialogs>
-  //       );
-  //     case "personal":
-  //       return (
-  //         <mobile-personal
-  //           onClickToLink={(item) => this.clickToLink(item)}
-  //           messageMock={this.messageMock}
-  //         ></mobile-personal>
-  //       );
-  //     default:
-  //       return <div>no content</div>;
-  //   }
-  // }
+  getContent(content) {
+    switch (content) {
+      case "dialogs":
+        return (
+          <mobile-dialogs
+            onClickToLink={(item) => this.clickToLink(item)}
+            onClickToCategory={(item) => this.clickToCategory(item)}
+            onSearchContact={(item) => this.searchContact(item)}
+            categories={categories}
+            dialogs={this.dialogs}
+          ></mobile-dialogs>
+        );
+      case "personal":
+        return (
+          <mobile-personal
+            onClickToLink={(item) => this.clickToLink(item)}
+            messageMock={this.messageMock}
+            onSearchContact={(item) => this.searchContact(item)}
+          ></mobile-personal>
+        );
+      case "profile":
+        return (
+          <user-profile
+            onClickToLink={(item) => this.clickToLink(item)}
+          ></user-profile>
+        );
+      case "contacts":
+        return (
+          <contacts-list
+            onClickToLink={(item) => this.clickToLink(item)}
+            contacts={this.contacts}
+            onSearchContact={(item) => this.searchContact(item)}
+          ></contacts-list>
+        );
+      default:
+        return <div>no content</div>;
+    }
+  }
 }

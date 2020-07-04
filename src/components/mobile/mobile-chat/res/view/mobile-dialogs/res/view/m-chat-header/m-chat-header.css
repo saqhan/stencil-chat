@@ -1,0 +1,79 @@
+
+/*modal*/
+
+.modal-wrapper  {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  height: 50px;
+  transition: 0.4s ease-in-out;
+
+}
+
+.modal-wrapper input {
+  text-align: center;
+  border-radius: 5px;
+  border: none;
+  background-color: #eaeaea;
+  width: 90%;
+  padding: 5px;
+  font-size: 14px;
+  outline: none;
+}
+
+/**/
+.m-chat-header {
+
+  border-bottom: 1px solid #ccc;
+}
+
+.m-chat-header .title {
+  font-weight: 600;
+  color: #4c567d;
+}
+
+.m-chat-header .search i {
+  color: #979eab;
+}
+
+.m-chat-header .add i {
+  color: #979eab;
+  font-size: 18px;
+}
+
+
+.title-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px 0px;
+}
+
+.custom-link {
+  cursor: pointer;
+}
+
+
+.btns-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0px 0px;
+}
+
+.btns-nav span {
+  font-size: 14px;
+  width: 25%;
+  height: 30px;
+  text-align: center;
+  font-weight: 600;
+  color: #979eab;
+  transition: 0.3s ease-in-out;
+}
+
+.btns-nav span:hover {
+  cursor: pointer;
+  color: #5780f7;
+  border-bottom: 2px solid #5780f7;
+}

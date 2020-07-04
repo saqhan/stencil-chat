@@ -7,8 +7,7 @@ import {
   Prop,
 } from "@stencil/core";
 import {
-  Message,
-  MessageDirectionEnum,
+  Message
 } from "../../../../../shared/interface/common.interface";
 @Component({
   tag: "mobile-personal",
@@ -25,58 +24,14 @@ export class MobilePersonal implements ComponentInterface {
    * clock on navigate
    * */
   @Event() clickToLink: EventEmitter;
+  @Event() searchContact: EventEmitter;
 
   render() {
     return (
       <div class="personal-wrapper">
-        <div class="personal-header">
-          <div class="header-nav">
-            <span
-              class="custom-link"
-              onClick={() => this.clickToLink.emit({ place: "showDialogs" })}
-            >
-              <i class="fas fa-arrow-left"></i>
-            </span>
-            <span
-              class="custom-link user-name-personal"
-              onClick={() =>
-                this.clickToLink.emit({ place: "user-name-personal" })
-              }
-            >
-              {this.getNameUser()}
-            </span>
-            <span
-              class="custom-link"
-              onClick={() => this.clickToLink.emit({ place: "showDetails" })}
-            >
-              <i class="fas fa-ellipsis-h"></i>
-            </span>
-          </div>
-          <div class="users-nav">
-            <div class="img-user-other">
-              <div class="img online"></div>
-            </div>
-            <div class="img-user-other">
-              <div class="img online"></div>
-            </div>
-            <div class="img-user-current">
-              <div class="img online"></div>
-            </div>
-            <div class="img-user-other">
-              <div class="img online"></div>
-            </div>
-            <div class="img-user-other">
-              <div class="img online"></div>
-            </div>
-          </div>
-        </div>
-        <div class="personal-message">
-          {this.messageMock.map(message => {
-            return <message-from message={message}></message-from>;
-          })
-          }
-        </div>
-        <personal-footer></personal-footer>
+        <personal-header messageMock={this.messageMock} ></personal-header>
+        <personal-message messageMock={this.messageMock} ></personal-message>
+        <personal-footer theme='mobile' ></personal-footer>
       </div>
     );
   }
@@ -84,33 +39,20 @@ export class MobilePersonal implements ComponentInterface {
   /**
    * Создаем сообщение которое отправлено/прислано и сообщение по центру
    * */
-  public createMessagesElements(array) {
-    return array.map((item) => {
-      switch (item.direction) {
-        //Если это сообщение для меня
-        case MessageDirectionEnum.toMe:
-          return <mess-to-me message={item}></mess-to-me>;
-        //Если это сообщение от меня
-        case MessageDirectionEnum.fromMe:
-          return <mess-from-me message={item}></mess-from-me>;
-        // Сообщение по центру
-        case MessageDirectionEnum.center:
-          return <div>Today</div>;
-      }
-    });
-  }
-  /**
-   * get name user
-   * */
-  public getNameUser() {
-    let name = "";
+  // public createMessagesElements(array) {
+  //   return array.map((item) => {
+  //     switch (item.direction) {
+  //       //Если это сообщение для меня
+  //       case MessageDirectionEnum.toMe:
+  //         return <mess-to-me message={item}></mess-to-me>;
+  //       //Если это сообщение от меня
+  //       case MessageDirectionEnum.fromMe:
+  //         return <mess-from-me message={item}></mess-from-me>;
+  //       // Сообщение по центру
+  //       case MessageDirectionEnum.center:
+  //         return <div>Today</div>;
+  //     }
+  //   });
+  // }
 
-    this.messageMock.forEach((item) => {
-      if (name.indexOf(item.sender.name) === -1) {
-        name = item.sender.name;
-      }
-    });
-
-    return name;
-  }
 }
