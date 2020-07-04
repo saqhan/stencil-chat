@@ -40,7 +40,7 @@ export class ContactsListHeader implements ComponentInterface {
           <input
             type="text"
             placeholder="Search.."
-            onInput={(e) => this.searchContact.emit(e)}
+            onInput={(e) => this.searchContact.emit(e.target)}
           />
         </div>
       </div>

@@ -30,7 +30,7 @@ export class MobileChat implements ComponentInterface {
   @State() messageMock = MessageMock;
 
   render() {
-    return <div>{this.getContent("dialogs")}</div>;
+    return <div>{this.getContent("personal")}</div>;
   }
   componentWillLoad(): Promise<void> | void {
     this.dialogs = dialogs;
@@ -52,7 +52,7 @@ export class MobileChat implements ComponentInterface {
    * Поиск контактов
    * */
   public searchContact(e) {
-    console.log("searchContact", e.currentTarget.querySelector("input").value);
+    console.log("searchContact", e.currentTarget);
   }
 
   /**
