@@ -3,10 +3,13 @@
   justify-content: space-between;
   font-size: 14px;
   padding: 20px;
+  height: 80px;
+  border-bottom: 1px solid #f7f8f9;
 }
 .header-search-block {
   padding: 20px;
   border-bottom: 1px solid #f7f8f9;
+  height: 80px;
 }
 .user {
   display: flex;

@@ -23,6 +23,11 @@ export class PersonalFooter implements ComponentInterface {
 
   @State() iconFooterInput = (<i class="fas fa-microphone"></i>);
 
+  /**
+   * audio animation state
+   */
+  @State() audioAnimation = false;
+
   render() {
     return (
       <div class={this.getClassForHost()}>
@@ -34,7 +39,7 @@ export class PersonalFooter implements ComponentInterface {
             >
               <i class="fas fa-paperclip"></i>
             </div>
-            <div class="input-wrapper">
+            <div class="input-wrapper" >
               <form onSubmit={(e) => this.sendingNewMess(e)}>
                 <input
                   type="text"
@@ -44,7 +49,7 @@ export class PersonalFooter implements ComponentInterface {
               </form>
             </div>
             <div
-              class="audio"
+              class="audio" id="audio"
               onClick={() => this.clickToLink.emit({ place: "add-audio-mess" })}
             >
               {this.iconFooterInput}
