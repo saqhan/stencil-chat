@@ -30,7 +30,7 @@ export class MobileChat implements ComponentInterface {
   @State() messageMock = MessageMock;
 
   render() {
-    return <div>{this.getContent("dialogs")}</div>;
+    return <div>{this.getContent("personal")}</div>;
   }
   componentWillLoad(): Promise<void> | void {
     this.dialogs = dialogs;
@@ -52,7 +52,7 @@ export class MobileChat implements ComponentInterface {
    * Поиск контактов
    * */
   public searchContact(e) {
-    console.log("searchContact", e.currentTarget.querySelector("input").value);
+    console.log("searchContact",e);
   }
 
   /**
@@ -65,7 +65,7 @@ export class MobileChat implements ComponentInterface {
           <mobile-dialogs
             onClickToLink={(item) => this.clickToLink(item)}
             onClickToCategory={(item) => this.clickToCategory(item)}
-            onSearchContact={(item) => this.searchContact(item)}
+            onSearchContact={(detail) => this.searchContact({detail})}
             categories={categories}
             dialogs={this.dialogs}
           ></mobile-dialogs>
@@ -75,7 +75,7 @@ export class MobileChat implements ComponentInterface {
           <mobile-personal
             onClickToLink={(item) => this.clickToLink(item)}
             messageMock={this.messageMock}
-            onSearchContact={(item) => this.searchContact(item)}
+            onSearchContact={(e) => console.log('mobile-personal', e.detail.data)}
           ></mobile-personal>
         );
       case "profile":
@@ -89,7 +89,7 @@ export class MobileChat implements ComponentInterface {
           <contacts-list
             onClickToLink={(item) => this.clickToLink(item)}
             contacts={this.contacts}
-            onSearchContact={(item) => this.searchContact(item)}
+            onSearchContact={(detail) => this.searchContact({detail})}
           ></contacts-list>
         );
       default:

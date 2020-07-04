@@ -14,10 +14,11 @@
 
 ## Events
 
-| Event             | Description                            | Type               |
-| ----------------- | -------------------------------------- | ------------------ |
-| `clickOnUsername` | клик по имени юзера в личной переписке | `CustomEvent<any>` |
-| `clickToLink`     | click on navigate                      | `CustomEvent<any>` |
+| Event                  | Description                            | Type               |
+| ---------------------- | -------------------------------------- | ------------------ |
+| `clickOnSearchMessage` | Клик по иконке поиска                  | `CustomEvent<any>` |
+| `clickOnUsername`      | клик по имени юзера в личной переписке | `CustomEvent<any>` |
+| `clickToLink`          | click on navigate                      | `CustomEvent<any>` |
 
 
 ## Dependencies

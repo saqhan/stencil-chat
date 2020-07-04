@@ -19,6 +19,7 @@
 | ----------------- | -------------------- | ------------------ |
 | `clickToCategory` | clock on Category    | `CustomEvent<any>` |
 | `clickToLink`     | clock on clickToLink | `CustomEvent<any>` |
+| `searchContact`   |                      | `CustomEvent<any>` |
 
 
 ## Dependencies

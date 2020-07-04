@@ -95,7 +95,7 @@ export class PersonalHeader implements ComponentInterface {
           <div class="search-wrapper">
              <div class="user-name-personal" >{this.getNameUser()}</div>
             <div class="searchPersonalmess">
-              <input type="text" placeholder="search" onInput={(e) => this.searchContact.emit(e)} /> <span onClick={()=> this.showInputSearchPersonalMess() } class="cancel-search">cancel</span>
+              <input type="text" placeholder="search" onInput={(event) => this.searchContact.emit(event)} /> <span onClick={()=> this.showInputSearchPersonalMess() } class="cancel-search">cancel</span>
             </div>
           </div>
         )}
@@ -117,9 +117,7 @@ export class PersonalHeader implements ComponentInterface {
     return name;
   }
 
-  /**
-   * show dropВщцт
-   * */
+
 
   public showDrop = () => (this.isShowDropDown = !this.isShowDropDown);
   public showInputSearchPersonalMess() {
