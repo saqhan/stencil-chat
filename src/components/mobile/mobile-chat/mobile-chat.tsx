@@ -75,7 +75,7 @@ export class MobileChat implements ComponentInterface {
           <mobile-personal
             onClickToLink={(item) => this.clickToLink(item)}
             messageMock={this.messageMock}
-            onSearchContact={(detail) => this.searchContact({detail})}
+            onSearchContact={(e) => console.log('mobile-personal', e.detail.data)}
           ></mobile-personal>
         );
       case "profile":
