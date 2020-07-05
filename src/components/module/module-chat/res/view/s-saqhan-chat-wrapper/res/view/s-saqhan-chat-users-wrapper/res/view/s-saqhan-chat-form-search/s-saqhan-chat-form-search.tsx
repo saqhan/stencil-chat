@@ -19,7 +19,7 @@ export class SSaqhanChatFormSearch implements ComponentInterface {
   /**
    * Клик по кнопке в чате
    * */
-  @Event() clickOnSearchChat: EventEmitter;
+  @Event() searchContact: EventEmitter;
 
   render() {
     return (
@@ -30,7 +30,7 @@ export class SSaqhanChatFormSearch implements ComponentInterface {
               type="text"
               class="input-search"
               placeholder="Поиск чатов и сообщений"
-              onInput={(event)=> this.clickOnSearchChat.emit(event)}
+              onInput={(e) => this.searchContact.emit(e)}
             />
           </div>
           <div class="block-file" onClick={() => this.clickToLink.emit({place: 'showFile'})} >

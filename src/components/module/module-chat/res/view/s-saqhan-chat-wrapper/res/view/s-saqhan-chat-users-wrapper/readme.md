@@ -17,13 +17,13 @@
 
 ### Used by
 
- - [s-saqhan-chat-wrapper](../s-saqhan-chat-wrapper)
+ - [s-saqhan-chat-wrapper](../../..)
 
 ### Depends on
 
 - [s-saqhan-chat-form-search](./res/view/s-saqhan-chat-form-search)
 - [s-saqhan-chat-users](./res/view/s-saqhan-chat-users)
-- [s-saqhan-chat-add-question](../s-saqhan-chat-add-question)
+- [s-saqhan-chat-add-question](../../../../s-saqhan-chat-app/res/view/s-saqhan-chat-add-question)
 
 ### Graph
 ```mermaid

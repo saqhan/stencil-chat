@@ -319,6 +319,10 @@ export const logo = {
   logo: "https://via.placeholder.com/100x100?text=Text",
 };
 
+export const titleModule = {
+  title: 'titleModule'
+}
+
 export const navItems = [
   {
     id: 1,

@@ -11,6 +11,9 @@ import { dialogs as dialogs1, } from "./components/comp/s-adam-contacts/res/inte
 import { logo, navItems, } from "./components/comp/s-adam-navigate/res/interface/common.interface";
 import { Message as Message1, } from ".";
 export namespace Components {
+    interface BtnWrapper {
+        "showChat": any;
+    }
     interface ChatUserCard {
         "user": any;
     }
@@ -98,6 +101,9 @@ export namespace Components {
         "messageMock": Message[];
     }
     interface ModuleChat {
+    }
+    interface ModuleHeader {
+        "titleModule": any;
     }
     interface MyComponent {
     }
@@ -220,14 +226,17 @@ export namespace Components {
         "personalMessage": any;
     }
     interface SSaqhanChatWrapper {
-        "messages": any;
-        "personalMessage": any;
-        "showContent": string;
     }
     interface UserProfile {
     }
 }
 declare global {
+    interface HTMLBtnWrapperElement extends Components.BtnWrapper, HTMLStencilElement {
+    }
+    var HTMLBtnWrapperElement: {
+        prototype: HTMLBtnWrapperElement;
+        new (): HTMLBtnWrapperElement;
+    };
     interface HTMLChatUserCardElement extends Components.ChatUserCard, HTMLStencilElement {
     }
     var HTMLChatUserCardElement: {
@@ -323,6 +332,12 @@ declare global {
     var HTMLModuleChatElement: {
         prototype: HTMLModuleChatElement;
         new (): HTMLModuleChatElement;
+    };
+    interface HTMLModuleHeaderElement extends Components.ModuleHeader, HTMLStencilElement {
+    }
+    var HTMLModuleHeaderElement: {
+        prototype: HTMLModuleHeaderElement;
+        new (): HTMLModuleHeaderElement;
     };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
@@ -475,6 +490,7 @@ declare global {
         new (): HTMLUserProfileElement;
     };
     interface HTMLElementTagNameMap {
+        "btn-wrapper": HTMLBtnWrapperElement;
         "chat-user-card": HTMLChatUserCardElement;
         "contact-card": HTMLContactCardElement;
         "contacts-list": HTMLContactsListElement;
@@ -491,6 +507,7 @@ declare global {
         "mobile-dialogs": HTMLMobileDialogsElement;
         "mobile-personal": HTMLMobilePersonalElement;
         "module-chat": HTMLModuleChatElement;
+        "module-header": HTMLModuleHeaderElement;
         "my-component": HTMLMyComponentElement;
         "personal-footer": HTMLPersonalFooterElement;
         "personal-header": HTMLPersonalHeaderElement;
@@ -519,6 +536,13 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface BtnWrapper {
+        /**
+          * clock on clickToLink
+         */
+        "onClickToShowChat"?: (event: CustomEvent<any>) => void;
+        "showChat"?: any;
+    }
     interface ChatUserCard {
         "onSelectPersonal"?: (event: CustomEvent<any>) => void;
         "user"?: any;
@@ -577,6 +601,7 @@ declare namespace LocalJSX {
     }
     interface MChatDialogs {
         "dialogs"?: any;
+        "onClickToLink"?: (event: CustomEvent<any>) => void;
     }
     interface MChatFooter {
         /**
@@ -662,6 +687,13 @@ declare namespace LocalJSX {
         "onSearchContact"?: (event: CustomEvent<any>) => void;
     }
     interface ModuleChat {
+    }
+    interface ModuleHeader {
+        /**
+          * close modal
+         */
+        "onClose"?: (event: CustomEvent<any>) => void;
+        "titleModule"?: any;
     }
     interface MyComponent {
     }
@@ -814,13 +846,13 @@ declare namespace LocalJSX {
     }
     interface SSaqhanChatFormSearch {
         /**
-          * Клик по кнопке в чате
-         */
-        "onClickOnSearchChat"?: (event: CustomEvent<any>) => void;
-        /**
           * Клик по кнопке files
          */
         "onClickToLink"?: (event: CustomEvent<any>) => void;
+        /**
+          * Клик по кнопке в чате
+         */
+        "onSearchContact"?: (event: CustomEvent<any>) => void;
     }
     interface SSaqhanChatFormSearchFiles {
         "onClickToLink"?: (event: CustomEvent<any>) => void;
@@ -860,18 +892,14 @@ declare namespace LocalJSX {
         "personalMessage"?: any;
     }
     interface SSaqhanChatWrapper {
-        "messages"?: any;
-        "onClickToLink"?: (event: CustomEvent<any>) => void;
-        "onClose"?: (event: CustomEvent<any>) => void;
         "onSelectPersonal"?: (event: CustomEvent<any>) => void;
         "onSelectUsers"?: (event: CustomEvent<any>) => void;
-        "personalMessage"?: any;
-        "showContent"?: string;
     }
     interface UserProfile {
         "onClickToLink"?: (event: CustomEvent<any>) => void;
     }
     interface IntrinsicElements {
+        "btn-wrapper": BtnWrapper;
         "chat-user-card": ChatUserCard;
         "contact-card": ContactCard;
         "contacts-list": ContactsList;
@@ -888,6 +916,7 @@ declare namespace LocalJSX {
         "mobile-dialogs": MobileDialogs;
         "mobile-personal": MobilePersonal;
         "module-chat": ModuleChat;
+        "module-header": ModuleHeader;
         "my-component": MyComponent;
         "personal-footer": PersonalFooter;
         "personal-header": PersonalHeader;
@@ -919,6 +948,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "btn-wrapper": LocalJSX.BtnWrapper & JSXBase.HTMLAttributes<HTMLBtnWrapperElement>;
             "chat-user-card": LocalJSX.ChatUserCard & JSXBase.HTMLAttributes<HTMLChatUserCardElement>;
             "contact-card": LocalJSX.ContactCard & JSXBase.HTMLAttributes<HTMLContactCardElement>;
             "contacts-list": LocalJSX.ContactsList & JSXBase.HTMLAttributes<HTMLContactsListElement>;
@@ -935,6 +965,7 @@ declare module "@stencil/core" {
             "mobile-dialogs": LocalJSX.MobileDialogs & JSXBase.HTMLAttributes<HTMLMobileDialogsElement>;
             "mobile-personal": LocalJSX.MobilePersonal & JSXBase.HTMLAttributes<HTMLMobilePersonalElement>;
             "module-chat": LocalJSX.ModuleChat & JSXBase.HTMLAttributes<HTMLModuleChatElement>;
+            "module-header": LocalJSX.ModuleHeader & JSXBase.HTMLAttributes<HTMLModuleHeaderElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "personal-footer": LocalJSX.PersonalFooter & JSXBase.HTMLAttributes<HTMLPersonalFooterElement>;
             "personal-header": LocalJSX.PersonalHeader & JSXBase.HTMLAttributes<HTMLPersonalHeaderElement>;

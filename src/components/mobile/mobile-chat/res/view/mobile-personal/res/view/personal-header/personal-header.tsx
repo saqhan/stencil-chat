@@ -109,9 +109,9 @@ export class PersonalHeader implements ComponentInterface {
     let name = "";
 
     this.messageMock.forEach((item) => {
-      if (name.indexOf(item.sender.name) === -1) {
-        name = item.sender.name;
-      }
+        if (name.indexOf(item.sender.name) === -1) {
+          name = item.sender.name;
+        }
     });
 
     return name;

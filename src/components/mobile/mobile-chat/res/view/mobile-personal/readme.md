@@ -25,7 +25,7 @@
 ### Used by
 
  - [mobile-chat](../../..)
- - [s-saqhan-chat-wrapper](../../../../../module/module-chat/res/view/s-saqhan-chat-app/res/view/s-saqhan-chat-wrapper)
+ - [s-saqhan-chat-wrapper](../../../../../module/module-chat/res/view/s-saqhan-chat-wrapper)
 
 ### Depends on
 

@@ -9,8 +9,8 @@ export class MyComponent {
   render() {
 
     // return <mobile-chat></mobile-chat>;
-    return <s-adam-chat></s-adam-chat>;
-    // return <module-chat></module-chat>;
+    // return <s-adam-chat></s-adam-chat>;
+    return <module-chat></module-chat>;
 
   }
 }

@@ -1,0 +1,32 @@
+
+.btn-open {
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  border: none;
+  background-color: #72b94d;
+  color: #fff;
+  border-radius: 50%;
+  outline: none !important;
+  cursor: pointer;
+}
+
+.open-chat {
+  text-align: right;
+  z-index: 999;
+  position: fixed;
+  right: 10px;
+  bottom: 20px;
+}
+
+.open-chat::after {
+  content: "1";
+  background-color: #c73f45;
+  position: relative;
+  top: -25px;
+  left: -20px;
+  color: #fff;
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 50%;
+}

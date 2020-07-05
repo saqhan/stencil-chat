@@ -1,0 +1,30 @@
+.header-chat {
+  background-color: #ececec;
+  text-align: center;
+  padding: 10px 0px;
+  font-weight: 500;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-chat span {
+  position: relative;
+  right: -25%;
+  display: block;
+  top: 3px;
+  padding-bottom: 3px;
+  border-radius: 50%;
+  width: 25px;
+  cursor: pointer;
+}
+.header-chat span i {
+  font-size: 25px;
+  color: #ccc;
+}
+
+.header-chat span i:hover {
+  color: #72b94d;
+}

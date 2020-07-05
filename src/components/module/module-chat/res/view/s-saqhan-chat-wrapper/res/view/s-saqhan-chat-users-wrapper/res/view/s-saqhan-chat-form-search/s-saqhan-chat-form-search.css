@@ -54,7 +54,6 @@
     /*justify-content: center;*/
   }
   .input-search {
-    width: auto;
     padding: 10px 30px;
   }
   .chat-files .block-input::before {

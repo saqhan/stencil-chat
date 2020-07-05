@@ -9,7 +9,7 @@
 
 | Property | Attribute | Description | Type                 | Default  |
 | -------- | --------- | ----------- | -------------------- | -------- |
-| `theme`  | `theme`   |             | `"comp" \| "mobile"` | `'comp'` |
+| `theme`  | `theme`   |             | `"comp" \| "mobile"` | `"comp"` |
 
 
 ## Events

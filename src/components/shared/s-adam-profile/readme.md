@@ -24,7 +24,7 @@
 ### Used by
 
  - [s-adam-chat](../../comp/s-adam-chat)
- - [s-saqhan-chat-wrapper](../../module/module-chat/res/view/s-saqhan-chat-app/res/view/s-saqhan-chat-wrapper)
+ - [s-saqhan-chat-wrapper](../../module/module-chat/res/view/s-saqhan-chat-wrapper)
  - [user-profile](../../mobile/mobile-chat/res/view/user-profile)
 
 ### Graph
