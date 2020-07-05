@@ -52,12 +52,12 @@ export class SSaqhanChatWrapper implements ComponentInterface {
               {/*  dialogs={this.dialogs}></m-chat-dialogs>*/}
               {/*<s-saqhan-chat-add-question></s-saqhan-chat-add-question>*/}
               {/*<m-chat-footer></m-chat-footer>*/}
-              <s-saqhan-chat-files-wrapper
-                onClickToLink={(item) => this.clickToLink(item)}></s-saqhan-chat-files-wrapper>;
+              {/*<s-saqhan-chat-files-wrapper*/}
+              {/*  onClickToLink={(item) => this.clickToLink(item)}></s-saqhan-chat-files-wrapper>;*/}
             </div>
 
             {/*<mobile-personal onClickToLink={(item) => this.clickToLink(item)} messageMock={this.personalMessage}></mobile-personal>*/}
-            {/*<s-saqhan-chat-users-wrapper  messages={this.messages}></s-saqhan-chat-users-wrapper>*/}
+            <s-saqhan-chat-users-wrapper  messages={this.messages}></s-saqhan-chat-users-wrapper>
           </div>
         ) : (
           ""
