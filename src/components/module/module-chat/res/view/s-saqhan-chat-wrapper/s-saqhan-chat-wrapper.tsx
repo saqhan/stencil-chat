@@ -4,13 +4,9 @@ import {
   h,
   Event,
   EventEmitter,
-  State, Prop,
+  State,
+  Prop,
 } from "@stencil/core";
-import {
-  dialogs,
-  MessageMock,
-  titleModule,
-} from "../../../../../../utils/mock";
 
 @Component({
   tag: "s-saqhan-chat-wrapper",
@@ -22,32 +18,36 @@ export class SSaqhanChatWrapper implements ComponentInterface {
    * array categories
    * */
   @Prop() categories;
-
+  @Prop() titleModule;
+  @Prop() MessageMock;
   /**
    * массив данных для диалогов
    * */
-  @State() dialogs = dialogs;
-  @State() titleModule = titleModule;
-  @State() personalMessage = MessageMock;
+  @Prop() dialogs;
+
+  /**
+   * select content default
+   * */
+  @State() showContent = "dialogs";
+
+
   @Event() selectPersonal: EventEmitter;
   @Event() selectUsers: EventEmitter;
-  // @Event() searchContact: EventEmitter;
   @State() messages = this.dialogs;
-  @State() showContent = "dialogs";
-  @State() messageMock = MessageMock;
+
+  @State() messageMock = this.MessageMock;
   /**
    * Перменная для включения/отключения показа чата в развернутом виде
    * */
   @State() showChat: boolean;
 
-  //onSelectPersonal={() => this.onSelectPersonal()}
-  // onSelectUsers={() => this.onSelectUsers()}
-  // onClickToLink={(item) => this.clickToLink(item)}
+
   render() {
     return (
       <div class="wrapper-modal">
-        {this.showChat ? (
-          <div class="wrapper-chat">
+
+        {this.showChat
+          ? (<div class="wrapper-chat">
             <module-header
               titleModule={this.titleModule}
               onClose={(item) => this.onClose(item)}
@@ -55,10 +55,8 @@ export class SSaqhanChatWrapper implements ComponentInterface {
             <div class="m-chat-wrapper">
               {this.ShowContent(this.showContent)}
             </div>
-          </div>
-        ) : (
-          ""
-        )}
+          </div>)
+          : ""}
         <btn-wrapper
           onClickToShowChat={(item) => this.isShowChat(item)}
           showChat={this.showChat}

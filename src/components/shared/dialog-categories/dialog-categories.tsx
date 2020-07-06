@@ -1,20 +1,29 @@
-import {Component, ComponentInterface, h, Event, EventEmitter, Prop} from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  h,
+  Event,
+  EventEmitter,
+  Prop,
+} from "@stencil/core";
 
 @Component({
-  tag: 'dialog-categories',
-  styleUrl: 'dialog-categories.css',
+  tag: "dialog-categories",
+  styleUrl: "dialog-categories.css",
   shadow: true,
 })
 export class DialogCategories implements ComponentInterface {
-
-  @Prop() categories:any;
+  @Prop() theme: "comp" | "mobile" = "comp";
+  @Prop() categories: any;
   /**
    * clock on Category
    * */
   @Event() clickToCategory: EventEmitter;
   render() {
     return (
-      <div class="btns-nav">{this.getCategories(this.categories)}</div>
+      <div class={this.getClassForHost()}>
+        <div class="btns-nav">{this.getCategories(this.categories)}</div>
+      </div>
     );
   }
   /**
@@ -31,5 +40,14 @@ export class DialogCategories implements ComponentInterface {
         {item.name}
       </span>
     ));
+  }
+  /**
+   *
+   * */
+  public getClassForHost ()
+  {
+    return {
+      [this.theme]: true
+    }
   }
 }
