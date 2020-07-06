@@ -43,6 +43,7 @@ export namespace Components {
     }
     interface DialogCategories {
         "categories": any;
+        "theme": "comp" | "mobile";
     }
     interface FooterAudio {
     }
@@ -247,10 +248,16 @@ export namespace Components {
         "personalMessage": any;
     }
     interface SSaqhanChatWrapper {
+        "MessageMock": any;
         /**
           * array categories
          */
         "categories": any;
+        /**
+          * массив данных для диалогов
+         */
+        "dialogs": any;
+        "titleModule": any;
     }
     interface UserProfile {
     }
@@ -665,6 +672,7 @@ declare namespace LocalJSX {
           * clock on Category
          */
         "onClickToCategory"?: (event: CustomEvent<any>) => void;
+        "theme"?: "comp" | "mobile";
     }
     interface FooterAudio {
     }
@@ -980,12 +988,18 @@ declare namespace LocalJSX {
         "personalMessage"?: any;
     }
     interface SSaqhanChatWrapper {
+        "MessageMock"?: any;
         /**
           * array categories
          */
         "categories"?: any;
+        /**
+          * массив данных для диалогов
+         */
+        "dialogs"?: any;
         "onSelectPersonal"?: (event: CustomEvent<any>) => void;
         "onSelectUsers"?: (event: CustomEvent<any>) => void;
+        "titleModule"?: any;
     }
     interface UserProfile {
         "onClickToLink"?: (event: CustomEvent<any>) => void;

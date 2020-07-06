@@ -37,7 +37,7 @@ export class SSaqhanChatFormSearch implements ComponentInterface {
             <i class="far fa-file-alt"></i>
           </div>
         </div>
-        <dialog-categories categories={this.categories} ></dialog-categories>
+        <dialog-categories theme={'mobile'} categories={this.categories} ></dialog-categories>
       </div>
     );
   }
