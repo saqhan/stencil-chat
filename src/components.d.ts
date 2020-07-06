@@ -47,7 +47,6 @@ export namespace Components {
     interface FooterAudio {
     }
     interface FooterText {
-        "theme": any;
     }
     interface MChatDialogs {
         "dialogs": any;
@@ -144,6 +143,8 @@ export namespace Components {
          */
         "dialogs": dialogs[];
     }
+    interface SAdamCopying {
+    }
     interface SAdamDialogs {
         /**
           * Массив с элементами диалога
@@ -203,6 +204,7 @@ export namespace Components {
     interface SSaqhanChatFilesWrapper {
     }
     interface SSaqhanChatFormSearch {
+        "categories": any;
     }
     interface SSaqhanChatFormSearchFiles {
     }
@@ -230,6 +232,7 @@ export namespace Components {
         "personalMessage": any;
     }
     interface SSaqhanChatUsersWrapper {
+        "categories": any;
         /**
           * Массив данных с диалогами
          */
@@ -240,6 +243,10 @@ export namespace Components {
         "personalMessage": any;
     }
     interface SSaqhanChatWrapper {
+        /**
+          * array categories
+         */
+        "categories": any;
     }
     interface UserProfile {
     }
@@ -413,6 +420,12 @@ declare global {
         prototype: HTMLSAdamContactsElement;
         new (): HTMLSAdamContactsElement;
     };
+    interface HTMLSAdamCopyingElement extends Components.SAdamCopying, HTMLStencilElement {
+    }
+    var HTMLSAdamCopyingElement: {
+        prototype: HTMLSAdamCopyingElement;
+        new (): HTMLSAdamCopyingElement;
+    };
     interface HTMLSAdamDialogsElement extends Components.SAdamDialogs, HTMLStencilElement {
     }
     var HTMLSAdamDialogsElement: {
@@ -556,6 +569,7 @@ declare global {
         "personal-message": HTMLPersonalMessageElement;
         "s-adam-chat": HTMLSAdamChatElement;
         "s-adam-contacts": HTMLSAdamContactsElement;
+        "s-adam-copying": HTMLSAdamCopyingElement;
         "s-adam-dialogs": HTMLSAdamDialogsElement;
         "s-adam-direct": HTMLSAdamDirectElement;
         "s-adam-nav-item": HTMLSAdamNavItemElement;
@@ -652,7 +666,6 @@ declare namespace LocalJSX {
     }
     interface FooterText {
         "onClickToLink"?: (event: CustomEvent<any>) => void;
-        "theme"?: any;
     }
     interface MChatDialogs {
         "dialogs"?: any;
@@ -799,6 +812,8 @@ declare namespace LocalJSX {
          */
         "onSearchContact"?: (event: CustomEvent<any>) => void;
     }
+    interface SAdamCopying {
+    }
     interface SAdamDialogs {
         /**
           * Массив с элементами диалога
@@ -907,6 +922,7 @@ declare namespace LocalJSX {
         "onClickToLink"?: (event: CustomEvent<any>) => void;
     }
     interface SSaqhanChatFormSearch {
+        "categories"?: any;
         /**
           * Клик по кнопке files
          */
@@ -944,6 +960,7 @@ declare namespace LocalJSX {
         "personalMessage"?: any;
     }
     interface SSaqhanChatUsersWrapper {
+        "categories"?: any;
         /**
           * Массив данных с диалогами
          */
@@ -955,6 +972,10 @@ declare namespace LocalJSX {
         "personalMessage"?: any;
     }
     interface SSaqhanChatWrapper {
+        /**
+          * array categories
+         */
+        "categories"?: any;
         "onSelectPersonal"?: (event: CustomEvent<any>) => void;
         "onSelectUsers"?: (event: CustomEvent<any>) => void;
     }
@@ -990,6 +1011,7 @@ declare namespace LocalJSX {
         "personal-message": PersonalMessage;
         "s-adam-chat": SAdamChat;
         "s-adam-contacts": SAdamContacts;
+        "s-adam-copying": SAdamCopying;
         "s-adam-dialogs": SAdamDialogs;
         "s-adam-direct": SAdamDirect;
         "s-adam-nav-item": SAdamNavItem;
@@ -1043,6 +1065,7 @@ declare module "@stencil/core" {
             "personal-message": LocalJSX.PersonalMessage & JSXBase.HTMLAttributes<HTMLPersonalMessageElement>;
             "s-adam-chat": LocalJSX.SAdamChat & JSXBase.HTMLAttributes<HTMLSAdamChatElement>;
             "s-adam-contacts": LocalJSX.SAdamContacts & JSXBase.HTMLAttributes<HTMLSAdamContactsElement>;
+            "s-adam-copying": LocalJSX.SAdamCopying & JSXBase.HTMLAttributes<HTMLSAdamCopyingElement>;
             "s-adam-dialogs": LocalJSX.SAdamDialogs & JSXBase.HTMLAttributes<HTMLSAdamDialogsElement>;
             "s-adam-direct": LocalJSX.SAdamDirect & JSXBase.HTMLAttributes<HTMLSAdamDirectElement>;
             "s-adam-nav-item": LocalJSX.SAdamNavItem & JSXBase.HTMLAttributes<HTMLSAdamNavItemElement>;

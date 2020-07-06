@@ -3,7 +3,7 @@ import {
   ComponentInterface,
   h,
   Event,
-  EventEmitter,
+  EventEmitter, Prop,
 } from "@stencil/core";
 
 @Component({
@@ -20,7 +20,7 @@ export class SSaqhanChatFormSearch implements ComponentInterface {
    * Клик по кнопке в чате
    * */
   @Event() searchContact: EventEmitter;
-
+  @Prop() categories: any;
   render() {
     return (
       <div class="header-wrapper">
@@ -37,6 +37,7 @@ export class SSaqhanChatFormSearch implements ComponentInterface {
             <i class="far fa-file-alt"></i>
           </div>
         </div>
+        <dialog-categories categories={this.categories} ></dialog-categories>
       </div>
     );
   }

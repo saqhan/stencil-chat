@@ -1,7 +1,7 @@
 .contacts-column {
   background-color: #f7f8f9;
   padding: 20px;
-  height: 100vh;
+  height: calc(100vh - 24px);
 }
 .search-contact-wrapper {
   position: relative;
@@ -24,7 +24,8 @@
 }
 .contacts {
   overflow-y: auto;
-  max-height: 85vh;
+  height: calc(100vh - 112px);
+  padding-top: 20px;
 }
 .dialog {
   display: flex;
@@ -69,6 +70,4 @@ input::-moz-placeholder {
 input::-webkit-input-placeholder {
   color: #979eab;
 }
-
-
 

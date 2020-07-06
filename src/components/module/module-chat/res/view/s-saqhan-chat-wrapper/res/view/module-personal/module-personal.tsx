@@ -23,6 +23,7 @@ export class ModulePersonal implements ComponentInterface {
     return (
       <div class="personal-wrapper">
         <personal-header messageMock={this.messageMock} ></personal-header>
+        {/*<s-adam-copying></s-adam-copying>*/}
         <personal-message messageMock={this.messageMock} ></personal-message>
         <personal-footer theme='mobile' ></personal-footer>
       </div>

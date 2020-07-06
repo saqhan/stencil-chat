@@ -1,0 +1,16 @@
+.copying-file {
+  position: absolute;
+  bottom: 50%;
+  transform: translateY(-50%);
+  left: 50%;
+  transform: translateX(-50%);
+  color: #8d8d8d;
+}
+.drop-file {
+  text-align: center;
+}
+.copying-file-wrap {
+  height: 100%;
+  border: 2px solid #bacbe3;
+  position: relative;
+}

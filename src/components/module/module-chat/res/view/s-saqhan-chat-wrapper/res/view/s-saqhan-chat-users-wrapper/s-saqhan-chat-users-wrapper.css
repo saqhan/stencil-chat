@@ -1,6 +1,6 @@
 .chat-wrap {
   width: 100%;
-  height: calc(100vh - 290px);
+  height: calc(100vh - 335px);
   overflow: auto;
   padding-top: 15px;
 }

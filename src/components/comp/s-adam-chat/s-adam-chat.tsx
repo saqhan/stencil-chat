@@ -87,6 +87,8 @@ export class SAdamChat implements ComponentInterface {
         );
       case "noChat":
         return <s-adam-no-chat></s-adam-no-chat>;
+              //Компонент с версткой копирования
+              // <s-adam-copying></s-adam-copying>
     }
   }
 

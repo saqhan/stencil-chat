@@ -4,7 +4,7 @@ import {
   h,
   Event,
   EventEmitter,
-  State,
+  State, Prop,
 } from "@stencil/core";
 import {
   dialogs,
@@ -18,6 +18,11 @@ import {
   shadow: false,
 })
 export class SSaqhanChatWrapper implements ComponentInterface {
+  /**
+   * array categories
+   * */
+  @Prop() categories;
+
   /**
    * массив данных для диалогов
    * */
@@ -68,6 +73,7 @@ export class SSaqhanChatWrapper implements ComponentInterface {
         return (
           <s-saqhan-chat-users-wrapper
             messages={this.messages}
+            categories={this.categories}
             onClickToLink={(item) => this.clickToLink(item)}
           ></s-saqhan-chat-users-wrapper>
         );

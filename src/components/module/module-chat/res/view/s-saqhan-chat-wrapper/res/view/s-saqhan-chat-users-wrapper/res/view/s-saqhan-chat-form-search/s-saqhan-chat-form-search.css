@@ -2,11 +2,14 @@
   cursor: pointer;
   padding-right: 15px;
 }
+
+.header-wrapper {
+  border-bottom: 1px solid #ececec;
+}
+
 .chat-files {
   text-align: center;
-  padding: 10px 0px;
-  border-bottom: 1px solid #ececec;
-
+  padding: 10px 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,9 +17,6 @@
 
 .chat-files .row {
   align-items: center;
-}
-.header-wrapper {
-  padding: 0px 10px;
 }
 
 .block-input {
