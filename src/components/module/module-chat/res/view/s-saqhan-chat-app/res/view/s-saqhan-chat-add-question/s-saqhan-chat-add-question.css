@@ -14,3 +14,7 @@
   outline: none;
   letter-spacing: 1px;
 }
+
+.custom-link {
+  cursor: pointer;
+}
