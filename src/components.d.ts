@@ -139,6 +139,10 @@ export namespace Components {
     }
     interface SAdamContacts {
         /**
+          * массив категорий диалогов
+         */
+        "categories": any;
+        /**
           * Массив с элементами диалога
          */
         "dialogs": dialogs[];
@@ -799,6 +803,10 @@ declare namespace LocalJSX {
     interface SAdamChat {
     }
     interface SAdamContacts {
+        /**
+          * массив категорий диалогов
+         */
+        "categories"?: any;
         /**
           * Массив с элементами диалога
          */

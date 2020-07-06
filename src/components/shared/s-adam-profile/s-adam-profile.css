@@ -17,7 +17,7 @@
 .profile {
   background-color: #f7f8f9;
   padding: 20px;
-  height: calc(100vh - 24px);
+  height: 100vh;
   overflow: auto;
 }
 .about-user {

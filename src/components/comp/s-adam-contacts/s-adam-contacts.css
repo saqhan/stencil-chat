@@ -1,7 +1,7 @@
 .contacts-column {
   background-color: #f7f8f9;
   padding: 20px;
-  height: calc(100vh - 24px);
+  height: 100vh;
 }
 .search-contact-wrapper {
   position: relative;
@@ -19,13 +19,10 @@
   width: 100%;
   outline: none;
 }
-.search-contact-block {
-  padding-bottom: 20px;
-}
 .contacts {
   overflow-y: auto;
-  height: calc(100vh - 112px);
-  padding-top: 20px;
+  height: calc(100vh - 129px);
+  padding: 20px 0;
 }
 .dialog {
   display: flex;
@@ -70,4 +67,3 @@ input::-moz-placeholder {
 input::-webkit-input-placeholder {
   color: #979eab;
 }
-
