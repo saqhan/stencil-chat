@@ -7,9 +7,9 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { categories, dialogs, } from "./components/mobile/mobile-chat/res/view/mobile-dialogs/res/interface/common.interface";
 import { Message, } from "./components/shared/interface/common.interface";
-import { Message as Message1, } from ".";
 import { dialogs as dialogs1, } from "./components/comp/s-adam-contacts/res/interface/common.interface";
 import { logo, navItems, } from "./components/comp/s-adam-navigate/res/interface/common.interface";
+import { Message as Message1, } from ".";
 export namespace Components {
     interface BtnWrapper {
         "showChat": any;
@@ -112,12 +112,6 @@ export namespace Components {
     interface ModuleHeader {
         "titleModule": any;
     }
-    interface ModulePersonal {
-        /**
-          * array data personal messages
-         */
-        "messageMock": Message[];
-    }
     interface MyComponent {
     }
     interface PersonalFooter {
@@ -146,8 +140,6 @@ export namespace Components {
           * Массив с элементами диалога
          */
         "dialogs": dialogs[];
-    }
-    interface SAdamCopying {
     }
     interface SAdamDialogs {
         /**
@@ -382,12 +374,6 @@ declare global {
         prototype: HTMLModuleHeaderElement;
         new (): HTMLModuleHeaderElement;
     };
-    interface HTMLModulePersonalElement extends Components.ModulePersonal, HTMLStencilElement {
-    }
-    var HTMLModulePersonalElement: {
-        prototype: HTMLModulePersonalElement;
-        new (): HTMLModulePersonalElement;
-    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -423,12 +409,6 @@ declare global {
     var HTMLSAdamContactsElement: {
         prototype: HTMLSAdamContactsElement;
         new (): HTMLSAdamContactsElement;
-    };
-    interface HTMLSAdamCopyingElement extends Components.SAdamCopying, HTMLStencilElement {
-    }
-    var HTMLSAdamCopyingElement: {
-        prototype: HTMLSAdamCopyingElement;
-        new (): HTMLSAdamCopyingElement;
     };
     interface HTMLSAdamDialogsElement extends Components.SAdamDialogs, HTMLStencilElement {
     }
@@ -566,14 +546,12 @@ declare global {
         "mobile-personal": HTMLMobilePersonalElement;
         "module-chat": HTMLModuleChatElement;
         "module-header": HTMLModuleHeaderElement;
-        "module-personal": HTMLModulePersonalElement;
         "my-component": HTMLMyComponentElement;
         "personal-footer": HTMLPersonalFooterElement;
         "personal-header": HTMLPersonalHeaderElement;
         "personal-message": HTMLPersonalMessageElement;
         "s-adam-chat": HTMLSAdamChatElement;
         "s-adam-contacts": HTMLSAdamContactsElement;
-        "s-adam-copying": HTMLSAdamCopyingElement;
         "s-adam-dialogs": HTMLSAdamDialogsElement;
         "s-adam-direct": HTMLSAdamDirectElement;
         "s-adam-nav-item": HTMLSAdamNavItemElement;
@@ -763,17 +741,6 @@ declare namespace LocalJSX {
         "onClose"?: (event: CustomEvent<any>) => void;
         "titleModule"?: any;
     }
-    interface ModulePersonal {
-        /**
-          * array data personal messages
-         */
-        "messageMock"?: Message[];
-        /**
-          * clock on navigate
-         */
-        "onClickToLink"?: (event: CustomEvent<any>) => void;
-        "onSearchContact"?: (event: CustomEvent<any>) => void;
-    }
     interface MyComponent {
     }
     interface PersonalFooter {
@@ -819,8 +786,6 @@ declare namespace LocalJSX {
           * search contact
          */
         "onSearchContact"?: (event: CustomEvent<any>) => void;
-    }
-    interface SAdamCopying {
     }
     interface SAdamDialogs {
         /**
@@ -1012,14 +977,12 @@ declare namespace LocalJSX {
         "mobile-personal": MobilePersonal;
         "module-chat": ModuleChat;
         "module-header": ModuleHeader;
-        "module-personal": ModulePersonal;
         "my-component": MyComponent;
         "personal-footer": PersonalFooter;
         "personal-header": PersonalHeader;
         "personal-message": PersonalMessage;
         "s-adam-chat": SAdamChat;
         "s-adam-contacts": SAdamContacts;
-        "s-adam-copying": SAdamCopying;
         "s-adam-dialogs": SAdamDialogs;
         "s-adam-direct": SAdamDirect;
         "s-adam-nav-item": SAdamNavItem;
@@ -1066,14 +1029,12 @@ declare module "@stencil/core" {
             "mobile-personal": LocalJSX.MobilePersonal & JSXBase.HTMLAttributes<HTMLMobilePersonalElement>;
             "module-chat": LocalJSX.ModuleChat & JSXBase.HTMLAttributes<HTMLModuleChatElement>;
             "module-header": LocalJSX.ModuleHeader & JSXBase.HTMLAttributes<HTMLModuleHeaderElement>;
-            "module-personal": LocalJSX.ModulePersonal & JSXBase.HTMLAttributes<HTMLModulePersonalElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "personal-footer": LocalJSX.PersonalFooter & JSXBase.HTMLAttributes<HTMLPersonalFooterElement>;
             "personal-header": LocalJSX.PersonalHeader & JSXBase.HTMLAttributes<HTMLPersonalHeaderElement>;
             "personal-message": LocalJSX.PersonalMessage & JSXBase.HTMLAttributes<HTMLPersonalMessageElement>;
             "s-adam-chat": LocalJSX.SAdamChat & JSXBase.HTMLAttributes<HTMLSAdamChatElement>;
             "s-adam-contacts": LocalJSX.SAdamContacts & JSXBase.HTMLAttributes<HTMLSAdamContactsElement>;
-            "s-adam-copying": LocalJSX.SAdamCopying & JSXBase.HTMLAttributes<HTMLSAdamCopyingElement>;
             "s-adam-dialogs": LocalJSX.SAdamDialogs & JSXBase.HTMLAttributes<HTMLSAdamDialogsElement>;
             "s-adam-direct": LocalJSX.SAdamDirect & JSXBase.HTMLAttributes<HTMLSAdamDirectElement>;
             "s-adam-nav-item": LocalJSX.SAdamNavItem & JSXBase.HTMLAttributes<HTMLSAdamNavItemElement>;
