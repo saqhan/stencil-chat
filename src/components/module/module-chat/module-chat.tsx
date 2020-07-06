@@ -37,14 +37,11 @@ export class ModuleChat implements ComponentInterface {
     return console.log("clickOnSearchChat", detail.data);
   }
 
-
   public clickToCategory({ detail }) {
-    console.log(detail.item.id)
+    console.log(detail.item.id);
     return (this.dialogs =
-      detail.item.id !== 'all'
-        ? this.dialogs
-          .filter(dialog => dialog.category === detail.item.id)
-        : dialogs);
+      detail.item.id !== "all"
+        ? this.dialogs.filter((item) => item.category === detail.item.id)
+        : this.dialogs);
   }
-
 }
