@@ -12,7 +12,7 @@ export class SAdamCopying implements ComponentInterface {
       <div class="copying-file-wrap">
         <div class="copying-file">
           <h2 class="drop-file">Drop filles here</h2>
-          <span>to send them as documents</span>
+          <div>to send them as documents</div>
         </div>
       </div>
     );

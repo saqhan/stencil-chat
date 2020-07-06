@@ -5,6 +5,8 @@
   left: 50%;
   transform: translateX(-50%);
   color: #8d8d8d;
+  width: 100%;
+  text-align: center;
 }
 .drop-file {
   text-align: center;
