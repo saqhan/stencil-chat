@@ -20,6 +20,11 @@ export class SAdamContacts implements ComponentInterface {
   @Prop() dialogs: dialogs[] = [];
 
   /**
+  * массив категорий диалогов
+ */
+  @Prop() categories: any;
+
+  /**
    * Событие для переключения пустой страницы на личный чат
    */
   @Event() clickToLink: EventEmitter;
@@ -43,6 +48,7 @@ export class SAdamContacts implements ComponentInterface {
             />
           </div>
         </div>
+        <dialog-categories categories={this.categories}></dialog-categories>
         <div class="contacts">
           {this.dialogs.map((dialog) => {
             return <dialog-card theme={"comp"} mess={dialog}></dialog-card>;

@@ -1,5 +1,5 @@
 import { Component, ComponentInterface, h, State } from "@stencil/core";
-import { logo, navItems, dialogs, MessageMock } from "../../../utils/mock";
+import {logo, navItems, dialogs, MessageMock, categories} from "../../../utils/mock";
 
 @Component({
   tag: "s-adam-chat",
@@ -52,6 +52,7 @@ export class SAdamChat implements ComponentInterface {
                     this.toggleChat({ detail });
                   }}
                   dialogs={dialogs}
+                  categories={categories}
                 ></s-adam-contacts>
               </div>
               <div class="col white-col">
