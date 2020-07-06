@@ -29,8 +29,8 @@ export class PersonalFooter implements ComponentInterface {
   render() {
     return (
       <div class={this.getClassForHost()}>
-        {/*<footer-text theme={this.theme}></footer-text>*/}
-        <footer-audio></footer-audio>
+        <footer-text theme={this.theme}></footer-text>
+        {/*<footer-audio></footer-audio>*/}
       </div>
     );
   }

@@ -3,7 +3,7 @@ import {Component, ComponentInterface, EventEmitter, Event, h, State, Prop} from
 @Component({
   tag: 'footer-text',
   styleUrl: 'footer-text.css',
-  shadow: true,
+  shadow: false,
 })
 export class FooterText implements ComponentInterface {
   @Prop() theme;
