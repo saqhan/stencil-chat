@@ -22,6 +22,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [s-saqhan-chat-wrapper](../../..)
+
 ### Depends on
 
 - [personal-header](../../../../../../../../mobile/mobile-chat/res/view/mobile-personal/res/view/personal-header)
@@ -38,6 +42,7 @@ graph TD;
   message-from --> message-text
   message-from --> message-img
   personal-footer --> footer-text
+  s-saqhan-chat-wrapper --> module-personal
   style module-personal fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

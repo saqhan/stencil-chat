@@ -33,6 +33,7 @@ export class SSaqhanChatWrapper implements ComponentInterface {
 
   @Event() selectPersonal: EventEmitter;
   @Event() selectUsers: EventEmitter;
+  @Event() clickToCategory: EventEmitter;
   @State() messages = this.dialogs;
   @State() messageMock = this.MessageMock;
   /**

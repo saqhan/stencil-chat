@@ -26,6 +26,7 @@ export class ModuleChat implements ComponentInterface {
         dialogs={this.dialogs}
         titleModule={this.titleModule}
         MessageMock={this.MessageMock}
+        onClickToCategory={(item) => this.clickToCategory(item)}
       ></s-saqhan-chat-wrapper>
     );
   }
@@ -34,6 +35,16 @@ export class ModuleChat implements ComponentInterface {
    * */
   public clickOnSearchChat({ detail }) {
     return console.log("clickOnSearchChat", detail.data);
+  }
+
+
+  public clickToCategory({ detail }) {
+    console.log(detail.item.id)
+    return (this.dialogs =
+      detail.item.id !== 'all'
+        ? this.dialogs
+          .filter(dialog => dialog.category === detail.item.id)
+        : dialogs);
   }
 
 }

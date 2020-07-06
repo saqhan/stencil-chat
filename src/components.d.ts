@@ -997,6 +997,7 @@ declare namespace LocalJSX {
           * массив данных для диалогов
          */
         "dialogs"?: any;
+        "onClickToCategory"?: (event: CustomEvent<any>) => void;
         "onSelectPersonal"?: (event: CustomEvent<any>) => void;
         "onSelectUsers"?: (event: CustomEvent<any>) => void;
         "titleModule"?: any;

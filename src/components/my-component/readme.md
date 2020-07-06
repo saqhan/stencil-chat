@@ -7,27 +7,26 @@
 
 ### Depends on
 
-- [module-chat](../module/module-chat)
+- [s-adam-chat](../comp/s-adam-chat)
 
 ### Graph
 ```mermaid
 graph TD;
-  my-component --> module-chat
-  module-chat --> s-saqhan-chat-wrapper
-  s-saqhan-chat-wrapper --> s-saqhan-chat-users-wrapper
-  s-saqhan-chat-wrapper --> s-adam-copying
-  s-saqhan-chat-wrapper --> s-saqhan-chat-files-wrapper
-  s-saqhan-chat-wrapper --> s-adam-profile
-  s-saqhan-chat-wrapper --> module-header
-  s-saqhan-chat-wrapper --> btn-wrapper
-  s-saqhan-chat-users-wrapper --> s-saqhan-chat-form-search
-  s-saqhan-chat-users-wrapper --> s-saqhan-chat-users
-  s-saqhan-chat-users-wrapper --> s-saqhan-chat-add-question
-  s-saqhan-chat-form-search --> dialog-categories
-  s-saqhan-chat-users --> s-saqhan-chat-user
-  s-saqhan-chat-user --> dialog-card
-  s-saqhan-chat-files-wrapper --> s-saqhan-chat-form-search-files
-  s-saqhan-chat-files-wrapper --> s-saqhan-chat-files
+  my-component --> s-adam-chat
+  s-adam-chat --> s-adam-navigate
+  s-adam-chat --> s-adam-contacts
+  s-adam-chat --> s-adam-direct
+  s-adam-chat --> s-adam-no-chat
+  s-adam-chat --> s-adam-profile
+  s-adam-navigate --> s-adam-nav-item
+  s-adam-contacts --> dialog-categories
+  s-adam-contacts --> dialog-card
+  s-adam-direct --> s-adam-personal-header
+  s-adam-direct --> message-from
+  s-adam-direct --> personal-footer
+  message-from --> message-text
+  message-from --> message-img
+  personal-footer --> footer-text
   style my-component fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
