@@ -53,6 +53,7 @@ export class SAdamChat implements ComponentInterface {
                   }}
                   dialogs={dialogs}
                   categories={categories}
+                  onClickToCategory={({detail}) => this.clickToCategory({detail})}
                 ></s-adam-contacts>
               </div>
               <div class="col white-col">
@@ -112,5 +113,8 @@ export class SAdamChat implements ComponentInterface {
   }
   public searchContact({detail}) {
     console.log('searchContact', detail)
+  }
+  public clickToCategory({detail}) {
+    console.log('clickToCategory', detail)
   }
 }
