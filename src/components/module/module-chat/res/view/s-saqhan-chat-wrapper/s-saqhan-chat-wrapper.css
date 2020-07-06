@@ -3,7 +3,7 @@
   border-radius: 10px;
   width: 400px;
   overflow: auto;
-  height: calc(100vh - 135px);
+  height: calc(100vh - 130px);
   background-color: #fff;
 }
 

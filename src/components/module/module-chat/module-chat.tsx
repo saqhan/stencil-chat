@@ -27,21 +27,31 @@ export class ModuleChat implements ComponentInterface {
         titleModule={this.titleModule}
         MessageMock={this.MessageMock}
         onClickToCategory={(item) => this.clickToCategory(item)}
+        onSearchDialog={(item) => this.searchDialog(item)}
       ></s-saqhan-chat-wrapper>
     );
   }
-  /**
-   *  Метод поиска по чату
-   * */
-  public clickOnSearchChat({ detail }) {
-    return console.log("clickOnSearchChat", detail.data);
-  }
 
+  public searchDialog({ detail }) {
+    this.dialogs =
+      detail.data !== "" && detail.data !== null
+        ? dialogs.filter((item) => {
+            return typeof item.name === "string"
+              ? item.name.toLowerCase().includes(detail.data.toLowerCase())
+              : false;
+          })
+        : dialogs;
+    console.log("searchContact", detail.data, this.dialogs);
+  }
+  /**
+   *  Фильтр диалогов
+   * */
   public clickToCategory({ detail }) {
-    console.log(detail.item.id);
-    return (this.dialogs =
+    this.dialogs =
       detail.item.id !== "all"
-        ? this.dialogs.filter((item) => item.category === detail.item.id)
-        : this.dialogs);
+        ? dialogs.filter((dialog) => dialog.category === detail.item.id)
+        : dialogs;
+
+    console.log(detail.item.id, this.dialogs);
   }
 }

@@ -17,7 +17,7 @@ export class SSaqhanChatFormSearchFiles implements ComponentInterface {
   render() {
     return (
       <div class="header-wrapper">
-        <div class=" chat-files">
+        <div class="chat-files-search">
           <div class="btn-back" onClick={() => this.clickToLink.emit({place: 'showDialogs' })}>
             <span>
               <i class="fas fa-chevron-left"></i>

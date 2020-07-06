@@ -17,10 +17,11 @@
 
 ## Events
 
-| Event            | Description | Type               |
-| ---------------- | ----------- | ------------------ |
-| `selectPersonal` |             | `CustomEvent<any>` |
-| `selectUsers`    |             | `CustomEvent<any>` |
+| Event             | Description | Type               |
+| ----------------- | ----------- | ------------------ |
+| `clickToCategory` |             | `CustomEvent<any>` |
+| `selectPersonal`  |             | `CustomEvent<any>` |
+| `selectUsers`     |             | `CustomEvent<any>` |
 
 
 ## Dependencies

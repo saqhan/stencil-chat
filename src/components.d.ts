@@ -950,7 +950,7 @@ declare namespace LocalJSX {
         /**
           * Клик по кнопке в чате
          */
-        "onSearchContact"?: (event: CustomEvent<any>) => void;
+        "onSearchDialog"?: (event: CustomEvent<any>) => void;
     }
     interface SSaqhanChatFormSearchFiles {
         "onClickToLink"?: (event: CustomEvent<any>) => void;
@@ -1002,6 +1002,7 @@ declare namespace LocalJSX {
          */
         "dialogs"?: any;
         "onClickToCategory"?: (event: CustomEvent<any>) => void;
+        "onSearchDialog"?: (event: CustomEvent<any>) => void;
         "onSelectPersonal"?: (event: CustomEvent<any>) => void;
         "onSelectUsers"?: (event: CustomEvent<any>) => void;
         "titleModule"?: any;
