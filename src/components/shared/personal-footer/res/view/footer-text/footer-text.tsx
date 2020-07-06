@@ -1,12 +1,19 @@
-import {Component, ComponentInterface, EventEmitter, Event, h, State} from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  EventEmitter,
+  Event,
+  h,
+  State,
+} from "@stencil/core";
 
 @Component({
-  tag: 'footer-text',
-  styleUrl: 'footer-text.css',
+  tag: "footer-text",
+  styleUrl: "footer-text.css",
   shadow: false,
 })
 export class FooterText implements ComponentInterface {
-  @Event() clickToLink:EventEmitter;
+  @Event() clickToLink: EventEmitter;
   @State() iconFooterInput = (<i class="fas fa-microphone"></i>);
   render() {
     return (
@@ -59,21 +66,16 @@ export class FooterText implements ComponentInterface {
   public swithIconInput(e) {
     e.target.value === ""
       ? (this.iconFooterInput = (
-        <i
-          class="fas fa-microphone"
-          onClick={() =>
-            this.clickToLink.emit({ place: "clickSendAudio" })
-          }
-        ></i>
-      ))
+          <i
+            class="fas fa-microphone"
+            onClick={() => this.clickToLink.emit({ place: "clickSendAudio" })}
+          ></i>
+        ))
       : (this.iconFooterInput = (
-        <i
-          class="fas fa-location-arrow"
-          onClick={() =>
-            this.clickToLink.emit({ place: "clickSendMess" })
-          }
-        ></i>
-      ));
+          <i
+            class="fas fa-location-arrow"
+            onClick={() => this.clickToLink.emit({ place: "clickSendMess" })}
+          ></i>
+        ));
   }
-
 }
