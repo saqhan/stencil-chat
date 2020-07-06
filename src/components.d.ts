@@ -624,10 +624,6 @@ declare namespace LocalJSX {
          */
         "categories"?: any;
         /**
-          * clock on Category
-         */
-        "onClickToCategory"?: (event: CustomEvent<any>) => void;
-        /**
           * clock on clickToLink
          */
         "onClickToLink"?: (event: CustomEvent<any>) => void;

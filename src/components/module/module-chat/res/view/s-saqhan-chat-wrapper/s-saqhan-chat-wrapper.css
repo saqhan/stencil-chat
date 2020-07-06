@@ -1,6 +1,6 @@
 .wrapper-chat {
   box-shadow: 0 0 10px 1px #828282;
-  border-radius: 5px;
+  border-radius: 10px;
   width: 400px;
   overflow: hidden;
   height: calc(100vh - 135px);
@@ -21,7 +21,9 @@
 }
 
 @media (max-width: 414px) {
-
+  .wrapper-chat {
+    border-radius: 0px;
+  }
   .wrapper-chat {
     width: 414px;
     height: 100vh;

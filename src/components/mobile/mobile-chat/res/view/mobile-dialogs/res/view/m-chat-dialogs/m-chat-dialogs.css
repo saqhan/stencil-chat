@@ -5,3 +5,9 @@
   height: calc(100vh - 145px);
   overflow: auto;
 }
+
+@media  (max-width: 414px) {
+  .m-chat-dialogs {
+    padding: 20px 15px 0px;
+  }
+}

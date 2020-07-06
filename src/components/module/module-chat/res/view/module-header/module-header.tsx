@@ -21,10 +21,10 @@ export class ModuleHeader implements ComponentInterface {
   render() {
     return (
       <div class="header-chat">
-        {this.titleModule.title}
-        <span  onClick={() => this.close.emit({place: 'closeModal'})}>
+        <div class='header-chat-title'>{this.titleModule.title} </div>
+        <div class='close'  onClick={() => this.close.emit({place: 'closeModal'})}>
           <i class="fas fa-times-circle"></i>
-        </span>
+        </div>
       </div>
     );
   }

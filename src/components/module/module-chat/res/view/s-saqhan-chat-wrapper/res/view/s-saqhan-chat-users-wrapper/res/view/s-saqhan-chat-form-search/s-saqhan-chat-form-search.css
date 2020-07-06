@@ -1,5 +1,6 @@
 .block-file {
   cursor: pointer;
+  padding-right: 15px;
 }
 .chat-files {
   text-align: center;
@@ -16,7 +17,7 @@
 }
 
 .block-input {
-  width: 90%;
+  width: 100%;
   display: flex;
 }
 
