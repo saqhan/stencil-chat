@@ -1,45 +1,97 @@
-import {Component, ComponentInterface, Event, EventEmitter, h, Prop} from '@stencil/core';
-import {Message} from "../../..";
+import {
+  Component,
+  ComponentInterface,
+  Event,
+  EventEmitter,
+  h,
+  Prop,
+  State,
+} from "@stencil/core";
+import { Message } from "../../..";
 
 @Component({
-  tag: 's-adam-personal-header',
-  styleUrl: 's-adam-personal-header.css',
+  tag: "s-adam-personal-header",
+  styleUrl: "s-adam-personal-header.css",
   shadow: false,
 })
 export class SAdamPersonalHeader implements ComponentInterface {
-
   /**
    * клик по имени юзера в личной переписке
    */
   @Event() clickOnUsername: EventEmitter;
 
   /**
+   * Клик по иконке поиска
+   */
+  @Event() clickOnSearchMessage: EventEmitter;
+
+  /**
    * Личный диалог
    */
   @Prop() message: Message[] = [];
 
+  /**
+   * Стейт для переключения окна поиска сообщений
+   */
+  @State() searchWisible = false;
+
+  /**
+   * Переключатель стейта
+   */
+  public toggleSearchWisible() {
+    this.searchWisible = !this.searchWisible;
+  }
+
   render() {
-    return (
-      <div class="header">
-        <div class="search-message">
-          <i class="fas fa-search hover-link"></i>
-        </div>
-        <div class="user">
+    return <div>{this.toggleHeader()}</div>;
+  }
+
+  /**
+   * header or search block
+   */
+  public toggleHeader() {
+    if (this.searchWisible === false) {
+      return (
+        <div class="header">
           <div
-            class="user-name"
-            onClick={(item) =>
-              this.clickOnUsername.emit({ place: "userName", item })
-            }
+            class="search-message"
+            onClick={() => this.toggleSearchWisible()}
           >
-            {this.getNameUser()}
+            <i class="fas fa-search hover-link"></i>
           </div>
-          <div class="online-marker"></div>
+          <div class="user">
+            <div
+              class="user-name"
+              onClick={(item) =>
+                this.clickOnUsername.emit({ place: "userName", item })
+              }
+            >
+              {this.getNameUser()}
+            </div>
+            <div class="online-marker"></div>
+          </div>
+          <div class="settings">
+            <i class="fas fa-cog hover-link"></i>
+          </div>
         </div>
-        <div class="settings">
-          <i class="fas fa-cog hover-link"></i>
+      );
+    } else {
+      return (
+        <div class="header-search-block">
+          <div class="search-message-wrapper">
+            <i
+              class="fas fa-arrow-left hover-link"
+              onClick={() => this.toggleSearchWisible()}
+            ></i>
+            <input
+              onInput={(e) => this.clickOnSearchMessage.emit(e)}
+              type="text"
+              placeholder="Search messages"
+            />
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
   }
 
   /**
@@ -56,5 +108,4 @@ export class SAdamPersonalHeader implements ComponentInterface {
 
     return name;
   }
-
 }

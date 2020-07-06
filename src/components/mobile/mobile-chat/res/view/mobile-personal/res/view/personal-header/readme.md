@@ -14,9 +14,10 @@
 
 ## Events
 
-| Event         | Description       | Type               |
-| ------------- | ----------------- | ------------------ |
-| `clickToLink` | clock on navigate | `CustomEvent<any>` |
+| Event           | Description       | Type               |
+| --------------- | ----------------- | ------------------ |
+| `clickToLink`   | clock on navigate | `CustomEvent<any>` |
+| `searchContact` |                   | `CustomEvent<any>` |
 
 
 ## Dependencies

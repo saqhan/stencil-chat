@@ -80,6 +80,8 @@ export class SAdamChat implements ComponentInterface {
             onClickOnUsername={(item) => {
               this.toggleProfile(item);
             }}
+            onClickOnSearchMessage={({ detail }) => this.searchContact({ detail })}
+
             message={MessageMock}
           ></s-adam-direct>
         );

@@ -12,6 +12,13 @@
 | `dialogs` | `dialogs` |             | `any` | `undefined` |
 
 
+## Events
+
+| Event         | Description | Type               |
+| ------------- | ----------- | ------------------ |
+| `clickToLink` |             | `CustomEvent<any>` |
+
+
 ## Dependencies
 
 ### Used by

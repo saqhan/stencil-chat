@@ -23,7 +23,7 @@ export class SSaqhanChatFormSearchFiles implements ComponentInterface {
               <i class="fas fa-chevron-left"></i>
             </span>
           </div>
-          <div class="block-input">
+          <div class="block-input-files">
             <input
               type="text"
               class="input-search-files"

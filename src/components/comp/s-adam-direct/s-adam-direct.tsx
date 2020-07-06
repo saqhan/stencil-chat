@@ -29,6 +29,11 @@ export class SAdamDirect implements ComponentInterface {
    */
   @Event() clickOnUsername: EventEmitter;
 
+  /**
+   * Клик по иконке поиска
+   */
+  @Event() clickOnSearchMessage: EventEmitter;
+
   render() {
     return (
       <div class="direct-comp">

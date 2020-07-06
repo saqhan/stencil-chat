@@ -25,7 +25,6 @@ export class MessageFrom implements ComponentInterface {
    * @param array
    */
   public messageFrom(array) {
-
     switch (array.direction) {
       case MessageDirectionEnum.fromMe:
         return (
@@ -49,8 +48,10 @@ export class MessageFrom implements ComponentInterface {
         );
       case MessageDirectionEnum.center:
         return (
-          <div class='system-message' ><div>{this.checkTypeSystemMessage(this.message.content)}</div></div>
-        )
+          <div class="system-message">
+            <div>{this.checkTypeSystemMessage(this.message.content)}</div>
+          </div>
+        );
     }
   }
 
@@ -58,7 +59,6 @@ export class MessageFrom implements ComponentInterface {
    * Определяем тип сообщения
    * @param array
    */
-
   public createType(array) {
     switch (array.type) {
       case MessageTypeEnum.text:
@@ -75,6 +75,16 @@ export class MessageFrom implements ComponentInterface {
             checkSendMess={this.checkSendMess(array)}
             message={array}
           ></message-img>
+        );
+      case MessageTypeEnum.loading:
+        return (
+          <div class="from-mess">
+            <div id="circleG">
+              <div id="circleG_1" class="circleG"></div>
+              <div id="circleG_2" class="circleG"></div>
+              <div id="circleG_3" class="circleG"></div>
+            </div>
+          </div>
         );
     }
   }
@@ -123,11 +133,11 @@ export class MessageFrom implements ComponentInterface {
    * Проверка на тип полученного системного сообщения
    * */
 
-  public checkTypeSystemMessage(message){
-    if ((typeof(message) === "string")) {
-      return message
-    } else if ((typeof(message) === "number")) {
-      return dayjs(message).format('DD MMMM');
+  public checkTypeSystemMessage(message) {
+    if (typeof message === "string") {
+      return message;
+    } else if (typeof message === "number") {
+      return dayjs(message).format("DD MMMM");
     }
   }
 }

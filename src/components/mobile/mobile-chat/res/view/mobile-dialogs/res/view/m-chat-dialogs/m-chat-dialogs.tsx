@@ -1,4 +1,4 @@
-import {Component, ComponentInterface, h, Prop} from '@stencil/core';
+import {Component, ComponentInterface, EventEmitter, h, Prop, Event} from '@stencil/core';
 
 @Component({
   tag: 'm-chat-dialogs',
@@ -8,6 +8,7 @@ import {Component, ComponentInterface, h, Prop} from '@stencil/core';
 export class MChatDialogs implements ComponentInterface {
 
   @Prop() dialogs:any;
+  @Event() clickToLink:EventEmitter;
 
   render() {
     return (

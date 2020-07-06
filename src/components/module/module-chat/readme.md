@@ -7,19 +7,24 @@
 
 ## Dependencies
 
+### Used by
+
+ - [my-component](../../my-component)
+
 ### Depends on
 
-- [s-saqhan-chat-app](./res/view/s-saqhan-chat-app)
+- [s-saqhan-chat-wrapper](./res/view/s-saqhan-chat-wrapper)
 
 ### Graph
 ```mermaid
 graph TD;
-  module-chat --> s-saqhan-chat-app
-  s-saqhan-chat-app --> s-saqhan-chat-wrapper
+  module-chat --> s-saqhan-chat-wrapper
   s-saqhan-chat-wrapper --> mobile-personal
   s-saqhan-chat-wrapper --> s-saqhan-chat-users-wrapper
   s-saqhan-chat-wrapper --> s-saqhan-chat-files-wrapper
   s-saqhan-chat-wrapper --> s-adam-profile
+  s-saqhan-chat-wrapper --> module-header
+  s-saqhan-chat-wrapper --> btn-wrapper
   mobile-personal --> personal-header
   mobile-personal --> personal-message
   mobile-personal --> personal-footer
@@ -33,6 +38,7 @@ graph TD;
   s-saqhan-chat-user --> dialog-card
   s-saqhan-chat-files-wrapper --> s-saqhan-chat-form-search-files
   s-saqhan-chat-files-wrapper --> s-saqhan-chat-files
+  my-component --> module-chat
   style module-chat fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

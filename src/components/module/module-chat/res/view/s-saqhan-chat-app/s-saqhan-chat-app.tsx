@@ -54,16 +54,15 @@ export class SSaqhanChatApp implements ComponentInterface {
   render() {
     return (
       <div class="wrapper-modal">
-        {this.showChat ? (
-          <s-saqhan-chat-wrapper
-            onSelectPersonal={() => this.onSelectPersonal()}
-            onSelectUsers={() => this.onSelectUsers()}
-            onClickToLink={(item) => this.clickToLink(item)}
-            onClose={() => this.onClose()}
-            showContent={this.showContent}
-            messages={this.messages}
-            personalMessage={this.personalMessage}
-          ></s-saqhan-chat-wrapper>
+        {this.showChat ? (5
+          // <s-saqhan-chat-wrapper
+          //   onSelectPersonal={() => this.onSelectPersonal()}
+          //   onSelectUsers={() => this.onSelectUsers()}
+          //   onClose={() => this.onClose()}
+          //   showContent={this.showContent}
+          //   messages={this.messages}
+          //   personalMessage={this.personalMessage}
+          // ></s-saqhan-chat-wrapper>
         ) : (
           ""
         )}

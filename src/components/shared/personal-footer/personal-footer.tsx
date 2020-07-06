@@ -3,7 +3,8 @@ import {
   ComponentInterface,
   Event,
   EventEmitter,
-  h, Prop,
+  h,
+  Prop,
   State,
 } from "@stencil/core";
 
@@ -13,8 +14,7 @@ import {
   shadow: false,
 })
 export class PersonalFooter implements ComponentInterface {
-
-  @Prop() theme: 'comp' | 'mobile' = 'comp';
+  @Prop() theme: "comp" | "mobile" = "comp";
 
   /**
    * click on navigate
@@ -22,6 +22,11 @@ export class PersonalFooter implements ComponentInterface {
   @Event() clickToLink: EventEmitter;
 
   @State() iconFooterInput = (<i class="fas fa-microphone"></i>);
+
+  /**
+   * audio animation state
+   */
+  @State() audioAnimation = false;
 
   render() {
     return (
@@ -45,6 +50,7 @@ export class PersonalFooter implements ComponentInterface {
             </div>
             <div
               class="audio"
+              id="audio"
               onClick={() => this.clickToLink.emit({ place: "add-audio-mess" })}
             >
               {this.iconFooterInput}
@@ -60,28 +66,40 @@ export class PersonalFooter implements ComponentInterface {
   public sendingNewMess(e) {
     e.preventDefault();
 
-    if (e.currentTarget.querySelector("input").value === '') {
-        return false;
+    if (e.currentTarget.querySelector("input").value === "") {
+      return false;
     } else {
       console.log("send mess:", e.currentTarget.querySelector("input").value);
       e.currentTarget.querySelector("input").value = "";
       this.iconFooterInput = <i class="fas fa-microphone"></i>;
     }
-
   }
 
   /**
    * Функция для для отправки сообщения
    * */
   public swithIconInput(e) {
-    e.target.value === ''
-      ? (this.iconFooterInput = <i class="fas fa-microphone"></i>)
-      : (this.iconFooterInput = <i class="fas fa-location-arrow"></i>);
+    e.target.value === ""
+      ? (this.iconFooterInput = (
+          <i
+            class="fas fa-microphone"
+            onClick={() =>
+              this.clickToLink.emit({ place: "clickSendAudio" })
+            }
+          ></i>
+        ))
+      : (this.iconFooterInput = (
+          <i
+            class="fas fa-location-arrow"
+            onClick={() =>
+              this.clickToLink.emit({ place: "clickSendMess" })
+            }
+          ></i>
+        ));
   }
-  public getClassForHost ()
-  {
+  public getClassForHost() {
     return {
-      [this.theme]: true
-    }
+      [this.theme]: true,
+    };
   }
 }
