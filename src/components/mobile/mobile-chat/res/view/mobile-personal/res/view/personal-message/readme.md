@@ -17,6 +17,7 @@
 ### Used by
 
  - [mobile-personal](../../..)
+ - [module-personal](../../../../../../../../module/module-chat/res/view/s-saqhan-chat-wrapper/res/view/module-personal)
 
 ### Depends on
 
@@ -29,6 +30,7 @@ graph TD;
   message-from --> message-text
   message-from --> message-img
   mobile-personal --> personal-message
+  module-personal --> personal-message
   style personal-message fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

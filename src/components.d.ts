@@ -43,7 +43,7 @@ export namespace Components {
     }
     interface DialogCategories {
         "categories": any;
-        "theme": "comp" | "mobile";
+        "theme": "comp" | "module" | "mobile";
     }
     interface FooterAudio {
     }
@@ -672,7 +672,7 @@ declare namespace LocalJSX {
           * clock on Category
          */
         "onClickToCategory"?: (event: CustomEvent<any>) => void;
-        "theme"?: "comp" | "mobile";
+        "theme"?: "comp" | "module" | "mobile";
     }
     interface FooterAudio {
     }

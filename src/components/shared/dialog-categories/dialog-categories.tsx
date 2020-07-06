@@ -13,7 +13,7 @@ import {
   shadow: true,
 })
 export class DialogCategories implements ComponentInterface {
-  @Prop() theme: "comp" | "mobile" = "comp";
+  @Prop() theme: "comp" | "module" | "mobile" = "comp";
   @Prop() categories: any;
   /**
    * clock on Category

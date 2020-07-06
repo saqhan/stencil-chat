@@ -9,8 +9,16 @@
 
 | Property          | Attribute          | Description                  | Type  | Default     |
 | ----------------- | ------------------ | ---------------------------- | ----- | ----------- |
+| `categories`      | `categories`       |                              | `any` | `undefined` |
 | `messages`        | `messages`         | Массив данных с диалогами    | `any` | `undefined` |
 | `personalMessage` | `personal-message` | Массив данных с личным чатом | `any` | `undefined` |
+
+
+## Events
+
+| Event         | Description | Type               |
+| ------------- | ----------- | ------------------ |
+| `clickToLink` |             | `CustomEvent<any>` |
 
 
 ## Dependencies
@@ -31,6 +39,7 @@ graph TD;
   s-saqhan-chat-users-wrapper --> s-saqhan-chat-form-search
   s-saqhan-chat-users-wrapper --> s-saqhan-chat-users
   s-saqhan-chat-users-wrapper --> s-saqhan-chat-add-question
+  s-saqhan-chat-form-search --> dialog-categories
   s-saqhan-chat-users --> s-saqhan-chat-user
   s-saqhan-chat-user --> dialog-card
   s-saqhan-chat-wrapper --> s-saqhan-chat-users-wrapper

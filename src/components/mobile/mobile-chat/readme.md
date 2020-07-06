@@ -24,6 +24,7 @@ graph TD;
   mobile-dialogs --> m-chat-header
   mobile-dialogs --> m-chat-dialogs
   mobile-dialogs --> m-chat-footer
+  m-chat-header --> dialog-categories
   m-chat-dialogs --> dialog-card
   mobile-personal --> personal-header
   mobile-personal --> personal-message
@@ -31,6 +32,7 @@ graph TD;
   personal-message --> message-from
   message-from --> message-text
   message-from --> message-img
+  personal-footer --> footer-text
   user-profile --> s-adam-profile
   contacts-list --> contacts-list-header
   contacts-list --> contacts-list-body

@@ -34,7 +34,6 @@ export class SSaqhanChatWrapper implements ComponentInterface {
   @Event() selectPersonal: EventEmitter;
   @Event() selectUsers: EventEmitter;
   @State() messages = this.dialogs;
-
   @State() messageMock = this.MessageMock;
   /**
    * Перменная для включения/отключения показа чата в развернутом виде

@@ -7,9 +7,10 @@
 
 ## Properties
 
-| Property  | Attribute | Description                 | Type        | Default |
-| --------- | --------- | --------------------------- | ----------- | ------- |
-| `dialogs` | --        | Массив с элементами диалога | `dialogs[]` | `[]`    |
+| Property     | Attribute    | Description                 | Type        | Default     |
+| ------------ | ------------ | --------------------------- | ----------- | ----------- |
+| `categories` | `categories` | массив категорий диалогов   | `any`       | `undefined` |
+| `dialogs`    | --           | Массив с элементами диалога | `dialogs[]` | `[]`        |
 
 
 ## Events
@@ -28,11 +29,13 @@
 
 ### Depends on
 
+- [dialog-categories](../../shared/dialog-categories)
 - [dialog-card](../../shared/dialog-card)
 
 ### Graph
 ```mermaid
 graph TD;
+  s-adam-contacts --> dialog-categories
   s-adam-contacts --> dialog-card
   s-adam-chat --> s-adam-contacts
   style s-adam-contacts fill:#f9f,stroke:#333,stroke-width:4px

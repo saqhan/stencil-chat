@@ -41,6 +41,7 @@ graph TD;
   s-adam-direct --> personal-footer
   message-from --> message-text
   message-from --> message-img
+  personal-footer --> footer-text
   s-adam-chat --> s-adam-direct
   style s-adam-direct fill:#f9f,stroke:#333,stroke-width:4px
 ```
