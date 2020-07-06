@@ -9,11 +9,11 @@ import {
 } from "@stencil/core";
 
 @Component({
-  tag: "personal-footer",
-  styleUrl: "personal-footer.css",
+  tag: "footer-common",
+  styleUrl: "footer-common.css",
   shadow: false,
 })
-export class PersonalFooter implements ComponentInterface {
+export class FooterCommon implements ComponentInterface {
   @Prop() theme: "comp" | "mobile" = "comp";
 
   /**

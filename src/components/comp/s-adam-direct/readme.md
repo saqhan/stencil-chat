@@ -31,7 +31,7 @@
 
 - [s-adam-personal-header](../s-adam-personal-header)
 - [message-from](../../shared/messages/message-from)
-- [personal-footer](../../shared/personal-footer)
+- [personal-footer](../../shared/footer-common)
 
 ### Graph
 ```mermaid

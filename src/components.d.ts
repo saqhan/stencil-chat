@@ -41,6 +41,9 @@ export namespace Components {
          */
         "theme": "comp" | "mobile";
     }
+    interface FooterCommon {
+        "theme": "comp" | "mobile";
+    }
     interface MChatDialogs {
         "dialogs": any;
     }
@@ -106,9 +109,6 @@ export namespace Components {
         "titleModule": any;
     }
     interface MyComponent {
-    }
-    interface PersonalFooter {
-        "theme": "comp" | "mobile";
     }
     interface PersonalHeader {
         /**
@@ -273,6 +273,12 @@ declare global {
         prototype: HTMLDialogCardElement;
         new (): HTMLDialogCardElement;
     };
+    interface HTMLFooterCommonElement extends Components.FooterCommon, HTMLStencilElement {
+    }
+    var HTMLFooterCommonElement: {
+        prototype: HTMLFooterCommonElement;
+        new (): HTMLFooterCommonElement;
+    };
     interface HTMLMChatDialogsElement extends Components.MChatDialogs, HTMLStencilElement {
     }
     var HTMLMChatDialogsElement: {
@@ -344,12 +350,6 @@ declare global {
     var HTMLMyComponentElement: {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
-    };
-    interface HTMLPersonalFooterElement extends Components.PersonalFooter, HTMLStencilElement {
-    }
-    var HTMLPersonalFooterElement: {
-        prototype: HTMLPersonalFooterElement;
-        new (): HTMLPersonalFooterElement;
     };
     interface HTMLPersonalHeaderElement extends Components.PersonalHeader, HTMLStencilElement {
     }
@@ -497,6 +497,7 @@ declare global {
         "contacts-list-body": HTMLContactsListBodyElement;
         "contacts-list-header": HTMLContactsListHeaderElement;
         "dialog-card": HTMLDialogCardElement;
+        "footer-common": HTMLFooterCommonElement;
         "m-chat-dialogs": HTMLMChatDialogsElement;
         "m-chat-footer": HTMLMChatFooterElement;
         "m-chat-header": HTMLMChatHeaderElement;
@@ -509,7 +510,6 @@ declare global {
         "module-chat": HTMLModuleChatElement;
         "module-header": HTMLModuleHeaderElement;
         "my-component": HTMLMyComponentElement;
-        "personal-footer": HTMLPersonalFooterElement;
         "personal-header": HTMLPersonalHeaderElement;
         "personal-message": HTMLPersonalMessageElement;
         "s-adam-chat": HTMLSAdamChatElement;
@@ -597,6 +597,13 @@ declare namespace LocalJSX {
         /**
           * карточка диалога
          */
+        "theme"?: "comp" | "mobile";
+    }
+    interface FooterCommon {
+        /**
+          * click on navigate
+         */
+        "onClickToLink"?: (event: CustomEvent<any>) => void;
         "theme"?: "comp" | "mobile";
     }
     interface MChatDialogs {
@@ -696,13 +703,6 @@ declare namespace LocalJSX {
         "titleModule"?: any;
     }
     interface MyComponent {
-    }
-    interface PersonalFooter {
-        /**
-          * click on navigate
-         */
-        "onClickToLink"?: (event: CustomEvent<any>) => void;
-        "theme"?: "comp" | "mobile";
     }
     interface PersonalHeader {
         /**
@@ -906,6 +906,7 @@ declare namespace LocalJSX {
         "contacts-list-body": ContactsListBody;
         "contacts-list-header": ContactsListHeader;
         "dialog-card": DialogCard;
+        "footer-common": FooterCommon;
         "m-chat-dialogs": MChatDialogs;
         "m-chat-footer": MChatFooter;
         "m-chat-header": MChatHeader;
@@ -918,7 +919,6 @@ declare namespace LocalJSX {
         "module-chat": ModuleChat;
         "module-header": ModuleHeader;
         "my-component": MyComponent;
-        "personal-footer": PersonalFooter;
         "personal-header": PersonalHeader;
         "personal-message": PersonalMessage;
         "s-adam-chat": SAdamChat;
@@ -955,6 +955,7 @@ declare module "@stencil/core" {
             "contacts-list-body": LocalJSX.ContactsListBody & JSXBase.HTMLAttributes<HTMLContactsListBodyElement>;
             "contacts-list-header": LocalJSX.ContactsListHeader & JSXBase.HTMLAttributes<HTMLContactsListHeaderElement>;
             "dialog-card": LocalJSX.DialogCard & JSXBase.HTMLAttributes<HTMLDialogCardElement>;
+            "footer-common": LocalJSX.FooterCommon & JSXBase.HTMLAttributes<HTMLFooterCommonElement>;
             "m-chat-dialogs": LocalJSX.MChatDialogs & JSXBase.HTMLAttributes<HTMLMChatDialogsElement>;
             "m-chat-footer": LocalJSX.MChatFooter & JSXBase.HTMLAttributes<HTMLMChatFooterElement>;
             "m-chat-header": LocalJSX.MChatHeader & JSXBase.HTMLAttributes<HTMLMChatHeaderElement>;
@@ -967,7 +968,6 @@ declare module "@stencil/core" {
             "module-chat": LocalJSX.ModuleChat & JSXBase.HTMLAttributes<HTMLModuleChatElement>;
             "module-header": LocalJSX.ModuleHeader & JSXBase.HTMLAttributes<HTMLModuleHeaderElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
-            "personal-footer": LocalJSX.PersonalFooter & JSXBase.HTMLAttributes<HTMLPersonalFooterElement>;
             "personal-header": LocalJSX.PersonalHeader & JSXBase.HTMLAttributes<HTMLPersonalHeaderElement>;
             "personal-message": LocalJSX.PersonalMessage & JSXBase.HTMLAttributes<HTMLPersonalMessageElement>;
             "s-adam-chat": LocalJSX.SAdamChat & JSXBase.HTMLAttributes<HTMLSAdamChatElement>;
