@@ -48,7 +48,7 @@ export class MChatHeader implements ComponentInterface {
           </span>
         </div>
         { this.isShowModal
-          ? <dialog-categories categories={this.categories} ></dialog-categories>
+          ? <dialog-categories theme={'mobile'} categories={this.categories} ></dialog-categories>
           : <div class="modal-wrapper" ><input type="text" placeholder="search" onInput={(e) => this.searchContact.emit(e)} /></div> }
       </div>
     );

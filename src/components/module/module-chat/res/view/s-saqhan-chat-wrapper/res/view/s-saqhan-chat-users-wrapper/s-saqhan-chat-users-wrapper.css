@@ -7,7 +7,7 @@
 
 @media (max-width: 414px) {
   .chat-wrap {
-    height: calc(100vh - 165px);
+    height: calc(100vh - 190px);
   }
 }
 
