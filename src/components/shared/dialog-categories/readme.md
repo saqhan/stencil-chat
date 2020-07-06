@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property     | Attribute    | Description | Type                 | Default     |
-| ------------ | ------------ | ----------- | -------------------- | ----------- |
-| `categories` | `categories` |             | `any`                | `undefined` |
-| `theme`      | `theme`      |             | `"comp" \| "mobile"` | `"comp"`    |
+| Property     | Attribute    | Description | Type                             | Default     |
+| ------------ | ------------ | ----------- | -------------------------------- | ----------- |
+| `categories` | `categories` |             | `any`                            | `undefined` |
+| `theme`      | `theme`      |             | `"comp" \| "mobile" \| "module"` | `"comp"`    |
 
 
 ## Events

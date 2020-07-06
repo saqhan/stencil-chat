@@ -7,6 +7,10 @@
   background-color: #fff;
 }
 
+.drop-file-wrapper {
+  height: calc(100vh - 177px);
+}
+
 .content-chat .personal-wrapper .personal-message {
   height: calc(100vh - 370px);
 }

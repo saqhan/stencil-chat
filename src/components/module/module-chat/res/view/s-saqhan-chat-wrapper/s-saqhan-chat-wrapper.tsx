@@ -76,13 +76,16 @@ export class SSaqhanChatWrapper implements ComponentInterface {
         );
       case "personal":
         return (
-          <module-personal
-            onClickToLink={(item) => this.clickToLink(item)}
-            messageMock={this.messageMock}
-            onSearchContact={(e) =>
-              console.log("mobile-personal", e.detail.data)
-            }
-          ></module-personal>
+          <div class='drop-file-wrapper' >
+            <s-adam-copying></s-adam-copying>
+          </div>
+          // <module-personal
+          //   onClickToLink={(item) => this.clickToLink(item)}
+          //   messageMock={this.messageMock}
+          //   onSearchContact={(e) =>
+          //     console.log("mobile-personal", e.detail.data)
+          //   }
+          // ></module-personal>
         );
 
       case "files":
