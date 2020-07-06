@@ -34,6 +34,11 @@ export class SAdamContacts implements ComponentInterface {
    * */
   @Event() searchContact: EventEmitter;
 
+  /**
+   * clock on Category
+   * */
+  @Event() clickToCategory: EventEmitter;
+
   render() {
     return (
       <div class="contacts-column">
