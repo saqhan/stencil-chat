@@ -7,9 +7,9 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { categories, dialogs, } from "./components/mobile/mobile-chat/res/view/mobile-dialogs/res/interface/common.interface";
 import { Message, } from "./components/shared/interface/common.interface";
+import { Message as Message1, } from ".";
 import { dialogs as dialogs1, } from "./components/comp/s-adam-contacts/res/interface/common.interface";
 import { logo, navItems, } from "./components/comp/s-adam-navigate/res/interface/common.interface";
-import { Message as Message1, } from ".";
 export namespace Components {
     interface BtnWrapper {
         "showChat": any;
@@ -112,6 +112,12 @@ export namespace Components {
     }
     interface ModuleHeader {
         "titleModule": any;
+    }
+    interface ModulePersonal {
+        /**
+          * array data personal messages
+         */
+        "messageMock": Message[];
     }
     interface MyComponent {
     }
@@ -365,6 +371,12 @@ declare global {
         prototype: HTMLModuleHeaderElement;
         new (): HTMLModuleHeaderElement;
     };
+    interface HTMLModulePersonalElement extends Components.ModulePersonal, HTMLStencilElement {
+    }
+    var HTMLModulePersonalElement: {
+        prototype: HTMLModulePersonalElement;
+        new (): HTMLModulePersonalElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -537,6 +549,7 @@ declare global {
         "mobile-personal": HTMLMobilePersonalElement;
         "module-chat": HTMLModuleChatElement;
         "module-header": HTMLModuleHeaderElement;
+        "module-personal": HTMLModulePersonalElement;
         "my-component": HTMLMyComponentElement;
         "personal-footer": HTMLPersonalFooterElement;
         "personal-header": HTMLPersonalHeaderElement;
@@ -733,6 +746,17 @@ declare namespace LocalJSX {
         "onClose"?: (event: CustomEvent<any>) => void;
         "titleModule"?: any;
     }
+    interface ModulePersonal {
+        /**
+          * array data personal messages
+         */
+        "messageMock"?: Message[];
+        /**
+          * clock on navigate
+         */
+        "onClickToLink"?: (event: CustomEvent<any>) => void;
+        "onSearchContact"?: (event: CustomEvent<any>) => void;
+    }
     interface MyComponent {
     }
     interface PersonalFooter {
@@ -924,6 +948,7 @@ declare namespace LocalJSX {
           * Массив данных с диалогами
          */
         "messages"?: any;
+        "onClickToLink"?: (event: CustomEvent<any>) => void;
         /**
           * Массив данных с личным чатом
          */
@@ -958,6 +983,7 @@ declare namespace LocalJSX {
         "mobile-personal": MobilePersonal;
         "module-chat": ModuleChat;
         "module-header": ModuleHeader;
+        "module-personal": ModulePersonal;
         "my-component": MyComponent;
         "personal-footer": PersonalFooter;
         "personal-header": PersonalHeader;
@@ -1010,6 +1036,7 @@ declare module "@stencil/core" {
             "mobile-personal": LocalJSX.MobilePersonal & JSXBase.HTMLAttributes<HTMLMobilePersonalElement>;
             "module-chat": LocalJSX.ModuleChat & JSXBase.HTMLAttributes<HTMLModuleChatElement>;
             "module-header": LocalJSX.ModuleHeader & JSXBase.HTMLAttributes<HTMLModuleHeaderElement>;
+            "module-personal": LocalJSX.ModulePersonal & JSXBase.HTMLAttributes<HTMLModulePersonalElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "personal-footer": LocalJSX.PersonalFooter & JSXBase.HTMLAttributes<HTMLPersonalFooterElement>;
             "personal-header": LocalJSX.PersonalHeader & JSXBase.HTMLAttributes<HTMLPersonalHeaderElement>;

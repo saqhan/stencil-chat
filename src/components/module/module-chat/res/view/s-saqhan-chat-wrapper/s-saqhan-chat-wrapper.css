@@ -2,7 +2,7 @@
   box-shadow: 0 0 10px 1px #828282;
   border-radius: 10px;
   width: 400px;
-  overflow: hidden;
+  overflow: auto;
   height: calc(100vh - 135px);
   background-color: #fff;
 }

@@ -6,7 +6,11 @@ import {
   EventEmitter,
   State,
 } from "@stencil/core";
-import { dialogs, MessageMock, titleModule } from "../../../../../../utils/mock";
+import {
+  dialogs,
+  MessageMock,
+  titleModule,
+} from "../../../../../../utils/mock";
 
 @Component({
   tag: "s-saqhan-chat-wrapper",
@@ -25,6 +29,7 @@ export class SSaqhanChatWrapper implements ComponentInterface {
   // @Event() searchContact: EventEmitter;
   @State() messages = this.dialogs;
   @State() showContent = "dialogs";
+  @State() messageMock = MessageMock;
   /**
    * Перменная для включения/отключения показа чата в развернутом виде
    * */
@@ -43,20 +48,8 @@ export class SSaqhanChatWrapper implements ComponentInterface {
               onClose={(item) => this.onClose(item)}
             ></module-header>
             <div class="m-chat-wrapper">
-              {/*<s-saqhan-chat-form-search*/}
-              {/*  onSearchContact={(item) => this.searchContact(item)}*/}
-              {/*  onClickToLink={(item) => this.clickToLink(item)}*/}
-              {/*/!*></s-saqhan-chat-form-search>*!/*/}
-              {/*<m-chat-dialogs*/}
-              {/*  onClickToLink={(item) => this.clickToLink(item)}*/}
-              {/*  dialogs={this.dialogs}></m-chat-dialogs>*/}
-              {/*<s-saqhan-chat-add-question></s-saqhan-chat-add-question>*/}
-              {/*<m-chat-footer></m-chat-footer>*/}
-
+              {this.ShowContent(this.showContent)}
             </div>
-
-            <mobile-personal onClickToLink={(item) => this.clickToLink(item)} messageMock={this.personalMessage}></mobile-personal>
-            {/*<s-saqhan-chat-users-wrapper  messages={this.messages}></s-saqhan-chat-users-wrapper>*/}
           </div>
         ) : (
           ""
@@ -71,21 +64,37 @@ export class SSaqhanChatWrapper implements ComponentInterface {
 
   public ShowContent = (content) => {
     switch (content) {
-      case "personal":
-        return (
-          <mobile-personal messageMock={this.personalMessage}></mobile-personal>
-        );
       case "dialogs":
         return (
           <s-saqhan-chat-users-wrapper
             messages={this.messages}
+            onClickToLink={(item) => this.clickToLink(item)}
           ></s-saqhan-chat-users-wrapper>
         );
+      case "personal":
+        return (
+          <module-personal
+            onClickToLink={(item) => this.clickToLink(item)}
+            messageMock={this.messageMock}
+            onSearchContact={(e) =>
+              console.log("mobile-personal", e.detail.data)
+            }
+          ></module-personal>
+        );
+
       case "files":
-        return <s-saqhan-chat-files-wrapper
-          onClickToLink={(item) => this.clickToLink(item)}></s-saqhan-chat-files-wrapper>;
+        return (
+          <s-saqhan-chat-files-wrapper
+            onClickToLink={(item) => this.clickToLink(item)}
+          ></s-saqhan-chat-files-wrapper>
+        );
       case "profile":
-        return <s-adam-profile theme={"mobile"}></s-adam-profile>;
+        return (
+          <s-adam-profile
+            theme={"mobile"}
+            onClickToLink={(item) => this.clickToLink(item)}
+          ></s-adam-profile>
+        );
       default:
         "files";
     }
@@ -125,17 +134,17 @@ export class SSaqhanChatWrapper implements ComponentInterface {
    * */
   public clickToLink({ detail }) {
     console.log(detail.place);
-    // switch (detail.place) {
-    //   case "showFile":
-    //     return (this.showContent = "files");
-    //   case "showDialogs":
-    //     return (this.showContent = "dialogs");
-    //   case "showPersonalDialog":
-    //     return (this.showContent = "personal");
-    //   case "user-name-personal":
-    //     return (this.showContent = "profile");
-    //   default:
-    //     this.showContent = "users";
-    // }
+    switch (detail.place) {
+      case "showFile":
+        return (this.showContent = "files");
+      case "showDialogs":
+        return (this.showContent = "dialogs");
+      case "showPersonalDialog":
+        return (this.showContent = "personal");
+      case "user-name-personal":
+        return (this.showContent = "profile");
+      default:
+        this.showContent = "users";
+    }
   }
 }

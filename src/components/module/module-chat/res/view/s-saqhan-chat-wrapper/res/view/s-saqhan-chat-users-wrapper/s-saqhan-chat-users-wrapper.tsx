@@ -1,4 +1,4 @@
-import {Component, ComponentInterface,  h, Prop} from '@stencil/core';
+import {Component, ComponentInterface, Event, EventEmitter, h, Prop} from '@stencil/core';
 
 @Component({
   tag: 's-saqhan-chat-users-wrapper',
@@ -16,7 +16,7 @@ export class SSaqhanChatUsersWrapper implements ComponentInterface {
    * */
   @Prop() personalMessage:any;
 
-
+  @Event() clickToLink: EventEmitter;
 
   render() {
     return (
