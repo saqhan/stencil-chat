@@ -35,4 +35,5 @@ export class ModuleChat implements ComponentInterface {
   public clickOnSearchChat({ detail }) {
     return console.log("clickOnSearchChat", detail.data);
   }
+
 }
