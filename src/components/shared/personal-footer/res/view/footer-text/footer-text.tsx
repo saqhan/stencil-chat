@@ -1,12 +1,11 @@
-import {Component, ComponentInterface, EventEmitter, Event, h, State, Prop} from '@stencil/core';
+import {Component, ComponentInterface, EventEmitter, Event, h, State} from '@stencil/core';
 
 @Component({
   tag: 'footer-text',
   styleUrl: 'footer-text.css',
-  shadow: true,
+  shadow: false,
 })
 export class FooterText implements ComponentInterface {
-  @Prop() theme;
   @Event() clickToLink:EventEmitter;
   @State() iconFooterInput = (<i class="fas fa-microphone"></i>);
   render() {

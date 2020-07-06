@@ -41,6 +41,13 @@ export namespace Components {
          */
         "theme": "comp" | "mobile";
     }
+    interface DialogCategories {
+        "categories": any;
+    }
+    interface FooterAudio {
+    }
+    interface FooterText {
+    }
     interface MChatDialogs {
         "dialogs": any;
     }
@@ -275,6 +282,24 @@ declare global {
         prototype: HTMLDialogCardElement;
         new (): HTMLDialogCardElement;
     };
+    interface HTMLDialogCategoriesElement extends Components.DialogCategories, HTMLStencilElement {
+    }
+    var HTMLDialogCategoriesElement: {
+        prototype: HTMLDialogCategoriesElement;
+        new (): HTMLDialogCategoriesElement;
+    };
+    interface HTMLFooterAudioElement extends Components.FooterAudio, HTMLStencilElement {
+    }
+    var HTMLFooterAudioElement: {
+        prototype: HTMLFooterAudioElement;
+        new (): HTMLFooterAudioElement;
+    };
+    interface HTMLFooterTextElement extends Components.FooterText, HTMLStencilElement {
+    }
+    var HTMLFooterTextElement: {
+        prototype: HTMLFooterTextElement;
+        new (): HTMLFooterTextElement;
+    };
     interface HTMLMChatDialogsElement extends Components.MChatDialogs, HTMLStencilElement {
     }
     var HTMLMChatDialogsElement: {
@@ -505,6 +530,9 @@ declare global {
         "contacts-list-body": HTMLContactsListBodyElement;
         "contacts-list-header": HTMLContactsListHeaderElement;
         "dialog-card": HTMLDialogCardElement;
+        "dialog-categories": HTMLDialogCategoriesElement;
+        "footer-audio": HTMLFooterAudioElement;
+        "footer-text": HTMLFooterTextElement;
         "m-chat-dialogs": HTMLMChatDialogsElement;
         "m-chat-footer": HTMLMChatFooterElement;
         "m-chat-header": HTMLMChatHeaderElement;
@@ -607,6 +635,18 @@ declare namespace LocalJSX {
           * карточка диалога
          */
         "theme"?: "comp" | "mobile";
+    }
+    interface DialogCategories {
+        "categories"?: any;
+        /**
+          * clock on Category
+         */
+        "onClickToCategory"?: (event: CustomEvent<any>) => void;
+    }
+    interface FooterAudio {
+    }
+    interface FooterText {
+        "onClickToLink"?: (event: CustomEvent<any>) => void;
     }
     interface MChatDialogs {
         "dialogs"?: any;
@@ -913,6 +953,9 @@ declare namespace LocalJSX {
         "contacts-list-body": ContactsListBody;
         "contacts-list-header": ContactsListHeader;
         "dialog-card": DialogCard;
+        "dialog-categories": DialogCategories;
+        "footer-audio": FooterAudio;
+        "footer-text": FooterText;
         "m-chat-dialogs": MChatDialogs;
         "m-chat-footer": MChatFooter;
         "m-chat-header": MChatHeader;
@@ -963,6 +1006,9 @@ declare module "@stencil/core" {
             "contacts-list-body": LocalJSX.ContactsListBody & JSXBase.HTMLAttributes<HTMLContactsListBodyElement>;
             "contacts-list-header": LocalJSX.ContactsListHeader & JSXBase.HTMLAttributes<HTMLContactsListHeaderElement>;
             "dialog-card": LocalJSX.DialogCard & JSXBase.HTMLAttributes<HTMLDialogCardElement>;
+            "dialog-categories": LocalJSX.DialogCategories & JSXBase.HTMLAttributes<HTMLDialogCategoriesElement>;
+            "footer-audio": LocalJSX.FooterAudio & JSXBase.HTMLAttributes<HTMLFooterAudioElement>;
+            "footer-text": LocalJSX.FooterText & JSXBase.HTMLAttributes<HTMLFooterTextElement>;
             "m-chat-dialogs": LocalJSX.MChatDialogs & JSXBase.HTMLAttributes<HTMLMChatDialogsElement>;
             "m-chat-footer": LocalJSX.MChatFooter & JSXBase.HTMLAttributes<HTMLMChatFooterElement>;
             "m-chat-header": LocalJSX.MChatHeader & JSXBase.HTMLAttributes<HTMLMChatHeaderElement>;

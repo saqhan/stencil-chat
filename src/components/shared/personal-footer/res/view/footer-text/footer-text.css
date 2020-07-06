@@ -50,12 +50,12 @@
   outline: none;
 }
 
-.chat .footer-wrapper {
+.comp .footer-wrapper {
   box-shadow: none;
   border: 1px solid lightgray;
 }
 
-.chat .input-wrapper  input {
+.comp .input-wrapper  input {
   text-align: left;
 }
 
