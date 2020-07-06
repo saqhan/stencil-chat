@@ -24,4 +24,7 @@
   border-bottom: 1px solid #5780f7;
 }
 
-
+.comp .btns-nav {
+  border-bottom: 1px solid white;
+  padding: 20px 0;
+}
