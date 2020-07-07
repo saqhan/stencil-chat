@@ -12,12 +12,16 @@
   margin-bottom: 30px;
 }
 
+.mobile .profile {
+  height: 100%;
+}
+
 /* mobile */
 
 .profile {
   background-color: #f7f8f9;
   padding: 20px;
-  height: 100vh;
+  height: 95vh;
   overflow: auto;
 }
 .about-user {

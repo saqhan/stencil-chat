@@ -22,8 +22,8 @@ export class SAdamProfile implements ComponentInterface {
 
   render() {
     return (
-      <section class="profile">
-        <div class={this.getClassForHost()}>
+      <div class={this.getClassForHost()}>
+        <section class="profile">
           <div class="links-wrapper">
             <a
               onClick={() =>
@@ -93,8 +93,8 @@ export class SAdamProfile implements ComponentInterface {
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     );
   }
   /**
