@@ -5,13 +5,6 @@
 <!-- Auto Generated Below -->
 
 
-## Properties
-
-| Property | Attribute | Description | Type  | Default     |
-| -------- | --------- | ----------- | ----- | ----------- |
-| `theme`  | `theme`   |             | `any` | `undefined` |
-
-
 ## Events
 
 | Event         | Description | Type               |

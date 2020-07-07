@@ -2,13 +2,13 @@
   box-shadow: 0 0 10px 1px #828282;
   border-radius: 10px;
   width: 400px;
-  overflow: auto;
+  overflow: hidden;
   height: calc(100vh - 130px);
   background-color: #fff;
 }
 
 .m-chat-wrapper {
-  height: calc(100vh - 45px);
+  height: calc(100vh - 170px);
   overflow: auto;
 }
 
@@ -146,6 +146,9 @@
   }
   .users {
     height: 80vh;
+  }
+  .m-chat-wrapper {
+    height: calc(100vh - 40px);
   }
 }
 
