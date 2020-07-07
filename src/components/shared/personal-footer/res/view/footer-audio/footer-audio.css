@@ -42,9 +42,8 @@
   padding: 10px 0;
   border:none;
   font-size: 16px;
-  outline: #4c567d;
-  color: transparent;
-  text-shadow: 0 0 0 black;
+  outline: none;
+  color: #4c567d;
 }
 
 input.input-audio {
