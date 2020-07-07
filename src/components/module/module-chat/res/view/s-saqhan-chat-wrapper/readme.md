@@ -7,21 +7,45 @@
 
 ## Properties
 
-| Property      | Attribute      | Description                | Type  | Default     |
-| ------------- | -------------- | -------------------------- | ----- | ----------- |
-| `MessageMock` | `message-mock` |                            | `any` | `undefined` |
-| `categories`  | `categories`   | array categories           | `any` | `undefined` |
-| `dialogs`     | `dialogs`      | массив данных для диалогов | `any` | `undefined` |
-| `titleModule` | `title-module` |                            | `any` | `undefined` |
+| Property      | Attribute      | Description                    | Type  | Default     |
+| ------------- | -------------- | ------------------------------ | ----- | ----------- |
+| `MessageMock` | `message-mock` | массив данных личных сообщений | `any` | `undefined` |
+| `categories`  | `categories`   | array categories               | `any` | `undefined` |
+| `dialogs`     | `dialogs`      | массив данных для диалогов     | `any` | `undefined` |
+| `titleModule` | `title-module` | Заголовок для чата             | `any` | `undefined` |
 
 
-## Events
+## Methods
 
-| Event             | Description | Type               |
-| ----------------- | ----------- | ------------------ |
-| `clickToCategory` |             | `CustomEvent<any>` |
-| `selectPersonal`  |             | `CustomEvent<any>` |
-| `selectUsers`     |             | `CustomEvent<any>` |
+### `clickToCategory({ detail }: { detail: any; }) => Promise<void>`
+
+Фильтр диалогов
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `searchDialog({ detail }: { detail: any; }) => Promise<void>`
+
+Метод поиски диалогов
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `searchMessage({ detail }: { detail: any; }) => Promise<void>`
+
+Метод поиска по чату
+
+#### Returns
+
+Type: `Promise<void>`
+
+
 
 
 ## Dependencies
@@ -34,7 +58,7 @@
 
 - [s-saqhan-chat-users-wrapper](./res/view/s-saqhan-chat-users-wrapper)
 - [module-personal](./res/view/module-personal)
-- [s-saqhan-chat-files-wrapper](../s-saqhan-chat-app/res/view/s-saqhan-chat-files-wrapper)
+- [s-saqhan-chat-files-wrapper](../s-saqhan-chat-files-wrapper)
 - [s-adam-profile](../../../../../shared/s-adam-profile)
 - [module-header](../module-header)
 - [btn-wrapper](../btn-wrapper)
@@ -60,7 +84,7 @@ graph TD;
   personal-message --> message-from
   message-from --> message-text
   message-from --> message-img
-  personal-footer --> footer-text
+  personal-footer --> footer-audio
   s-saqhan-chat-files-wrapper --> s-saqhan-chat-form-search-files
   s-saqhan-chat-files-wrapper --> s-saqhan-chat-files
   module-chat --> s-saqhan-chat-wrapper

@@ -135,6 +135,7 @@ export namespace Components {
           * array data personal messages
          */
         "messageMock": any;
+        "theme": "mobile" | "module";
     }
     interface SAdamChat {
     }
@@ -235,15 +236,39 @@ export namespace Components {
         "personalMessage": any;
     }
     interface SSaqhanChatWrapper {
+        /**
+          * массив данных личных сообщений
+         */
         "MessageMock": any;
         /**
           * array categories
          */
         "categories": any;
         /**
+          * Фильтр диалогов
+         */
+        "clickToCategory": ({ detail }: {
+            detail: any;
+        }) => Promise<void>;
+        /**
           * массив данных для диалогов
          */
         "dialogs": any;
+        /**
+          * Метод поиски диалогов
+         */
+        "searchDialog": ({ detail }: {
+            detail: any;
+        }) => Promise<void>;
+        /**
+          * Метод поиска по чату
+         */
+        "searchMessage": ({ detail }: {
+            detail: any;
+        }) => Promise<void>;
+        /**
+          * Заголовок для чата
+         */
         "titleModule": any;
     }
     interface UserProfile {
@@ -781,6 +806,7 @@ declare namespace LocalJSX {
           * array data personal messages
          */
         "messageMock"?: any;
+        "theme"?: "mobile" | "module";
     }
     interface SAdamChat {
     }
@@ -925,13 +951,18 @@ declare namespace LocalJSX {
           * Массив данных с диалогами
          */
         "messages"?: any;
+        "onClickToCategory"?: (event: CustomEvent<any>) => void;
         "onClickToLink"?: (event: CustomEvent<any>) => void;
+        "onSearchDialog"?: (event: CustomEvent<any>) => void;
         /**
           * Массив данных с личным чатом
          */
         "personalMessage"?: any;
     }
     interface SSaqhanChatWrapper {
+        /**
+          * массив данных личных сообщений
+         */
         "MessageMock"?: any;
         /**
           * array categories
@@ -941,10 +972,9 @@ declare namespace LocalJSX {
           * массив данных для диалогов
          */
         "dialogs"?: any;
-        "onClickToCategory"?: (event: CustomEvent<any>) => void;
-        "onSearchDialog"?: (event: CustomEvent<any>) => void;
-        "onSelectPersonal"?: (event: CustomEvent<any>) => void;
-        "onSelectUsers"?: (event: CustomEvent<any>) => void;
+        /**
+          * Заголовок для чата
+         */
         "titleModule"?: any;
     }
     interface UserProfile {

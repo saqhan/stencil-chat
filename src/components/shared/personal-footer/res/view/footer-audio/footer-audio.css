@@ -33,7 +33,7 @@
 
 .input-wrapper {
   width: 100%;
-  padding: 0px 15px;
+  /*padding: 0px 15px;*/
 }
 
 .input-wrapper input {
@@ -86,3 +86,5 @@ input.input-audio {
 .timer {
   margin-left: 10px;
 }
+
+

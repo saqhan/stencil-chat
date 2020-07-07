@@ -16,9 +16,11 @@
 
 ## Events
 
-| Event         | Description | Type               |
-| ------------- | ----------- | ------------------ |
-| `clickToLink` |             | `CustomEvent<any>` |
+| Event             | Description | Type               |
+| ----------------- | ----------- | ------------------ |
+| `clickToCategory` |             | `CustomEvent<any>` |
+| `clickToLink`     |             | `CustomEvent<any>` |
+| `searchDialog`    |             | `CustomEvent<any>` |
 
 
 ## Dependencies
@@ -31,7 +33,7 @@
 
 - [s-saqhan-chat-form-search](./res/view/s-saqhan-chat-form-search)
 - [s-saqhan-chat-users](./res/view/s-saqhan-chat-users)
-- [s-saqhan-chat-add-question](../../../../s-saqhan-chat-app/res/view/s-saqhan-chat-add-question)
+- [s-saqhan-chat-add-question](../../../../s-saqhan-chat-add-question)
 
 ### Graph
 ```mermaid
