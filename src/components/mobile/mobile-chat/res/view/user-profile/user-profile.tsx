@@ -3,7 +3,7 @@ import {
   ComponentInterface,
   Event,
   EventEmitter,
-  h, Prop,
+  h,
 } from "@stencil/core";
 
 @Component({
@@ -13,9 +13,9 @@ import {
 })
 export class UserProfile implements ComponentInterface {
   @Event() clickToLink: EventEmitter;
-  @Prop()  theme:any;
+
 
   render() {
-    return <s-adam-profile theme={this.theme}></s-adam-profile>;
+    return <s-adam-profile theme={'mobile'}></s-adam-profile>;
   }
 }

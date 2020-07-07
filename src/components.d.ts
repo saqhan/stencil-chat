@@ -272,7 +272,6 @@ export namespace Components {
         "titleModule": any;
     }
     interface UserProfile {
-        "theme": any;
     }
 }
 declare global {
@@ -980,7 +979,6 @@ declare namespace LocalJSX {
     }
     interface UserProfile {
         "onClickToLink"?: (event: CustomEvent<any>) => void;
-        "theme"?: any;
     }
     interface IntrinsicElements {
         "btn-wrapper": BtnWrapper;
