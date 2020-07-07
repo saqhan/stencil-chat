@@ -34,8 +34,12 @@ export class PersonalFooter implements ComponentInterface {
   render() {
     return (
       <div class={this.getClassForHost()}>
-        <footer-text></footer-text>
-        {/*<footer-audio></footer-audio>*/}
+        {this.switchFooter
+          ?
+          <footer-text onClickOnAudio={() => this.toggleFooter()}></footer-text>
+          :
+          <footer-audio></footer-audio>
+        }
       </div>
     );
   }
