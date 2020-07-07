@@ -153,6 +153,22 @@ _________________________________
 
 /*system-message*/
 
+
+/* module**/
+
+.module .personal-message .to-me-mess-wrapper .mess-img {
+  min-width: 260px;
+}
+
+.module .from-mess-wrapper .from-mess {
+  max-width: 260px;
+}
+.module .personal-message .from-mess-wrapper .mess-img {
+  min-width:  260px;
+}
+
+/* module**/
+
 @media (max-width: 414px) {
   .from-mess-wrapper .mess-img,
   .to-me-mess-wrapper .mess-img {
