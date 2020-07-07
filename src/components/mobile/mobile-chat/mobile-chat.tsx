@@ -55,6 +55,8 @@ export class MobileChat implements ComponentInterface {
     console.log("searchContact",e);
   }
 
+
+
   /**
    * Метод для вывода определенного контента
    * */
@@ -81,6 +83,7 @@ export class MobileChat implements ComponentInterface {
       case "profile":
         return (
           <user-profile
+            theme={'mobile'}
             onClickToLink={(item) => this.clickToLink(item)}
           ></user-profile>
         );

@@ -102,7 +102,7 @@ export class SSaqhanChatWrapper implements ComponentInterface {
       case "profile":
         return (
           <s-adam-profile
-            theme={"mobile"}
+            theme={"module"}
             onClickToLink={(item) => this.clickToLink(item)}
           ></s-adam-profile>
         );

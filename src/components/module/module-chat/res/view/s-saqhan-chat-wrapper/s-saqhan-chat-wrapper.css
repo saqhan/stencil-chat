@@ -7,6 +7,12 @@
   background-color: #fff;
 }
 
+.m-chat-wrapper {
+  height: calc(100vh - 45px);
+  overflow: auto;
+}
+
+
 .drop-file-wrapper {
   height: calc(100vh - 177px);
 }

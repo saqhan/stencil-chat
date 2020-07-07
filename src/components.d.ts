@@ -135,7 +135,7 @@ export namespace Components {
           * array data personal messages
          */
         "messageMock": any;
-        "theme": "mobile" | "module";
+        "theme": "mobile" | "module" | "comp";
     }
     interface SAdamChat {
     }
@@ -191,7 +191,7 @@ export namespace Components {
         /**
           * Задаем стиль для мобильной/пк версии
          */
-        "theme": "comp" | "mobile";
+        "theme": "comp" | "mobile" | "module";
     }
     interface SSaqhanChatAddQuestion {
     }
@@ -272,6 +272,7 @@ export namespace Components {
         "titleModule": any;
     }
     interface UserProfile {
+        "theme": any;
     }
 }
 declare global {
@@ -806,7 +807,7 @@ declare namespace LocalJSX {
           * array data personal messages
          */
         "messageMock"?: any;
-        "theme"?: "mobile" | "module";
+        "theme"?: "mobile" | "module" | "comp";
     }
     interface SAdamChat {
     }
@@ -899,7 +900,7 @@ declare namespace LocalJSX {
         /**
           * Задаем стиль для мобильной/пк версии
          */
-        "theme"?: "comp" | "mobile";
+        "theme"?: "comp" | "mobile" | "module";
     }
     interface SSaqhanChatAddQuestion {
     }
@@ -979,6 +980,7 @@ declare namespace LocalJSX {
     }
     interface UserProfile {
         "onClickToLink"?: (event: CustomEvent<any>) => void;
+        "theme"?: any;
     }
     interface IntrinsicElements {
         "btn-wrapper": BtnWrapper;
