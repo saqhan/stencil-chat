@@ -2,3 +2,12 @@
   height: calc(100vh - 370px);
   overflow: auto;
 }
+
+.module .personal-message {
+  padding: 20px 0px;
+  height: calc(100vh - 215px);
+  overflow: auto;
+}
+.mobile .personal-message {
+  height: calc(100vh - 185px);
+}

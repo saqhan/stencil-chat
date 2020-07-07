@@ -14,10 +14,10 @@
 
 ## Events
 
-| Event           | Description           | Type               |
-| --------------- | --------------------- | ------------------ |
-| `clickToLink`   | Клик по кнопке files  | `CustomEvent<any>` |
-| `searchContact` | Клик по кнопке в чате | `CustomEvent<any>` |
+| Event          | Description           | Type               |
+| -------------- | --------------------- | ------------------ |
+| `clickToLink`  | Клик по кнопке files  | `CustomEvent<any>` |
+| `searchDialog` | Клик по кнопке в чате | `CustomEvent<any>` |
 
 
 ## Dependencies

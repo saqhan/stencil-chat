@@ -2,10 +2,9 @@ import {
   Component,
   ComponentInterface,
   h,
-  Event,
-  EventEmitter,
   State,
   Prop,
+  Method,
 } from "@stencil/core";
 
 @Component({
@@ -18,7 +17,13 @@ export class SSaqhanChatWrapper implements ComponentInterface {
    * array categories
    * */
   @Prop() categories;
+  /**
+   * Заголовок для чата
+   * */
   @Prop() titleModule;
+  /**
+   * массив данных личных сообщений
+   * */
   @Prop() MessageMock;
   /**
    * массив данных для диалогов
@@ -29,26 +34,20 @@ export class SSaqhanChatWrapper implements ComponentInterface {
    * select content default
    * */
   @State() showContent = "dialogs";
-
-
-  @Event() selectPersonal: EventEmitter;
-  @Event() selectUsers: EventEmitter;
-  @Event() clickToCategory: EventEmitter;
-  @Event() searchDialog: EventEmitter;
-  @State() messages = this.dialogs;
-  @State() messageMock = this.MessageMock;
+  @State() categoriesState = this.categories;
+  @State() dialogsState = this.dialogs;
+  @State() MessageMockState = this.MessageMock;
+  @State() messagesState = this.dialogs;
   /**
    * Перменная для включения/отключения показа чата в развернутом виде
    * */
   @State() showChat: boolean;
 
-
   render() {
     return (
       <div class="wrapper-modal">
-
-        {this.showChat
-          ? (<div class="wrapper-chat">
+        {this.showChat ? (
+          <div class="wrapper-chat">
             <module-header
               titleModule={this.titleModule}
               onClose={(item) => this.onClose(item)}
@@ -56,8 +55,10 @@ export class SSaqhanChatWrapper implements ComponentInterface {
             <div class="m-chat-wrapper">
               {this.ShowContent(this.showContent)}
             </div>
-          </div>)
-          : ""}
+          </div>
+        ) : (
+          ""
+        )}
         <btn-wrapper
           onClickToShowChat={() => this.isShowChat()}
           showChat={this.showChat}
@@ -65,15 +66,19 @@ export class SSaqhanChatWrapper implements ComponentInterface {
       </div>
     );
   }
-
+  /**
+   * Select show content
+   * */
   public ShowContent = (content) => {
     switch (content) {
       case "dialogs":
         return (
           <s-saqhan-chat-users-wrapper
-            messages={this.messages}
-            categories={this.categories}
+            messages={this.dialogsState}
+            categories={this.categoriesState}
             onClickToLink={(item) => this.clickToLink(item)}
+            onClickToCategory={(item) => this.clickToCategory(item)}
+            onSearchDialog={(item) => this.searchDialog(item)}
           ></s-saqhan-chat-users-wrapper>
         );
       case "personal":
@@ -83,10 +88,8 @@ export class SSaqhanChatWrapper implements ComponentInterface {
           // </div>
           <module-personal
             onClickToLink={(item) => this.clickToLink(item)}
-            messageMock={this.messageMock}
-            onSearchContact={(e) =>
-              console.log("mobile-personal", e.detail.data)
-            }
+            messageMock={this.MessageMockState}
+            onSearchContact={(e) => this.searchMessage(e)}
           ></module-personal>
         );
 
@@ -107,8 +110,6 @@ export class SSaqhanChatWrapper implements ComponentInterface {
         "files";
     }
   };
-
-
 
   /**
    * Метод для изменения состояния чата
@@ -140,5 +141,44 @@ export class SSaqhanChatWrapper implements ComponentInterface {
       default:
         this.showContent = "users";
     }
+  }
+  /**
+   *  Фильтр диалогов
+   * */
+  @Method()
+  async clickToCategory({ detail }) {
+    this.dialogsState =
+      detail.item.id !== "all"
+        ? this.dialogs.filter((dialog) => dialog.category === detail.item.id)
+        : this.dialogs;
+  }
+
+  /**
+   * Метод поиски диалогов
+   * */
+  @Method()
+  async searchDialog({ detail }) {
+    this.dialogsState =
+      detail.data !== "" && detail.data !== null
+        ? this.dialogs.filter((item) => {
+            return typeof item.name === "string"
+              ? item.name.toLowerCase().includes(detail.data.toLowerCase())
+              : false;
+          })
+        : this.dialogs;
+  }
+  /**
+   * Метод поиска по чату
+   * */
+  @Method()
+  async searchMessage({ detail }) {
+    this.MessageMockState =
+      detail.data !== '' && detail.data !== null
+        ? this.MessageMockState.filter((item) => {
+            return typeof item.content === "string"
+              ? item.content.toLowerCase().includes(detail.data.toLowerCase())
+              : false;
+          })
+        : this.MessageMock;
   }
 }

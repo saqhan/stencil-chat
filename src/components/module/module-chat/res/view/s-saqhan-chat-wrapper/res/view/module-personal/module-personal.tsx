@@ -23,7 +23,7 @@ export class ModulePersonal implements ComponentInterface {
     return (
       <div class="personal-wrapper">
         <personal-header messageMock={this.messageMock} ></personal-header>
-        <personal-message messageMock={this.messageMock} ></personal-message>
+        <personal-message theme={'module'} messageMock={this.messageMock} ></personal-message>
         <personal-footer theme='mobile' ></personal-footer>
       </div>
     );

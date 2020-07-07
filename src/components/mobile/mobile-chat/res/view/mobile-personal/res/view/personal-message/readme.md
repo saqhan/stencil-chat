@@ -7,9 +7,10 @@
 
 ## Properties
 
-| Property      | Attribute      | Description                  | Type  | Default     |
-| ------------- | -------------- | ---------------------------- | ----- | ----------- |
-| `messageMock` | `message-mock` | array data personal messages | `any` | `undefined` |
+| Property      | Attribute      | Description                  | Type                   | Default     |
+| ------------- | -------------- | ---------------------------- | ---------------------- | ----------- |
+| `messageMock` | `message-mock` | array data personal messages | `any`                  | `undefined` |
+| `theme`       | `theme`        |                              | `"mobile" \| "module"` | `"mobile"`  |
 
 
 ## Dependencies

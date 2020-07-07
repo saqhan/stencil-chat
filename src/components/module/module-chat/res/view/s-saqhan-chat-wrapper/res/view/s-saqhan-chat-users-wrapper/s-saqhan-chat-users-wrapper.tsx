@@ -16,7 +16,9 @@ export class SSaqhanChatUsersWrapper implements ComponentInterface {
    * Массив данных с личным чатом
    * */
   @Prop() personalMessage:any;
+  @Event() clickToCategory: EventEmitter;
 
+  @Event() searchDialog: EventEmitter;
   @Event() clickToLink: EventEmitter;
 
   render() {

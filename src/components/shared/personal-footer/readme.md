@@ -29,12 +29,12 @@
 
 ### Depends on
 
-- [footer-text](./res/view/footer-text)
+- [footer-audio](./res/view/footer-audio)
 
 ### Graph
 ```mermaid
 graph TD;
-  personal-footer --> footer-text
+  personal-footer --> footer-audio
   mobile-personal --> personal-footer
   module-personal --> personal-footer
   s-adam-direct --> personal-footer
