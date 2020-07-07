@@ -57,10 +57,10 @@
   margin-left: auto;
   color: lightgray;
 }
-::-webkit-scrollbar { /* chrome based */
-  width: 0px; /* ширина scrollbar'a */
-  background: transparent; /* опционально */
-}
+  ::-webkit-scrollbar { /* chrome based */
+    width: 0px; /* ширина scrollbar'a */
+    background: transparent; /* опционально */
+  }
 input::-moz-placeholder {
   color: #979eab;
 }
