@@ -11,3 +11,7 @@
 .mobile .personal-message {
   height: calc(100vh - 185px);
 }
+
+.mobile .personal-message {
+  padding: 20px;
+}
