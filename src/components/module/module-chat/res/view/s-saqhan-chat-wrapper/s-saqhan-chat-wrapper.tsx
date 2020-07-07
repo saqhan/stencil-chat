@@ -33,6 +33,8 @@ export class SSaqhanChatWrapper implements ComponentInterface {
 
   @Event() selectPersonal: EventEmitter;
   @Event() selectUsers: EventEmitter;
+  @Event() clickToCategory: EventEmitter;
+  @Event() searchDialog: EventEmitter;
   @State() messages = this.dialogs;
   @State() messageMock = this.MessageMock;
   /**
@@ -57,7 +59,7 @@ export class SSaqhanChatWrapper implements ComponentInterface {
           </div>)
           : ""}
         <btn-wrapper
-          onClickToShowChat={(item) => this.isShowChat(item)}
+          onClickToShowChat={() => this.isShowChat()}
           showChat={this.showChat}
         ></btn-wrapper>
       </div>
@@ -76,16 +78,16 @@ export class SSaqhanChatWrapper implements ComponentInterface {
         );
       case "personal":
         return (
-          <div class='drop-file-wrapper' >
-            <s-adam-copying></s-adam-copying>
-          </div>
-          // <module-personal
-          //   onClickToLink={(item) => this.clickToLink(item)}
-          //   messageMock={this.messageMock}
-          //   onSearchContact={(e) =>
-          //     console.log("mobile-personal", e.detail.data)
-          //   }
-          // ></module-personal>
+          // <div class='drop-file-wrapper' >
+          //   <s-adam-copying></s-adam-copying>
+          // </div>
+          <module-personal
+            onClickToLink={(item) => this.clickToLink(item)}
+            messageMock={this.messageMock}
+            onSearchContact={(e) =>
+              console.log("mobile-personal", e.detail.data)
+            }
+          ></module-personal>
         );
 
       case "files":
@@ -106,26 +108,12 @@ export class SSaqhanChatWrapper implements ComponentInterface {
     }
   };
 
-  public searchContact({ detail }) {
-    console.log("searchContact", detail.data);
-  }
-  /**
-   * Если кликнули на диалог и открываем личные сообщения пользователя
-   * */
-  public onSelectPersonal() {
-    return (this.showContent = "personal");
-  }
-  /**
-   * Метод для открывания диалогов
-   * */
-  public onSelectUsers() {
-    return (this.showContent = "users");
-  }
+
+
   /**
    * Метод для изменения состояния чата
    * */
-  public isShowChat(item) {
-    console.log("isShowChat", item);
+  public isShowChat() {
     this.showChat = !this.showChat;
   }
   /**

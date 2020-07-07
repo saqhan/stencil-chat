@@ -22,7 +22,7 @@ export class SSaqhanChatUsersWrapper implements ComponentInterface {
   render() {
     return (
       <div>
-        <s-saqhan-chat-form-search categories={this.categories} onSearchContact={(item)=> this.searchContact(item)}  ></s-saqhan-chat-form-search>
+        <s-saqhan-chat-form-search categories={this.categories}   ></s-saqhan-chat-form-search>
 
         <div class="chat-wrap">
           <s-saqhan-chat-users messages={this.messages} personalMessage={this.personalMessage} ></s-saqhan-chat-users>
@@ -30,9 +30,6 @@ export class SSaqhanChatUsersWrapper implements ComponentInterface {
         <s-saqhan-chat-add-question></s-saqhan-chat-add-question>
       </div>
     );
-  }
-  public searchContact({detail}) {
-    console.log('searchContact', detail.data);
   }
 
 

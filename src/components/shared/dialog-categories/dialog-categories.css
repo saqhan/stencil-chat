@@ -34,3 +34,7 @@
 .comp .btns-nav span {
   padding-bottom: 10px;
 }
+
+.mobile .btns-nav {
+  margin-top: 10px;
+}

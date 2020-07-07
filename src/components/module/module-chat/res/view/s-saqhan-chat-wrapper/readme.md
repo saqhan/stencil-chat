@@ -17,10 +17,11 @@
 
 ## Events
 
-| Event            | Description | Type               |
-| ---------------- | ----------- | ------------------ |
-| `selectPersonal` |             | `CustomEvent<any>` |
-| `selectUsers`    |             | `CustomEvent<any>` |
+| Event             | Description | Type               |
+| ----------------- | ----------- | ------------------ |
+| `clickToCategory` |             | `CustomEvent<any>` |
+| `selectPersonal`  |             | `CustomEvent<any>` |
+| `selectUsers`     |             | `CustomEvent<any>` |
 
 
 ## Dependencies
@@ -32,7 +33,7 @@
 ### Depends on
 
 - [s-saqhan-chat-users-wrapper](./res/view/s-saqhan-chat-users-wrapper)
-- [s-adam-copying](../../../../../shared/s-adam-copying)
+- [module-personal](./res/view/module-personal)
 - [s-saqhan-chat-files-wrapper](../s-saqhan-chat-app/res/view/s-saqhan-chat-files-wrapper)
 - [s-adam-profile](../../../../../shared/s-adam-profile)
 - [module-header](../module-header)
@@ -42,7 +43,7 @@
 ```mermaid
 graph TD;
   s-saqhan-chat-wrapper --> s-saqhan-chat-users-wrapper
-  s-saqhan-chat-wrapper --> s-adam-copying
+  s-saqhan-chat-wrapper --> module-personal
   s-saqhan-chat-wrapper --> s-saqhan-chat-files-wrapper
   s-saqhan-chat-wrapper --> s-adam-profile
   s-saqhan-chat-wrapper --> module-header
@@ -53,6 +54,13 @@ graph TD;
   s-saqhan-chat-form-search --> dialog-categories
   s-saqhan-chat-users --> s-saqhan-chat-user
   s-saqhan-chat-user --> dialog-card
+  module-personal --> personal-header
+  module-personal --> personal-message
+  module-personal --> personal-footer
+  personal-message --> message-from
+  message-from --> message-text
+  message-from --> message-img
+  personal-footer --> footer-text
   s-saqhan-chat-files-wrapper --> s-saqhan-chat-form-search-files
   s-saqhan-chat-files-wrapper --> s-saqhan-chat-files
   module-chat --> s-saqhan-chat-wrapper
