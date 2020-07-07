@@ -78,7 +78,7 @@ input.input-audio {
   background-color: #bacbe3;
   opacity: 0.2;
   position: absolute;
-  right: 7px;
+  right: 10px;
 }
 .fa-microphone {
   z-index: 1;

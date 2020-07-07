@@ -28,7 +28,12 @@ export class FooterAudio implements ComponentInterface {
               />
             </form>
           </div>
-          <i class="fas fa-microphone"></i>
+          <div
+            class="audio"
+            id="audio"
+          >
+            <i class="fas fa-microphone"></i>
+          </div>
           <div class="recording-btn"></div>
         </div>
       </div>
