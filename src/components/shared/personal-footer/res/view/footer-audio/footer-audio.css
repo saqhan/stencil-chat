@@ -6,7 +6,7 @@
 }
 
 /*form*/
-.personal-footer {
+.personal-footer-audio {
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -79,4 +79,7 @@
 }
 .fa-microphone {
   z-index: 1;
+}
+.timer {
+  margin-left: 10px;
 }
