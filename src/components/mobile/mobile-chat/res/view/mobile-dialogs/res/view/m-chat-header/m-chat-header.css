@@ -5,8 +5,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0px;
-  height: 50px;
+  padding: 0px 15px;
+  height: 40px;
   transition: 0.4s ease-in-out;
 
 }
@@ -16,7 +16,7 @@
   border-radius: 5px;
   border: none;
   background-color: #eaeaea;
-  width: 90%;
+  width: 100%;
   padding: 5px;
   font-size: 14px;
   outline: none;
@@ -55,25 +55,3 @@
 }
 
 
-.btns-nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px 0px 0px;
-}
-
-.btns-nav span {
-  font-size: 14px;
-  width: 25%;
-  height: 30px;
-  text-align: center;
-  font-weight: 600;
-  color: #979eab;
-  transition: 0.3s ease-in-out;
-}
-
-.btns-nav span:hover {
-  cursor: pointer;
-  color: #5780f7;
-  border-bottom: 2px solid #5780f7;
-}

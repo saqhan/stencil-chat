@@ -30,7 +30,7 @@ export class MobileChat implements ComponentInterface {
   @State() messageMock = MessageMock;
 
   render() {
-    return <div>{this.getContent("personal")}</div>;
+    return <div>{this.getContent("profile")}</div>;
   }
   componentWillLoad(): Promise<void> | void {
     this.dialogs = dialogs;
@@ -54,6 +54,8 @@ export class MobileChat implements ComponentInterface {
   public searchContact(e) {
     console.log("searchContact",e);
   }
+
+
 
   /**
    * Метод для вывода определенного контента

@@ -9,7 +9,7 @@
 }
 
 .from-mess-wrapper {
-  margin: 15px 10px;
+  margin: 15px 0px;
   display: flex;
   justify-content: flex-end;
 }
@@ -52,7 +52,7 @@
   to me
  */
 .to-me-mess-wrapper {
-  margin: 15px 10px;
+  margin: 15px 0px;
 }
 
 .to-me-mess-wrap {
@@ -152,6 +152,22 @@ _________________________________
 }
 
 /*system-message*/
+
+
+/* module**/
+
+.module .personal-message .to-me-mess-wrapper .mess-img {
+  min-width: 260px;
+}
+
+.module .from-mess-wrapper .from-mess {
+  max-width: 260px;
+}
+.module .personal-message .from-mess-wrapper .mess-img {
+  min-width:  260px;
+}
+
+/* module**/
 
 @media (max-width: 414px) {
   .from-mess-wrapper .mess-img,

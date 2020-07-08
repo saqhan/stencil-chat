@@ -1,11 +1,15 @@
 .block-file {
   cursor: pointer;
+  padding-right: 15px;
 }
+
+.header-wrapper {
+  border-bottom: 1px solid #ececec;
+}
+
 .chat-files {
   text-align: center;
   padding: 10px 10px;
-  border-bottom: 1px solid #ececec;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -16,7 +20,7 @@
 }
 
 .block-input {
-  width: 90%;
+  width: 100%;
   display: flex;
 }
 
@@ -30,7 +34,8 @@
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 40px;
-  margin-left: -10px;
+  margin-left: -5px;
+  margin-right: 20px;
 }
 
 .chat-files .block-input::before {
@@ -38,7 +43,7 @@
   font-weight: 400;
   content: "\f274";
   position: relative;
-  left: 20px;
+  left: 25px;
   bottom: -10px;
   z-index: 999;
   color: #5a5a5a;

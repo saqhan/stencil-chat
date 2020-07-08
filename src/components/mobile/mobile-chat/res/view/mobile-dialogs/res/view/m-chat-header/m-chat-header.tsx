@@ -23,10 +23,7 @@ export class MChatHeader implements ComponentInterface {
    * clock on clickToLink
    * */
   @Event() clickToLink: EventEmitter;
-  /**
-   * clock on Category
-   * */
-  @Event() clickToCategory: EventEmitter;
+
   @Event() searchContact: EventEmitter;
 
   @State() isShowModal = true;
@@ -40,7 +37,7 @@ export class MChatHeader implements ComponentInterface {
             class="search custom-link"
             onClick={() => this.showModal()}
           >
-            <i class="fas fa-search"></i>
+            { this.isShowModal ? <i class="fas fa-search"></i> : <i class="fas fa-times"></i> }
           </span>
           <span class="title">Messages</span>
           <span
@@ -50,26 +47,13 @@ export class MChatHeader implements ComponentInterface {
             <i class="fas fa-plus-circle"></i>
           </span>
         </div>
-        { this.isShowModal ? <div class="btns-nav">{this.getCategories(this.categories)}</div> : <div class="modal-wrapper" >
-          <input type="text" placeholder="search" onInput={(e) => this.searchContact.emit(e)} /></div> }
+        { this.isShowModal
+          ? <dialog-categories theme={'mobile'} categories={this.categories} ></dialog-categories>
+          : <div class="modal-wrapper" ><input type="text" placeholder="search" onInput={(e) => this.searchContact.emit(e)} /></div> }
       </div>
     );
   }
-  /**
-   * Метод получения названий категорий
-   * */
-  public getCategories(array) {
-    return array.map((item) => (
-      <span
-        class={item.id}
-        onClick={() =>
-          this.clickToCategory.emit({ place: "item-category", item })
-        }
-      >
-        {item.name}
-      </span>
-    ));
-  }
+
 
   public showModal() {
     return this.isShowModal = !this.isShowModal;

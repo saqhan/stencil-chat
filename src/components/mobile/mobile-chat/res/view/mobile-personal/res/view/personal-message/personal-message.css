@@ -1,3 +1,26 @@
-:host {
-  display: block;
+.personal-message {    padding: 20px 0px;
+  height: calc(100vh - 370px);
+  overflow: auto;
+}
+
+.module .personal-message {
+  padding: 20px;
+  height: calc(100vh - 230px);
+  overflow: auto;
+}
+.mobile .personal-message {
+  height: calc(100vh - 185px);
+}
+
+.mobile .personal-message {
+  padding: 20px;
+}
+
+.module .personal-message .to-me-mess-wrapper .from-mess {
+  max-width: 260px;
+}
+
+::-webkit-scrollbar { /* chrome based */
+  width: 0px; /* ширина scrollbar'a */
+  background: transparent; /* опционально */
 }

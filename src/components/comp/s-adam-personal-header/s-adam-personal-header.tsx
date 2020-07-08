@@ -60,17 +60,15 @@ export class SAdamPersonalHeader implements ComponentInterface {
             <i class="fas fa-search hover-link"></i>
           </div>
           <div class="user">
-            <div
-              class="user-name"
-              onClick={(item) =>
-                this.clickOnUsername.emit({ place: "userName", item })
-              }
-            >
-              {this.getNameUser()}
-            </div>
+            <div class="user-name">{this.getNameUser()}</div>
             <div class="online-marker"></div>
           </div>
-          <div class="settings">
+          <div
+            class="settings"
+            onClick={(item) =>
+              this.clickOnUsername.emit({ place: "userName", item })
+            }
+          >
             <i class="fas fa-cog hover-link"></i>
           </div>
         </div>

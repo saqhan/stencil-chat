@@ -12,6 +12,10 @@
   margin-bottom: 30px;
 }
 
+.mobile .profile {
+  height: 100vh;
+}
+
 /* mobile */
 
 .profile {

@@ -2,6 +2,12 @@
 .m-chat-dialogs {
   padding: 20px 30px 0px;
   border-bottom: 1px solid #ccc;
-  height: calc(100vh - 145px);
+  height: calc(100vh - 135px);
   overflow: auto;
+}
+
+@media  (max-width: 414px) {
+  .m-chat-dialogs {
+    padding: 20px 15px 0px;
+  }
 }

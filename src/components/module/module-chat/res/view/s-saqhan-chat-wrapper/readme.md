@@ -5,12 +5,47 @@
 <!-- Auto Generated Below -->
 
 
-## Events
+## Properties
 
-| Event            | Description | Type               |
-| ---------------- | ----------- | ------------------ |
-| `selectPersonal` |             | `CustomEvent<any>` |
-| `selectUsers`    |             | `CustomEvent<any>` |
+| Property      | Attribute      | Description                    | Type  | Default     |
+| ------------- | -------------- | ------------------------------ | ----- | ----------- |
+| `MessageMock` | `message-mock` | массив данных личных сообщений | `any` | `undefined` |
+| `categories`  | `categories`   | array categories               | `any` | `undefined` |
+| `dialogs`     | `dialogs`      | массив данных для диалогов     | `any` | `undefined` |
+| `titleModule` | `title-module` | Заголовок для чата             | `any` | `undefined` |
+
+
+## Methods
+
+### `clickToCategory({ detail }: { detail: any; }) => Promise<void>`
+
+Фильтр диалогов
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `searchDialog({ detail }: { detail: any; }) => Promise<void>`
+
+Метод поиски диалогов
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `searchMessage({ detail }: { detail: any; }) => Promise<void>`
+
+Метод поиска по чату
+
+#### Returns
+
+Type: `Promise<void>`
+
+
 
 
 ## Dependencies
@@ -21,9 +56,9 @@
 
 ### Depends on
 
-- [mobile-personal](../../../../../mobile/mobile-chat/res/view/mobile-personal)
 - [s-saqhan-chat-users-wrapper](./res/view/s-saqhan-chat-users-wrapper)
-- [s-saqhan-chat-files-wrapper](../s-saqhan-chat-app/res/view/s-saqhan-chat-files-wrapper)
+- [module-personal](./res/view/module-personal)
+- [s-saqhan-chat-files-wrapper](../s-saqhan-chat-files-wrapper)
 - [s-adam-profile](../../../../../shared/s-adam-profile)
 - [module-header](../module-header)
 - [btn-wrapper](../btn-wrapper)
@@ -31,23 +66,26 @@
 ### Graph
 ```mermaid
 graph TD;
-  s-saqhan-chat-wrapper --> mobile-personal
   s-saqhan-chat-wrapper --> s-saqhan-chat-users-wrapper
+  s-saqhan-chat-wrapper --> module-personal
   s-saqhan-chat-wrapper --> s-saqhan-chat-files-wrapper
   s-saqhan-chat-wrapper --> s-adam-profile
   s-saqhan-chat-wrapper --> module-header
   s-saqhan-chat-wrapper --> btn-wrapper
-  mobile-personal --> personal-header
-  mobile-personal --> personal-message
-  mobile-personal --> personal-footer
-  personal-message --> message-from
-  message-from --> message-text
-  message-from --> message-img
   s-saqhan-chat-users-wrapper --> s-saqhan-chat-form-search
   s-saqhan-chat-users-wrapper --> s-saqhan-chat-users
   s-saqhan-chat-users-wrapper --> s-saqhan-chat-add-question
+  s-saqhan-chat-form-search --> dialog-categories
   s-saqhan-chat-users --> s-saqhan-chat-user
   s-saqhan-chat-user --> dialog-card
+  module-personal --> personal-header
+  module-personal --> personal-message
+  module-personal --> personal-footer
+  personal-message --> message-from
+  message-from --> message-text
+  message-from --> message-img
+  personal-footer --> footer-text
+  personal-footer --> footer-audio
   s-saqhan-chat-files-wrapper --> s-saqhan-chat-form-search-files
   s-saqhan-chat-files-wrapper --> s-saqhan-chat-files
   module-chat --> s-saqhan-chat-wrapper

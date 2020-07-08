@@ -82,3 +82,10 @@
 .comp .data-message {
   height: 100%;
 }
+
+@media  (max-width: 320px) {
+  .info-card {
+    max-width: 210px;
+  }
+}
+

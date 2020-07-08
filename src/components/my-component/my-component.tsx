@@ -12,5 +12,6 @@ export class MyComponent {
     // return <s-adam-chat></s-adam-chat>;
     return <module-chat></module-chat>;
 
+
   }
 }

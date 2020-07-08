@@ -9,8 +9,18 @@
 
 | Property          | Attribute          | Description                  | Type  | Default     |
 | ----------------- | ------------------ | ---------------------------- | ----- | ----------- |
+| `categories`      | `categories`       |                              | `any` | `undefined` |
 | `messages`        | `messages`         | Массив данных с диалогами    | `any` | `undefined` |
 | `personalMessage` | `personal-message` | Массив данных с личным чатом | `any` | `undefined` |
+
+
+## Events
+
+| Event             | Description | Type               |
+| ----------------- | ----------- | ------------------ |
+| `clickToCategory` |             | `CustomEvent<any>` |
+| `clickToLink`     |             | `CustomEvent<any>` |
+| `searchDialog`    |             | `CustomEvent<any>` |
 
 
 ## Dependencies
@@ -23,7 +33,7 @@
 
 - [s-saqhan-chat-form-search](./res/view/s-saqhan-chat-form-search)
 - [s-saqhan-chat-users](./res/view/s-saqhan-chat-users)
-- [s-saqhan-chat-add-question](../../../../s-saqhan-chat-app/res/view/s-saqhan-chat-add-question)
+- [s-saqhan-chat-add-question](../../../../s-saqhan-chat-add-question)
 
 ### Graph
 ```mermaid
@@ -31,6 +41,7 @@ graph TD;
   s-saqhan-chat-users-wrapper --> s-saqhan-chat-form-search
   s-saqhan-chat-users-wrapper --> s-saqhan-chat-users
   s-saqhan-chat-users-wrapper --> s-saqhan-chat-add-question
+  s-saqhan-chat-form-search --> dialog-categories
   s-saqhan-chat-users --> s-saqhan-chat-user
   s-saqhan-chat-user --> dialog-card
   s-saqhan-chat-wrapper --> s-saqhan-chat-users-wrapper

@@ -320,7 +320,7 @@ export const logo = {
 };
 
 export const titleModule = {
-  title: 'titleModule'
+  title: 'Модульный чат'
 }
 
 export const navItems = [

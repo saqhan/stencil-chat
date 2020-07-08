@@ -1,0 +1,73 @@
+
+/*form*/
+.personal-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  z-index: 1;
+}
+
+.footer-wrapper {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 20px;
+  align-items: center;
+  padding: 10px 20px;
+  box-shadow: 0px 0px 10px 1px #d4d4d4;
+  font-size: 18px;
+  color: #979eab;
+}
+
+.file,  .audio {
+  width: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.file i:hover {
+  color: #6328f8;
+}
+
+.audio i:hover {
+  color: #6328f8;
+}
+
+.input-wrapper {
+  width: 100%;
+  padding: 0px 15px;
+}
+
+.input-wrapper input {
+  width: 100%;
+  text-align: center;
+  color: #4c567d;
+  padding: 10px 0;
+  border:none;
+  font-size: 16px;
+  outline: none;
+}
+
+.comp .footer-wrapper {
+  box-shadow: none;
+  border: 1px solid lightgray;
+}
+
+.comp .input-wrapper  input {
+  text-align: left;
+}
+
+
+.mobile .footer-wrapper {
+  border-radius: 15px 15px 0px 0px;
+}
+
+.animate-audio {
+  width: 40px;
+  height: 40px;
+  background-color: red;
+  border-radius: 100% ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

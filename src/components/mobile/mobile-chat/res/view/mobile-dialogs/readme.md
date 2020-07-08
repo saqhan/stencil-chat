@@ -40,6 +40,7 @@ graph TD;
   mobile-dialogs --> m-chat-header
   mobile-dialogs --> m-chat-dialogs
   mobile-dialogs --> m-chat-footer
+  m-chat-header --> dialog-categories
   m-chat-dialogs --> dialog-card
   mobile-chat --> mobile-dialogs
   style mobile-dialogs fill:#f9f,stroke:#333,stroke-width:4px

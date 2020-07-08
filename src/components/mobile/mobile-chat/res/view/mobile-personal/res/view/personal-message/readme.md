@@ -7,9 +7,10 @@
 
 ## Properties
 
-| Property      | Attribute      | Description                  | Type  | Default     |
-| ------------- | -------------- | ---------------------------- | ----- | ----------- |
-| `messageMock` | `message-mock` | array data personal messages | `any` | `undefined` |
+| Property      | Attribute      | Description                  | Type                             | Default     |
+| ------------- | -------------- | ---------------------------- | -------------------------------- | ----------- |
+| `messageMock` | `message-mock` | array data personal messages | `any`                            | `undefined` |
+| `theme`       | `theme`        |                              | `"comp" \| "mobile" \| "module"` | `"mobile"`  |
 
 
 ## Dependencies
@@ -17,6 +18,7 @@
 ### Used by
 
  - [mobile-personal](../../..)
+ - [module-personal](../../../../../../../../module/module-chat/res/view/s-saqhan-chat-wrapper/res/view/module-personal)
 
 ### Depends on
 
@@ -29,6 +31,7 @@ graph TD;
   message-from --> message-text
   message-from --> message-img
   mobile-personal --> personal-message
+  module-personal --> personal-message
   style personal-message fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

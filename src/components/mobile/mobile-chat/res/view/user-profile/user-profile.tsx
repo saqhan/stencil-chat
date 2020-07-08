@@ -14,7 +14,8 @@ import {
 export class UserProfile implements ComponentInterface {
   @Event() clickToLink: EventEmitter;
 
+
   render() {
-    return <s-adam-profile theme={"mobile"}></s-adam-profile>;
+    return <s-adam-profile theme={'mobile'}></s-adam-profile>;
   }
 }

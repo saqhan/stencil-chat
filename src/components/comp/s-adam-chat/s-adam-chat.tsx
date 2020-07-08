@@ -1,5 +1,5 @@
 import { Component, ComponentInterface, h, State } from "@stencil/core";
-import { logo, navItems, dialogs, MessageMock } from "../../../utils/mock";
+import {logo, navItems, dialogs, MessageMock, categories} from "../../../utils/mock";
 
 @Component({
   tag: "s-adam-chat",
@@ -52,6 +52,8 @@ export class SAdamChat implements ComponentInterface {
                     this.toggleChat({ detail });
                   }}
                   dialogs={dialogs}
+                  categories={categories}
+                  onClickToCategory={({detail}) => this.clickToCategory({detail})}
                 ></s-adam-contacts>
               </div>
               <div class="col white-col">
@@ -87,6 +89,8 @@ export class SAdamChat implements ComponentInterface {
         );
       case "noChat":
         return <s-adam-no-chat></s-adam-no-chat>;
+              //Компонент с версткой копирования
+              // <s-adam-copying></s-adam-copying>
     }
   }
 
@@ -109,5 +113,8 @@ export class SAdamChat implements ComponentInterface {
   }
   public searchContact({detail}) {
     console.log('searchContact', detail)
+  }
+  public clickToCategory({detail}) {
+    console.log('clickToCategory', detail)
   }
 }

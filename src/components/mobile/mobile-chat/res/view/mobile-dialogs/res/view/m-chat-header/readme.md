@@ -14,11 +14,10 @@
 
 ## Events
 
-| Event             | Description          | Type               |
-| ----------------- | -------------------- | ------------------ |
-| `clickToCategory` | clock on Category    | `CustomEvent<any>` |
-| `clickToLink`     | clock on clickToLink | `CustomEvent<any>` |
-| `searchContact`   |                      | `CustomEvent<any>` |
+| Event           | Description          | Type               |
+| --------------- | -------------------- | ------------------ |
+| `clickToLink`   | clock on clickToLink | `CustomEvent<any>` |
+| `searchContact` |                      | `CustomEvent<any>` |
 
 
 ## Dependencies
@@ -27,9 +26,14 @@
 
  - [mobile-dialogs](../../..)
 
+### Depends on
+
+- [dialog-categories](../../../../../../../../shared/dialog-categories)
+
 ### Graph
 ```mermaid
 graph TD;
+  m-chat-header --> dialog-categories
   mobile-dialogs --> m-chat-header
   style m-chat-header fill:#f9f,stroke:#333,stroke-width:4px
 ```

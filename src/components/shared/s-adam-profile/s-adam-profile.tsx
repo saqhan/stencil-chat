@@ -16,14 +16,14 @@ export class SAdamProfile implements ComponentInterface {
   /**
    * Задаем стиль для мобильной/пк версии
    * */
-  @Prop() theme: "comp" | "mobile" = "comp";
+  @Prop() theme: "comp" | "mobile" | "module" = "comp";
 
   @Event() clickToLink: EventEmitter;
 
   render() {
     return (
-      <section class="profile">
-        <div class={this.getClassForHost()}>
+      <div class={this.getClassForHost()}>
+        <section class="profile">
           <div class="links-wrapper">
             <a
               onClick={() =>
@@ -93,8 +93,8 @@ export class SAdamProfile implements ComponentInterface {
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     );
   }
   /**
