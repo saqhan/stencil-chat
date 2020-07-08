@@ -30,7 +30,7 @@ export class MobileChat implements ComponentInterface {
   @State() messageMock = MessageMock;
 
   render() {
-    return <div>{this.getContent("profile")}</div>;
+    return <div>{this.getContent("personal")}</div>;
   }
   componentWillLoad(): Promise<void> | void {
     this.dialogs = dialogs;
