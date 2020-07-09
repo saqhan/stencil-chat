@@ -14,9 +14,13 @@ import {
 })
 export class FooterText implements ComponentInterface {
   @Event() clickToLink: EventEmitter;
-  @State() iconFooterInput = (<i class="fas fa-microphone"></i>);
+  @State() iconFooterInput = (
+    <i
+      onMouseDown={() => this.clickOnAudio.emit()}
+      class="fas fa-microphone"
+    ></i>
+  );
   @Event() clickOnAudio: EventEmitter;
-
   @Event() mouseOverInput: EventEmitter;
 
   public mouseEnter(event) {
@@ -42,11 +46,7 @@ export class FooterText implements ComponentInterface {
               />
             </form>
           </div>
-          <div
-            class="audio"
-            id="audio"
-            onMouseDown={() => this.clickOnAudio.emit()}
-          >
+          <div class="audio" id="audio">
             {this.iconFooterInput}
           </div>
         </div>
@@ -62,7 +62,9 @@ export class FooterText implements ComponentInterface {
     if (e.currentTarget.querySelector("input").value === "") {
       return false;
     } else {
+      //скрипт отправки сообщения
       console.log("send mess:", e.currentTarget.querySelector("input").value);
+      //скрипт отправки сообщения
       e.currentTarget.querySelector("input").value = "";
       this.iconFooterInput = <i class="fas fa-microphone"></i>;
     }
@@ -74,12 +76,11 @@ export class FooterText implements ComponentInterface {
   public swithIconInput(e) {
     e.target.value === ""
       ? (this.iconFooterInput = (
-          <div>
-            <i
-              class="fas fa-microphone"
-              onClick={() => this.clickToLink.emit({ place: "clickSendAudio" })}
-            ></i>
-          </div>
+          <i
+            class="fas fa-microphone"
+            //onClick={() => this.clickToLink.emit({ place: "clickSendAudio" })}
+            onMouseDown={() => this.clickOnAudio.emit()}
+          ></i>
         ))
       : (this.iconFooterInput = (
           <i
