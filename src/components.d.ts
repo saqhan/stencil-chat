@@ -5,9 +5,9 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { ChatCategoryInterface, ChatMessage, } from "./components/shared/interface/common.interface";
 import { categories, dialogs, } from "./components/mobile/mobile-chat/res/view/mobile-dialogs/res/interface/common.interface";
-import { ChatMessage, } from "./components/shared/interface/common.interface";
-import { ChatMessage as Message1, } from ".";
+import { ChatMessage as ChatMessage1, } from ".";
 import { dialogs as dialogs1, } from "./components/comp/s-adam-contacts/res/interface/common.interface";
 import { logo, navItems, } from "./components/comp/s-adam-navigate/res/interface/common.interface";
 export namespace Components {
@@ -42,7 +42,7 @@ export namespace Components {
         "theme": "comp" | "mobile";
     }
     interface DialogCategories {
-        "categories": any;
+        "categories": ChatCategoryInterface[];
         "theme": "comp" | "module" | "mobile";
     }
     interface FooterAudio {
@@ -665,11 +665,11 @@ declare namespace LocalJSX {
         "theme"?: "comp" | "mobile";
     }
     interface DialogCategories {
-        "categories"?: any;
+        "categories"?: ChatCategoryInterface[];
         /**
           * clock on Category
          */
-        "onClickToCategory"?: (event: CustomEvent<any>) => void;
+        "onClickToCategory"?: (event: CustomEvent<ChatCategoryInterface>) => void;
         "theme"?: "comp" | "module" | "mobile";
     }
     interface FooterAudio {
@@ -744,12 +744,12 @@ declare namespace LocalJSX {
         /**
           * clock on Category
          */
-        "onClickToCategory"?: (event: CustomEvent<any>) => void;
+        "onClickToCategory"?: (event: CustomEvent<string>) => void;
         /**
           * clock on clickToLink
          */
-        "onClickToLink"?: (event: CustomEvent<any>) => void;
-        "onSearchContact"?: (event: CustomEvent<any>) => void;
+        "onClickToLink"?: (event: CustomEvent<void>) => void;
+        "onSearchContact"?: (event: CustomEvent<string>) => void;
     }
     interface MobilePersonal {
         /**
@@ -820,10 +820,6 @@ declare namespace LocalJSX {
           * Массив с элементами диалога
          */
         "dialogs"?: dialogs[];
-        /**
-          * clock on Category
-         */
-        "onClickToCategory"?: (event: CustomEvent<any>) => void;
         /**
           * Событие для переключения пустой страницы на личный чат
          */

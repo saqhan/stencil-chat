@@ -19,13 +19,13 @@ export class MobileDialogs implements ComponentInterface {
   /**
    * clock on clickToLink
    * */
-  @Event() clickToLink: EventEmitter;
+  @Event() clickToLink: EventEmitter<void>;
   /**
    * clock on Category
    * */
-  @Event() clickToCategory: EventEmitter;
+  @Event() clickToCategory: EventEmitter<string>;
 
-  @Event() searchContact: EventEmitter;
+  @Event() searchContact: EventEmitter<string>;
 
 
 
