@@ -16,7 +16,7 @@ export class SAdamProfile implements ComponentInterface {
   /**
    * Задаем стиль для мобильной/пк версии
    * */
-  @Prop() theme: "comp" | "mobile" = "comp";
+  @Prop() theme: "comp" | "mobile" | "module" = "comp";
 
   @Event() clickToLink: EventEmitter;
 

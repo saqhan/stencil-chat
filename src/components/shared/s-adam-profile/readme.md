@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property | Attribute | Description                          | Type                 | Default  |
-| -------- | --------- | ------------------------------------ | -------------------- | -------- |
-| `theme`  | `theme`   | Задаем стиль для мобильной/пк версии | `"comp" \| "mobile"` | `"comp"` |
+| Property | Attribute | Description                          | Type                             | Default  |
+| -------- | --------- | ------------------------------------ | -------------------------------- | -------- |
+| `theme`  | `theme`   | Задаем стиль для мобильной/пк версии | `"comp" \| "mobile" \| "module"` | `"comp"` |
 
 
 ## Events

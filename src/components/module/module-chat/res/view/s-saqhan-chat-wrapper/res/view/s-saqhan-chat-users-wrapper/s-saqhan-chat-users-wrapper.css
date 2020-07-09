@@ -13,7 +13,7 @@
 
 @media (max-width: 375px) {
   .chat-wrap {
-    height: calc(100vh - 170px);
+    height: calc(100vh - 190px);
     padding: 0px 15px;
   }
   .chat-files .block-input::before {

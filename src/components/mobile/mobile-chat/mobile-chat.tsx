@@ -55,6 +55,8 @@ export class MobileChat implements ComponentInterface {
     console.log("searchContact",e);
   }
 
+
+
   /**
    * Метод для вывода определенного контента
    * */

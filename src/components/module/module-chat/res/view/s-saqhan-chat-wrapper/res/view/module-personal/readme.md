@@ -41,6 +41,7 @@ graph TD;
   personal-message --> message-from
   message-from --> message-text
   message-from --> message-img
+  personal-footer --> footer-text
   personal-footer --> footer-audio
   s-saqhan-chat-wrapper --> module-personal
   style module-personal fill:#f9f,stroke:#333,stroke-width:4px

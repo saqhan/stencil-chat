@@ -7,6 +7,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [my-component](../../my-component)
+
 ### Depends on
 
 - [s-saqhan-chat-wrapper](./res/view/s-saqhan-chat-wrapper)
@@ -33,9 +37,11 @@ graph TD;
   personal-message --> message-from
   message-from --> message-text
   message-from --> message-img
+  personal-footer --> footer-text
   personal-footer --> footer-audio
   s-saqhan-chat-files-wrapper --> s-saqhan-chat-form-search-files
   s-saqhan-chat-files-wrapper --> s-saqhan-chat-files
+  my-component --> module-chat
   style module-chat fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -46,6 +46,7 @@ export namespace Components {
         "theme": "comp" | "module" | "mobile";
     }
     interface FooterAudio {
+        "switchFooter": any;
     }
     interface FooterText {
     }
@@ -135,7 +136,7 @@ export namespace Components {
           * array data personal messages
          */
         "messageMock": any;
-        "theme": "mobile" | "module";
+        "theme": "mobile" | "module" | "comp";
     }
     interface SAdamChat {
     }
@@ -191,7 +192,7 @@ export namespace Components {
         /**
           * Задаем стиль для мобильной/пк версии
          */
-        "theme": "comp" | "mobile";
+        "theme": "comp" | "mobile" | "module";
     }
     interface SSaqhanChatAddQuestion {
     }
@@ -673,10 +674,14 @@ declare namespace LocalJSX {
         "theme"?: "comp" | "module" | "mobile";
     }
     interface FooterAudio {
+        "onClickOnAudio"?: (event: CustomEvent<any>) => void;
+        "onRecordFinished"?: (event: CustomEvent<boolean>) => void;
+        "switchFooter"?: any;
     }
     interface FooterText {
         "onClickOnAudio"?: (event: CustomEvent<any>) => void;
         "onClickToLink"?: (event: CustomEvent<any>) => void;
+        "onMouseOverInput"?: (event: CustomEvent<any>) => void;
     }
     interface MChatDialogs {
         "dialogs"?: any;
@@ -806,7 +811,7 @@ declare namespace LocalJSX {
           * array data personal messages
          */
         "messageMock"?: any;
-        "theme"?: "mobile" | "module";
+        "theme"?: "mobile" | "module" | "comp";
     }
     interface SAdamChat {
     }
@@ -899,7 +904,7 @@ declare namespace LocalJSX {
         /**
           * Задаем стиль для мобильной/пк версии
          */
-        "theme"?: "comp" | "mobile";
+        "theme"?: "comp" | "mobile" | "module";
     }
     interface SSaqhanChatAddQuestion {
     }
