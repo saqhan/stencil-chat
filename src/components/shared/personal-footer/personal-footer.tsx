@@ -34,10 +34,6 @@ export class PersonalFooter implements ComponentInterface {
     console.log("onMouseUp", e.target);
   }
 
-  // public mouseOverInput() {
-  //   console.log('курсор наведен ')
-  // }
-
   render() {
     return (
       <div class={this.getClassForHost()}>
@@ -45,9 +41,7 @@ export class PersonalFooter implements ComponentInterface {
           <footer-text onClickOnAudio={() => this.toggleFooter()}></footer-text>
         ) : (
           <footer-audio
-            switchFooter={this.switchFooter}
             onRecordFinished={(state) => this.recordFinished(state.detail)}
-
           ></footer-audio>
         )}
       </div>
