@@ -1,3 +1,3 @@
-export {MessageDirectionEnum } from "../interface/common.interface";
-export {Message} from "../interface/common.interface";
-export {MessageTypeEnum} from "../interface/common.interface";
+export {ChatMessageDirectionEnum } from "../interface/common.interface";
+export {ChatMessage} from "../interface/common.interface";
+export {ChatMessageTypeEnum} from "../interface/common.interface";

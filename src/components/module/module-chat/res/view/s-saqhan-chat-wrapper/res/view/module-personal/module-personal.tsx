@@ -1,5 +1,5 @@
 import {Component, ComponentInterface, Event, EventEmitter, h, Prop} from '@stencil/core';
-import {Message} from "../../../../../../../../..";
+import {ChatMessage} from "../../../../../../../../..";
 
 
 @Component({
@@ -12,7 +12,7 @@ export class ModulePersonal implements ComponentInterface {
   /**
    * array data personal messages
    * */
-  @Prop() messageMock: Message[];
+  @Prop() messageMock: ChatMessage[];
 
   /**
    * clock on navigate

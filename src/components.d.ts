@@ -6,8 +6,8 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { categories, dialogs, } from "./components/mobile/mobile-chat/res/view/mobile-dialogs/res/interface/common.interface";
-import { Message, } from "./components/shared/interface/common.interface";
-import { Message as Message1, } from ".";
+import { ChatMessage, } from "./components/shared/interface/common.interface";
+import { ChatMessage as Message1, } from ".";
 import { dialogs as dialogs1, } from "./components/comp/s-adam-contacts/res/interface/common.interface";
 import { logo, navItems, } from "./components/comp/s-adam-navigate/res/interface/common.interface";
 export namespace Components {
@@ -106,7 +106,7 @@ export namespace Components {
         /**
           * array data personal messages
          */
-        "messageMock": Message[];
+        "messageMock": ChatMessage[];
     }
     interface ModuleChat {
     }
@@ -117,7 +117,7 @@ export namespace Components {
         /**
           * array data personal messages
          */
-        "messageMock": Message[];
+        "messageMock": ChatMessage[];
     }
     interface MyComponent {
     }
@@ -161,7 +161,7 @@ export namespace Components {
         /**
           * Личный диалог
          */
-        "message": Message[];
+        "message": ChatMessage[];
     }
     interface SAdamNavItem {
         /**
@@ -185,7 +185,7 @@ export namespace Components {
         /**
           * Личный диалог
          */
-        "message": Message[];
+        "message": ChatMessage[];
     }
     interface SAdamProfile {
         /**
@@ -755,7 +755,7 @@ declare namespace LocalJSX {
         /**
           * array data personal messages
          */
-        "messageMock"?: Message[];
+        "messageMock"?: ChatMessage[];
         /**
           * clock on navigate
          */
@@ -775,7 +775,7 @@ declare namespace LocalJSX {
         /**
           * array data personal messages
          */
-        "messageMock"?: Message[];
+        "messageMock"?: ChatMessage[];
         /**
           * clock on navigate
          */
@@ -849,7 +849,7 @@ declare namespace LocalJSX {
         /**
           * Личный диалог
          */
-        "message"?: Message[];
+        "message"?: ChatMessage[];
         /**
           * Клик по иконке поиска
          */
@@ -885,7 +885,7 @@ declare namespace LocalJSX {
         /**
           * Личный диалог
          */
-        "message"?: Message[];
+        "message"?: ChatMessage[];
         /**
           * Клик по иконке поиска
          */
