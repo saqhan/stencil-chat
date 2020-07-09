@@ -1,4 +1,4 @@
-export interface Message {
+export interface ChatMessage {
   /**
    * содержимое сообщения
    * */
@@ -7,7 +7,7 @@ export interface Message {
   /**
    * тип сообщения
    * */
-  type: MessageTypeEnum;
+  type: ChatMessageTypeEnum;
 
   /** время создание */
   time: {
@@ -22,7 +22,7 @@ export interface Message {
   /**
    * направления сообщения
    * */
-  direction: MessageDirectionEnum;
+  direction: ChatMessageDirectionEnum;
 
   /**
    * отправитель
@@ -38,7 +38,7 @@ export interface Message {
 /**
  *
  * */
-export enum MessageDirectionEnum {
+export enum ChatMessageDirectionEnum {
   /**
    * сообщения написал кто то другой, и получено мною
    * */
@@ -56,7 +56,7 @@ export enum MessageDirectionEnum {
 /**
  *
  * */
-export enum MessageTypeEnum {
+export enum ChatMessageTypeEnum {
   /**
    * сообщения написал кто то другой, и получено мною
    * */
@@ -99,4 +99,12 @@ export enum MessageTypeEnum {
    * Печатает сообщение
    */
   loading = "loading",
+}
+
+/**
+ *
+ * */
+export interface ChatCategoryInterface {
+  name: string,
+  id: string
 }

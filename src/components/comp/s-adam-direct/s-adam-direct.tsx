@@ -6,7 +6,7 @@ import {
   Prop,
   Event,
 } from "@stencil/core";
-import { Message } from "../../shared/interface/common.interface";
+import { ChatMessage } from "../../shared/interface/common.interface";
 
 @Component({
   tag: "s-adam-direct",
@@ -17,7 +17,7 @@ export class SAdamDirect implements ComponentInterface {
   /**
    * Личный диалог
    */
-  @Prop() message: Message[] = [];
+  @Prop() message: ChatMessage[] = [];
 
   /**
    * click on navigate

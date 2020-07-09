@@ -1,5 +1,5 @@
 import { Component, ComponentInterface, h, Prop } from "@stencil/core";
-import { MessageDirectionEnum } from "../../../../../interface/common.interface";
+import { ChatMessageDirectionEnum } from "../../../../../interface/common.interface";
 
 @Component({
   tag: "message-img",
@@ -22,7 +22,7 @@ export class MessageImg implements ComponentInterface {
         style={{ backgroundImage: `url(${this.message.content})` }}
       >
         {
-          this.message.direction === MessageDirectionEnum.fromMe
+          this.message.direction === ChatMessageDirectionEnum.fromMe
           ? this.checkSendMess :  ''
         }
       </div>

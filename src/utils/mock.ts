@@ -1,7 +1,7 @@
 import {
-  Message,
-  MessageDirectionEnum,
-  MessageTypeEnum,
+  ChatMessage,
+  ChatMessageDirectionEnum,
+  ChatMessageTypeEnum,
 } from "../components/shared/interface/common.interface";
 
 export const dialogs = [
@@ -136,7 +136,7 @@ export const categories = [
   },
 ];
 
-export const MessageMock: Message[] = [
+export const MessageMock: ChatMessage[] = [
   {
     content: "Привет, как дела?",
     sender: {
@@ -145,8 +145,8 @@ export const MessageMock: Message[] = [
       name: "Сайхан",
       phone: "79291234567",
     },
-    type: MessageTypeEnum.text,
-    direction: MessageDirectionEnum.toMe,
+    type: ChatMessageTypeEnum.text,
+    direction: ChatMessageDirectionEnum.toMe,
     time: {
       created: new Date(),
     },
@@ -160,8 +160,8 @@ export const MessageMock: Message[] = [
       name: "Сайхан",
       phone: "79291234567",
     },
-    type: MessageTypeEnum.text,
-    direction: MessageDirectionEnum.toMe,
+    type: ChatMessageTypeEnum.text,
+    direction: ChatMessageDirectionEnum.toMe,
     time: {
       created: new Date(),
     },
@@ -174,8 +174,8 @@ export const MessageMock: Message[] = [
       name: "",
       phone: "",
     },
-    type: MessageTypeEnum.text,
-    direction: MessageDirectionEnum.center,
+    type: ChatMessageTypeEnum.text,
+    direction: ChatMessageDirectionEnum.center,
     time: {
       created: new Date(),
     },
@@ -188,8 +188,8 @@ export const MessageMock: Message[] = [
       name: "Сайхан",
       phone: "79291234567",
     },
-    type: MessageTypeEnum.image,
-    direction: MessageDirectionEnum.toMe,
+    type: ChatMessageTypeEnum.image,
+    direction: ChatMessageDirectionEnum.toMe,
     time: {
       created: new Date(),
       delivery: new Date(),
@@ -204,8 +204,8 @@ export const MessageMock: Message[] = [
       name: "",
       phone: "",
     },
-    type: MessageTypeEnum.date,
-    direction: MessageDirectionEnum.center,
+    type: ChatMessageTypeEnum.date,
+    direction: ChatMessageDirectionEnum.center,
     time: {
       created: new Date(),
     },
@@ -218,8 +218,8 @@ export const MessageMock: Message[] = [
       name: "Адам",
       phone: "79291234567",
     },
-    type: MessageTypeEnum.text,
-    direction: MessageDirectionEnum.fromMe,
+    type: ChatMessageTypeEnum.text,
+    direction: ChatMessageDirectionEnum.fromMe,
     time: {
       created: new Date(),
       delivery: new Date(),
@@ -235,8 +235,8 @@ export const MessageMock: Message[] = [
       name: "Адам",
       phone: "79291234567",
     },
-    type: MessageTypeEnum.text,
-    direction: MessageDirectionEnum.fromMe,
+    type: ChatMessageTypeEnum.text,
+    direction: ChatMessageDirectionEnum.fromMe,
     time: {
       created: new Date(),
       read: new Date(),
@@ -250,8 +250,8 @@ export const MessageMock: Message[] = [
       name: "Адам",
       phone: "79291234567",
     },
-    type: MessageTypeEnum.image,
-    direction: MessageDirectionEnum.fromMe,
+    type: ChatMessageTypeEnum.image,
+    direction: ChatMessageDirectionEnum.fromMe,
     time: {
       created: new Date(),
     },
@@ -264,8 +264,8 @@ export const MessageMock: Message[] = [
       name: "Сайхан",
       phone: "79291234567",
     },
-    type: MessageTypeEnum.text,
-    direction: MessageDirectionEnum.toMe,
+    type: ChatMessageTypeEnum.text,
+    direction: ChatMessageDirectionEnum.toMe,
     time: {
       created: new Date(),
     },
@@ -278,8 +278,8 @@ export const MessageMock: Message[] = [
       name: "Адам",
       phone: "79291234567",
     },
-    type: MessageTypeEnum.text,
-    direction: MessageDirectionEnum.fromMe,
+    type: ChatMessageTypeEnum.text,
+    direction: ChatMessageDirectionEnum.fromMe,
     time: {
       created: new Date(),
     },
@@ -292,8 +292,8 @@ export const MessageMock: Message[] = [
       name: "Сайхан",
       phone: "79291234567",
     },
-    type: MessageTypeEnum.text,
-    direction: MessageDirectionEnum.toMe,
+    type: ChatMessageTypeEnum.text,
+    direction: ChatMessageDirectionEnum.toMe,
     time: {
       created: new Date(),
     },
@@ -306,8 +306,8 @@ export const MessageMock: Message[] = [
       name: "Сайхан",
       phone: "79291234567",
     },
-    type: MessageTypeEnum.loading,
-    direction: MessageDirectionEnum.toMe,
+    type: ChatMessageTypeEnum.loading,
+    direction: ChatMessageDirectionEnum.toMe,
     time: {
       created: new Date(),
     },

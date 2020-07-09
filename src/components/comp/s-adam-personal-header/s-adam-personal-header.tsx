@@ -7,7 +7,7 @@ import {
   Prop,
   State,
 } from "@stencil/core";
-import { Message } from "../../..";
+import { ChatMessage } from "../../..";
 
 @Component({
   tag: "s-adam-personal-header",
@@ -28,7 +28,7 @@ export class SAdamPersonalHeader implements ComponentInterface {
   /**
    * Личный диалог
    */
-  @Prop() message: Message[] = [];
+  @Prop() message: ChatMessage[] = [];
 
   /**
    * Стейт для переключения окна поиска сообщений

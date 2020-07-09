@@ -7,7 +7,7 @@ import {
   Prop,
 } from "@stencil/core";
 import {
-  Message
+  ChatMessage
 } from "../../../../../shared/interface/common.interface";
 @Component({
   tag: "mobile-personal",
@@ -18,7 +18,7 @@ export class MobilePersonal implements ComponentInterface {
   /**
    * array data personal messages
    * */
-  @Prop() messageMock: Message[];
+  @Prop() messageMock: ChatMessage[];
 
   /**
    * clock on navigate

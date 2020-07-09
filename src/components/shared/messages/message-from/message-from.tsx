@@ -1,7 +1,7 @@
 import { Component, ComponentInterface, h, Prop } from "@stencil/core";
 import {
-  MessageDirectionEnum,
-  MessageTypeEnum,
+  ChatMessageDirectionEnum,
+  ChatMessageTypeEnum,
 } from "../../interface/common.interface";
 import dayjs from "dayjs";
 
@@ -26,13 +26,13 @@ export class MessageFrom implements ComponentInterface {
    */
   public messageFrom(array) {
     switch (array.direction) {
-      case MessageDirectionEnum.fromMe:
+      case ChatMessageDirectionEnum.fromMe:
         return (
           <div class="from-mess-wrapper">
             <div class="from-mess-wrap">{this.createType(this.message)}</div>
           </div>
         );
-      case MessageDirectionEnum.toMe:
+      case ChatMessageDirectionEnum.toMe:
         return (
           <div class="to-me-mess-wrapper">
             <div class="to-me-mess-wrap">
@@ -46,7 +46,7 @@ export class MessageFrom implements ComponentInterface {
             </div>
           </div>
         );
-      case MessageDirectionEnum.center:
+      case ChatMessageDirectionEnum.center:
         return (
           <div class="system-message">
             <div>{this.checkTypeSystemMessage(this.message.content)}</div>
@@ -61,7 +61,7 @@ export class MessageFrom implements ComponentInterface {
    */
   public createType(array) {
     switch (array.type) {
-      case MessageTypeEnum.text:
+      case ChatMessageTypeEnum.text:
         return (
           <message-text
             checkSendMess={this.checkSendMess(array)}
@@ -69,14 +69,14 @@ export class MessageFrom implements ComponentInterface {
             message={array}
           ></message-text>
         );
-      case MessageTypeEnum.image:
+      case ChatMessageTypeEnum.image:
         return (
           <message-img
             checkSendMess={this.checkSendMess(array)}
             message={array}
           ></message-img>
         );
-      case MessageTypeEnum.loading:
+      case ChatMessageTypeEnum.loading:
         return (
           <div class="from-mess">
             <div id="circleG">
