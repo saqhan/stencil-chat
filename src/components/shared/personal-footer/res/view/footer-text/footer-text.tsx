@@ -16,7 +16,6 @@ export class FooterText implements ComponentInterface {
   @Event() clickToLink: EventEmitter;
   @State() iconFooterInput = (<i class="fas fa-microphone"></i>);
   @Event() clickOnAudio: EventEmitter;
-
   @Event() mouseOverInput: EventEmitter;
 
   public mouseEnter(event) {

@@ -46,7 +46,6 @@ export namespace Components {
         "theme": "comp" | "module" | "mobile";
     }
     interface FooterAudio {
-        "switchFooter": any;
     }
     interface FooterText {
     }
@@ -674,9 +673,7 @@ declare namespace LocalJSX {
         "theme"?: "comp" | "module" | "mobile";
     }
     interface FooterAudio {
-        "onClickOnAudio"?: (event: CustomEvent<any>) => void;
         "onRecordFinished"?: (event: CustomEvent<boolean>) => void;
-        "switchFooter"?: any;
     }
     interface FooterText {
         "onClickOnAudio"?: (event: CustomEvent<any>) => void;

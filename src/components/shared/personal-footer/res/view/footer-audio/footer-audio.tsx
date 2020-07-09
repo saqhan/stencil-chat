@@ -4,7 +4,6 @@ import {
   Event,
   EventEmitter,
   h,
-  Prop,
   State,
 } from "@stencil/core";
 import { Timer } from "../../../../../../utils/utils";
@@ -16,9 +15,7 @@ import { Timer } from "../../../../../../utils/utils";
 })
 export class FooterAudio implements ComponentInterface {
   // private inputTag: any;
-  @Event() clickOnAudio: EventEmitter;
   @Event() recordFinished: EventEmitter<boolean>;
-  @Prop() switchFooter: any;
   @State() outInputTag: HTMLElement;
 
   public timerElement: HTMLElement;

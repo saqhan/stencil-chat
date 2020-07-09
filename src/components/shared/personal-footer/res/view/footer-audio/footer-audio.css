@@ -79,9 +79,11 @@ input.input-audio {
   position: absolute;
   right: 10px;
 }
+
 .fa-microphone {
   z-index: 1;
 }
+
 .timer {
   margin-left: 10px;
 }
