@@ -7,10 +7,11 @@
 
 ## Events
 
-| Event          | Description | Type               |
-| -------------- | ----------- | ------------------ |
-| `clickOnAudio` |             | `CustomEvent<any>` |
-| `clickToLink`  |             | `CustomEvent<any>` |
+| Event            | Description | Type               |
+| ---------------- | ----------- | ------------------ |
+| `clickOnAudio`   |             | `CustomEvent<any>` |
+| `clickToLink`    |             | `CustomEvent<any>` |
+| `mouseOverInput` |             | `CustomEvent<any>` |
 
 
 ## Dependencies

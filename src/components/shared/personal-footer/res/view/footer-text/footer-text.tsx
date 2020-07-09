@@ -16,6 +16,13 @@ export class FooterText implements ComponentInterface {
   @Event() clickToLink: EventEmitter;
   @State() iconFooterInput = (<i class="fas fa-microphone"></i>);
   @Event() clickOnAudio: EventEmitter;
+
+  @Event() mouseOverInput: EventEmitter;
+
+  public mouseEnter(event) {
+    console.log("mouseEnter", event);
+  }
+
   render() {
     return (
       <div class="personal-footer">
@@ -38,7 +45,7 @@ export class FooterText implements ComponentInterface {
           <div
             class="audio"
             id="audio"
-            onClick={() => this.clickOnAudio.emit()}
+            onMouseDown={() => this.clickOnAudio.emit()}
           >
             {this.iconFooterInput}
           </div>
@@ -67,13 +74,12 @@ export class FooterText implements ComponentInterface {
   public swithIconInput(e) {
     e.target.value === ""
       ? (this.iconFooterInput = (
-        <div>
-          <i
-            class="fas fa-microphone"
-            onClick={() => this.clickToLink.emit({ place: "clickSendAudio" })}
-          ></i>
-        </div>
-
+          <div>
+            <i
+              class="fas fa-microphone"
+              onClick={() => this.clickToLink.emit({ place: "clickSendAudio" })}
+            ></i>
+          </div>
         ))
       : (this.iconFooterInput = (
           <i

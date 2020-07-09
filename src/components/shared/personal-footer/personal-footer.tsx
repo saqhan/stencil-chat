@@ -30,16 +30,26 @@ export class PersonalFooter implements ComponentInterface {
     this.switchFooter = !this.switchFooter;
   }
 
+  public onMouseUp(e) {
+    console.log("onMouseUp", e.target);
+  }
+
+  // public mouseOverInput() {
+  //   console.log('курсор наведен ')
+  // }
 
   render() {
     return (
       <div class={this.getClassForHost()}>
-        {this.switchFooter
-          ?
+        {this.switchFooter ? (
           <footer-text onClickOnAudio={() => this.toggleFooter()}></footer-text>
-          :
-          <footer-audio></footer-audio>
-        }
+        ) : (
+          <footer-audio
+            switchFooter={this.switchFooter}
+            onRecordFinished={(state) => this.recordFinished(state.detail)}
+
+          ></footer-audio>
+        )}
       </div>
     );
   }
@@ -48,5 +58,10 @@ export class PersonalFooter implements ComponentInterface {
     return {
       [this.theme]: true,
     };
+  }
+
+  public recordFinished(state: boolean) {
+    this.toggleFooter();
+    console.log("recordFinished", { state });
   }
 }
