@@ -6,7 +6,6 @@ import {Component, ComponentInterface, EventEmitter, Event, h} from '@stencil/co
   shadow: false,
 })
 export class SSaqhanChatFilesWrapper implements ComponentInterface {
-
   /**
    * click to link
    * */

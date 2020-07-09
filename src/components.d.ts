@@ -676,9 +676,8 @@ declare namespace LocalJSX {
         "onRecordFinished"?: (event: CustomEvent<boolean>) => void;
     }
     interface FooterText {
-        "onClickOnAudio"?: (event: CustomEvent<any>) => void;
-        "onClickToLink"?: (event: CustomEvent<any>) => void;
-        "onMouseOverInput"?: (event: CustomEvent<any>) => void;
+        "onShowRecordAudioFooter"?: (event: CustomEvent<void>) => void;
+        "onShowSendFileFooter"?: (event: CustomEvent<void>) => void;
     }
     interface MChatDialogs {
         "dialogs"?: any;

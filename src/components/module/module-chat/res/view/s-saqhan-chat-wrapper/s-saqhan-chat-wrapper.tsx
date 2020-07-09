@@ -43,6 +43,47 @@ export class SSaqhanChatWrapper implements ComponentInterface {
    * */
   @State() showChat: boolean;
 
+
+  /**
+   *  Фильтр диалогов
+   * */
+  @Method()
+  async clickToCategory({ detail }) {
+    this.dialogsState =
+      detail.item.id !== "all"
+        ? this.dialogs.filter((dialog) => dialog.category === detail.item.id)
+        : this.dialogs;
+  }
+
+  /**
+   * Метод поиски диалогов
+   * */
+  @Method()
+  async searchDialog({ detail }) {
+    this.dialogsState =
+      detail.data !== "" && detail.data !== null
+        ? this.dialogs.filter((item) => {
+          return typeof item.name === "string"
+            ? item.name.toLowerCase().includes(detail.data.toLowerCase())
+            : false;
+        })
+        : this.dialogs;
+  }
+  /**
+   * Метод поиска по чату
+   * */
+  @Method()
+  async searchMessage({ detail }) {
+    this.MessageMockState =
+      detail.data !== '' && detail.data !== null
+        ? this.MessageMockState.filter((item) => {
+          return typeof item.content === "string"
+            ? item.content.toLowerCase().includes(detail.data.toLowerCase())
+            : false;
+        })
+        : this.MessageMock;
+  }
+
   render() {
     return (
       <div class="wrapper-modal">
@@ -141,44 +182,5 @@ export class SSaqhanChatWrapper implements ComponentInterface {
       default:
         this.showContent = "users";
     }
-  }
-  /**
-   *  Фильтр диалогов
-   * */
-  @Method()
-  async clickToCategory({ detail }) {
-    this.dialogsState =
-      detail.item.id !== "all"
-        ? this.dialogs.filter((dialog) => dialog.category === detail.item.id)
-        : this.dialogs;
-  }
-
-  /**
-   * Метод поиски диалогов
-   * */
-  @Method()
-  async searchDialog({ detail }) {
-    this.dialogsState =
-      detail.data !== "" && detail.data !== null
-        ? this.dialogs.filter((item) => {
-            return typeof item.name === "string"
-              ? item.name.toLowerCase().includes(detail.data.toLowerCase())
-              : false;
-          })
-        : this.dialogs;
-  }
-  /**
-   * Метод поиска по чату
-   * */
-  @Method()
-  async searchMessage({ detail }) {
-    this.MessageMockState =
-      detail.data !== '' && detail.data !== null
-        ? this.MessageMockState.filter((item) => {
-            return typeof item.content === "string"
-              ? item.content.toLowerCase().includes(detail.data.toLowerCase())
-              : false;
-          })
-        : this.MessageMock;
   }
 }

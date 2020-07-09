@@ -13,16 +13,19 @@ import {
   shadow: false,
 })
 export class FooterText implements ComponentInterface {
-  @Event() clickToLink: EventEmitter;
-  @State() iconFooterInput = (
-    <i
-      onMouseDown={() => this.clickOnAudio.emit()}
-      class="fas fa-microphone"
-    ></i>
-  );
-  @Event() clickOnAudio: EventEmitter;
-  @Event() mouseOverInput: EventEmitter;
+  @State() showAudioSendButton = true;
 
+  @Event() showSendFileFooter: EventEmitter<void>;
+  @Event() showRecordAudioFooter: EventEmitter<void>;
+
+  /**
+   *
+   * */
+  public inputElement: HTMLInputElement;
+
+  /**
+   *
+   * */
   public mouseEnter(event) {
     console.log("mouseEnter", event);
   }
@@ -33,21 +36,22 @@ export class FooterText implements ComponentInterface {
         <div class="footer-wrapper">
           <div
             class="file"
-            onClick={() => this.clickToLink.emit({ place: "add-file-mess" })}
+            onClick={() => this.showSendFileFooter.emit()}
           >
             <i class="fas fa-paperclip"></i>
           </div>
           <div class="input-wrapper">
-            <form onSubmit={(e) => this.sendingNewMess(e)}>
+            <form onSubmit={(e) => this.sendMessageFromForm(e)}>
               <input
                 type="text"
-                onInput={(e) => this.swithIconInput(e)}
+                ref={ (el) => this.inputElement = el}
+                onInput={(e: any) => this.switchIconInput(e.target.value)}
                 placeholder="Type something ..."
               />
             </form>
           </div>
           <div class="audio" id="audio">
-            {this.iconFooterInput}
+            <SendButtonTag showAudio={this.showAudioSendButton} sendMessageFromButton={this.sendMessageFromButton.bind(this)} clickOnAudio={this.showRecordAudioFooter}></SendButtonTag>
           </div>
         </div>
       </div>
@@ -56,37 +60,61 @@ export class FooterText implements ComponentInterface {
   /**
    * when sending message-from
    * */
-  public sendingNewMess(e) {
-    e.preventDefault();
-
-    if (e.currentTarget.querySelector("input").value === "") {
+  private sendingNewMess() {
+    const input = this.inputElement;
+    if (input.value === "") {
       return false;
     } else {
-      //скрипт отправки сообщения
-      console.log("send mess:", e.currentTarget.querySelector("input").value);
-      //скрипт отправки сообщения
-      e.currentTarget.querySelector("input").value = "";
-      this.iconFooterInput = <i class="fas fa-microphone"></i>;
+      // скрипт отправки сообщения
+      console.log("send mess:", input.value);
+      // скрипт отправки сообщения
+      this.switchIconInput(input.value = "")
     }
+  }
+
+  /**
+   * send message from form
+   * */
+  public sendMessageFromForm (e)
+  {
+    e.preventDefault();
+    this.sendingNewMess();
+  }
+
+  /**
+   * send message from send button
+   * */
+  public sendMessageFromButton ()
+  {
+    this.sendingNewMess();
   }
 
   /**
    * Функция для для отправки сообщения
    * */
-  public swithIconInput(e) {
-    e.target.value === ""
-      ? (this.iconFooterInput = (
-          <i
-            class="fas fa-microphone"
-            //onClick={() => this.clickToLink.emit({ place: "clickSendAudio" })}
-            onMouseDown={() => this.clickOnAudio.emit()}
-          ></i>
-        ))
-      : (this.iconFooterInput = (
-          <i
-            class="fas fa-location-arrow"
-            onClick={() => this.clickToLink.emit({ place: "clickSendMess" })}
-          ></i>
-        ));
+  public switchIconInput(value: string) {
+    this.showAudioSendButton = !value.replace(/[\t\n\r ]+/g, '').length;
   }
+}
+
+
+/**
+ *
+ * */
+const SendButtonTag = (
+  props: any
+) => {
+  return (props?.showAudio)
+  ? (
+      <i
+        class="fas fa-microphone"
+        onMouseDown={() => props.clickOnAudio.emit()}
+      ></i>
+  )
+  : (
+      <i
+        class="fas fa-location-arrow"
+        onClick={() => props.sendMessageFromButton()}
+      ></i>
+  )
 }

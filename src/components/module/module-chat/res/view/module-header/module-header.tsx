@@ -13,10 +13,14 @@ import {
 })
 export class ModuleHeader implements ComponentInterface {
   /**
+   *
+   * */
+  @Prop() titleModule: any;
+
+  /**
    * close modal
    * */
   @Event() close: EventEmitter;
-  @Prop() titleModule: any;
 
   render() {
     return (

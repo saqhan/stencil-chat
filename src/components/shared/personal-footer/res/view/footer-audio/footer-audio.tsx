@@ -7,6 +7,7 @@ import {
   State,
 } from "@stencil/core";
 import { Timer } from "../../../../../../utils/utils";
+import {MouseEventUpdated} from "./res/interface/common.interface";
 
 @Component({
   tag: "footer-audio",
@@ -14,40 +15,18 @@ import { Timer } from "../../../../../../utils/utils";
   shadow: false,
 })
 export class FooterAudio implements ComponentInterface {
-  // private inputTag: any;
   @Event() recordFinished: EventEmitter<boolean>;
+
   @State() outInputTag: HTMLElement;
 
   public timerElement: HTMLElement;
 
-  private startTimer() {
-    const timer = new Timer();
-    timer.start((time: string) => {
-      {
-        this.timerElement.innerText = time;
-      }
-    });
-  }
-
-  private mouseUpCallback: (event: MouseEvent) => void = (event) => {
-    // @ts-ignore
-    const state = this.outInputTag.contains(event.target);
-    console.log("mouseup", state);
-    this.recordFinished.emit(state);
-  };
-
-  public mouseOutInput(e) {
-    console.log("mouseOutInput", e);
-  }
-
   componentDidLoad() {
-    console.log("created");
     document.addEventListener("mouseup", this.mouseUpCallback);
     this.startTimer();
   }
 
   disconnectedCallback() {
-    console.log("removed");
     document.removeEventListener("mouseup", this.mouseUpCallback);
   }
 
@@ -80,5 +59,33 @@ export class FooterAudio implements ComponentInterface {
         </div>
       </div>
     );
+  }
+
+
+  /**
+   *
+   * */
+  private startTimer() {
+    const timer = new Timer();
+    timer.start((time: string) => {
+      {
+        this.timerElement.innerText = time;
+      }
+    });
+  }
+
+  /**
+   *
+   * */
+  private mouseUpCallback: (event: MouseEventUpdated) => void = (event) => {
+    const state = this.outInputTag.contains(event.target);
+    this.recordFinished.emit(state);
+  };
+
+  /**
+   *
+   * */
+  public mouseOutInput(e) {
+    console.log("mouseOutInput", e);
   }
 }

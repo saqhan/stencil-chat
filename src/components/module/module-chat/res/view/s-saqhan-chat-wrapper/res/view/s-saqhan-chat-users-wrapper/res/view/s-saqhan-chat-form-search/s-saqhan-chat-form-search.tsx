@@ -13,14 +13,19 @@ import {
 })
 export class SSaqhanChatFormSearch implements ComponentInterface {
   /**
+   * */
+  @Prop() categories: any;
+
+  /**
    * Клик по кнопке files
    * */
   @Event() clickToLink: EventEmitter;
+
   /**
    * Клик по кнопке в чате
    * */
   @Event() searchDialog: EventEmitter;
-  @Prop() categories: any;
+
   render() {
     return (
       <div class="header-wrapper">
