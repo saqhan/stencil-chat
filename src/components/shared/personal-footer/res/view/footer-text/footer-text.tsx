@@ -14,7 +14,12 @@ import {
 })
 export class FooterText implements ComponentInterface {
   @Event() clickToLink: EventEmitter;
-  @State() iconFooterInput = (<i class="fas fa-microphone"></i>);
+  @State() iconFooterInput = (
+    <i
+      onMouseDown={() => this.clickOnAudio.emit()}
+      class="fas fa-microphone"
+    ></i>
+  );
   @Event() clickOnAudio: EventEmitter;
   @Event() mouseOverInput: EventEmitter;
 
@@ -41,11 +46,7 @@ export class FooterText implements ComponentInterface {
               />
             </form>
           </div>
-          <div
-            class="audio"
-            id="audio"
-            onMouseDown={() => this.clickOnAudio.emit()}
-          >
+          <div class="audio" id="audio">
             {this.iconFooterInput}
           </div>
         </div>
@@ -76,7 +77,7 @@ export class FooterText implements ComponentInterface {
           <div>
             <i
               class="fas fa-microphone"
-              onClick={() => this.clickToLink.emit({ place: "clickSendAudio" })}
+              onMouseDown={() => this.clickOnAudio.emit()}
             ></i>
           </div>
         ))
