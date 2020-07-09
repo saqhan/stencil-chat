@@ -5,9 +5,9 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { ChatCategoryInterface, ChatMessage, } from "./components/shared/interface/common.interface";
 import { categories, dialogs, } from "./components/mobile/mobile-chat/res/view/mobile-dialogs/res/interface/common.interface";
-import { ChatMessage, } from "./components/shared/interface/common.interface";
-import { ChatMessage as Message1, } from ".";
+import { ChatMessage as ChatMessage1, } from ".";
 import { dialogs as dialogs1, } from "./components/comp/s-adam-contacts/res/interface/common.interface";
 import { logo, navItems, } from "./components/comp/s-adam-navigate/res/interface/common.interface";
 export namespace Components {
@@ -42,7 +42,7 @@ export namespace Components {
         "theme": "comp" | "mobile";
     }
     interface DialogCategories {
-        "categories": any;
+        "categories": ChatCategoryInterface[];
         "theme": "comp" | "module" | "mobile";
     }
     interface FooterAudio {
@@ -192,6 +192,8 @@ export namespace Components {
           * Задаем стиль для мобильной/пк версии
          */
         "theme": "comp" | "mobile" | "module";
+    }
+    interface SAdamSearchContact {
     }
     interface SSaqhanChatAddQuestion {
     }
@@ -491,6 +493,12 @@ declare global {
         prototype: HTMLSAdamProfileElement;
         new (): HTMLSAdamProfileElement;
     };
+    interface HTMLSAdamSearchContactElement extends Components.SAdamSearchContact, HTMLStencilElement {
+    }
+    var HTMLSAdamSearchContactElement: {
+        prototype: HTMLSAdamSearchContactElement;
+        new (): HTMLSAdamSearchContactElement;
+    };
     interface HTMLSSaqhanChatAddQuestionElement extends Components.SSaqhanChatAddQuestion, HTMLStencilElement {
     }
     var HTMLSSaqhanChatAddQuestionElement: {
@@ -588,6 +596,7 @@ declare global {
         "s-adam-no-chat": HTMLSAdamNoChatElement;
         "s-adam-personal-header": HTMLSAdamPersonalHeaderElement;
         "s-adam-profile": HTMLSAdamProfileElement;
+        "s-adam-search-contact": HTMLSAdamSearchContactElement;
         "s-saqhan-chat-add-question": HTMLSSaqhanChatAddQuestionElement;
         "s-saqhan-chat-files": HTMLSSaqhanChatFilesElement;
         "s-saqhan-chat-files-wrapper": HTMLSSaqhanChatFilesWrapperElement;
@@ -665,11 +674,11 @@ declare namespace LocalJSX {
         "theme"?: "comp" | "mobile";
     }
     interface DialogCategories {
-        "categories"?: any;
+        "categories"?: ChatCategoryInterface[];
         /**
           * clock on Category
          */
-        "onClickToCategory"?: (event: CustomEvent<any>) => void;
+        "onClickToCategory"?: (event: CustomEvent<ChatCategoryInterface>) => void;
         "theme"?: "comp" | "module" | "mobile";
     }
     interface FooterAudio {
@@ -821,10 +830,6 @@ declare namespace LocalJSX {
          */
         "dialogs"?: dialogs[];
         /**
-          * clock on Category
-         */
-        "onClickToCategory"?: (event: CustomEvent<any>) => void;
-        /**
           * Событие для переключения пустой страницы на личный чат
          */
         "onClickToLink"?: (event: CustomEvent<any>) => void;
@@ -901,6 +906,12 @@ declare namespace LocalJSX {
           * Задаем стиль для мобильной/пк версии
          */
         "theme"?: "comp" | "mobile" | "module";
+    }
+    interface SAdamSearchContact {
+        /**
+          * Поиск по контактам
+         */
+        "onSearchContact"?: (event: CustomEvent<any>) => void;
     }
     interface SSaqhanChatAddQuestion {
     }
@@ -1018,6 +1029,7 @@ declare namespace LocalJSX {
         "s-adam-no-chat": SAdamNoChat;
         "s-adam-personal-header": SAdamPersonalHeader;
         "s-adam-profile": SAdamProfile;
+        "s-adam-search-contact": SAdamSearchContact;
         "s-saqhan-chat-add-question": SSaqhanChatAddQuestion;
         "s-saqhan-chat-files": SSaqhanChatFiles;
         "s-saqhan-chat-files-wrapper": SSaqhanChatFilesWrapper;
@@ -1070,6 +1082,7 @@ declare module "@stencil/core" {
             "s-adam-no-chat": LocalJSX.SAdamNoChat & JSXBase.HTMLAttributes<HTMLSAdamNoChatElement>;
             "s-adam-personal-header": LocalJSX.SAdamPersonalHeader & JSXBase.HTMLAttributes<HTMLSAdamPersonalHeaderElement>;
             "s-adam-profile": LocalJSX.SAdamProfile & JSXBase.HTMLAttributes<HTMLSAdamProfileElement>;
+            "s-adam-search-contact": LocalJSX.SAdamSearchContact & JSXBase.HTMLAttributes<HTMLSAdamSearchContactElement>;
             "s-saqhan-chat-add-question": LocalJSX.SSaqhanChatAddQuestion & JSXBase.HTMLAttributes<HTMLSSaqhanChatAddQuestionElement>;
             "s-saqhan-chat-files": LocalJSX.SSaqhanChatFiles & JSXBase.HTMLAttributes<HTMLSSaqhanChatFilesElement>;
             "s-saqhan-chat-files-wrapper": LocalJSX.SSaqhanChatFilesWrapper & JSXBase.HTMLAttributes<HTMLSSaqhanChatFilesWrapperElement>;
