@@ -59,8 +59,10 @@ export class FooterAudio implements ComponentInterface {
           onMouseLeave={(e) => this.mouseOutInput(e)}
           ref={(el) => (this.outInputTag = el)}
         >
-          <div class="record-dot"></div>
-          <div class="timer" ref={(el) => (this.timerElement = el)}></div>
+          <div class="record-audio">
+            <div class="record-dot"></div>
+            <div class="timer" ref={(el) => (this.timerElement = el)}></div>
+          </div>
           <div class="input-wrapper">
             <form>
               <input
