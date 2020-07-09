@@ -74,12 +74,13 @@ export class FooterText implements ComponentInterface {
   public swithIconInput(e) {
     e.target.value === ""
       ? (this.iconFooterInput = (
-          <div>
+
             <i
               class="fas fa-microphone"
+
               onClick={() => this.clickToLink.emit({ place: "clickSendAudio" })}
             ></i>
-          </div>
+
         ))
       : (this.iconFooterInput = (
           <i
