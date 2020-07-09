@@ -7,7 +7,7 @@ import {
   Prop,
   State,
 } from "@stencil/core";
-import {Timer} from "../../../../../../utils/utils";
+import { Timer } from "../../../../../../utils/utils";
 
 @Component({
   tag: "footer-audio",
@@ -23,8 +23,7 @@ export class FooterAudio implements ComponentInterface {
 
   public timerElement: HTMLElement;
 
-
-  private startTimer () {
+  private startTimer() {
     const timer = new Timer();
     timer.start((time: string) => {
       {
@@ -64,9 +63,9 @@ export class FooterAudio implements ComponentInterface {
           onMouseLeave={(e) => this.mouseOutInput(e)}
           ref={(el) => (this.outInputTag = el)}
         >
-          <div class="record-dot"></div>
-          <div class="timer" ref={(el) => this.timerElement = el }>
-
+          <div class="record-audio">
+            <div class="record-dot"></div>
+            <div class="timer" ref={(el) => (this.timerElement = el)}></div>
           </div>
           <div class="input-wrapper">
             <form>

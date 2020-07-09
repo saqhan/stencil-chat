@@ -81,9 +81,17 @@ input.input-audio {
 }
 .fa-microphone {
   z-index: 1;
+  position: absolute;
+  top: 24px;
+  right: 24px;
 }
 .timer {
   margin-left: 10px;
 }
 
-
+.record-audio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
