@@ -84,7 +84,7 @@ input.input-audio {
   z-index: 1;
   position: absolute;
   top: 24px;
-  right: 24px;
+  right: 23px;
 }
 
 .timer {
