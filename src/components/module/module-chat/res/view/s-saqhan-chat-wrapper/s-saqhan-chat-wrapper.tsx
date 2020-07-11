@@ -6,7 +6,13 @@ import {
   Prop,
   Method,
 } from "@stencil/core";
-import {ChatCategoryInterface, ChatDialogInterface, ChatLinkTypeEnum, ChatMessage} from "../../../../../../index";
+import {
+  ChatCategoryInterface,
+  ChatClickToLinkEmit,
+  ChatDialogInterface,
+  ChatLinkTypeEnum,
+  ChatMessage
+} from "../../../../../../index";
 
 @Component({
   tag: "s-saqhan-chat-wrapper",
@@ -34,7 +40,7 @@ export class SSaqhanChatWrapper implements ComponentInterface {
   /**
    * select content default
    * */
-  @State() showSelectContent = "personal";
+  @State() showSelectContent = "dialogs";
   @State() categoriesState = this.categories;
   @State() dialogsState = this.dialogs;
   @State() MessageMockState = this.messageMock;
@@ -118,7 +124,7 @@ export class SSaqhanChatWrapper implements ComponentInterface {
           <s-saqhan-chat-users-wrapper
             messages={this.dialogsState}
             categories={this.categoriesState}
-            onClickToLink={(item) => this.clickToLink(item)}
+            onClickToLink={(item) => this.clickToLink(item.detail)}
             onClickToCategory={(item) => this.clickToCategory(item)}
             onSearchDialog={(item) => this.searchDialog(item)}
           ></s-saqhan-chat-users-wrapper>
@@ -129,7 +135,7 @@ export class SSaqhanChatWrapper implements ComponentInterface {
           //   <s-adam-copying></s-adam-copying>
           // </div>
           <module-personal
-            onClickToLink={(item) => this.clickToLink(item)}
+            onClickToLink={(item) => this.clickToLink(item.detail)}
             messageMock={this.MessageMockState}
             onSearchContact={(e) => this.searchMessage(e)}
           ></module-personal>
@@ -137,14 +143,14 @@ export class SSaqhanChatWrapper implements ComponentInterface {
       case "files":
         return (
           <s-saqhan-chat-files-wrapper
-            onClickToLink={(item) => this.clickToLink(item)}
+            onClickToLink={(item) => this.clickToLink(item.detail)}
           ></s-saqhan-chat-files-wrapper>
         );
       case "profile":
         return (
           <s-adam-profile
             theme={"module"}
-            onClickToLink={(item) => this.clickToLink(item)}
+            onClickToLink={(item) => this.clickToLink(item.detail)}
           ></s-adam-profile>
         );
       default:
@@ -168,18 +174,29 @@ export class SSaqhanChatWrapper implements ComponentInterface {
   /**
    * click to Link
    * */
-  public clickToLink({ detail }) {
-    switch (detail) {
+  public clickToLink( detail: ChatClickToLinkEmit ): string {
+    console.log('clickToLink 1',this.showSelectContent, detail)
+    switch (detail.place) {
       case ChatLinkTypeEnum.showFile:
-        return (this.showSelectContent = "files");
+        (this.showSelectContent = "files");
+      break;
       case ChatLinkTypeEnum.showDialogs:
-        return (this.showSelectContent = "dialogs");
+        (this.showSelectContent = "dialogs");
+      break;
       case ChatLinkTypeEnum.showPersonalDialog:
-        return (this.showSelectContent = "personal");
+        (this.showSelectContent = "personal");
+      break;
       case ChatLinkTypeEnum.userNamePersonal:
-        return (this.showSelectContent = "profile");
+        (this.showSelectContent = "profile");
+      break;
       default:
         this.showSelectContent = "users";
     }
+
+    console.log('clickToLink 2', this.showSelectContent, detail)
+
+    return this.showSelectContent;
+
+
   }
 }

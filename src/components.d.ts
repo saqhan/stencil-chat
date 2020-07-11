@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ChatCategoryInterface, ChatContactInterface, ChatDialogInterface, ChatMessage, } from "./index";
+import { ChatCategoryInterface, ChatClickToLinkEmit, ChatContactInterface, ChatDialogInterface, ChatMessage, } from "./index";
 import { logo, navItems, } from "./components/comp/s-adam-navigate/res/interface/common.interface";
 export namespace Components {
     interface BtnWrapper {
@@ -644,7 +644,7 @@ declare namespace LocalJSX {
         /**
           * clock on navigate
          */
-        "onClickToLink"?: (event: CustomEvent<any>) => void;
+        "onClickToLink"?: (event: CustomEvent<ChatClickToLinkEmit>) => void;
         /**
           * карточка диалога
          */
