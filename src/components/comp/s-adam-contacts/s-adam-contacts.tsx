@@ -6,7 +6,8 @@ import {
   Prop,
   Event,
 } from "@stencil/core";
-import {ChatDialogInterface} from "../../shared/interface/common.interface";
+import {ChatDialogInterface} from "../../shared/public/public.interface";
+// import {ChatDialogInterface} from "../../shared/interface/common.interface";
 
 @Component({
   tag: "s-adam-contacts",

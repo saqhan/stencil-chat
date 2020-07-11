@@ -6,11 +6,12 @@ import {
   Prop,
   Method,
 } from "@stencil/core";
-import {
-  ChatDialogInterface,
-  ChatCategoryInterface,
-  ChatMessage,
-} from "../../../../../..";
+import {ChatCategoryInterface, ChatDialogInterface, ChatMessage} from "../../../../../shared/public/public.interface";
+// import {
+//   ChatDialogInterface,
+//   ChatCategoryInterface,
+//   ChatMessage,
+// } from "../../../../../..";
 
 @Component({
   tag: "s-saqhan-chat-wrapper",
