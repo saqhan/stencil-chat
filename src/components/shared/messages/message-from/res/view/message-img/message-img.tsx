@@ -1,5 +1,5 @@
 import { Component, ComponentInterface, h, Prop } from "@stencil/core";
-import {ChatMessageDirectionEnum} from "../../../../../public/public.interface";
+import {ChatMessageDirectionEnum} from "../../../../../../../public.interface";
 // import { ChatMessageDirectionEnum } from "../../../../../interface/common.interface";
 
 @Component({

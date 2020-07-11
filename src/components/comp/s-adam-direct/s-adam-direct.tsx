@@ -6,7 +6,7 @@ import {
   Prop,
   Event,
 } from "@stencil/core";
-import {ChatMessage} from "../../shared/public/public.interface";
+import {ChatMessage} from "../../../public.interface";
 // import { ChatMessage } from "../../..";
 
 @Component({

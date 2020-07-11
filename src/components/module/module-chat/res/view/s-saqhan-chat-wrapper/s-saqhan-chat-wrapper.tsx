@@ -6,7 +6,7 @@ import {
   Prop,
   Method,
 } from "@stencil/core";
-import {ChatCategoryInterface, ChatDialogInterface, ChatMessage} from "../../../../../shared/public/public.interface";
+import {ChatCategoryInterface, ChatDialogInterface, ChatMessage} from "../../../../../../public.interface";
 // import {
 //   ChatDialogInterface,
 //   ChatCategoryInterface,
