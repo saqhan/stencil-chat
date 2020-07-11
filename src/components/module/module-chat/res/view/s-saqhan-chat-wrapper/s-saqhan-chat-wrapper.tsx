@@ -33,7 +33,7 @@ export class SSaqhanChatWrapper implements ComponentInterface {
   /**
    * select content default
    * */
-  @State() showContent = "dialogs";
+  @State() showSelectContent = "personal";
   @State() categoriesState = this.categories;
   @State() dialogsState = this.dialogs;
   @State() MessageMockState = this.MessageMock;
@@ -42,7 +42,6 @@ export class SSaqhanChatWrapper implements ComponentInterface {
    * Перменная для включения/отключения показа чата в развернутом виде
    * */
   @State() showChat: boolean;
-
 
   /**
    *  Фильтр диалогов
@@ -63,10 +62,10 @@ export class SSaqhanChatWrapper implements ComponentInterface {
     this.dialogsState =
       detail.data !== "" && detail.data !== null
         ? this.dialogs.filter((item) => {
-          return typeof item.name === "string"
-            ? item.name.toLowerCase().includes(detail.data.toLowerCase())
-            : false;
-        })
+            return typeof item.name === "string"
+              ? item.name.toLowerCase().includes(detail.data.toLowerCase())
+              : false;
+          })
         : this.dialogs;
   }
   /**
@@ -75,12 +74,12 @@ export class SSaqhanChatWrapper implements ComponentInterface {
   @Method()
   async searchMessage({ detail }) {
     this.MessageMockState =
-      detail.data !== '' && detail.data !== null
+      detail.data !== "" && detail.data !== null
         ? this.MessageMockState.filter((item) => {
-          return typeof item.content === "string"
-            ? item.content.toLowerCase().includes(detail.data.toLowerCase())
-            : false;
-        })
+            return typeof item.content === "string"
+              ? item.content.toLowerCase().includes(detail.data.toLowerCase())
+              : false;
+          })
         : this.MessageMock;
   }
 
@@ -94,7 +93,7 @@ export class SSaqhanChatWrapper implements ComponentInterface {
               onClose={(item) => this.onClose(item)}
             ></module-header>
             <div class="m-chat-wrapper">
-              {this.ShowContent(this.showContent)}
+              {this.ShowContent(this.showSelectContent)}
             </div>
           </div>
         ) : (
@@ -133,7 +132,6 @@ export class SSaqhanChatWrapper implements ComponentInterface {
             onSearchContact={(e) => this.searchMessage(e)}
           ></module-personal>
         );
-
       case "files":
         return (
           <s-saqhan-chat-files-wrapper
@@ -148,7 +146,7 @@ export class SSaqhanChatWrapper implements ComponentInterface {
           ></s-adam-profile>
         );
       default:
-        "files";
+        "dialogs";
     }
   };
 
@@ -172,15 +170,15 @@ export class SSaqhanChatWrapper implements ComponentInterface {
     console.log(detail.place);
     switch (detail.place) {
       case "showFile":
-        return (this.showContent = "files");
+        return (this.showSelectContent = "files");
       case "showDialogs":
-        return (this.showContent = "dialogs");
+        return (this.showSelectContent = "dialogs");
       case "showPersonalDialog":
-        return (this.showContent = "personal");
+        return (this.showSelectContent = "personal");
       case "user-name-personal":
-        return (this.showContent = "profile");
+        return (this.showSelectContent = "profile");
       default:
-        this.showContent = "users";
+        this.showSelectContent = "users";
     }
   }
 }

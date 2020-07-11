@@ -6,7 +6,7 @@ import {
   h,
   Prop,
 } from "@stencil/core";
-import {ChatContactInterface} from "../../../../../../index";
+import { ChatContactInterface } from "../../../../../../index";
 
 @Component({
   tag: "contacts-list",
@@ -28,11 +28,9 @@ export class ContactsList implements ComponentInterface {
     return (
       <div class="contacts-list-wrapper">
         <contacts-list-header></contacts-list-header>
-        <contacts-list-body contacts={this.contacts} ></contacts-list-body>
+        <contacts-list-body contacts={this.contacts}></contacts-list-body>
         <m-chat-footer></m-chat-footer>
       </div>
     );
   }
 }
-
-
