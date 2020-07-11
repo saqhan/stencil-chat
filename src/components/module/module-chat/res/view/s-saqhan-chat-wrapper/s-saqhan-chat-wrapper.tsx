@@ -10,7 +10,7 @@ import {
   ChatDialogInterface,
   ChatCategoryInterface,
   ChatMessage,
-} from "../../../../../shared/interface/common.interface";
+} from "../../../../../..";
 
 @Component({
   tag: "s-saqhan-chat-wrapper",

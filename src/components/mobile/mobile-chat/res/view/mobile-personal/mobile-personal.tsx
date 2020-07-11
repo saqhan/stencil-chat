@@ -8,7 +8,7 @@ import {
 } from "@stencil/core";
 import {
   ChatMessage
-} from "../../../../../shared/interface/common.interface";
+} from "../../../../../..";
 @Component({
   tag: "mobile-personal",
   styleUrl: "mobile-personal.css",
