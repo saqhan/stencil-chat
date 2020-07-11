@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property     | Attribute    | Description               | Type  | Default     |
-| ------------ | ------------ | ------------------------- | ----- | ----------- |
-| `categories` | `categories` | массив категорий диалогов | `any` | `undefined` |
+| Property     | Attribute | Description               | Type                      | Default     |
+| ------------ | --------- | ------------------------- | ------------------------- | ----------- |
+| `categories` | --        | массив категорий диалогов | `ChatCategoryInterface[]` | `undefined` |
 
 
 ## Events

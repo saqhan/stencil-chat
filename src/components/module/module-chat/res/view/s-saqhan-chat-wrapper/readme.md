@@ -7,35 +7,15 @@
 
 ## Properties
 
-| Property      | Attribute      | Description                    | Type  | Default     |
-| ------------- | -------------- | ------------------------------ | ----- | ----------- |
-| `MessageMock` | `message-mock` | массив данных личных сообщений | `any` | `undefined` |
-| `categories`  | `categories`   | array categories               | `any` | `undefined` |
-| `dialogs`     | `dialogs`      | массив данных для диалогов     | `any` | `undefined` |
-| `titleModule` | `title-module` | Заголовок для чата             | `any` | `undefined` |
+| Property      | Attribute      | Description                    | Type                      | Default     |
+| ------------- | -------------- | ------------------------------ | ------------------------- | ----------- |
+| `categories`  | --             | array categories               | `ChatCategoryInterface[]` | `undefined` |
+| `dialogs`     | --             | массив данных для диалогов     | `ChatDialogInterface[]`   | `undefined` |
+| `messageMock` | --             | массив данных личных сообщений | `ChatMessage[]`           | `undefined` |
+| `titleModule` | `title-module` | Заголовок для чата             | `any`                     | `undefined` |
 
 
 ## Methods
-
-### `clickToCategory({ detail }: { detail: any; }) => Promise<void>`
-
-Фильтр диалогов
-
-#### Returns
-
-Type: `Promise<void>`
-
-
-
-### `searchDialog({ detail }: { detail: any; }) => Promise<void>`
-
-Метод поиски диалогов
-
-#### Returns
-
-Type: `Promise<void>`
-
-
 
 ### `searchMessage({ detail }: { detail: any; }) => Promise<void>`
 
