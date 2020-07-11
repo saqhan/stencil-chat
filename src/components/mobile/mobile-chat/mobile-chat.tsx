@@ -16,18 +16,22 @@ export class MobileChat implements ComponentInterface {
    * Выбираем какой контент показывать
    * */
   @State() showContent = "dialogs";
+
   /**
    * массив данных для диалогов
    * */
   @State() dialogs = dialogs;
+
   /**
    * массив данных для контактов
    * */
   @State() contacts = contacts;
+
   /**
    * массив данных личных диалогово
    * */
   @State() messageMock = MessageMock;
+
   /**
    * click to Link
    * */

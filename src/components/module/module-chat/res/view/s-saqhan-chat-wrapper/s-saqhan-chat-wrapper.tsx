@@ -13,6 +13,7 @@ import {
   ChatLinkTypeEnum,
   ChatMessage
 } from "../../../../../../index";
+import {SelectChatTypeEnum} from "./res/enum/common.enum";
 
 @Component({
   tag: "s-saqhan-chat-wrapper",
@@ -40,7 +41,7 @@ export class SSaqhanChatWrapper implements ComponentInterface {
   /**
    * select content default
    * */
-  @State() showSelectContent = "dialogs";
+  @State() showSelectContent: SelectChatTypeEnum = SelectChatTypeEnum.dialogs;
   @State() categoriesState = this.categories;
   @State() dialogsState = this.dialogs;
   @State() MessageMockState = this.messageMock;
@@ -98,7 +99,7 @@ export class SSaqhanChatWrapper implements ComponentInterface {
           <div class="wrapper-chat">
             <module-header
               titleModule={this.titleModule}
-              onClose={(item) => this.onClose(item)}
+              onClose={() => this.onClose()}
             ></module-header>
             <div class="m-chat-wrapper">
               {this.ShowContent(this.showSelectContent)}
@@ -171,33 +172,30 @@ export class SSaqhanChatWrapper implements ComponentInterface {
   /**
    * Метод для закрытия чата
    * */
-  public onClose(item) {
-    console.log("closeModal", item);
+  public onClose() {
     this.showChat = false;
   }
   /**
    * click to Link
    * */
   public clickToLink( detail: ChatClickToLinkEmit ): string {
-    console.log('clickToLink 1',this.showSelectContent, detail)
     switch (detail.place) {
       case ChatLinkTypeEnum.showFile:
-        (this.showSelectContent = "files");
+        (this.showSelectContent = SelectChatTypeEnum.files);
       break;
       case ChatLinkTypeEnum.showDialogs:
-        (this.showSelectContent = "dialogs");
+        (this.showSelectContent = SelectChatTypeEnum.dialogs);
       break;
       case ChatLinkTypeEnum.showPersonalDialog:
-        (this.showSelectContent = "personal");
+        (this.showSelectContent = SelectChatTypeEnum.personal);
       break;
       case ChatLinkTypeEnum.userNamePersonal:
-        (this.showSelectContent = "profile");
+        (this.showSelectContent = SelectChatTypeEnum.profile);
       break;
       default:
-        this.showSelectContent = "users";
+        this.showSelectContent = SelectChatTypeEnum.users;
     }
 
-    console.log('clickToLink 2', this.showSelectContent, detail)
 
     return this.showSelectContent;
 

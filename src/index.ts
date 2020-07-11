@@ -148,9 +148,10 @@ export enum ChatLinkTypeEnum {
   showDialogs = 'showDialogs',
   showPersonalDialog = 'showPersonalDialog',
   userNamePersonal = 'user-name-personal',
+  addDialog = '"add-dialog"',
 }
 
 export interface ChatClickToLinkEmit {
   place: ChatLinkTypeEnum,
-  data: ChatDialogInterface,
+  data?: ChatDialogInterface,
 }

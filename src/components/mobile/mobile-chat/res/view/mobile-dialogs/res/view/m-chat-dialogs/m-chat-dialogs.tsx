@@ -7,8 +7,8 @@ import {Component, ComponentInterface, EventEmitter, h, Prop, Event} from '@sten
 })
 export class MChatDialogs implements ComponentInterface {
 
-  @Prop() dialogs:any;
-  @Event() clickToLink:EventEmitter;
+  @Prop() dialogs: any;
+  @Event() clickToLink: EventEmitter;
 
   render() {
     return (
