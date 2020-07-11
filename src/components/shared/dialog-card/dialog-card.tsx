@@ -6,7 +6,7 @@ import {
   h,
   Prop,
 } from "@stencil/core";
-import {ChatDialogInterface} from "../interface/common.interface";
+import { ChatDialogInterface } from "../interface/common.interface";
 
 @Component({
   tag: "dialog-card",
@@ -32,9 +32,7 @@ export class DialogCard implements ComponentInterface {
       <div class={this.getClassForHost()}>
         <div
           class="m-dialog-card"
-          onClick={() =>
-            this.clickToLink.emit(this.mess)
-          }
+          onClick={() => this.clickToLink.emit(this.mess)}
         >
           <div class="img-user">
             <div

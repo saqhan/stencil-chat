@@ -7,6 +7,7 @@ import {
   EventEmitter,
   State,
 } from "@stencil/core";
+import {ChatCategoryInterface} from "../../../../../../../../shared/interface/common.interface";
 
 @Component({
   tag: "m-chat-header",
@@ -17,7 +18,7 @@ export class MChatHeader implements ComponentInterface {
   /**
    * массив категорий диалогов
    * */
-  @Prop() categories: any;
+  @Prop() categories: ChatCategoryInterface[];
 
   /**
    * clock on clickToLink

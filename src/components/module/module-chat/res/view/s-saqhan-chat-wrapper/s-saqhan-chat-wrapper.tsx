@@ -53,9 +53,10 @@ export class SSaqhanChatWrapper implements ComponentInterface {
    * */
 
   clickToCategory({ detail }) {
+    console.log(detail)
     this.dialogsState =
-      detail.item.id !== "all"
-        ? this.dialogs.filter((dialog) => dialog.category === detail.item.id)
+      detail.id !== "all"
+        ? this.dialogs.filter((dialog) => dialog.category === detail.id)
         : this.dialogs;
   }
 
@@ -172,18 +173,18 @@ export class SSaqhanChatWrapper implements ComponentInterface {
    * click to Link
    * */
   public clickToLink({ detail }) {
-    console.log(detail.place);
-    switch (detail.place) {
-      case "showFile":
-        return (this.showSelectContent = "files");
-      case "showDialogs":
-        return (this.showSelectContent = "dialogs");
-      case "showPersonalDialog":
-        return (this.showSelectContent = "personal");
-      case "user-name-personal":
-        return (this.showSelectContent = "profile");
-      default:
-        this.showSelectContent = "users";
-    }
+    console.log(detail);
+    // switch (detail.place) {
+    //   case "showFile":
+    //     return (this.showSelectContent = "files");
+    //   case "showDialogs":
+    //     return (this.showSelectContent = "dialogs");
+    //   case "showPersonalDialog":
+    //     return (this.showSelectContent = "personal");
+    //   case "user-name-personal":
+    //     return (this.showSelectContent = "profile");
+    //   default:
+    //     this.showSelectContent = "users";
+    // }
   }
 }

@@ -57,7 +57,7 @@ export namespace Components {
         /**
           * массив категорий диалогов
          */
-        "categories": any;
+        "categories": ChatCategoryInterface[];
     }
     interface MessageFrom {
         /**
@@ -681,7 +681,7 @@ declare namespace LocalJSX {
         /**
           * массив категорий диалогов
          */
-        "categories"?: any;
+        "categories"?: ChatCategoryInterface[];
         /**
           * clock on clickToLink
          */
@@ -737,6 +737,9 @@ declare namespace LocalJSX {
           * clock on clickToLink
          */
         "onClickToLink"?: (event: CustomEvent<string>) => void;
+        /**
+          * clock on Category
+         */
         "onSearchContact"?: (event: CustomEvent<ChatCategoryInterface>) => void;
     }
     interface MobilePersonal {
