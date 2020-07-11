@@ -683,8 +683,8 @@ declare namespace LocalJSX {
         /**
           * clock on clickToLink
          */
-        "onClickToLink"?: (event: CustomEvent<any>) => void;
-        "onSearchContact"?: (event: CustomEvent<any>) => void;
+        "onClickToLink"?: (event: CustomEvent<ChatClickToLinkEmit>) => void;
+        "onSearchContact"?: (event: CustomEvent<string>) => void;
     }
     interface MessageFrom {
         /**
