@@ -6,7 +6,7 @@ import {
   Prop,
   Method,
 } from "@stencil/core";
-import {ChatCategoryInterface, ChatDialogInterface, ChatMessage} from "../../../../../../index";
+import {ChatCategoryInterface, ChatDialogInterface, ChatLinkTypeEnum, ChatMessage} from "../../../../../../index";
 
 @Component({
   tag: "s-saqhan-chat-wrapper",
@@ -169,18 +169,17 @@ export class SSaqhanChatWrapper implements ComponentInterface {
    * click to Link
    * */
   public clickToLink({ detail }) {
-    console.log(detail);
-    // switch (detail.place) {
-    //   case "showFile":
-    //     return (this.showSelectContent = "files");
-    //   case "showDialogs":
-    //     return (this.showSelectContent = "dialogs");
-    //   case "showPersonalDialog":
-    //     return (this.showSelectContent = "personal");
-    //   case "user-name-personal":
-    //     return (this.showSelectContent = "profile");
-    //   default:
-    //     this.showSelectContent = "users";
-    // }
+    switch (detail) {
+      case ChatLinkTypeEnum.showFile:
+        return (this.showSelectContent = "files");
+      case ChatLinkTypeEnum.showDialogs:
+        return (this.showSelectContent = "dialogs");
+      case ChatLinkTypeEnum.showPersonalDialog:
+        return (this.showSelectContent = "personal");
+      case ChatLinkTypeEnum.userNamePersonal:
+        return (this.showSelectContent = "profile");
+      default:
+        this.showSelectContent = "users";
+    }
   }
 }
