@@ -7,17 +7,17 @@
 
 ## Properties
 
-| Property     | Attribute    | Description | Type                             | Default     |
-| ------------ | ------------ | ----------- | -------------------------------- | ----------- |
-| `categories` | `categories` |             | `any`                            | `undefined` |
-| `theme`      | `theme`      |             | `"comp" \| "mobile" \| "module"` | `"comp"`    |
+| Property     | Attribute | Description | Type                             | Default     |
+| ------------ | --------- | ----------- | -------------------------------- | ----------- |
+| `categories` | --        |             | `ChatCategoryInterface[]`        | `undefined` |
+| `theme`      | `theme`   |             | `"comp" \| "mobile" \| "module"` | `"comp"`    |
 
 
 ## Events
 
-| Event             | Description       | Type               |
-| ----------------- | ----------------- | ------------------ |
-| `clickToCategory` | clock on Category | `CustomEvent<any>` |
+| Event             | Description       | Type                                 |
+| ----------------- | ----------------- | ------------------------------------ |
+| `clickToCategory` | clock on Category | `CustomEvent<ChatCategoryInterface>` |
 
 
 ## Dependencies

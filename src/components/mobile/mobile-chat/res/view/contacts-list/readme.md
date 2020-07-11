@@ -7,17 +7,17 @@
 
 ## Properties
 
-| Property   | Attribute  | Description | Type  | Default     |
-| ---------- | ---------- | ----------- | ----- | ----------- |
-| `contacts` | `contacts` |             | `any` | `undefined` |
+| Property   | Attribute | Description | Type                     | Default     |
+| ---------- | --------- | ----------- | ------------------------ | ----------- |
+| `contacts` | --        |             | `ChatContactInterface[]` | `undefined` |
 
 
 ## Events
 
-| Event           | Description          | Type               |
-| --------------- | -------------------- | ------------------ |
-| `clickToLink`   | clock on clickToLink | `CustomEvent<any>` |
-| `searchContact` | search contact       | `CustomEvent<any>` |
+| Event           | Description          | Type                                |
+| --------------- | -------------------- | ----------------------------------- |
+| `clickToLink`   | clock on clickToLink | `CustomEvent<string>`               |
+| `searchContact` | search contact       | `CustomEvent<ChatContactInterface>` |
 
 
 ## Dependencies
@@ -28,8 +28,8 @@
 
 ### Depends on
 
-- [contacts-list-header](res/view/contacts-list-header)
-- [contacts-list-body](res/view/contacts-list-body)
+- [contacts-list-header](./res/view/contacts-list-header)
+- [contacts-list-body](./res/view/contacts-list-body)
 - [m-chat-footer](../mobile-dialogs/res/view/m-chat-footer)
 
 ### Graph

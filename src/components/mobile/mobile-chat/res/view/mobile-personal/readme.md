@@ -7,17 +7,17 @@
 
 ## Properties
 
-| Property      | Attribute | Description                  | Type        | Default     |
-| ------------- | --------- | ---------------------------- | ----------- | ----------- |
-| `messageMock` | --        | array data personal messages | `Message[]` | `undefined` |
+| Property      | Attribute | Description                  | Type            | Default     |
+| ------------- | --------- | ---------------------------- | --------------- | ----------- |
+| `messageMock` | --        | array data personal messages | `ChatMessage[]` | `undefined` |
 
 
 ## Events
 
-| Event           | Description       | Type               |
-| --------------- | ----------------- | ------------------ |
-| `clickToLink`   | clock on navigate | `CustomEvent<any>` |
-| `searchContact` |                   | `CustomEvent<any>` |
+| Event           | Description           | Type                  |
+| --------------- | --------------------- | --------------------- |
+| `clickToLink`   | clock on navigate     | `CustomEvent<string>` |
+| `searchContact` | Поиск среди контактов | `CustomEvent<string>` |
 
 
 ## Dependencies

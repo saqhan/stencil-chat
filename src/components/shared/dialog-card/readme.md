@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property | Attribute | Description      | Type                 | Default     |
-| -------- | --------- | ---------------- | -------------------- | ----------- |
-| `mess`   | `mess`    | карточка диалога | `any`                | `undefined` |
-| `theme`  | `theme`   | карточка диалога | `"comp" \| "mobile"` | `'mobile'`  |
+| Property | Attribute | Description      | Type                  | Default     |
+| -------- | --------- | ---------------- | --------------------- | ----------- |
+| `mess`   | --        | карточка диалога | `ChatDialogInterface` | `undefined` |
+| `theme`  | `theme`   | карточка диалога | `"comp" \| "mobile"`  | `"mobile"`  |
 
 
 ## Events
