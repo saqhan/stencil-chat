@@ -830,6 +830,10 @@ declare namespace LocalJSX {
          */
         "dialogs"?: dialogs[];
         /**
+          * clock on Category
+         */
+        "onClickToCategory"?: (event: CustomEvent<any>) => void;
+        /**
           * Событие для переключения пустой страницы на личный чат
          */
         "onClickToLink"?: (event: CustomEvent<any>) => void;

@@ -37,7 +37,7 @@ export class SAdamContacts implements ComponentInterface {
   /**
    * clock on Category
    * */
-  // @Event() clickToCategory: EventEmitter<any>; d
+  @Event() clickToCategory: EventEmitter<any>;
 
   render() {
     return (
