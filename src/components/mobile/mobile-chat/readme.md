@@ -7,16 +7,12 @@
 
 ## Dependencies
 
-### Used by
-
- - [my-component](../../my-component)
-
 ### Depends on
 
 - [mobile-dialogs](./res/view/mobile-dialogs)
 - [mobile-personal](./res/view/mobile-personal)
 - [user-profile](./res/view/user-profile)
-- [contacts-list](./res/view/mobile-dialogs/res/view/contacts-list)
+- [contacts-list](res/view/contacts-list)
 
 ### Graph
 ```mermaid
@@ -43,7 +39,6 @@ graph TD;
   contacts-list --> contacts-list-body
   contacts-list --> m-chat-footer
   contacts-list-body --> contact-card
-  my-component --> mobile-chat
   style mobile-chat fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

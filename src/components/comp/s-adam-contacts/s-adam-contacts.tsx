@@ -6,7 +6,7 @@ import {
   Prop,
   Event,
 } from "@stencil/core";
-import { dialogs } from "./res/interface/common.interface";
+import {ChatDialogInterface} from "../../shared/interface/common.interface";
 
 @Component({
   tag: "s-adam-contacts",
@@ -17,7 +17,7 @@ export class SAdamContacts implements ComponentInterface {
   /**
    * Массив с элементами диалога
    */
-  @Prop() dialogs: dialogs[] = [];
+  @Prop() dialogs: ChatDialogInterface[] = [];
 
   /**
   * массив категорий диалогов
@@ -37,22 +37,12 @@ export class SAdamContacts implements ComponentInterface {
   /**
    * clock on Category
    * */
-  // @Event() clickToCategory: EventEmitter<any>; d
+  @Event() clickToCategory: EventEmitter<any>;
 
   render() {
     return (
       <div class="contacts-column">
-        <div class="search-contact-block">
-          <div class="search-contact-wrapper">
-            <i class="fas fa-search"></i>
-            <input
-              onInput={(e) => this.searchContact.emit(e)}
-              class="search-contact"
-              type="text"
-              placeholder="Search contact"
-            />
-          </div>
-        </div>
+        <s-adam-search-contact></s-adam-search-contact>
         <dialog-categories categories={this.categories}></dialog-categories>
         <div class="contacts">
           {this.dialogs.map((dialog) => {

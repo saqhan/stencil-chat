@@ -6,6 +6,11 @@ import {
   Prop,
   Method,
 } from "@stencil/core";
+import {
+  ChatDialogInterface,
+  ChatCategoryInterface,
+  ChatMessage,
+} from "../../../../../shared/interface/common.interface";
 
 @Component({
   tag: "s-saqhan-chat-wrapper",
@@ -16,57 +21,57 @@ export class SSaqhanChatWrapper implements ComponentInterface {
   /**
    * array categories
    * */
-  @Prop() categories;
+  @Prop() categories: ChatCategoryInterface[];
   /**
    * Заголовок для чата
    * */
-  @Prop() titleModule;
+  @Prop() titleModule: any;
   /**
    * массив данных личных сообщений
    * */
-  @Prop() MessageMock;
+  @Prop() messageMock: ChatMessage[];
   /**
    * массив данных для диалогов
    * */
-  @Prop() dialogs;
+  @Prop() dialogs: ChatDialogInterface[];
 
   /**
    * select content default
    * */
-  @State() showContent = "dialogs";
+  @State() showSelectContent = "personal";
   @State() categoriesState = this.categories;
   @State() dialogsState = this.dialogs;
-  @State() MessageMockState = this.MessageMock;
+  @State() MessageMockState = this.messageMock;
   @State() messagesState = this.dialogs;
   /**
    * Перменная для включения/отключения показа чата в развернутом виде
    * */
   @State() showChat: boolean;
 
-
   /**
    *  Фильтр диалогов
    * */
-  @Method()
-  async clickToCategory({ detail }) {
+
+  clickToCategory({ detail }) {
+    console.log(detail)
     this.dialogsState =
-      detail.item.id !== "all"
-        ? this.dialogs.filter((dialog) => dialog.category === detail.item.id)
+      detail.id !== "all"
+        ? this.dialogs.filter((dialog) => dialog.category === detail.id)
         : this.dialogs;
   }
 
   /**
    * Метод поиски диалогов
    * */
-  @Method()
-  async searchDialog({ detail }) {
+
+  searchDialog({ detail }) {
     this.dialogsState =
       detail.data !== "" && detail.data !== null
         ? this.dialogs.filter((item) => {
-          return typeof item.name === "string"
-            ? item.name.toLowerCase().includes(detail.data.toLowerCase())
-            : false;
-        })
+            return typeof item.name === "string"
+              ? item.name.toLowerCase().includes(detail.data.toLowerCase())
+              : false;
+          })
         : this.dialogs;
   }
   /**
@@ -75,13 +80,13 @@ export class SSaqhanChatWrapper implements ComponentInterface {
   @Method()
   async searchMessage({ detail }) {
     this.MessageMockState =
-      detail.data !== '' && detail.data !== null
+      detail.data !== "" && detail.data !== null
         ? this.MessageMockState.filter((item) => {
-          return typeof item.content === "string"
-            ? item.content.toLowerCase().includes(detail.data.toLowerCase())
-            : false;
-        })
-        : this.MessageMock;
+            return typeof item.content === "string"
+              ? item.content.toLowerCase().includes(detail.data.toLowerCase())
+              : false;
+          })
+        : this.messageMock;
   }
 
   render() {
@@ -94,7 +99,7 @@ export class SSaqhanChatWrapper implements ComponentInterface {
               onClose={(item) => this.onClose(item)}
             ></module-header>
             <div class="m-chat-wrapper">
-              {this.ShowContent(this.showContent)}
+              {this.ShowContent(this.showSelectContent)}
             </div>
           </div>
         ) : (
@@ -133,7 +138,6 @@ export class SSaqhanChatWrapper implements ComponentInterface {
             onSearchContact={(e) => this.searchMessage(e)}
           ></module-personal>
         );
-
       case "files":
         return (
           <s-saqhan-chat-files-wrapper
@@ -148,7 +152,7 @@ export class SSaqhanChatWrapper implements ComponentInterface {
           ></s-adam-profile>
         );
       default:
-        "files";
+        "dialogs";
     }
   };
 
@@ -169,18 +173,18 @@ export class SSaqhanChatWrapper implements ComponentInterface {
    * click to Link
    * */
   public clickToLink({ detail }) {
-    console.log(detail.place);
-    switch (detail.place) {
-      case "showFile":
-        return (this.showContent = "files");
-      case "showDialogs":
-        return (this.showContent = "dialogs");
-      case "showPersonalDialog":
-        return (this.showContent = "personal");
-      case "user-name-personal":
-        return (this.showContent = "profile");
-      default:
-        this.showContent = "users";
-    }
+    console.log(detail);
+    // switch (detail.place) {
+    //   case "showFile":
+    //     return (this.showSelectContent = "files");
+    //   case "showDialogs":
+    //     return (this.showSelectContent = "dialogs");
+    //   case "showPersonalDialog":
+    //     return (this.showSelectContent = "personal");
+    //   case "user-name-personal":
+    //     return (this.showSelectContent = "profile");
+    //   default:
+    //     this.showSelectContent = "users";
+    // }
   }
 }

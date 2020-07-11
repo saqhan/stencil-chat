@@ -1,4 +1,5 @@
 import {Component, ComponentInterface, Event, EventEmitter, h, Prop} from '@stencil/core';
+import {ChatContactInterface} from "../../../../../../../../../index";
 
 @Component({
   tag: 'contact-card',
@@ -13,11 +14,11 @@ export class ContactCard implements ComponentInterface {
   /**
    * clock on navigate
    * */
-  @Event() clickToLink: EventEmitter;
+  @Event() clickToLink: EventEmitter<ChatContactInterface>;
   render() {
     return (
       <div class="contacts-list-card">
-        <div class="m-contact-card" onClick={()=> this.clickToLink.emit({place:'clickToContact', item: this.contact })} >
+        <div class="m-contact-card" onClick={()=> this.clickToLink.emit(this.contact)} >
           <div class="img-user">
             <div class='img'
                  style={{backgroundImage: `url(${this.contact.img})`}}></div>

@@ -3,22 +3,6 @@
   padding: 20px 20px 0 20px;
   height: 100vh;
 }
-.search-contact-wrapper {
-  position: relative;
-}
-.search-contact-wrapper .fas {
-  position: absolute;
-  left: 15px;
-  font-size: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-.search-contact {
-  border: none;
-  padding: 10px 40px;
-  width: 100%;
-  outline: none;
-}
 .contacts {
   overflow-y: auto;
   height: calc(100vh - 129px);

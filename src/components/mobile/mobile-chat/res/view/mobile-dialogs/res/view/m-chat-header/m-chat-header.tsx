@@ -7,6 +7,7 @@ import {
   EventEmitter,
   State,
 } from "@stencil/core";
+import {ChatCategoryInterface} from "../../../../../../../../shared/interface/common.interface";
 
 @Component({
   tag: "m-chat-header",
@@ -17,7 +18,7 @@ export class MChatHeader implements ComponentInterface {
   /**
    * массив категорий диалогов
    * */
-  @Prop() categories: any;
+  @Prop() categories: ChatCategoryInterface[];
 
   /**
    * clock on clickToLink
@@ -28,6 +29,13 @@ export class MChatHeader implements ComponentInterface {
 
   @State() isShowModal = true;
 
+  /**
+   * Показывать/скрывать окно поиска
+   * */
+
+  public showModal() {
+    return this.isShowModal = !this.isShowModal;
+  }
   render() {
     return (
       <div class="m-chat-header">
@@ -55,8 +63,6 @@ export class MChatHeader implements ComponentInterface {
   }
 
 
-  public showModal() {
-    return this.isShowModal = !this.isShowModal;
-  }
+
 
 }

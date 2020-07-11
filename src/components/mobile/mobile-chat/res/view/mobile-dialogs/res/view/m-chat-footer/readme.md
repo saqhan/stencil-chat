@@ -16,7 +16,7 @@
 
 ### Used by
 
- - [contacts-list](../contacts-list)
+ - [contacts-list](../../../../contacts-list)
  - [mobile-dialogs](../../..)
 
 ### Graph
