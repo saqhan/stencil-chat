@@ -5,9 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ChatContactInterface, } from "./index";
-import { ChatCategoryInterface, ChatDialogInterface, ChatMessage, } from "./components/shared/interface/common.interface";
-import { ChatMessage as ChatMessage1, } from ".";
+import { ChatContactInterface, ChatMessage, ChatCategoryInterface, ChatDialogInterface} from "./index";
 import { logo, navItems, } from "./components/comp/s-adam-navigate/res/interface/common.interface";
 export namespace Components {
     interface BtnWrapper {
