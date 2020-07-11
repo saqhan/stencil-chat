@@ -142,3 +142,10 @@ export interface ChatDialogInterface {
   category : string;
   online : boolean;
 }
+
+export enum ChatLinkTypeEnum {
+  showFile = 'showFile',
+  showDialogs = 'showDialogs',
+  showPersonalDialog = 'showPersonalDialog',
+  userNamePersonal = 'user-name-personal',
+}
