@@ -6,7 +6,7 @@ import {
   h,
   Prop,
 } from "@stencil/core";
-import {ChatDialogInterface} from "../../../index";
+import {ChatClickToLinkEmit, ChatDialogInterface, ChatLinkTypeEnum} from "../../../index";
 
 @Component({
   tag: "dialog-card",
@@ -26,13 +26,13 @@ export class DialogCard implements ComponentInterface {
   /**
    * clock on navigate
    * */
-  @Event() clickToLink: EventEmitter;
+  @Event() clickToLink: EventEmitter<ChatClickToLinkEmit>;
   render() {
     return (
       <div class={this.getClassForHost()}>
         <div
           class="m-dialog-card"
-          onClick={() => this.clickToLink.emit(this.mess)}
+          onClick={() => this.clickToLinkHandler()}
         >
           <div class="img-user">
             <div
@@ -57,6 +57,10 @@ export class DialogCard implements ComponentInterface {
         </div>
       </div>
     );
+  }
+
+  public clickToLinkHandler() {
+    this.clickToLink.emit({place: ChatLinkTypeEnum.showDialogs, data: this.mess })
   }
 
   /**
