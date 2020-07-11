@@ -118,6 +118,10 @@ export class SSaqhanChatWrapper implements ComponentInterface {
    * Select show content
    * */
   public ShowContent = (content) => {
+    console.log(
+      'ShowContent',
+      content
+    );
     switch (content) {
       case "dialogs":
         return (

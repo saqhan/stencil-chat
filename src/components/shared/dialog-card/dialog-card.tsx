@@ -60,7 +60,7 @@ export class DialogCard implements ComponentInterface {
   }
 
   public clickToLinkHandler() {
-    this.clickToLink.emit({place: ChatLinkTypeEnum.showDialogs, data: this.mess })
+    this.clickToLink.emit({place: ChatLinkTypeEnum.showPersonalDialog, data: this.mess })
   }
 
   /**
