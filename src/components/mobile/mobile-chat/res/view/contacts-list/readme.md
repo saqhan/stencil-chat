@@ -24,13 +24,13 @@
 
 ### Used by
 
- - [mobile-chat](../../../../../..)
+ - [mobile-chat](../../..)
 
 ### Depends on
 
-- [contacts-list-header](./res/view/contacts-list-header)
-- [contacts-list-body](./res/view/contacts-list-body)
-- [m-chat-footer](../m-chat-footer)
+- [contacts-list-header](res/view/contacts-list-header)
+- [contacts-list-body](res/view/contacts-list-body)
+- [m-chat-footer](../mobile-dialogs/res/view/m-chat-footer)
 
 ### Graph
 ```mermaid

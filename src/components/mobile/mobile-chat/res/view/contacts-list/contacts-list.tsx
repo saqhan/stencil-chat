@@ -6,6 +6,7 @@ import {
   h,
   Prop,
 } from "@stencil/core";
+import {ChatContactInterface} from "../../../../../../index";
 
 @Component({
   tag: "contacts-list",
@@ -13,15 +14,15 @@ import {
   shadow: false,
 })
 export class ContactsList implements ComponentInterface {
-  @Prop() contacts: any;
+  @Prop() contacts: ChatContactInterface[];
   /**
    * clock on clickToLink
    * */
-  @Event() clickToLink: EventEmitter;
+  @Event() clickToLink: EventEmitter<string>;
   /**
    * search contact
    * */
-  @Event() searchContact: EventEmitter;
+  @Event() searchContact: EventEmitter<string>;
 
   render() {
     return (

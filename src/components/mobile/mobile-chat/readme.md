@@ -12,7 +12,7 @@
 - [mobile-dialogs](./res/view/mobile-dialogs)
 - [mobile-personal](./res/view/mobile-personal)
 - [user-profile](./res/view/user-profile)
-- [contacts-list](./res/view/mobile-dialogs/res/view/contacts-list)
+- [contacts-list](res/view/contacts-list)
 
 ### Graph
 ```mermaid

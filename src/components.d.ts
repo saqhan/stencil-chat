@@ -5,6 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { ChatContactInterface, } from "./index";
 import { ChatCategoryInterface, ChatMessage, } from "./components/shared/interface/common.interface";
 import { categories, dialogs, } from "./components/mobile/mobile-chat/res/view/mobile-dialogs/res/interface/common.interface";
 import { ChatMessage as ChatMessage1, } from ".";
@@ -24,7 +25,7 @@ export namespace Components {
         "contact": any;
     }
     interface ContactsList {
-        "contacts": any;
+        "contacts": ChatContactInterface[];
     }
     interface ContactsListBody {
         "contacts": any;
@@ -629,18 +630,18 @@ declare namespace LocalJSX {
         /**
           * clock on navigate
          */
-        "onClickToLink"?: (event: CustomEvent<any>) => void;
+        "onClickToLink"?: (event: CustomEvent<ChatContactInterface>) => void;
     }
     interface ContactsList {
-        "contacts"?: any;
+        "contacts"?: ChatContactInterface[];
         /**
           * clock on clickToLink
          */
-        "onClickToLink"?: (event: CustomEvent<any>) => void;
+        "onClickToLink"?: (event: CustomEvent<string>) => void;
         /**
           * search contact
          */
-        "onSearchContact"?: (event: CustomEvent<any>) => void;
+        "onSearchContact"?: (event: CustomEvent<string>) => void;
     }
     interface ContactsListBody {
         "contacts"?: any;
@@ -757,7 +758,7 @@ declare namespace LocalJSX {
         /**
           * clock on clickToLink
          */
-        "onClickToLink"?: (event: CustomEvent<void>) => void;
+        "onClickToLink"?: (event: CustomEvent<string>) => void;
         "onSearchContact"?: (event: CustomEvent<string>) => void;
     }
     interface MobilePersonal {
@@ -768,8 +769,11 @@ declare namespace LocalJSX {
         /**
           * clock on navigate
          */
-        "onClickToLink"?: (event: CustomEvent<any>) => void;
-        "onSearchContact"?: (event: CustomEvent<any>) => void;
+        "onClickToLink"?: (event: CustomEvent<string>) => void;
+        /**
+          * Поиск среди контактов
+         */
+        "onSearchContact"?: (event: CustomEvent<string>) => void;
     }
     interface ModuleChat {
     }

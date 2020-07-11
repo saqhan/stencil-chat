@@ -28,19 +28,13 @@ export class MobileChat implements ComponentInterface {
    * массив данных личных диалогово
    * */
   @State() messageMock = MessageMock;
-
-  render() {
-    return <div>{this.getContent("dialogs")}</div>;
-  }
-  componentWillLoad(): Promise<void> | void {
-    this.dialogs = dialogs;
-  }
   /**
    * click to Link
    * */
   public clickToLink({ detail }) {
     console.log(detail);
   }
+
   /**
    * Click to category filter
    * */
@@ -52,10 +46,16 @@ export class MobileChat implements ComponentInterface {
    * Поиск контактов
    * */
   public searchContact(e) {
-    console.log("searchContact",e);
+    console.log("searchContact", e);
   }
 
+  render() {
+    return <div>{this.getContent("dialogs")}</div>;
+  }
 
+  componentWillLoad(): Promise<void> | void {
+    this.dialogs = dialogs;
+  }
 
   /**
    * Метод для вывода определенного контента
@@ -67,7 +67,7 @@ export class MobileChat implements ComponentInterface {
           <mobile-dialogs
             onClickToLink={(item) => this.clickToLink(item)}
             onClickToCategory={(item) => this.clickToCategory(item)}
-            onSearchContact={(detail) => this.searchContact({detail})}
+            onSearchContact={(detail) => this.searchContact({ detail })}
             categories={categories}
             dialogs={this.dialogs}
           ></mobile-dialogs>
@@ -77,7 +77,9 @@ export class MobileChat implements ComponentInterface {
           <mobile-personal
             onClickToLink={(item) => this.clickToLink(item)}
             messageMock={this.messageMock}
-            onSearchContact={(e) => console.log('mobile-personal', e.detail.data)}
+            onSearchContact={(e) =>
+              console.log("mobile-personal", e)
+            }
           ></mobile-personal>
         );
       case "profile":
@@ -91,7 +93,7 @@ export class MobileChat implements ComponentInterface {
           <contacts-list
             onClickToLink={(item) => this.clickToLink(item)}
             contacts={this.contacts}
-            onSearchContact={(detail) => this.searchContact({detail})}
+            onSearchContact={(detail) => this.searchContact({ detail })}
           ></contacts-list>
         );
       default:

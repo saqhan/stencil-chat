@@ -1,3 +1,6 @@
+/**
+ *
+ * */
 export interface ChatMessage {
   /**
    * содержимое сообщения
@@ -105,6 +108,18 @@ export enum ChatMessageTypeEnum {
  *
  * */
 export interface ChatCategoryInterface {
+  name: string;
+  id: string;
+}
+
+export interface ChatContactInterface {
+  id: string | number,
+  img: string,
   name: string,
-  id: string
+  mess: string,
+  time: {
+    created: Date,
+  },
+  category: string,
+  online: boolean
 }

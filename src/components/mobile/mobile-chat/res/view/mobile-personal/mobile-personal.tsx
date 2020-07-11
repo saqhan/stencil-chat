@@ -23,8 +23,11 @@ export class MobilePersonal implements ComponentInterface {
   /**
    * clock on navigate
    * */
-  @Event() clickToLink: EventEmitter;
-  @Event() searchContact: EventEmitter;
+  @Event() clickToLink: EventEmitter<string>;
+  /**
+   * Поиск среди контактов
+   * */
+  @Event() searchContact: EventEmitter<string>;
 
   render() {
     return (
