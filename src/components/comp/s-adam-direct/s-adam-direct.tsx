@@ -6,8 +6,7 @@ import {
   Prop,
   Event,
 } from "@stencil/core";
-import {ChatMessage} from "../../../public.interface";
-// import { ChatMessage } from "../../..";
+import {ChatMessage} from "../../../index";
 
 @Component({
   tag: "s-adam-direct",

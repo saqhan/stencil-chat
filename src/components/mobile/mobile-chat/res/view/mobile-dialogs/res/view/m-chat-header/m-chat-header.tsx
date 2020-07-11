@@ -7,8 +7,7 @@ import {
   EventEmitter,
   State,
 } from "@stencil/core";
-import {ChatCategoryInterface} from "../../../../../../../../../public.interface";
-// import {ChatCategoryInterface} from "../../../../../../../../shared/interface/common.interface";
+import {ChatCategoryInterface} from "../../../../../../../../../index";
 
 @Component({
   tag: "m-chat-header",

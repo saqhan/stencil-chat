@@ -6,10 +6,8 @@ import {
   h,
   Prop,
 } from "@stencil/core";
-import {ChatMessage} from "../../../../../../public.interface";
-// import {
-//   ChatMessage
-// } from "../../../../../..";
+import {ChatMessage} from "../../../../../../index";
+
 @Component({
   tag: "mobile-personal",
   styleUrl: "mobile-personal.css",

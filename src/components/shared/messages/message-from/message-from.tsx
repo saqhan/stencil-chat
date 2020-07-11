@@ -1,10 +1,6 @@
 import { Component, ComponentInterface, h, Prop } from "@stencil/core";
-// import {
-//   ChatMessageDirectionEnum,
-//   ChatMessageTypeEnum,
-// } from "../../interface/common.interface";
 import dayjs from "dayjs";
-import {ChatMessageDirectionEnum, ChatMessageTypeEnum} from "../../../../public.interface";
+import {ChatMessageDirectionEnum, ChatMessageTypeEnum} from "../../../../index";
 
 @Component({
   tag: "message-from",
