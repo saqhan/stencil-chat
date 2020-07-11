@@ -6,11 +6,12 @@ import {
   h,
   Prop,
 } from "@stencil/core";
+import {ChatCategoryInterface, ChatDialogInterface} from "../../../../../shared/public/public.interface";
 // import { dialogs } from "./res/interface/common.interface";
-import {
-  ChatDialogInterface,
-  ChatCategoryInterface,
-} from "../../../../../shared/interface/common.interface";
+// import {
+//   ChatDialogInterface,
+//   ChatCategoryInterface,
+// } from "../../../../../shared/interface/common.interface";
 @Component({
   tag: "mobile-dialogs",
   styleUrl: "mobile-dialogs.css",

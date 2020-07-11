@@ -6,7 +6,8 @@ import {
   h,
   Prop,
 } from "@stencil/core";
-import { ChatDialogInterface } from "../interface/common.interface";
+// import { ChatDialogInterfacece } from "../interface/common.interface";
+import {ChatDialogInterface} from "../public/public.interface";
 
 @Component({
   tag: "dialog-card",

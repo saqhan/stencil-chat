@@ -1,8 +1,10 @@
-import {
-  ChatMessage,
-  ChatMessageDirectionEnum,
-  ChatMessageTypeEnum,
-} from "..";
+// import {
+//   ChatMessage,
+//   ChatMessageDirectionEnum,
+//   ChatMessageTypeEnum,
+// } from "..";
+
+import {ChatMessage, ChatMessageDirectionEnum, ChatMessageTypeEnum} from "../components/shared/public/public.interface";
 
 export const dialogs = [
   {

@@ -1,5 +1,6 @@
 import {Component, ComponentInterface, Event, EventEmitter, h, Prop} from '@stencil/core';
-import {ChatMessage} from "../../../../../../../../..";
+import {ChatMessage} from "../../../../../../../../shared/public/public.interface";
+// import {ChatMessage} from "../../../../../../../../..";
 
 
 @Component({
