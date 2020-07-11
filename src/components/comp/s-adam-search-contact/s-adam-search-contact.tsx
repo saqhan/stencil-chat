@@ -9,7 +9,7 @@ export class SAdamSearchContact implements ComponentInterface {
   /**
    * Поиск по контактам
    */
-  @Event() searchContact: EventEmitter;
+  @Event() searchContact: EventEmitter<any>;
 
   render() {
     return (

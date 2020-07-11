@@ -123,3 +123,12 @@ export interface ChatContactInterface {
   category: string,
   online: boolean
 }
+
+export interface ChatNavItems {
+  id: number;
+  icon: string;
+}
+export interface ChatLogo {
+  id: string;
+  logo: string;
+}

@@ -25,7 +25,7 @@ export class DialogCard implements ComponentInterface {
   /**
    * clock on navigate
    * */
-  @Event() clickToLink: EventEmitter;
+  @Event() clickToLink: EventEmitter<any>;
   render() {
     return (
       <div class={this.getClassForHost()}>

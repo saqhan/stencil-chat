@@ -18,12 +18,12 @@ export class SAdamPersonalHeader implements ComponentInterface {
   /**
    * клик по имени юзера в личной переписке
    */
-  @Event() clickOnUsername: EventEmitter;
+  @Event() clickOnUsername: EventEmitter<any>;
 
   /**
    * Клик по иконке поиска
    */
-  @Event() clickOnSearchMessage: EventEmitter;
+  @Event() clickOnSearchMessage: EventEmitter<any>;
 
   /**
    * Личный диалог

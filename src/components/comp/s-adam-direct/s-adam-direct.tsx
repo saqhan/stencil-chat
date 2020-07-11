@@ -22,17 +22,17 @@ export class SAdamDirect implements ComponentInterface {
   /**
    * click on navigate
    * */
-  @Event() clickToLink: EventEmitter;
+  @Event() clickToLink: EventEmitter<any>;
 
   /**
    * клик по имени юзера в личной переписке
    */
-  @Event() clickOnUsername: EventEmitter;
+  @Event() clickOnUsername: EventEmitter<any>;
 
   /**
    * Клик по иконке поиска
    */
-  @Event() clickOnSearchMessage: EventEmitter;
+  @Event() clickOnSearchMessage: EventEmitter<any>
 
   render() {
     return (
