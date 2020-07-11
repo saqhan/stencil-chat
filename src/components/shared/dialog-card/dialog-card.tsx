@@ -6,6 +6,7 @@ import {
   h,
   Prop,
 } from "@stencil/core";
+import {ChatDialogInterface} from "../interface/common.interface";
 
 @Component({
   tag: "dialog-card",
@@ -16,7 +17,7 @@ export class DialogCard implements ComponentInterface {
   /**
    * карточка диалога
    * */
-  @Prop() mess: any;
+  @Prop() mess: ChatDialogInterface;
   /**
    * карточка диалога
    * */

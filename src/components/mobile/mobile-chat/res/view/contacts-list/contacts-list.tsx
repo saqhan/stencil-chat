@@ -22,7 +22,7 @@ export class ContactsList implements ComponentInterface {
   /**
    * search contact
    * */
-  @Event() searchContact: EventEmitter<string>;
+  @Event() searchContact: EventEmitter<ChatContactInterface>;
 
   render() {
     return (

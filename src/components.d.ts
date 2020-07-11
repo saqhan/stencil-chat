@@ -6,10 +6,8 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { ChatContactInterface, } from "./index";
-import { ChatCategoryInterface, ChatMessage, } from "./components/shared/interface/common.interface";
-import { categories, dialogs, } from "./components/mobile/mobile-chat/res/view/mobile-dialogs/res/interface/common.interface";
+import { ChatCategoryInterface, ChatDialogInterface, ChatMessage, } from "./components/shared/interface/common.interface";
 import { ChatMessage as ChatMessage1, } from ".";
-import { dialogs as dialogs1, } from "./components/comp/s-adam-contacts/res/interface/common.interface";
 import { logo, navItems, } from "./components/comp/s-adam-navigate/res/interface/common.interface";
 export namespace Components {
     interface BtnWrapper {
@@ -36,7 +34,7 @@ export namespace Components {
         /**
           * карточка диалога
          */
-        "mess": any;
+        "mess": ChatDialogInterface;
         /**
           * карточка диалога
          */
@@ -97,11 +95,11 @@ export namespace Components {
         /**
           * массив категорий диалогов
          */
-        "categories": categories[];
+        "categories": ChatCategoryInterface[];
         /**
           * массив сообщений
          */
-        "dialogs": dialogs[];
+        "dialogs": ChatDialogInterface[];
     }
     interface MobilePersonal {
         /**
@@ -148,7 +146,7 @@ export namespace Components {
         /**
           * Массив с элементами диалога
          */
-        "dialogs": dialogs[];
+        "dialogs": ChatDialogInterface[];
     }
     interface SAdamCopying {
     }
@@ -212,20 +210,12 @@ export namespace Components {
           * массив с диалогами
          */
         "messages": any;
-        /**
-          * Массив данных с личным чатом
-         */
-        "personalMessage": any;
     }
     interface SSaqhanChatUsers {
         /**
           * Массив данных с диалогами
          */
         "messages": any;
-        /**
-          * Массив данных с личным чатом
-         */
-        "personalMessage": any;
     }
     interface SSaqhanChatUsersWrapper {
         "categories": any;
@@ -240,29 +230,17 @@ export namespace Components {
     }
     interface SSaqhanChatWrapper {
         /**
-          * массив данных личных сообщений
-         */
-        "MessageMock": any;
-        /**
           * array categories
          */
-        "categories": any;
-        /**
-          * Фильтр диалогов
-         */
-        "clickToCategory": ({ detail }: {
-            detail: any;
-        }) => Promise<void>;
+        "categories": ChatCategoryInterface[];
         /**
           * массив данных для диалогов
          */
-        "dialogs": any;
+        "dialogs": ChatDialogInterface[];
         /**
-          * Метод поиски диалогов
+          * массив данных личных сообщений
          */
-        "searchDialog": ({ detail }: {
-            detail: any;
-        }) => Promise<void>;
+        "messageMock": ChatMessage[];
         /**
           * Метод поиска по чату
          */
@@ -641,7 +619,7 @@ declare namespace LocalJSX {
         /**
           * search contact
          */
-        "onSearchContact"?: (event: CustomEvent<string>) => void;
+        "onSearchContact"?: (event: CustomEvent<ChatContactInterface>) => void;
     }
     interface ContactsListBody {
         "contacts"?: any;
@@ -664,7 +642,7 @@ declare namespace LocalJSX {
         /**
           * карточка диалога
          */
-        "mess"?: any;
+        "mess"?: ChatDialogInterface;
         /**
           * clock on navigate
          */
@@ -746,20 +724,20 @@ declare namespace LocalJSX {
         /**
           * массив категорий диалогов
          */
-        "categories"?: categories[];
+        "categories"?: ChatCategoryInterface[];
         /**
           * массив сообщений
          */
-        "dialogs"?: dialogs[];
+        "dialogs"?: ChatDialogInterface[];
         /**
           * clock on Category
          */
-        "onClickToCategory"?: (event: CustomEvent<string>) => void;
+        "onClickToCategory"?: (event: CustomEvent<ChatCategoryInterface>) => void;
         /**
           * clock on clickToLink
          */
         "onClickToLink"?: (event: CustomEvent<string>) => void;
-        "onSearchContact"?: (event: CustomEvent<string>) => void;
+        "onSearchContact"?: (event: CustomEvent<ChatCategoryInterface>) => void;
     }
     interface MobilePersonal {
         /**
@@ -832,7 +810,7 @@ declare namespace LocalJSX {
         /**
           * Массив с элементами диалога
          */
-        "dialogs"?: dialogs[];
+        "dialogs"?: ChatDialogInterface[];
         /**
           * clock on Category
          */
@@ -950,20 +928,12 @@ declare namespace LocalJSX {
           * массив с диалогами
          */
         "messages"?: any;
-        /**
-          * Массив данных с личным чатом
-         */
-        "personalMessage"?: any;
     }
     interface SSaqhanChatUsers {
         /**
           * Массив данных с диалогами
          */
         "messages"?: any;
-        /**
-          * Массив данных с личным чатом
-         */
-        "personalMessage"?: any;
     }
     interface SSaqhanChatUsersWrapper {
         "categories"?: any;
@@ -981,17 +951,17 @@ declare namespace LocalJSX {
     }
     interface SSaqhanChatWrapper {
         /**
-          * массив данных личных сообщений
-         */
-        "MessageMock"?: any;
-        /**
           * array categories
          */
-        "categories"?: any;
+        "categories"?: ChatCategoryInterface[];
         /**
           * массив данных для диалогов
          */
-        "dialogs"?: any;
+        "dialogs"?: ChatDialogInterface[];
+        /**
+          * массив данных личных сообщений
+         */
+        "messageMock"?: ChatMessage[];
         /**
           * Заголовок для чата
          */
