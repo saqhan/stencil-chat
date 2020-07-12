@@ -646,10 +646,6 @@ declare namespace LocalJSX {
          */
         "onClickToDialog"?: (event: CustomEvent<ChatClickToLinkEmit>) => void;
         /**
-          * clock on navigate
-         */
-        "onClickToLink"?: (event: CustomEvent<ChatClickToLinkEmit>) => void;
-        /**
           * карточка диалога
          */
         "theme"?: "comp" | "mobile";
