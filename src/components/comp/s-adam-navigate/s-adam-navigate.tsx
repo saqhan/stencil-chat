@@ -1,5 +1,5 @@
 import {Component, ComponentInterface, h, Prop} from '@stencil/core';
-import {ChatLogo} from "../../../index";
+import {ChatLogo, ChatNavItems} from "../../../index";
 
 @Component({
   tag: 's-adam-navigate',
@@ -15,7 +15,7 @@ export class SAdamNavigate implements ComponentInterface {
   /**
    * Иконки навигации
    */
-  @Prop() navItems: any;
+  @Prop() navItems: ChatNavItems[] = [];
 
   render() {
     return (

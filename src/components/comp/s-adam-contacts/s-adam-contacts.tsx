@@ -26,19 +26,19 @@ export class SAdamContacts implements ComponentInterface {
   @Prop() categories: ChatCategoryInterface[] = [];
 
   /**
-   * Событие для переключения пустой страницы на личный чат
+   * Cобытие клика по диалогу
    */
-  @Event() clickToLink: EventEmitter<any>;
+  @Event() clickToDialog: EventEmitter<ChatDialogInterface>
 
   /**
-   * search contact
+   * Поиск по контактам
    * */
-  @Event() searchContact: EventEmitter<any>;
+  @Event() searchDialogs: EventEmitter<ChatDialogInterface>;
 
   /**
    * clock on Category
    * */
-  @Event() clickToCategory: EventEmitter<any>;
+  @Event() clickToCategory: EventEmitter<ChatCategoryInterface>;
 
   render() {
     return (

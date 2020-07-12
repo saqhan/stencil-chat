@@ -1,5 +1,5 @@
 import {Component, ComponentInterface, h, Prop} from '@stencil/core';
-import {ChatNavItems} from "../../../../../shared/interface/common.interface";
+import {ChatNavItems} from "../../../../../../index";
 
 @Component({
   tag: 's-adam-nav-item',

@@ -144,8 +144,13 @@ export interface ChatDialogInterface {
 }
 
 export interface ChatLogo {
+  id: string;
+  logo: string;
+}
+
+export interface ChatNavItems {
   id: number;
-  logo: string
+  icon: string;
 }
 
 export enum ChatLinkTypeEnum {

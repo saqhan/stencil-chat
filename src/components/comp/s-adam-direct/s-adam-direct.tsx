@@ -20,19 +20,14 @@ export class SAdamDirect implements ComponentInterface {
   @Prop() message: ChatMessage[] = [];
 
   /**
-   * click on navigate
-   * */
-  @Event() clickToLink: EventEmitter<any>;
-
-  /**
    * клик по имени юзера в личной переписке
    */
-  @Event() clickOnUsername: EventEmitter<any>;
+  @Event() visibleUserProfile: EventEmitter<void>;
 
   /**
    * Клик по иконке поиска
    */
-  @Event() clickOnSearchMessage: EventEmitter<any>
+  @Event() searchPersonalMessage: EventEmitter<ChatMessage>;
 
   render() {
     return (

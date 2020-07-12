@@ -5,8 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ChatCategoryInterface, ChatClickToLinkEmit, ChatContactInterface, ChatDialogInterface, ChatLogo, ChatMessage, } from "./index";
-import { ChatNavItems, } from "./components/shared/interface/common.interface";
+import { ChatCategoryInterface, ChatClickToLinkEmit, ChatContactInterface, ChatDialogInterface, ChatLogo, ChatMessage, ChatNavItems, } from "./index";
 export namespace Components {
     interface BtnWrapper {
         "showChat": any;
@@ -171,7 +170,7 @@ export namespace Components {
         /**
           * Иконки навигации
          */
-        "navItems": any;
+        "navItems": ChatNavItems[];
     }
     interface SAdamNoChat {
     }
@@ -856,15 +855,15 @@ declare namespace LocalJSX {
         /**
           * clock on Category
          */
-        "onClickToCategory"?: (event: CustomEvent<any>) => void;
+        "onClickToCategory"?: (event: CustomEvent<ChatCategoryInterface>) => void;
         /**
-          * Событие для переключения пустой страницы на личный чат
+          * Cобытие клика по диалогу
          */
-        "onClickToLink"?: (event: CustomEvent<any>) => void;
+        "onClickToDialog"?: (event: CustomEvent<ChatDialogInterface>) => void;
         /**
-          * search contact
+          * Поиск по контактам
          */
-        "onSearchContact"?: (event: CustomEvent<any>) => void;
+        "onSearchDialogs"?: (event: CustomEvent<ChatDialogInterface>) => void;
     }
     interface SAdamCopying {
     }
@@ -876,15 +875,11 @@ declare namespace LocalJSX {
         /**
           * Клик по иконке поиска
          */
-        "onClickOnSearchMessage"?: (event: CustomEvent<any>) => void;
+        "onSearchPersonalMessage"?: (event: CustomEvent<ChatMessage>) => void;
         /**
           * клик по имени юзера в личной переписке
          */
-        "onClickOnUsername"?: (event: CustomEvent<any>) => void;
-        /**
-          * click on navigate
-         */
-        "onClickToLink"?: (event: CustomEvent<any>) => void;
+        "onVisibleUserProfile"?: (event: CustomEvent<void>) => void;
     }
     interface SAdamNavItem {
         /**
@@ -900,7 +895,7 @@ declare namespace LocalJSX {
         /**
           * Иконки навигации
          */
-        "navItems"?: any;
+        "navItems"?: ChatNavItems[];
     }
     interface SAdamNoChat {
     }
@@ -912,11 +907,11 @@ declare namespace LocalJSX {
         /**
           * Клик по иконке поиска
          */
-        "onClickOnSearchMessage"?: (event: CustomEvent<any>) => void;
+        "onSearchPersonalMessage"?: (event: CustomEvent<ChatMessage>) => void;
         /**
           * клик по имени юзера в личной переписке
          */
-        "onClickOnUsername"?: (event: CustomEvent<any>) => void;
+        "onVisibleUserProfile"?: (event: CustomEvent<void>) => void;
     }
     interface SAdamProfile {
         "onClickToLink"?: (event: CustomEvent<any>) => void;
@@ -929,7 +924,7 @@ declare namespace LocalJSX {
         /**
           * Поиск по контактам
          */
-        "onSearchContact"?: (event: CustomEvent<any>) => void;
+        "onSearchDialogs"?: (event: CustomEvent<ChatDialogInterface>) => void;
     }
     interface SSaqhanChatAddQuestion {
     }

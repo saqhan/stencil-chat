@@ -15,15 +15,6 @@ import {ChatMessage} from "../../../index";
   shadow: false,
 })
 export class SAdamPersonalHeader implements ComponentInterface {
-  /**
-   * клик по имени юзера в личной переписке
-   */
-  @Event() clickOnUsername: EventEmitter<any>;
-
-  /**
-   * Клик по иконке поиска
-   */
-  @Event() clickOnSearchMessage: EventEmitter<any>;
 
   /**
    * Личный диалог
@@ -31,31 +22,41 @@ export class SAdamPersonalHeader implements ComponentInterface {
   @Prop() message: ChatMessage[] = [];
 
   /**
-   * Стейт для переключения окна поиска сообщений
+   * клик по имени юзера в личной переписке
    */
-  @State() searchWisible = false;
+  @Event() visibleUserProfile: EventEmitter<void>;
 
   /**
-   * Переключатель стейта
+   * Клик по иконке поиска
    */
-  public toggleSearchWisible() {
-    this.searchWisible = !this.searchWisible;
-  }
+  @Event() searchPersonalMessage: EventEmitter<ChatMessage>;
+
+  /**
+   * Стейт для переключения окна поиска сообщений
+   */
+  @State() searchVisible = false;
 
   render() {
     return <div>{this.toggleHeader()}</div>;
   }
 
   /**
-   * header or search block
+   * Переключатель стейта
+   */
+  public toggleSearchVisible() {
+    this.searchVisible = !this.searchVisible;
+  }
+
+  /**
+   * Переключение шапки в личной переписке
    */
   public toggleHeader() {
-    if (this.searchWisible === false) {
+    if (this.searchVisible === false) {
       return (
         <div class="header">
           <div
             class="search-message"
-            onClick={() => this.toggleSearchWisible()}
+            onClick={() => this.toggleSearchVisible()}
           >
             <i class="fas fa-search hover-link"></i>
           </div>
@@ -65,9 +66,7 @@ export class SAdamPersonalHeader implements ComponentInterface {
           </div>
           <div
             class="settings"
-            onClick={(item) =>
-              this.clickOnUsername.emit({ place: "userName", item })
-            }
+            onClick={() => this.visibleUserProfileHandler()}
           >
             <i class="fas fa-cog hover-link"></i>
           </div>
@@ -79,10 +78,10 @@ export class SAdamPersonalHeader implements ComponentInterface {
           <div class="search-message-wrapper">
             <i
               class="fas fa-arrow-left hover-link"
-              onClick={() => this.toggleSearchWisible()}
+              onClick={() => this.toggleSearchVisible()}
             ></i>
             <input
-              onInput={(e) => this.clickOnSearchMessage.emit(e)}
+              onInput={(e) => this.searchPersonalMessageHandler(e)}
               type="text"
               placeholder="Search messages"
             />
@@ -93,7 +92,7 @@ export class SAdamPersonalHeader implements ComponentInterface {
   }
 
   /**
-   * get name user
+   * Вывод имени юзера в шапке личной переписки
    * */
   public getNameUser() {
     let name = "";
@@ -105,5 +104,20 @@ export class SAdamPersonalHeader implements ComponentInterface {
     });
 
     return name;
+  }
+
+  /**
+   * Показать личный профиль юзера
+   */
+  public visibleUserProfileHandler() {
+      this.visibleUserProfile.emit()
+  }
+
+  /**
+   * Поиск сообщений в личной переписке
+   * @param e
+   */
+  public searchPersonalMessageHandler(e) {
+    this.searchPersonalMessage.emit(e)
   }
 }
