@@ -36,6 +36,14 @@ export class MobileDialogs implements ComponentInterface {
    * clock on Category
    * */
   @Event() searchContact: EventEmitter<ChatCategoryInterface>;
+  /**
+   * clock on searchDialogs
+   * */
+  @Event() searchDialogs: EventEmitter<ChatDialogInterface>;
+  /**
+   * click to add dialog
+   * */
+  @Event() clickToAddDialog: EventEmitter<string>;
 
   render() {
     return (

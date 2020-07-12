@@ -53,6 +53,21 @@ export class MobileChat implements ComponentInterface {
     console.log("searchContact", e);
   }
 
+  /**
+   * Поиск среди диалогов
+   * */
+  public searchDialogs(e) {
+    console.log("searchDialogs", e);
+  }
+
+  /**
+   * click to add dialog
+   * */
+
+  public clickToAddDialog(){
+    console.log('clickToAddDialog');
+  }
+
   render() {
     return <div>{this.getContent("dialogs")}</div>;
   }
@@ -69,9 +84,11 @@ export class MobileChat implements ComponentInterface {
       case "dialogs":
         return (
           <mobile-dialogs
+            onClickToAddDialog={() => this.clickToAddDialog()}
             onClickToLink={(item) => this.clickToLink(item)}
             onClickToCategory={(item) => this.clickToCategory(item)}
             onSearchContact={(detail) => this.searchContact({ detail })}
+            onSearchDialogs={(detail) => this.searchDialogs({ detail })}
             categories={categories}
             dialogs={this.dialogs}
           ></mobile-dialogs>

@@ -681,10 +681,18 @@ declare namespace LocalJSX {
          */
         "categories"?: ChatCategoryInterface[];
         /**
+          * click to add dialog
+         */
+        "onClickToAddDialog"?: (event: CustomEvent<void>) => void;
+        /**
           * clock on clickToLink
          */
         "onClickToLink"?: (event: CustomEvent<ChatClickToLinkEmit>) => void;
         "onSearchContact"?: (event: CustomEvent<string>) => void;
+        /**
+          * clock on searchDialogs
+         */
+        "onSearchDialogs"?: (event: CustomEvent<ChatDialogInterface>) => void;
     }
     interface MessageFrom {
         /**
@@ -728,6 +736,10 @@ declare namespace LocalJSX {
          */
         "dialogs"?: ChatDialogInterface[];
         /**
+          * click to add dialog
+         */
+        "onClickToAddDialog"?: (event: CustomEvent<string>) => void;
+        /**
           * clock on Category
          */
         "onClickToCategory"?: (event: CustomEvent<ChatCategoryInterface>) => void;
@@ -739,6 +751,10 @@ declare namespace LocalJSX {
           * clock on Category
          */
         "onSearchContact"?: (event: CustomEvent<ChatCategoryInterface>) => void;
+        /**
+          * clock on searchDialogs
+         */
+        "onSearchDialogs"?: (event: CustomEvent<ChatDialogInterface>) => void;
     }
     interface MobilePersonal {
         /**

@@ -7,7 +7,12 @@ import {
   EventEmitter,
   State,
 } from "@stencil/core";
-import {ChatCategoryInterface, ChatClickToLinkEmit, ChatLinkTypeEnum} from "../../../../../../../../../index";
+import {
+  ChatCategoryInterface,
+  ChatClickToLinkEmit,
+  ChatDialogInterface,
+  ChatLinkTypeEnum
+} from "../../../../../../../../../index";
 
 @Component({
   tag: "m-chat-header",
@@ -29,7 +34,10 @@ export class MChatHeader implements ComponentInterface {
    *
    * */
   @Event() searchContact: EventEmitter<string>;
-
+  /**
+   * clock on searchDialogs
+   * */
+  @Event() searchDialogs: EventEmitter<ChatDialogInterface>;
   /**
    *
    * */
@@ -42,6 +50,11 @@ export class MChatHeader implements ComponentInterface {
   public showModal() {
     return this.isShowModal = !this.isShowModal;
   }
+  /**
+   * click to add dialog
+   * */
+  @Event() clickToAddDialog: EventEmitter<void>;
+
   render() {
     return (
       <div class="m-chat-header">
@@ -56,14 +69,14 @@ export class MChatHeader implements ComponentInterface {
           <span class="title">Messages</span>
           <span
             class="add custom-link"
-            onClick={() => this.clickToLinkHandler(ChatLinkTypeEnum.addDialog) }
+            onClick={() => this.clickToAddDialog.emit() }
           >
             <i class="fas fa-plus-circle"></i>
           </span>
         </div>
         { this.isShowModal
           ? <dialog-categories theme={'mobile'} categories={this.categories} ></dialog-categories>
-          : <div class="modal-wrapper" ><input type="text" placeholder="search" onInput={(e: any) => this.searchContactHandler(e)} /></div> }
+          : <div class="modal-wrapper" ><input type="text" placeholder="search" onInput={(e: any) => this.searchDialogsHandler(e)} /></div> }
       </div>
     );
   }
@@ -75,6 +88,18 @@ export class MChatHeader implements ComponentInterface {
     // @ts-ignore
     this.searchContact.emit(event.target.value)
   }
+
+  /**
+   * search Dialogs
+   * */
+  public searchDialogsHandler (
+    event: InputEvent
+  )
+  {
+    // @ts-ignore
+    this.searchDialogs.emit(event.target.value)
+  }
+
 
   public clickToLinkHandler (
     place: ChatLinkTypeEnum
