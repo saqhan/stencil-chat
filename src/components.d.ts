@@ -18,13 +18,13 @@ export namespace Components {
         /**
           * Принимаем контакт
          */
-        "contact": any;
+        "contact": ChatContactInterface;
     }
     interface ContactsList {
         "contacts": ChatContactInterface[];
     }
     interface ContactsListBody {
-        "contacts": any;
+        "contacts": ChatContactInterface[];
     }
     interface ContactsListHeader {
     }
@@ -605,35 +605,47 @@ declare namespace LocalJSX {
         /**
           * Принимаем контакт
          */
-        "contact"?: any;
+        "contact"?: ChatContactInterface;
         /**
           * clock on navigate
          */
-        "onClickToLink"?: (event: CustomEvent<ChatContactInterface>) => void;
+        "onClickToContact"?: (event: CustomEvent<ChatContactInterface>) => void;
     }
     interface ContactsList {
         "contacts"?: ChatContactInterface[];
         /**
+          * click to click To Dialog
+         */
+        "onClickToContact"?: (event: CustomEvent<ChatContactInterface>) => void;
+        /**
           * clock on clickToLink
          */
         "onClickToLink"?: (event: CustomEvent<string>) => void;
+        /**
+          * click to click To Show Contacts
+         */
+        "onClickToShowContacts"?: (event: CustomEvent<void>) => void;
+        /**
+          * click to click To Show Dialogs
+         */
+        "onClickToShowDialogs"?: (event: CustomEvent<void>) => void;
+        /**
+          * click to click To Show MenuBar
+         */
+        "onClickToShowMenuBar"?: (event: CustomEvent<void>) => void;
         /**
           * search contact
          */
         "onSearchContact"?: (event: CustomEvent<ChatContactInterface>) => void;
     }
     interface ContactsListBody {
-        "contacts"?: any;
-        /**
-          * clock on clickToLink
-         */
-        "onClickToLink"?: (event: CustomEvent<any>) => void;
+        "contacts"?: ChatContactInterface[];
     }
     interface ContactsListHeader {
         /**
           * clock on clickToLink
          */
-        "onClickToLink"?: (event: CustomEvent<any>) => void;
+        "onClickToShowDialogs"?: (event: CustomEvent<any>) => void;
         /**
           * search contact
          */
@@ -778,10 +790,6 @@ declare namespace LocalJSX {
          */
         "messageMock"?: ChatMessage[];
         /**
-          * clock on navigate
-         */
-        "onClickToLink"?: (event: CustomEvent<string>) => void;
-        /**
           * click to show Dialogs
          */
         "onClickToShowDialogs"?: (event: CustomEvent<string>) => void;
@@ -789,10 +797,6 @@ declare namespace LocalJSX {
           * click to user profile
          */
         "onClickToUserProfile"?: (event: CustomEvent<string>) => void;
-        /**
-          * Поиск среди контактов
-         */
-        "onSearchContact"?: (event: CustomEvent<string>) => void;
         /**
           * search for private messages
          */

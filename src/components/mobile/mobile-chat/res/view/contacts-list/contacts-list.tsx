@@ -23,6 +23,22 @@ export class ContactsList implements ComponentInterface {
    * search contact
    * */
   @Event() searchContact: EventEmitter<ChatContactInterface>;
+    /**
+   * click to click To Show Dialogs
+   * */
+  @Event() clickToShowDialogs: EventEmitter<void>;
+    /**
+   * click to click To Show Contacts
+   * */
+  @Event() clickToShowContacts: EventEmitter<void>;
+    /**
+   * click to click To Show MenuBar
+   * */
+  @Event() clickToShowMenuBar: EventEmitter<void>;
+  /**
+   * click to click To Dialog
+   * */
+  @Event() clickToContact: EventEmitter<ChatContactInterface>;
 
   render() {
     return (

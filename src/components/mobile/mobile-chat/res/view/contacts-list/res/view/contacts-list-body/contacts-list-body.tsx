@@ -1,16 +1,14 @@
-import {Component, ComponentInterface, Event, EventEmitter, h, Prop} from '@stencil/core';
+import { Component, ComponentInterface, h, Prop } from "@stencil/core";
+import { ChatContactInterface } from "../../../../../../../../../index";
 
 @Component({
-  tag: 'contacts-list-body',
-  styleUrl: 'contacts-list-body.css',
+  tag: "contacts-list-body",
+  styleUrl: "contacts-list-body.css",
   shadow: true,
 })
 export class ContactsListBody implements ComponentInterface {
-  @Prop() contacts: any;
-  /**
-   * clock on clickToLink
-   * */
-  @Event() clickToLink: EventEmitter;
+  @Prop() contacts: ChatContactInterface[];
+
   render() {
     return (
       <div class="contacts-list-body">
@@ -18,7 +16,6 @@ export class ContactsListBody implements ComponentInterface {
       </div>
     );
   }
-
 }
 /**
  * Компонент высшего порядка для передачи данных о контактах
