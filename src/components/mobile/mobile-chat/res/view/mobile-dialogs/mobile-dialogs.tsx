@@ -6,7 +6,10 @@ import {
   h,
   Prop,
 } from "@stencil/core";
-import {ChatCategoryInterface, ChatDialogInterface} from "../../../../../../index";
+import {
+  ChatCategoryInterface,
+  ChatDialogInterface,
+} from "../../../../../../index";
 
 @Component({
   tag: "mobile-dialogs",
@@ -25,17 +28,10 @@ export class MobileDialogs implements ComponentInterface {
   @Prop() categories: ChatCategoryInterface[];
 
   /**
-   * clock on clickToLink
-   * */
-  @Event() clickToLink: EventEmitter<string>;
-  /**
    * clock on Category
    * */
   @Event() clickToCategory: EventEmitter<ChatCategoryInterface>;
-  /**
-   * clock on Category
-   * */
-  @Event() searchContact: EventEmitter<ChatCategoryInterface>;
+
   /**
    * clock on searchDialogs
    * */
@@ -49,6 +45,18 @@ export class MobileDialogs implements ComponentInterface {
    * click to dialog
    * */
   @Event() clickToDialog: EventEmitter<string>;
+  /**
+   * click to click To Show Dialogs
+   * */
+  @Event() clickToShowDialogs: EventEmitter<void>;
+  /**
+   * click to click To Show Contacts
+   * */
+  @Event() clickToShowContacts: EventEmitter<void>;
+  /**
+   * click to click To Show MenuBar
+   * */
+  @Event() clickToShowMenuBar: EventEmitter<void>;
 
   render() {
     return (

@@ -7,6 +7,7 @@ import {
   Prop,
   State,
 } from "@stencil/core";
+import { ChatMessage } from "../../../../../../../../../index";
 
 @Component({
   tag: "personal-header",
@@ -17,13 +18,21 @@ export class PersonalHeader implements ComponentInterface {
   /**
    * array data personal messages
    * */
-  @Prop() messageMock: any;
+  @Prop() messageMock: ChatMessage[];
   /**
    * clock on navigate
    * */
   @Event() clickToLink: EventEmitter;
+  @Event() clickToUserProfile: EventEmitter;
   @Event() searchContact: EventEmitter;
-
+  /**
+   * search for private messages
+   * */
+  @Event() searchPersonalMessages: EventEmitter;
+  /**
+   * click to show user profile
+   * */
+  @Event() clickToShowDialogs: EventEmitter<string>;
   @State() isShowDropDown = false;
   @State() isPersonalMess = true;
 
@@ -35,15 +44,13 @@ export class PersonalHeader implements ComponentInterface {
             <div class="header-nav">
               <span
                 class="custom-link"
-                onClick={() => this.clickToLink.emit({ place: "showDialogs" })}
+                onClick={() => this.clickToShowDialogsHandler()}
               >
                 <i class="fas fa-arrow-left"></i>
               </span>
               <span
                 class="custom-link user-name-personal"
-                onClick={() =>
-                  this.clickToLink.emit({ place: "user-name-personal" })
-                }
+                onClick={() => this.clickToUserProfileHandler()}
               >
                 {this.getNameUser()}
               </span>
@@ -93,9 +100,19 @@ export class PersonalHeader implements ComponentInterface {
           </div>
         ) : (
           <div class="search-wrapper">
-             <div class="user-name-personal" >{this.getNameUser()}</div>
+            <div class="user-name-personal">{this.getNameUser()}</div>
             <div class="searchPersonalmess">
-              <input type="text" placeholder="search" onInput={(event) => this.searchContact.emit(event)} /> <span onClick={()=> this.showInputSearchPersonalMess() } class="cancel-search">cancel</span>
+              <input
+                type="text"
+                placeholder="search"
+                onInput={(event) => this.searchPersonalMessagesHandler(event)}
+              />{" "}
+              <span
+                onClick={() => this.showInputSearchPersonalMess()}
+                class="cancel-search"
+              >
+                cancel
+              </span>
             </div>
           </div>
         )}
@@ -109,19 +126,38 @@ export class PersonalHeader implements ComponentInterface {
     let name = "";
 
     this.messageMock.forEach((item) => {
-        if (name.indexOf(item.sender.name) === -1) {
-          name = item.sender.name;
-        }
+      if (name.indexOf(item.sender.name) === -1) {
+        name = item.sender.name;
+      }
     });
 
     return name;
   }
 
-
-
   public showDrop = () => (this.isShowDropDown = !this.isShowDropDown);
+
   public showInputSearchPersonalMess() {
     this.isPersonalMess = !this.isPersonalMess;
     this.isShowDropDown = false;
+  }
+
+  /**
+   * show Dialogs
+   * */
+  public clickToShowDialogsHandler() {
+    this.clickToShowDialogs.emit();
+  }
+  /**
+   * click to show user profile
+   * */
+  public clickToUserProfileHandler() {
+    this.clickToUserProfile.emit();
+  }
+
+  /**
+   * search for private messages
+   * */
+  public searchPersonalMessagesHandler(event){
+    this.searchPersonalMessages.emit(event)
   }
 }

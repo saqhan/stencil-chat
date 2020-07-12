@@ -9,9 +9,7 @@ import {
 } from "@stencil/core";
 import {
   ChatCategoryInterface,
-  ChatClickToLinkEmit,
   ChatDialogInterface,
-  ChatLinkTypeEnum
 } from "../../../../../../../../../index";
 
 @Component({
@@ -26,15 +24,6 @@ export class MChatHeader implements ComponentInterface {
   @Prop() categories: ChatCategoryInterface[];
 
   /**
-   * clock on clickToLink
-   * */
-  @Event() clickToLink: EventEmitter<ChatClickToLinkEmit>;
-
-  /**
-   *
-   * */
-  @Event() searchContact: EventEmitter<string>;
-  /**
    * clock on searchDialogs
    * */
   @Event() searchDialogs: EventEmitter<ChatDialogInterface>;
@@ -48,7 +37,7 @@ export class MChatHeader implements ComponentInterface {
    * */
 
   public showModal() {
-    return this.isShowModal = !this.isShowModal;
+    return (this.isShowModal = !this.isShowModal);
   }
   /**
    * click to add dialog
@@ -58,57 +47,51 @@ export class MChatHeader implements ComponentInterface {
   render() {
     return (
       <div class="m-chat-header">
-
         <div class="title-wrapper">
-          <span
-            class="search custom-link"
-            onClick={() => this.showModal()}
-          >
-            { this.isShowModal ? <i class="fas fa-search"></i> : <i class="fas fa-times"></i> }
+          <span class="search custom-link" onClick={() => this.showModal()}>
+            {this.isShowModal ? (
+              <i class="fas fa-search"></i>
+            ) : (
+              <i class="fas fa-times"></i>
+            )}
           </span>
           <span class="title">Messages</span>
           <span
             class="add custom-link"
-            onClick={() => this.clickToAddDialog.emit() }
+            onClick={() => this.clickToAddDialogHandler()}
           >
             <i class="fas fa-plus-circle"></i>
           </span>
         </div>
-        { this.isShowModal
-          ? <dialog-categories theme={'mobile'} categories={this.categories} ></dialog-categories>
-          : <div class="modal-wrapper" ><input type="text" placeholder="search" onInput={(e: any) => this.searchDialogsHandler(e)} /></div> }
+        {this.isShowModal ? (
+          <dialog-categories
+            theme={"mobile"}
+            categories={this.categories}
+          ></dialog-categories>
+        ) : (
+          <div class="modal-wrapper">
+            <input
+              type="text"
+              placeholder="search"
+              onInput={(e: any) => this.searchDialogsHandler(e)}
+            />
+          </div>
+        )}
       </div>
     );
-  }
-
-  public searchContactHandler (
-    event: InputEvent
-  )
-  {
-    // @ts-ignore
-    this.searchContact.emit(event.target.value)
   }
 
   /**
    * search Dialogs
    * */
-  public searchDialogsHandler (
-    event: InputEvent
-  )
-  {
+  public searchDialogsHandler(event: InputEvent) {
     // @ts-ignore
-    this.searchDialogs.emit(event.target.value)
+    this.searchDialogs.emit(event.target.value);
   }
-
-
-  public clickToLinkHandler (
-    place: ChatLinkTypeEnum
-  )
-  {
-    this.clickToLink.emit({ place })
+  /**
+   * Add dialog method
+   * */
+  public clickToAddDialogHandler() {
+    this.clickToAddDialog.emit();
   }
-
-
-
-
 }

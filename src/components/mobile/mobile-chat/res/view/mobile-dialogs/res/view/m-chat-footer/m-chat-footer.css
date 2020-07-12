@@ -11,4 +11,13 @@
 .m-chat-footer span i {
   color: #979eab;
   font-size: 18px;
+  transition: 0.3s ease;
+}
+
+.m-chat-footer span {
+  cursor: pointer;
+}
+
+.m-chat-footer span i:hover {
+  color: rgb(87, 128, 247);
 }
