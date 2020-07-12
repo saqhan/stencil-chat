@@ -1,5 +1,11 @@
 import { Component, ComponentInterface, h, State } from "@stencil/core";
-import {logo, navItems, dialogs, MessageMock, categories} from "../../../utils/mock";
+import {
+  logo,
+  navItems,
+  dialogs,
+  MessageMock,
+  categories,
+} from "../../../utils/mock";
 
 @Component({
   tag: "s-adam-chat",
@@ -17,21 +23,7 @@ export class SAdamChat implements ComponentInterface {
    */
   @State() profileVisible = false;
 
-  /**
-   * Метод для переключения на личный чат
-   * @param detail
-   */
-  public toggleChat({ detail }) {
-    if (detail.place === "showPersonalDialog") {
-      this.dialogVisible = "showChat";
-    }
-  }
 
-  public toggleProfile({ detail }) {
-    if (detail.place === "userName") {
-      this.profileVisible = !this.profileVisible;
-    }
-  }
 
   render() {
     return (
@@ -47,13 +39,15 @@ export class SAdamChat implements ComponentInterface {
               </div>
               <div class="col-3">
                 <s-adam-contacts
-                  onSearchContact={(item) => this.searchContact(item)}
-                  onClickToLink={({ detail }) => {
-                    this.toggleChat({ detail });
+                  onSearchDialogs={() => this.searchDialogs()}
+                  onClickToDialog={() => {
+                    this.toggleChat();
                   }}
                   dialogs={dialogs}
                   categories={categories}
-                  onClickToCategory={({detail}) => this.clickToCategory({detail})}
+                  onClickToCategory={({ detail }) =>
+                    this.clickToCategory({ detail })
+                  }
                 ></s-adam-contacts>
               </div>
               <div class="col white-col">
@@ -78,19 +72,19 @@ export class SAdamChat implements ComponentInterface {
       case "showChat":
         return (
           <s-adam-direct
-            onClickToLink={({ detail }) => this.clickToLink({ detail })}
-            onClickOnUsername={(item) => {
-              this.toggleProfile(item);
+            onVisibleUserProfile={() => {
+              this.visibleProfile();
             }}
-            onClickOnSearchMessage={({ detail }) => this.searchContact({ detail })}
-
+            onSearchPersonalMessage={() =>
+              this.searchPersonalMessages()
+            }
             message={MessageMock}
           ></s-adam-direct>
         );
       case "noChat":
         return <s-adam-no-chat></s-adam-no-chat>;
-              //Компонент с версткой копирования
-              // <s-adam-copying></s-adam-copying>
+      //Компонент с версткой копирования
+      // <s-adam-copying></s-adam-copying>
     }
   }
 
@@ -111,10 +105,30 @@ export class SAdamChat implements ComponentInterface {
   public clickToLink({ detail }) {
     console.log(detail);
   }
-  public searchContact({detail}) {
-    console.log('searchContact', detail)
+  public searchDialogs() {
+    console.log("searchDialogs");
   }
-  public clickToCategory({detail}) {
-    console.log('clickToCategory', detail)
+  public searchPersonalMessages() {
+    console.log("searchPersonalMessages");
+  }
+  public clickToCategory({ detail }) {
+    console.log("clickToCategory", detail);
+  }
+
+
+  /**
+   * Метод для переключения на личный чат
+   * @param detail
+   */
+  public toggleChat() {
+    this.dialogVisible = "showChat";
+  }
+
+  /**
+   * Метод для открытия и закрытия личного профиля
+   * @param detail
+   */
+  public visibleProfile() {
+    this.profileVisible = !this.profileVisible;
   }
 }

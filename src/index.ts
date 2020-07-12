@@ -143,6 +143,16 @@ export interface ChatDialogInterface {
   online : boolean;
 }
 
+export interface ChatLogo {
+  id: string;
+  logo: string;
+}
+
+export interface ChatNavItems {
+  id: number;
+  icon: string;
+}
+
 export enum ChatLinkTypeEnum {
   showFile = 'showFile',
   showDialogs = 'showDialogs',
