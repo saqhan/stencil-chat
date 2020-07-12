@@ -38,12 +38,17 @@ export class MobileChat implements ComponentInterface {
   public clickToLink({ detail }) {
     console.log(detail);
   }
-
+  /**
+   * click to Link
+   * */
+  public clickToDialog({detail}) {
+    console.log('clickToDialog',detail.data);
+  }
   /**
    * Click to category filter
    * */
   public clickToCategory({ detail }) {
-    console.log(detail);
+    console.log('clickToCategory',detail);
   }
 
   /**
@@ -86,6 +91,7 @@ export class MobileChat implements ComponentInterface {
           <mobile-dialogs
             onClickToAddDialog={() => this.clickToAddDialog()}
             onClickToLink={(item) => this.clickToLink(item)}
+            onClickToDialog={(item) => this.clickToDialog(item)}
             onClickToCategory={(item) => this.clickToCategory(item)}
             onSearchContact={(detail) => this.searchContact({ detail })}
             onSearchDialogs={(detail) => this.searchDialogs({ detail })}

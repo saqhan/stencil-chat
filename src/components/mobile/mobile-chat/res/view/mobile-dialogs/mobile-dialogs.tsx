@@ -45,6 +45,11 @@ export class MobileDialogs implements ComponentInterface {
    * */
   @Event() clickToAddDialog: EventEmitter<string>;
 
+  /**
+   * click to dialog
+   * */
+  @Event() clickToDialog: EventEmitter<string>;
+
   render() {
     return (
       <div class="m-chat-wrapper">

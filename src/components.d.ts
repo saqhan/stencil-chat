@@ -642,6 +642,10 @@ declare namespace LocalJSX {
          */
         "mess"?: ChatDialogInterface;
         /**
+          * clock on dialog
+         */
+        "onClickToDialog"?: (event: CustomEvent<ChatClickToLinkEmit>) => void;
+        /**
           * clock on navigate
          */
         "onClickToLink"?: (event: CustomEvent<ChatClickToLinkEmit>) => void;
@@ -743,6 +747,10 @@ declare namespace LocalJSX {
           * clock on Category
          */
         "onClickToCategory"?: (event: CustomEvent<ChatCategoryInterface>) => void;
+        /**
+          * click to dialog
+         */
+        "onClickToDialog"?: (event: CustomEvent<string>) => void;
         /**
           * clock on clickToLink
          */

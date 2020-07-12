@@ -152,6 +152,6 @@ export enum ChatLinkTypeEnum {
 }
 
 export interface ChatClickToLinkEmit {
-  place: ChatLinkTypeEnum,
+  place?: ChatLinkTypeEnum,
   data?: ChatDialogInterface,
 }
