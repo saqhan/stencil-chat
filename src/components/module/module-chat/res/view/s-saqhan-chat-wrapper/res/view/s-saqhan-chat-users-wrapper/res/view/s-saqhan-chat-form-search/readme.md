@@ -7,17 +7,17 @@
 
 ## Properties
 
-| Property     | Attribute    | Description | Type  | Default     |
-| ------------ | ------------ | ----------- | ----- | ----------- |
-| `categories` | `categories` |             | `any` | `undefined` |
+| Property     | Attribute | Description      | Type                      | Default     |
+| ------------ | --------- | ---------------- | ------------------------- | ----------- |
+| `categories` | --        | array categories | `ChatCategoryInterface[]` | `undefined` |
 
 
 ## Events
 
-| Event          | Description           | Type               |
-| -------------- | --------------------- | ------------------ |
-| `clickToLink`  | Клик по кнопке files  | `CustomEvent<any>` |
-| `searchDialog` | Клик по кнопке в чате | `CustomEvent<any>` |
+| Event             | Description           | Type               |
+| ----------------- | --------------------- | ------------------ |
+| `clickToFilesBtn` | Клик по кнопке files  | `CustomEvent<any>` |
+| `searchDialog`    | Клик по кнопке в чате | `CustomEvent<any>` |
 
 
 ## Dependencies

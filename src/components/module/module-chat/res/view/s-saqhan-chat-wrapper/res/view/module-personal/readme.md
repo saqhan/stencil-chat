@@ -14,10 +14,11 @@
 
 ## Events
 
-| Event           | Description       | Type               |
-| --------------- | ----------------- | ------------------ |
-| `clickToLink`   | clock on navigate | `CustomEvent<any>` |
-| `searchContact` |                   | `CustomEvent<any>` |
+| Event                    | Description                 | Type                |
+| ------------------------ | --------------------------- | ------------------- |
+| `clickToShowDialogs`     | show dialogs                | `CustomEvent<void>` |
+| `clickToUserProfile`     | on click to profile user    | `CustomEvent<void>` |
+| `searchPersonalMessages` | search for private messages | `CustomEvent<any>`  |
 
 
 ## Dependencies

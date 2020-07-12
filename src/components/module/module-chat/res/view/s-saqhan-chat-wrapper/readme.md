@@ -15,19 +15,6 @@
 | `titleModule` | `title-module` | Заголовок для чата             | `any`                     | `undefined` |
 
 
-## Methods
-
-### `searchMessage({ detail }: { detail: any; }) => Promise<void>`
-
-Метод поиска по чату
-
-#### Returns
-
-Type: `Promise<void>`
-
-
-
-
 ## Dependencies
 
 ### Used by

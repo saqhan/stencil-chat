@@ -117,7 +117,7 @@ export class MobileChat implements ComponentInterface {
   }
 
   render() {
-    return <div>{this.getContent("dialogs")}</div>;
+    return <div>{this.getContent("personal")}</div>;
   }
 
   componentWillLoad(): Promise<void> | void {

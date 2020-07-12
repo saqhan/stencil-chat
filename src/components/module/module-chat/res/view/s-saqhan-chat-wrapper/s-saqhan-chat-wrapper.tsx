@@ -34,7 +34,7 @@ export class SSaqhanChatWrapper implements ComponentInterface {
   /**
    * select content default
    * */
-  @State() showSelectContent: string = "personal";
+  @State() showSelectContent: string = "dialogs";
 
   @State() categoriesState = this.categories;
   @State() dialogsState = this.dialogs;

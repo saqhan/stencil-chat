@@ -15,11 +15,15 @@
 
 ## Events
 
-| Event             | Description          | Type                                 |
-| ----------------- | -------------------- | ------------------------------------ |
-| `clickToCategory` | clock on Category    | `CustomEvent<ChatCategoryInterface>` |
-| `clickToLink`     | clock on clickToLink | `CustomEvent<string>`                |
-| `searchContact`   | clock on Category    | `CustomEvent<ChatCategoryInterface>` |
+| Event                 | Description                     | Type                                 |
+| --------------------- | ------------------------------- | ------------------------------------ |
+| `clickToAddDialog`    | click to add dialog             | `CustomEvent<string>`                |
+| `clickToCategory`     | clock on Category               | `CustomEvent<ChatCategoryInterface>` |
+| `clickToDialog`       | click to dialog                 | `CustomEvent<string>`                |
+| `clickToShowContacts` | click to click To Show Contacts | `CustomEvent<void>`                  |
+| `clickToShowDialogs`  | click to click To Show Dialogs  | `CustomEvent<void>`                  |
+| `clickToShowMenuBar`  | click to click To Show MenuBar  | `CustomEvent<void>`                  |
+| `searchDialogs`       | clock on searchDialogs          | `CustomEvent<ChatDialogInterface>`   |
 
 
 ## Dependencies
