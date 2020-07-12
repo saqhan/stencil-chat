@@ -17,12 +17,20 @@ export class ModulePersonal implements ComponentInterface {
   /**
    * clock on navigate
    * */
-  @Event() clickToLink: EventEmitter;
+  // @Event() clickToLink: EventEmitter;
 
   /**
    * search for private messages
    * */
-  @Event() searchPersonalMessage: EventEmitter;
+  @Event() searchPersonalMessages: EventEmitter;
+  /**
+   * show dialogs
+   * */
+  @Event() clickToShowDialogs: EventEmitter<void>;
+  /**
+   * on click to profile user
+   * */
+  @Event() clickToUserProfile: EventEmitter<void>;
 
   render() {
     return (

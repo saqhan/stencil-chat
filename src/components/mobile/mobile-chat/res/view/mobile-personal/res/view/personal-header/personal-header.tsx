@@ -22,8 +22,8 @@ export class PersonalHeader implements ComponentInterface {
   /**
    * clock on navigate
    * */
-  @Event() clickToLink: EventEmitter;
-  @Event() clickToUserProfile: EventEmitter;
+  @Event() clickToLink: EventEmitter<void>;
+  @Event() clickToUserProfile: EventEmitter<void>;
   @Event() searchContact: EventEmitter;
   /**
    * search for private messages
@@ -105,7 +105,7 @@ export class PersonalHeader implements ComponentInterface {
               <input
                 type="text"
                 placeholder="search"
-                onInput={(event) => this.searchPersonalMessagesHandler(event)}
+                onInput={(detail) => this.searchPersonalMessagesHandler({detail})}
               />{" "}
               <span
                 onClick={() => this.showInputSearchPersonalMess()}
@@ -157,7 +157,7 @@ export class PersonalHeader implements ComponentInterface {
   /**
    * search for private messages
    * */
-  public searchPersonalMessagesHandler(event): void {
-    this.searchPersonalMessages.emit(event)
+  public searchPersonalMessagesHandler({detail}): void {
+    this.searchPersonalMessages.emit(detail)
   }
 }
