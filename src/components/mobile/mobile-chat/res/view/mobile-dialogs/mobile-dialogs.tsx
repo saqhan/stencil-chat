@@ -1,5 +1,6 @@
 import {Component, ComponentInterface, EventEmitter, Event,  h, Prop} from "@stencil/core";
-import { dialogs, categories } from "./res/interface/common.interface";
+// import { dialogs } from "./res/interface/common.interface";
+import {ChatDialogInterface, ChatCategoryInterface} from "../../../../../shared/interface/common.interface";
 @Component({
   tag: "mobile-dialogs",
   styleUrl: "mobile-dialogs.css",
@@ -9,12 +10,12 @@ export class MobileDialogs implements ComponentInterface {
   /**
    * массив сообщений
    * */
-  @Prop() dialogs: dialogs[];
+  @Prop() dialogs: ChatDialogInterface[];
   // @Prop() messages: any;
   /**
    * массив категорий диалогов
    * */
-  @Prop() categories: categories[];
+  @Prop() categories: ChatCategoryInterface[];
 
   /**
    * clock on clickToLink
@@ -23,9 +24,9 @@ export class MobileDialogs implements ComponentInterface {
   /**
    * clock on Category
    * */
-  @Event() clickToCategory: EventEmitter<string>;
+  @Event() clickToCategory: EventEmitter<ChatCategoryInterface>;
 
-  @Event() searchContact: EventEmitter<string>;
+  @Event() searchContact: EventEmitter<ChatCategoryInterface>;
 
 
 

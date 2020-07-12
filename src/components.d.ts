@@ -6,11 +6,8 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { ChatContactInterface, } from "./index";
-import { ChatCategoryInterface, ChatMessage, } from "./components/shared/interface/common.interface";
-import { categories, dialogs, } from "./components/mobile/mobile-chat/res/view/mobile-dialogs/res/interface/common.interface";
+import { ChatCategoryInterface, ChatDialogInterface, ChatLogo, ChatMessage, ChatNavItems, } from "./components/shared/interface/common.interface";
 import { ChatMessage as ChatMessage1, } from ".";
-import { dialogs as dialogs1, } from "./components/comp/s-adam-contacts/res/interface/common.interface";
-import { logo, navItems, } from "./components/comp/s-adam-navigate/res/interface/common.interface";
 export namespace Components {
     interface BtnWrapper {
         "showChat": any;
@@ -36,7 +33,7 @@ export namespace Components {
         /**
           * карточка диалога
          */
-        "mess": any;
+        "mess": ChatDialogInterface;
         /**
           * карточка диалога
          */
@@ -97,11 +94,11 @@ export namespace Components {
         /**
           * массив категорий диалогов
          */
-        "categories": categories[];
+        "categories": ChatCategoryInterface[];
         /**
           * массив сообщений
          */
-        "dialogs": dialogs[];
+        "dialogs": ChatDialogInterface[];
     }
     interface MobilePersonal {
         /**
@@ -144,19 +141,13 @@ export namespace Components {
         /**
           * массив категорий диалогов
          */
-        "categories": any;
+        "categories": ChatCategoryInterface[];
         /**
           * Массив с элементами диалога
          */
-        "dialogs": dialogs[];
+        "dialogs": ChatDialogInterface[];
     }
     interface SAdamCopying {
-    }
-    interface SAdamDialogs {
-        /**
-          * Массив с элементами диалога
-         */
-        "dialog": any;
     }
     interface SAdamDirect {
         /**
@@ -168,17 +159,17 @@ export namespace Components {
         /**
           * Иконки навигации
          */
-        "navItems": any;
+        "navItems": ChatNavItems;
     }
     interface SAdamNavigate {
         /**
           * Логотип
          */
-        "logo": logo;
+        "logo": ChatLogo;
         /**
           * Иконки навигации
          */
-        "navItems": navItems[];
+        "navItems": ChatNavItems[];
     }
     interface SAdamNoChat {
     }
@@ -212,20 +203,12 @@ export namespace Components {
           * массив с диалогами
          */
         "messages": any;
-        /**
-          * Массив данных с личным чатом
-         */
-        "personalMessage": any;
     }
     interface SSaqhanChatUsers {
         /**
           * Массив данных с диалогами
          */
         "messages": any;
-        /**
-          * Массив данных с личным чатом
-         */
-        "personalMessage": any;
     }
     interface SSaqhanChatUsersWrapper {
         "categories": any;
@@ -240,29 +223,17 @@ export namespace Components {
     }
     interface SSaqhanChatWrapper {
         /**
-          * массив данных личных сообщений
-         */
-        "MessageMock": any;
-        /**
           * array categories
          */
-        "categories": any;
-        /**
-          * Фильтр диалогов
-         */
-        "clickToCategory": ({ detail }: {
-            detail: any;
-        }) => Promise<void>;
+        "categories": ChatCategoryInterface[];
         /**
           * массив данных для диалогов
          */
-        "dialogs": any;
+        "dialogs": ChatDialogInterface[];
         /**
-          * Метод поиски диалогов
+          * массив данных личных сообщений
          */
-        "searchDialog": ({ detail }: {
-            detail: any;
-        }) => Promise<void>;
+        "messageMock": ChatMessage[];
         /**
           * Метод поиска по чату
          */
@@ -452,12 +423,6 @@ declare global {
         prototype: HTMLSAdamCopyingElement;
         new (): HTMLSAdamCopyingElement;
     };
-    interface HTMLSAdamDialogsElement extends Components.SAdamDialogs, HTMLStencilElement {
-    }
-    var HTMLSAdamDialogsElement: {
-        prototype: HTMLSAdamDialogsElement;
-        new (): HTMLSAdamDialogsElement;
-    };
     interface HTMLSAdamDirectElement extends Components.SAdamDirect, HTMLStencilElement {
     }
     var HTMLSAdamDirectElement: {
@@ -590,7 +555,6 @@ declare global {
         "s-adam-chat": HTMLSAdamChatElement;
         "s-adam-contacts": HTMLSAdamContactsElement;
         "s-adam-copying": HTMLSAdamCopyingElement;
-        "s-adam-dialogs": HTMLSAdamDialogsElement;
         "s-adam-direct": HTMLSAdamDirectElement;
         "s-adam-nav-item": HTMLSAdamNavItemElement;
         "s-adam-navigate": HTMLSAdamNavigateElement;
@@ -641,7 +605,7 @@ declare namespace LocalJSX {
         /**
           * search contact
          */
-        "onSearchContact"?: (event: CustomEvent<string>) => void;
+        "onSearchContact"?: (event: CustomEvent<ChatContactInterface>) => void;
     }
     interface ContactsListBody {
         "contacts"?: any;
@@ -664,7 +628,7 @@ declare namespace LocalJSX {
         /**
           * карточка диалога
          */
-        "mess"?: any;
+        "mess"?: ChatDialogInterface;
         /**
           * clock on navigate
          */
@@ -746,20 +710,20 @@ declare namespace LocalJSX {
         /**
           * массив категорий диалогов
          */
-        "categories"?: categories[];
+        "categories"?: ChatCategoryInterface[];
         /**
           * массив сообщений
          */
-        "dialogs"?: dialogs[];
+        "dialogs"?: ChatDialogInterface[];
         /**
           * clock on Category
          */
-        "onClickToCategory"?: (event: CustomEvent<string>) => void;
+        "onClickToCategory"?: (event: CustomEvent<ChatCategoryInterface>) => void;
         /**
           * clock on clickToLink
          */
         "onClickToLink"?: (event: CustomEvent<string>) => void;
-        "onSearchContact"?: (event: CustomEvent<string>) => void;
+        "onSearchContact"?: (event: CustomEvent<ChatCategoryInterface>) => void;
     }
     interface MobilePersonal {
         /**
@@ -828,11 +792,11 @@ declare namespace LocalJSX {
         /**
           * массив категорий диалогов
          */
-        "categories"?: any;
+        "categories"?: ChatCategoryInterface[];
         /**
           * Массив с элементами диалога
          */
-        "dialogs"?: dialogs[];
+        "dialogs"?: ChatDialogInterface[];
         /**
           * clock on Category
          */
@@ -847,16 +811,6 @@ declare namespace LocalJSX {
         "onSearchContact"?: (event: CustomEvent<any>) => void;
     }
     interface SAdamCopying {
-    }
-    interface SAdamDialogs {
-        /**
-          * Массив с элементами диалога
-         */
-        "dialog"?: any;
-        /**
-          * Событие для переключения пустой страницы на личный чат
-         */
-        "onToggleChat"?: (event: CustomEvent<any>) => void;
     }
     interface SAdamDirect {
         /**
@@ -880,17 +834,17 @@ declare namespace LocalJSX {
         /**
           * Иконки навигации
          */
-        "navItems"?: any;
+        "navItems"?: ChatNavItems;
     }
     interface SAdamNavigate {
         /**
           * Логотип
          */
-        "logo"?: logo;
+        "logo"?: ChatLogo;
         /**
           * Иконки навигации
          */
-        "navItems"?: navItems[];
+        "navItems"?: ChatNavItems[];
     }
     interface SAdamNoChat {
     }
@@ -950,20 +904,12 @@ declare namespace LocalJSX {
           * массив с диалогами
          */
         "messages"?: any;
-        /**
-          * Массив данных с личным чатом
-         */
-        "personalMessage"?: any;
     }
     interface SSaqhanChatUsers {
         /**
           * Массив данных с диалогами
          */
         "messages"?: any;
-        /**
-          * Массив данных с личным чатом
-         */
-        "personalMessage"?: any;
     }
     interface SSaqhanChatUsersWrapper {
         "categories"?: any;
@@ -981,17 +927,17 @@ declare namespace LocalJSX {
     }
     interface SSaqhanChatWrapper {
         /**
-          * массив данных личных сообщений
-         */
-        "MessageMock"?: any;
-        /**
           * array categories
          */
-        "categories"?: any;
+        "categories"?: ChatCategoryInterface[];
         /**
           * массив данных для диалогов
          */
-        "dialogs"?: any;
+        "dialogs"?: ChatDialogInterface[];
+        /**
+          * массив данных личных сообщений
+         */
+        "messageMock"?: ChatMessage[];
         /**
           * Заголовок для чата
          */
@@ -1030,7 +976,6 @@ declare namespace LocalJSX {
         "s-adam-chat": SAdamChat;
         "s-adam-contacts": SAdamContacts;
         "s-adam-copying": SAdamCopying;
-        "s-adam-dialogs": SAdamDialogs;
         "s-adam-direct": SAdamDirect;
         "s-adam-nav-item": SAdamNavItem;
         "s-adam-navigate": SAdamNavigate;
@@ -1083,7 +1028,6 @@ declare module "@stencil/core" {
             "s-adam-chat": LocalJSX.SAdamChat & JSXBase.HTMLAttributes<HTMLSAdamChatElement>;
             "s-adam-contacts": LocalJSX.SAdamContacts & JSXBase.HTMLAttributes<HTMLSAdamContactsElement>;
             "s-adam-copying": LocalJSX.SAdamCopying & JSXBase.HTMLAttributes<HTMLSAdamCopyingElement>;
-            "s-adam-dialogs": LocalJSX.SAdamDialogs & JSXBase.HTMLAttributes<HTMLSAdamDialogsElement>;
             "s-adam-direct": LocalJSX.SAdamDirect & JSXBase.HTMLAttributes<HTMLSAdamDirectElement>;
             "s-adam-nav-item": LocalJSX.SAdamNavItem & JSXBase.HTMLAttributes<HTMLSAdamNavItemElement>;
             "s-adam-navigate": LocalJSX.SAdamNavigate & JSXBase.HTMLAttributes<HTMLSAdamNavigateElement>;

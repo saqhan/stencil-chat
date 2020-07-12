@@ -15,7 +15,7 @@ export class DialogCategories implements ComponentInterface {
   /**
    *
    * */
-  @Prop() categories: ChatCategoryInterface[];
+  @Prop() categories: ChatCategoryInterface[] = [];
 
   /**
    * clock on Category

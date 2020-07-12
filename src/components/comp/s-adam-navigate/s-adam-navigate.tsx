@@ -15,7 +15,7 @@ export class SAdamNavigate implements ComponentInterface {
   /**
    * Иконки навигации
    */
-  @Prop() navItems: ChatNavItems[]=[];
+  @Prop() navItems: ChatNavItems[] = [];
 
   render() {
     return (

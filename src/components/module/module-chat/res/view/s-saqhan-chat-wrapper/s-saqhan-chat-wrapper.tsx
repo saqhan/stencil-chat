@@ -6,6 +6,11 @@ import {
   Prop,
   Method,
 } from "@stencil/core";
+import {
+  ChatDialogInterface,
+  ChatCategoryInterface,
+  ChatMessage,
+} from "../../../../../shared/interface/common.interface";
 
 @Component({
   tag: "s-saqhan-chat-wrapper",
@@ -16,19 +21,19 @@ export class SSaqhanChatWrapper implements ComponentInterface {
   /**
    * array categories
    * */
-  @Prop() categories;
+  @Prop() categories: ChatCategoryInterface[];
   /**
    * Заголовок для чата
    * */
-  @Prop() titleModule;
+  @Prop() titleModule: any;
   /**
    * массив данных личных сообщений
    * */
-  @Prop() MessageMock;
+  @Prop() messageMock: ChatMessage[];
   /**
    * массив данных для диалогов
    * */
-  @Prop() dialogs;
+  @Prop() dialogs: ChatDialogInterface[];
 
   /**
    * select content default
@@ -36,7 +41,7 @@ export class SSaqhanChatWrapper implements ComponentInterface {
   @State() showSelectContent = "personal";
   @State() categoriesState = this.categories;
   @State() dialogsState = this.dialogs;
-  @State() MessageMockState = this.MessageMock;
+  @State() MessageMockState = this.messageMock;
   @State() messagesState = this.dialogs;
   /**
    * Перменная для включения/отключения показа чата в развернутом виде
@@ -46,8 +51,8 @@ export class SSaqhanChatWrapper implements ComponentInterface {
   /**
    *  Фильтр диалогов
    * */
-  @Method()
-  async clickToCategory({ detail }) {
+
+  clickToCategory({ detail }) {
     this.dialogsState =
       detail.item.id !== "all"
         ? this.dialogs.filter((dialog) => dialog.category === detail.item.id)
@@ -57,8 +62,8 @@ export class SSaqhanChatWrapper implements ComponentInterface {
   /**
    * Метод поиски диалогов
    * */
-  @Method()
-  async searchDialog({ detail }) {
+
+  searchDialog({ detail }) {
     this.dialogsState =
       detail.data !== "" && detail.data !== null
         ? this.dialogs.filter((item) => {
@@ -80,7 +85,7 @@ export class SSaqhanChatWrapper implements ComponentInterface {
               ? item.content.toLowerCase().includes(detail.data.toLowerCase())
               : false;
           })
-        : this.MessageMock;
+        : this.messageMock;
   }
 
   render() {

@@ -132,3 +132,20 @@ export interface ChatLogo {
   id: string;
   logo: string;
 }
+
+export interface ChatDialogInterface {
+  id : number;
+  img : string;
+  name : string;
+  mess : string;
+  time: {
+    /** время создания */
+    created: any;
+    /** время доставки */
+    delivery?: any;
+    /** время прочтения */
+    read?: any;
+  };
+  category : string;
+  online : boolean;
+}
