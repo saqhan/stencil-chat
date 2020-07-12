@@ -16,7 +16,7 @@ export class ContactsListHeader implements ComponentInterface {
   /**
    * clock on clickToLink
    * */
-  @Event() clickToLink: EventEmitter;
+  @Event() clickToShowDialogs: EventEmitter;
 
   /**
    * search contact
@@ -29,7 +29,7 @@ export class ContactsListHeader implements ComponentInterface {
         <div class="contacts-list-description">
           <div
             class="contacts-list-arraw-back custom-link "
-            onClick={() => this.clickToLink.emit({ place: "showDialogs" })}
+            onClick={() => this.clickToShowDialogsHandler()}
           >
             <i class="fas fa-arrow-left"></i>
           </div>
@@ -46,4 +46,11 @@ export class ContactsListHeader implements ComponentInterface {
       </div>
     );
   }
+  /**
+   * show Dialogs
+   * */
+  public clickToShowDialogsHandler(){
+    this.clickToShowDialogs.emit();
+  }
+
 }

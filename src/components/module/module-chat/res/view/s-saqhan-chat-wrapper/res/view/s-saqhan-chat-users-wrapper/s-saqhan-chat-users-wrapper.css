@@ -4,7 +4,10 @@
   overflow: auto;
   padding-top: 15px;
 }
-
+::-webkit-scrollbar { /* chrome based */
+  width: 0px; /* ширина scrollbar'a */
+  background: transparent; /* опционально */
+}
 @media (max-width: 414px) {
   .chat-wrap {
     height: calc(100vh - 190px);

@@ -122,7 +122,7 @@ export class PersonalHeader implements ComponentInterface {
   /**
    * get name user
    * */
-  public getNameUser() {
+  public getNameUser(): string {
     let name = "";
 
     this.messageMock.forEach((item) => {
@@ -134,9 +134,9 @@ export class PersonalHeader implements ComponentInterface {
     return name;
   }
 
-  public showDrop = () => (this.isShowDropDown = !this.isShowDropDown);
+  public showDrop = () => (this.isShowDropDown = !this.isShowDropDown) ;
 
-  public showInputSearchPersonalMess() {
+  public showInputSearchPersonalMess(): void {
     this.isPersonalMess = !this.isPersonalMess;
     this.isShowDropDown = false;
   }
@@ -144,20 +144,20 @@ export class PersonalHeader implements ComponentInterface {
   /**
    * show Dialogs
    * */
-  public clickToShowDialogsHandler() {
+  public clickToShowDialogsHandler(): void {
     this.clickToShowDialogs.emit();
   }
   /**
    * click to show user profile
    * */
-  public clickToUserProfileHandler() {
+  public clickToUserProfileHandler(): void {
     this.clickToUserProfile.emit();
   }
 
   /**
    * search for private messages
    * */
-  public searchPersonalMessagesHandler(event){
+  public searchPersonalMessagesHandler(event): void {
     this.searchPersonalMessages.emit(event)
   }
 }

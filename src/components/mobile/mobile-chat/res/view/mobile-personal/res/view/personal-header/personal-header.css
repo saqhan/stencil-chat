@@ -36,6 +36,9 @@
   padding: 5px;
 }
 
+.users-nav div {
+  cursor: pointer;
+}
 
 .search-wrapper .user-name-personal {
   font-weight: 600;

@@ -42,7 +42,13 @@ export class MobileChat implements ComponentInterface {
    * click to Link
    * */
   public clickToDialog({ detail }) {
-    console.log("clickToDialog", detail.data);
+    console.log("clickToDialog", detail);
+  }
+  /**
+   * click to Link
+   * */
+  public clickToContact({ detail }) {
+    console.log("clickToContact", detail);
   }
   /**
    * Click to category filter
@@ -111,7 +117,7 @@ export class MobileChat implements ComponentInterface {
   }
 
   render() {
-    return <div>{this.getContent("personal")}</div>;
+    return <div>{this.getContent("dialogs")}</div>;
   }
 
   componentWillLoad(): Promise<void> | void {
@@ -142,9 +148,8 @@ export class MobileChat implements ComponentInterface {
           <mobile-personal
             onClickToShowDialogs={() => this.clickToShowDialogs()}
             onClickToUserProfile={() => this.clickToUserProfile()}
-            onClickToLink={(item) => this.clickToLink(item)}
             messageMock={this.messageMock}
-            onSearchContact={(e) => console.log("mobile-personal", e)}
+            // onSearchContact={(e) => console.log("mobile-personal", e)}
             onSearchPersonalMessages={(detail) => this.searchPersonalMessages({detail})}
           ></mobile-personal>
         );
@@ -157,9 +162,12 @@ export class MobileChat implements ComponentInterface {
       case "contacts":
         return (
           <contacts-list
-            onClickToLink={(item) => this.clickToLink(item)}
             contacts={this.contacts}
             onSearchContact={(detail) => this.searchContact({ detail })}
+            onClickToShowDialogs={() => this.clickToShowDialogs()}
+            onClickToShowContacts={() => this.clickToShowContacts()}
+            onClickToShowMenuBar={() => this.clickToShowMenuBar()}
+            onClickToContact={(item) => this.clickToContact(item)}
           ></contacts-list>
         );
       default:

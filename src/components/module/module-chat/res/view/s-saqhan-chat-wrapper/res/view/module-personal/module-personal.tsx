@@ -18,7 +18,12 @@ export class ModulePersonal implements ComponentInterface {
    * clock on navigate
    * */
   @Event() clickToLink: EventEmitter;
-  @Event() searchContact: EventEmitter;
+
+  /**
+   * search for private messages
+   * */
+  @Event() searchPersonalMessage: EventEmitter;
+
   render() {
     return (
       <div class="personal-wrapper">
