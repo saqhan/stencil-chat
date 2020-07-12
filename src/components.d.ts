@@ -243,12 +243,6 @@ export namespace Components {
          */
         "messageMock": ChatMessage[];
         /**
-          * Метод поиска по чату
-         */
-        "searchMessage": ({ detail }: {
-            detail: any;
-        }) => Promise<void>;
-        /**
           * Заголовок для чата
          */
         "titleModule": any;
@@ -820,7 +814,10 @@ declare namespace LocalJSX {
           * clock on navigate
          */
         "onClickToLink"?: (event: CustomEvent<any>) => void;
-        "onSearchContact"?: (event: CustomEvent<any>) => void;
+        /**
+          * search for private messages
+         */
+        "onSearchPersonalMessage"?: (event: CustomEvent<any>) => void;
     }
     interface MyComponent {
     }

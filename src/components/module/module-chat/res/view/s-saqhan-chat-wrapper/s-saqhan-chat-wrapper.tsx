@@ -4,16 +4,15 @@ import {
   h,
   State,
   Prop,
-  Method,
 } from "@stencil/core";
 import {
   ChatCategoryInterface,
   ChatClickToLinkEmit,
   ChatDialogInterface,
   ChatLinkTypeEnum,
-  ChatMessage
+  ChatMessage,
 } from "../../../../../../index";
-import {SelectChatTypeEnum} from "./res/enum/common.enum";
+import { SelectChatTypeEnum } from "./res/enum/common.enum";
 
 @Component({
   tag: "s-saqhan-chat-wrapper",
@@ -41,7 +40,8 @@ export class SSaqhanChatWrapper implements ComponentInterface {
   /**
    * select content default
    * */
-  @State() showSelectContent: SelectChatTypeEnum = SelectChatTypeEnum.dialogs;
+  @State() showSelectContent: string = 'dialogs';
+
   @State() categoriesState = this.categories;
   @State() dialogsState = this.dialogs;
   @State() MessageMockState = this.messageMock;
@@ -54,9 +54,8 @@ export class SSaqhanChatWrapper implements ComponentInterface {
   /**
    *  Фильтр диалогов
    * */
-
   clickToCategory({ detail }) {
-    console.log(detail)
+    // console.log(detail);
     this.dialogsState =
       detail.id !== "all"
         ? this.dialogs.filter((dialog) => dialog.category === detail.id)
@@ -66,7 +65,6 @@ export class SSaqhanChatWrapper implements ComponentInterface {
   /**
    * Метод поиски диалогов
    * */
-
   searchDialog({ detail }) {
     this.dialogsState =
       detail.data !== "" && detail.data !== null
@@ -77,11 +75,13 @@ export class SSaqhanChatWrapper implements ComponentInterface {
           })
         : this.dialogs;
   }
+
+
   /**
-   * Метод поиска по чату
+   * search for private messages
    * */
-  @Method()
-  async searchMessage({ detail }) {
+
+   searchPersonalMessage({ detail }) {
     this.MessageMockState =
       detail.data !== "" && detail.data !== null
         ? this.MessageMockState.filter((item) => {
@@ -119,10 +119,7 @@ export class SSaqhanChatWrapper implements ComponentInterface {
    * Select show content
    * */
   public ShowContent = (content) => {
-    console.log(
-      'ShowContent',
-      content
-    );
+    // console.log("ShowContent", content);
     switch (content) {
       case "dialogs":
         return (
@@ -142,7 +139,7 @@ export class SSaqhanChatWrapper implements ComponentInterface {
           <module-personal
             onClickToLink={(item) => this.clickToLink(item.detail)}
             messageMock={this.MessageMockState}
-            onSearchContact={(e) => this.searchMessage(e)}
+            onSearchPersonalMessage={(e) => this.searchPersonalMessage(e)}
           ></module-personal>
         );
       case "files":
@@ -178,27 +175,27 @@ export class SSaqhanChatWrapper implements ComponentInterface {
   /**
    * click to Link
    * */
-  public clickToLink( detail: ChatClickToLinkEmit ): string {
+  public clickToLink(detail: ChatClickToLinkEmit): string {
     switch (detail.place) {
       case ChatLinkTypeEnum.showFile:
-        (this.showSelectContent = SelectChatTypeEnum.files);
-      break;
+        this.showSelectContent = SelectChatTypeEnum.files;
+        break;
       case ChatLinkTypeEnum.showDialogs:
-        (this.showSelectContent = SelectChatTypeEnum.dialogs);
-      break;
+        this.showSelectContent = SelectChatTypeEnum.dialogs;
+        break;
       case ChatLinkTypeEnum.showPersonalDialog:
-        (this.showSelectContent = SelectChatTypeEnum.personal);
-      break;
+        this.showSelectContent = SelectChatTypeEnum.personal;
+        break;
       case ChatLinkTypeEnum.userNamePersonal:
-        (this.showSelectContent = SelectChatTypeEnum.profile);
-      break;
+        this.showSelectContent = SelectChatTypeEnum.profile;
+        break;
       default:
         this.showSelectContent = SelectChatTypeEnum.users;
     }
 
-
     return this.showSelectContent;
-
-
+  }
+  public clickToDialog(){
+    this.showSelectContent = 'dialogs';
   }
 }
