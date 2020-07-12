@@ -1,8 +1,4 @@
-import {
-  ChatMessage,
-  ChatMessageDirectionEnum,
-  ChatMessageTypeEnum,
-} from "../components/shared/interface/common.interface";
+import {ChatMessage, ChatMessageDirectionEnum, ChatMessageTypeEnum} from "../index";
 
 export const dialogs = [
   {

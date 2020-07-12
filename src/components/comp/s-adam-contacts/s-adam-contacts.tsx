@@ -6,7 +6,8 @@ import {
   Prop,
   Event,
 } from "@stencil/core";
-import {ChatDialogInterface, ChatCategoryInterface} from "../../shared/interface/common.interface";
+
+import { ChatCategoryInterface, ChatDialogInterface } from "../../../index";
 
 @Component({
   tag: "s-adam-contacts",
@@ -20,8 +21,8 @@ export class SAdamContacts implements ComponentInterface {
   @Prop() dialogs: ChatDialogInterface[] = [];
 
   /**
-  * массив категорий диалогов
- */
+   * массив категорий диалогов
+   */
   @Prop() categories: ChatCategoryInterface[] = [];
 
   /**

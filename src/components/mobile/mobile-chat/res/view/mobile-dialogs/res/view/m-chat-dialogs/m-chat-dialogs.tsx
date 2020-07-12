@@ -1,14 +1,16 @@
-import {Component, ComponentInterface, EventEmitter, h, Prop, Event} from '@stencil/core';
+import { Component, ComponentInterface, h, Prop } from "@stencil/core";
+import {ChatDialogInterface} from "../../../../../../../../../index";
 
 @Component({
-  tag: 'm-chat-dialogs',
-  styleUrl: 'm-chat-dialogs.css',
+  tag: "m-chat-dialogs",
+  styleUrl: "m-chat-dialogs.css",
   shadow: false,
 })
 export class MChatDialogs implements ComponentInterface {
-
-  @Prop() dialogs:any;
-  @Event() clickToLink:EventEmitter;
+  /**
+   * массив диалогов
+   * */
+  @Prop() dialogs: ChatDialogInterface[];
 
   render() {
     return (
@@ -17,7 +19,6 @@ export class MChatDialogs implements ComponentInterface {
       </div>
     );
   }
-
 }
 /**
  * Распаковка массива диалогов и выдача в компоненте <dialog-card/>

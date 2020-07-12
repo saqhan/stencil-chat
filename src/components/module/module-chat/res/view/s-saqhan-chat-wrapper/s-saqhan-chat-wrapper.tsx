@@ -7,10 +7,13 @@ import {
   Method,
 } from "@stencil/core";
 import {
-  ChatDialogInterface,
   ChatCategoryInterface,
-  ChatMessage,
-} from "../../../../../shared/interface/common.interface";
+  ChatClickToLinkEmit,
+  ChatDialogInterface,
+  ChatLinkTypeEnum,
+  ChatMessage
+} from "../../../../../../index";
+import {SelectChatTypeEnum} from "./res/enum/common.enum";
 
 @Component({
   tag: "s-saqhan-chat-wrapper",
@@ -38,7 +41,7 @@ export class SSaqhanChatWrapper implements ComponentInterface {
   /**
    * select content default
    * */
-  @State() showSelectContent = "personal";
+  @State() showSelectContent: SelectChatTypeEnum = SelectChatTypeEnum.dialogs;
   @State() categoriesState = this.categories;
   @State() dialogsState = this.dialogs;
   @State() MessageMockState = this.messageMock;
@@ -53,9 +56,10 @@ export class SSaqhanChatWrapper implements ComponentInterface {
    * */
 
   clickToCategory({ detail }) {
+    console.log(detail)
     this.dialogsState =
-      detail.item.id !== "all"
-        ? this.dialogs.filter((dialog) => dialog.category === detail.item.id)
+      detail.id !== "all"
+        ? this.dialogs.filter((dialog) => dialog.category === detail.id)
         : this.dialogs;
   }
 
@@ -95,7 +99,7 @@ export class SSaqhanChatWrapper implements ComponentInterface {
           <div class="wrapper-chat">
             <module-header
               titleModule={this.titleModule}
-              onClose={(item) => this.onClose(item)}
+              onClose={() => this.onClose()}
             ></module-header>
             <div class="m-chat-wrapper">
               {this.ShowContent(this.showSelectContent)}
@@ -115,13 +119,17 @@ export class SSaqhanChatWrapper implements ComponentInterface {
    * Select show content
    * */
   public ShowContent = (content) => {
+    console.log(
+      'ShowContent',
+      content
+    );
     switch (content) {
       case "dialogs":
         return (
           <s-saqhan-chat-users-wrapper
             messages={this.dialogsState}
             categories={this.categoriesState}
-            onClickToLink={(item) => this.clickToLink(item)}
+            onClickToLink={(item) => this.clickToLink(item.detail)}
             onClickToCategory={(item) => this.clickToCategory(item)}
             onSearchDialog={(item) => this.searchDialog(item)}
           ></s-saqhan-chat-users-wrapper>
@@ -132,7 +140,7 @@ export class SSaqhanChatWrapper implements ComponentInterface {
           //   <s-adam-copying></s-adam-copying>
           // </div>
           <module-personal
-            onClickToLink={(item) => this.clickToLink(item)}
+            onClickToLink={(item) => this.clickToLink(item.detail)}
             messageMock={this.MessageMockState}
             onSearchContact={(e) => this.searchMessage(e)}
           ></module-personal>
@@ -140,14 +148,14 @@ export class SSaqhanChatWrapper implements ComponentInterface {
       case "files":
         return (
           <s-saqhan-chat-files-wrapper
-            onClickToLink={(item) => this.clickToLink(item)}
+            onClickToLink={(item) => this.clickToLink(item.detail)}
           ></s-saqhan-chat-files-wrapper>
         );
       case "profile":
         return (
           <s-adam-profile
             theme={"module"}
-            onClickToLink={(item) => this.clickToLink(item)}
+            onClickToLink={(item) => this.clickToLink(item.detail)}
           ></s-adam-profile>
         );
       default:
@@ -164,26 +172,33 @@ export class SSaqhanChatWrapper implements ComponentInterface {
   /**
    * Метод для закрытия чата
    * */
-  public onClose(item) {
-    console.log("closeModal", item);
+  public onClose() {
     this.showChat = false;
   }
   /**
    * click to Link
    * */
-  public clickToLink({ detail }) {
-    console.log(detail.place);
+  public clickToLink( detail: ChatClickToLinkEmit ): string {
     switch (detail.place) {
-      case "showFile":
-        return (this.showSelectContent = "files");
-      case "showDialogs":
-        return (this.showSelectContent = "dialogs");
-      case "showPersonalDialog":
-        return (this.showSelectContent = "personal");
-      case "user-name-personal":
-        return (this.showSelectContent = "profile");
+      case ChatLinkTypeEnum.showFile:
+        (this.showSelectContent = SelectChatTypeEnum.files);
+      break;
+      case ChatLinkTypeEnum.showDialogs:
+        (this.showSelectContent = SelectChatTypeEnum.dialogs);
+      break;
+      case ChatLinkTypeEnum.showPersonalDialog:
+        (this.showSelectContent = SelectChatTypeEnum.personal);
+      break;
+      case ChatLinkTypeEnum.userNamePersonal:
+        (this.showSelectContent = SelectChatTypeEnum.profile);
+      break;
       default:
-        this.showSelectContent = "users";
+        this.showSelectContent = SelectChatTypeEnum.users;
     }
+
+
+    return this.showSelectContent;
+
+
   }
 }

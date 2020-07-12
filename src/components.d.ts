@@ -5,9 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ChatContactInterface, } from "./index";
-import { ChatCategoryInterface, ChatDialogInterface, ChatLogo, ChatMessage, ChatNavItems, } from "./components/shared/interface/common.interface";
-import { ChatMessage as ChatMessage1, } from ".";
+import { ChatCategoryInterface, ChatClickToLinkEmit, ChatContactInterface, ChatDialogInterface, ChatLogo, ChatMessage, } from "./index";
+import { ChatNavItems, } from "./components/shared/interface/common.interface";
 export namespace Components {
     interface BtnWrapper {
         "showChat": any;
@@ -48,7 +47,10 @@ export namespace Components {
     interface FooterText {
     }
     interface MChatDialogs {
-        "dialogs": any;
+        /**
+          * массив диалогов
+         */
+        "dialogs": ChatDialogInterface[];
     }
     interface MChatFooter {
     }
@@ -56,7 +58,7 @@ export namespace Components {
         /**
           * массив категорий диалогов
          */
-        "categories": any;
+        "categories": ChatCategoryInterface[];
     }
     interface MessageFrom {
         /**
@@ -126,7 +128,7 @@ export namespace Components {
         /**
           * array data personal messages
          */
-        "messageMock": any;
+        "messageMock": ChatMessage[];
     }
     interface PersonalMessage {
         /**
@@ -169,7 +171,7 @@ export namespace Components {
         /**
           * Иконки навигации
          */
-        "navItems": ChatNavItems[];
+        "navItems": any;
     }
     interface SAdamNoChat {
     }
@@ -630,9 +632,9 @@ declare namespace LocalJSX {
          */
         "mess"?: ChatDialogInterface;
         /**
-          * clock on navigate
+          * clock on dialog
          */
-        "onClickToLink"?: (event: CustomEvent<any>) => void;
+        "onClickToDialog"?: (event: CustomEvent<ChatClickToLinkEmit>) => void;
         /**
           * карточка диалога
          */
@@ -654,25 +656,38 @@ declare namespace LocalJSX {
         "onShowSendFileFooter"?: (event: CustomEvent<void>) => void;
     }
     interface MChatDialogs {
-        "dialogs"?: any;
-        "onClickToLink"?: (event: CustomEvent<any>) => void;
+        /**
+          * массив диалогов
+         */
+        "dialogs"?: ChatDialogInterface[];
     }
     interface MChatFooter {
         /**
-          * clock on clickToLink
+          * click to click To Show Contacts
          */
-        "onClickToLink"?: (event: CustomEvent<any>) => void;
+        "onClickToShowContacts"?: (event: CustomEvent<void>) => void;
+        /**
+          * click to click To Show Dialogs
+         */
+        "onClickToShowDialogs"?: (event: CustomEvent<void>) => void;
+        /**
+          * click to click To Show Contacts
+         */
+        "onClickToShowMenuBar"?: (event: CustomEvent<void>) => void;
     }
     interface MChatHeader {
         /**
           * массив категорий диалогов
          */
-        "categories"?: any;
+        "categories"?: ChatCategoryInterface[];
         /**
-          * clock on clickToLink
+          * click to add dialog
          */
-        "onClickToLink"?: (event: CustomEvent<any>) => void;
-        "onSearchContact"?: (event: CustomEvent<any>) => void;
+        "onClickToAddDialog"?: (event: CustomEvent<void>) => void;
+        /**
+          * clock on searchDialogs
+         */
+        "onSearchDialogs"?: (event: CustomEvent<ChatDialogInterface>) => void;
     }
     interface MessageFrom {
         /**
@@ -716,14 +731,33 @@ declare namespace LocalJSX {
          */
         "dialogs"?: ChatDialogInterface[];
         /**
+          * click to add dialog
+         */
+        "onClickToAddDialog"?: (event: CustomEvent<string>) => void;
+        /**
           * clock on Category
          */
         "onClickToCategory"?: (event: CustomEvent<ChatCategoryInterface>) => void;
         /**
-          * clock on clickToLink
+          * click to dialog
          */
-        "onClickToLink"?: (event: CustomEvent<string>) => void;
-        "onSearchContact"?: (event: CustomEvent<ChatCategoryInterface>) => void;
+        "onClickToDialog"?: (event: CustomEvent<string>) => void;
+        /**
+          * click to click To Show Contacts
+         */
+        "onClickToShowContacts"?: (event: CustomEvent<void>) => void;
+        /**
+          * click to click To Show Dialogs
+         */
+        "onClickToShowDialogs"?: (event: CustomEvent<void>) => void;
+        /**
+          * click to click To Show MenuBar
+         */
+        "onClickToShowMenuBar"?: (event: CustomEvent<void>) => void;
+        /**
+          * clock on searchDialogs
+         */
+        "onSearchDialogs"?: (event: CustomEvent<ChatDialogInterface>) => void;
     }
     interface MobilePersonal {
         /**
@@ -735,9 +769,21 @@ declare namespace LocalJSX {
          */
         "onClickToLink"?: (event: CustomEvent<string>) => void;
         /**
+          * click to show Dialogs
+         */
+        "onClickToShowDialogs"?: (event: CustomEvent<string>) => void;
+        /**
+          * click to user profile
+         */
+        "onClickToUserProfile"?: (event: CustomEvent<string>) => void;
+        /**
           * Поиск среди контактов
          */
         "onSearchContact"?: (event: CustomEvent<string>) => void;
+        /**
+          * search for private messages
+         */
+        "onSearchPersonalMessages"?: (event: CustomEvent<string>) => void;
     }
     interface ModuleChat {
     }
@@ -772,12 +818,21 @@ declare namespace LocalJSX {
         /**
           * array data personal messages
          */
-        "messageMock"?: any;
+        "messageMock"?: ChatMessage[];
         /**
           * clock on navigate
          */
         "onClickToLink"?: (event: CustomEvent<any>) => void;
+        /**
+          * click to show user profile
+         */
+        "onClickToShowDialogs"?: (event: CustomEvent<string>) => void;
+        "onClickToUserProfile"?: (event: CustomEvent<any>) => void;
         "onSearchContact"?: (event: CustomEvent<any>) => void;
+        /**
+          * search for private messages
+         */
+        "onSearchPersonalMessages"?: (event: CustomEvent<any>) => void;
     }
     interface PersonalMessage {
         /**
@@ -844,7 +899,7 @@ declare namespace LocalJSX {
         /**
           * Иконки навигации
          */
-        "navItems"?: ChatNavItems[];
+        "navItems"?: any;
     }
     interface SAdamNoChat {
     }

@@ -7,17 +7,17 @@
 
 ## Properties
 
-| Property     | Attribute    | Description               | Type  | Default     |
-| ------------ | ------------ | ------------------------- | ----- | ----------- |
-| `categories` | `categories` | массив категорий диалогов | `any` | `undefined` |
+| Property     | Attribute | Description               | Type                      | Default     |
+| ------------ | --------- | ------------------------- | ------------------------- | ----------- |
+| `categories` | --        | массив категорий диалогов | `ChatCategoryInterface[]` | `undefined` |
 
 
 ## Events
 
-| Event           | Description          | Type               |
-| --------------- | -------------------- | ------------------ |
-| `clickToLink`   | clock on clickToLink | `CustomEvent<any>` |
-| `searchContact` |                      | `CustomEvent<any>` |
+| Event           | Description          | Type                               |
+| --------------- | -------------------- | ---------------------------------- |
+| `clickToLink`   | clock on clickToLink | `CustomEvent<ChatClickToLinkEmit>` |
+| `searchContact` |                      | `CustomEvent<string>`              |
 
 
 ## Dependencies

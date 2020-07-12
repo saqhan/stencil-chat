@@ -6,7 +6,7 @@ import {
   h,
   Prop,
 } from "@stencil/core";
-import { ChatContactInterface } from "../../../../../../index";
+import {ChatContactInterface} from "../../../../../../index";
 
 @Component({
   tag: "contacts-list",

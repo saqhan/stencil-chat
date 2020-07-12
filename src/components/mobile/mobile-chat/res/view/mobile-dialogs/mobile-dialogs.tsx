@@ -1,6 +1,16 @@
-import {Component, ComponentInterface, EventEmitter, Event,  h, Prop} from "@stencil/core";
-// import { dialogs } from "./res/interface/common.interface";
-import {ChatDialogInterface, ChatCategoryInterface} from "../../../../../shared/interface/common.interface";
+import {
+  Component,
+  ComponentInterface,
+  EventEmitter,
+  Event,
+  h,
+  Prop,
+} from "@stencil/core";
+import {
+  ChatCategoryInterface,
+  ChatDialogInterface,
+} from "../../../../../../index";
+
 @Component({
   tag: "mobile-dialogs",
   styleUrl: "mobile-dialogs.css",
@@ -18,29 +28,43 @@ export class MobileDialogs implements ComponentInterface {
   @Prop() categories: ChatCategoryInterface[];
 
   /**
-   * clock on clickToLink
-   * */
-  @Event() clickToLink: EventEmitter<string>;
-  /**
    * clock on Category
    * */
   @Event() clickToCategory: EventEmitter<ChatCategoryInterface>;
 
-  @Event() searchContact: EventEmitter<ChatCategoryInterface>;
+  /**
+   * clock on searchDialogs
+   * */
+  @Event() searchDialogs: EventEmitter<ChatDialogInterface>;
+  /**
+   * click to add dialog
+   * */
+  @Event() clickToAddDialog: EventEmitter<string>;
 
-
+  /**
+   * click to dialog
+   * */
+  @Event() clickToDialog: EventEmitter<string>;
+  /**
+   * click to click To Show Dialogs
+   * */
+  @Event() clickToShowDialogs: EventEmitter<void>;
+  /**
+   * click to click To Show Contacts
+   * */
+  @Event() clickToShowContacts: EventEmitter<void>;
+  /**
+   * click to click To Show MenuBar
+   * */
+  @Event() clickToShowMenuBar: EventEmitter<void>;
 
   render() {
     return (
       <div class="m-chat-wrapper">
-        <m-chat-header categories={this.categories} ></m-chat-header>
+        <m-chat-header categories={this.categories}></m-chat-header>
         <m-chat-dialogs dialogs={this.dialogs}></m-chat-dialogs>
         <m-chat-footer></m-chat-footer>
       </div>
     );
   }
-
-
 }
-
-

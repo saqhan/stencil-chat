@@ -1,5 +1,5 @@
 import {Component, ComponentInterface, Event, EventEmitter, h, Prop,} from "@stencil/core";
-import {ChatCategoryInterface} from "../interface/common.interface";
+import {ChatCategoryInterface} from "../../../index";
 
 @Component({
   tag: "dialog-categories",

@@ -7,7 +7,7 @@ import {
   Prop,
   State,
 } from "@stencil/core";
-import { ChatMessage } from "../../..";
+import {ChatMessage} from "../../../index";
 
 @Component({
   tag: "s-adam-personal-header",

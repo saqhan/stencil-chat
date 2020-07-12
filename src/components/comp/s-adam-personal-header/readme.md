@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property  | Attribute | Description   | Type        | Default |
-| --------- | --------- | ------------- | ----------- | ------- |
-| `message` | --        | Личный диалог | `Message[]` | `[]`    |
+| Property  | Attribute | Description   | Type            | Default |
+| --------- | --------- | ------------- | --------------- | ------- |
+| `message` | --        | Личный диалог | `ChatMessage[]` | `[]`    |
 
 
 ## Events

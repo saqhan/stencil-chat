@@ -6,9 +6,8 @@ import {
   h,
   Prop,
 } from "@stencil/core";
-import {
-  ChatMessage
-} from "../../../../../shared/interface/common.interface";
+import {ChatMessage} from "../../../../../../index";
+
 @Component({
   tag: "mobile-personal",
   styleUrl: "mobile-personal.css",
@@ -25,9 +24,22 @@ export class MobilePersonal implements ComponentInterface {
    * */
   @Event() clickToLink: EventEmitter<string>;
   /**
+   * click to show Dialogs
+   * */
+  @Event() clickToShowDialogs: EventEmitter<string>;
+  /**
    * Поиск среди контактов
    * */
   @Event() searchContact: EventEmitter<string>;
+  /**
+   * search for private messages
+   * */
+  @Event() searchPersonalMessages: EventEmitter<string>;
+
+  /**
+   * click to user profile
+   * */
+  @Event() clickToUserProfile: EventEmitter<string>;
 
   render() {
     return (
