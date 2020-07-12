@@ -149,8 +149,14 @@ export enum ChatLinkTypeEnum {
   showPersonalDialog = 'showPersonalDialog',
   userNamePersonal = 'user-name-personal',
   addDialog = '"add-dialog"',
+
+  fromMobileContacts = '"contacts"',
+  fromMobileMenuBar =  'menu-bar',
 }
 
+/**
+ * эмит при клике на диалог/контакт
+ * */
 export interface ChatClickToLinkEmit {
   place: ChatLinkTypeEnum,
   data?: ChatDialogInterface,
