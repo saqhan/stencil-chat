@@ -14,10 +14,10 @@
 
 ## Events
 
-| Event           | Description          | Type               |
-| --------------- | -------------------- | ------------------ |
-| `clickToLink`   | clock on clickToLink | `CustomEvent<any>` |
-| `searchContact` |                      | `CustomEvent<any>` |
+| Event           | Description          | Type                               |
+| --------------- | -------------------- | ---------------------------------- |
+| `clickToLink`   | clock on clickToLink | `CustomEvent<ChatClickToLinkEmit>` |
+| `searchContact` |                      | `CustomEvent<string>`              |
 
 
 ## Dependencies
