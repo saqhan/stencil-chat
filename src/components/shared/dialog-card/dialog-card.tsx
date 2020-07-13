@@ -6,7 +6,7 @@ import {
   h,
   Prop,
 } from "@stencil/core";
-import {ChatClickToLinkEmit, ChatDialogInterface, ChatLinkTypeEnum} from "../../../index";
+import { ChatClickToLinkEmit, ChatDialogInterface } from "../../../index";
 
 @Component({
   tag: "dialog-card",
@@ -26,14 +26,16 @@ export class DialogCard implements ComponentInterface {
   /**
    * clock on navigate
    * */
-  @Event() clickToLink: EventEmitter<ChatClickToLinkEmit>;
+  // @Event() clickToLink: EventEmitter<ChatClickToLinkEmit>;
+  /**
+   * clock on dialog
+   * */
+  @Event() clickToDialog: EventEmitter<ChatClickToLinkEmit>;
+
   render() {
     return (
       <div class={this.getClassForHost()}>
-        <div
-          class="m-dialog-card"
-          onClick={() => this.clickToLinkHandler()}
-        >
+        <div class="m-dialog-card" onClick={() => this.clickToDialogHandler()}>
           <div class="img-user">
             <div
               class={this.mess.online ? "img online" : "img"}
@@ -59,12 +61,19 @@ export class DialogCard implements ComponentInterface {
     );
   }
 
-  public clickToLinkHandler() {
-    this.clickToLink.emit({place: ChatLinkTypeEnum.showPersonalDialog, data: this.mess })
+  /**
+   * Управление по клику на диалог
+   * */
+  public clickToDialogHandler() {
+    this.clickToDialog.emit({ data: this.mess });
   }
 
+  // public clickToLinkHandler() {
+  //   this.clickToLink.emit({place: ChatLinkTypeEnum.showPersonalDialog, data: this.mess })
+  // }
+
   /**
-   *
+   * Метод выобра темы для ПК/Мобильная/Модульной версии
    * */
   public getClassForHost() {
     return {

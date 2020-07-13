@@ -7,16 +7,9 @@
 
 ## Properties
 
-| Property  | Attribute | Description | Type  | Default     |
-| --------- | --------- | ----------- | ----- | ----------- |
-| `dialogs` | `dialogs` |             | `any` | `undefined` |
-
-
-## Events
-
-| Event         | Description | Type               |
-| ------------- | ----------- | ------------------ |
-| `clickToLink` |             | `CustomEvent<any>` |
+| Property  | Attribute | Description     | Type                    | Default     |
+| --------- | --------- | --------------- | ----------------------- | ----------- |
+| `dialogs` | --        | массив диалогов | `ChatDialogInterface[]` | `undefined` |
 
 
 ## Dependencies

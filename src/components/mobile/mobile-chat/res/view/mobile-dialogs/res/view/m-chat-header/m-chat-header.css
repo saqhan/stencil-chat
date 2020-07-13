@@ -35,13 +35,21 @@
 
 .m-chat-header .search i {
   color: #979eab;
+  transition: 0.3s ease;
+}
+.m-chat-header .search i:hover {
+  color: #5780f7;
 }
 
 .m-chat-header .add i {
   color: #979eab;
   font-size: 18px;
+  transition: 0.3s ease;
 }
 
+.m-chat-header .add i:hover {
+  color: #5780f7;
+}
 
 .title-wrapper {
   display: flex;

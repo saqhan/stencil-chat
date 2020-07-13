@@ -7,16 +7,16 @@
 
 ## Properties
 
-| Property  | Attribute | Description       | Type  | Default     |
-| --------- | --------- | ----------------- | ----- | ----------- |
-| `contact` | `contact` | Принимаем контакт | `any` | `undefined` |
+| Property  | Attribute | Description       | Type                   | Default     |
+| --------- | --------- | ----------------- | ---------------------- | ----------- |
+| `contact` | --        | Принимаем контакт | `ChatContactInterface` | `undefined` |
 
 
 ## Events
 
-| Event         | Description       | Type                                |
-| ------------- | ----------------- | ----------------------------------- |
-| `clickToLink` | clock on navigate | `CustomEvent<ChatContactInterface>` |
+| Event            | Description       | Type                                |
+| ---------------- | ----------------- | ----------------------------------- |
+| `clickToContact` | clock on navigate | `CustomEvent<ChatContactInterface>` |
 
 
 ## Dependencies

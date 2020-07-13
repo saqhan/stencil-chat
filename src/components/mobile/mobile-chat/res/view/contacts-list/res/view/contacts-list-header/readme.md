@@ -7,10 +7,10 @@
 
 ## Events
 
-| Event           | Description          | Type               |
-| --------------- | -------------------- | ------------------ |
-| `clickToLink`   | clock on clickToLink | `CustomEvent<any>` |
-| `searchContact` | search contact       | `CustomEvent<any>` |
+| Event                | Description          | Type               |
+| -------------------- | -------------------- | ------------------ |
+| `clickToShowDialogs` | clock on clickToLink | `CustomEvent<any>` |
+| `searchContact`      | search contact       | `CustomEvent<any>` |
 
 
 ## Dependencies

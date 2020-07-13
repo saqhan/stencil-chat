@@ -30,7 +30,7 @@ export class MobileChat implements ComponentInterface {
   /**
    * массив данных личных диалогово
    * */
-  @State() messageMock = MessageMock;
+  @State() message = MessageMock;
 
   /**
    * click to Link
@@ -38,12 +38,23 @@ export class MobileChat implements ComponentInterface {
   public clickToLink({ detail }) {
     console.log(detail);
   }
-
+  /**
+   * click to Link
+   * */
+  public clickToDialog({ detail }) {
+    console.log("clickToDialog", detail);
+  }
+  /**
+   * click to Link
+   * */
+  public clickToContact({ detail }) {
+    console.log("clickToContact", detail);
+  }
   /**
    * Click to category filter
    * */
   public clickToCategory({ detail }) {
-    console.log(detail);
+    console.log("clickToCategory", detail);
   }
 
   /**
@@ -51,6 +62,58 @@ export class MobileChat implements ComponentInterface {
    * */
   public searchContact(e) {
     console.log("searchContact", e);
+  }
+
+  /**
+   * Поиск среди диалогов
+   * */
+  public searchDialogs(e) {
+    console.log("searchDialogs", e);
+  }
+
+  /**
+   * Поиск среди диалогов
+   * */
+  public searchPersonalMessages(e) {
+    console.log("searchPersonalMessages", e);
+  }
+
+  /**
+   * click to add dialog
+   * */
+
+  public clickToAddDialog() {
+    console.log("clickToAddDialog");
+  }
+
+  /**
+   * click to click To Show Dialogs
+   * */
+  public clickToShowDialogs() {
+    console.log("clickToShowDialogs");
+  }
+  /**
+   * click to click To Show Contacts
+   * */
+  public clickToShowContacts() {
+    console.log("clickToShowContacts");
+  }
+
+  /**
+   * click to click To Show MenuBar
+   * */
+  public clickToShowMenuBar() {
+    console.log("clickToShowMenuBar");
+  }
+
+  // personal chat
+
+
+  /**
+   * click to click To Show MenuBar
+   * */
+  public clickToUserProfile() {
+    console.log("clickToUserProfile");
   }
 
   render() {
@@ -69,9 +132,13 @@ export class MobileChat implements ComponentInterface {
       case "dialogs":
         return (
           <mobile-dialogs
-            onClickToLink={(item) => this.clickToLink(item)}
+            onClickToAddDialog={() => this.clickToAddDialog()}
+            onClickToDialog={(item) => this.clickToDialog(item)}
             onClickToCategory={(item) => this.clickToCategory(item)}
-            onSearchContact={(detail) => this.searchContact({ detail })}
+            onClickToShowDialogs={() => this.clickToShowDialogs()}
+            onClickToShowContacts={() => this.clickToShowContacts()}
+            onClickToShowMenuBar={() => this.clickToShowMenuBar()}
+            onSearchDialogs={(detail) => this.searchDialogs({ detail })}
             categories={categories}
             dialogs={this.dialogs}
           ></mobile-dialogs>
@@ -79,25 +146,28 @@ export class MobileChat implements ComponentInterface {
       case "personal":
         return (
           <mobile-personal
-            onClickToLink={(item) => this.clickToLink(item)}
-            messageMock={this.messageMock}
-            onSearchContact={(e) =>
-              console.log("mobile-personal", e)
-            }
+            onClickToShowDialogs={() => this.clickToShowDialogs()}
+            onClickToUserProfile={() => this.clickToUserProfile()}
+            message={this.message}
+            // onSearchContact={(e) => console.log("mobile-personal", e)}
+            onSearchPersonalMessages={(detail) => this.searchPersonalMessages({detail})}
           ></mobile-personal>
         );
       case "profile":
         return (
           <user-profile
-            onClickToLink={(item) => this.clickToLink(item)}
+            onClickToShowDialogs={() => this.clickToShowDialogs()}
           ></user-profile>
         );
       case "contacts":
         return (
           <contacts-list
-            onClickToLink={(item) => this.clickToLink(item)}
             contacts={this.contacts}
             onSearchContact={(detail) => this.searchContact({ detail })}
+            onClickToShowDialogs={() => this.clickToShowDialogs()}
+            onClickToShowContacts={() => this.clickToShowContacts()}
+            onClickToShowMenuBar={() => this.clickToShowMenuBar()}
+            onClickToContact={(item) => this.clickToContact(item)}
           ></contacts-list>
         );
       default:

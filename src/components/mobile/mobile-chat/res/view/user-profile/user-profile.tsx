@@ -12,7 +12,7 @@ import {
   shadow: false,
 })
 export class UserProfile implements ComponentInterface {
-  @Event() clickToLink: EventEmitter;
+  @Event() clickToShowDialogs: EventEmitter;
 
 
   render() {

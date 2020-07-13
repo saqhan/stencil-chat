@@ -6,7 +6,7 @@ import {
   h,
   Prop,
 } from "@stencil/core";
-import {ChatMessage} from "../../../../../../index";
+import { ChatMessage } from '../../../../../../index';
 
 @Component({
   tag: "mobile-personal",
@@ -17,23 +17,35 @@ export class MobilePersonal implements ComponentInterface {
   /**
    * array data personal messages
    * */
-  @Prop() messageMock: ChatMessage[];
+  @Prop() message: ChatMessage[];
 
   /**
-   * clock on navigate
+   * click to show Dialogs
    * */
-  @Event() clickToLink: EventEmitter<string>;
+  @Event() clickToShowDialogs: EventEmitter<string>;
   /**
    * Поиск среди контактов
    * */
-  @Event() searchContact: EventEmitter<string>;
+  // @Event() searchContact: EventEmitter<string>;
+  /**
+   * search for private messages
+   * */
+  @Event() searchPersonalMessages: EventEmitter<string>;
+
+  /**
+   * click to user profile
+   * */
+  @Event() clickToUserProfile: EventEmitter<string>;
 
   render() {
     return (
       <div class="personal-wrapper">
-        <personal-header messageMock={this.messageMock} ></personal-header>
-        <personal-message theme={'mobile'} messageMock={this.messageMock} ></personal-message>
-        <personal-footer theme='mobile' ></personal-footer>
+        <personal-header message={this.message}></personal-header>
+        <personal-message
+          theme={"mobile"}
+          message={this.message}
+        ></personal-message>
+        <personal-footer theme="mobile"></personal-footer>
       </div>
     );
   }
@@ -56,5 +68,4 @@ export class MobilePersonal implements ComponentInterface {
   //     }
   //   });
   // }
-
 }

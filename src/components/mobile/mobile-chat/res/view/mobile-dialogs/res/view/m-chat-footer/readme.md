@@ -7,9 +7,11 @@
 
 ## Events
 
-| Event         | Description          | Type               |
-| ------------- | -------------------- | ------------------ |
-| `clickToLink` | clock on clickToLink | `CustomEvent<any>` |
+| Event                 | Description                     | Type                |
+| --------------------- | ------------------------------- | ------------------- |
+| `clickToShowContacts` | click to click To Show Contacts | `CustomEvent<void>` |
+| `clickToShowDialogs`  | click to click To Show Dialogs  | `CustomEvent<void>` |
+| `clickToShowMenuBar`  | click to click To Show Contacts | `CustomEvent<void>` |
 
 
 ## Dependencies

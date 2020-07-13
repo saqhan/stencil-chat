@@ -36,6 +36,9 @@
   padding: 5px;
 }
 
+.users-nav div {
+  cursor: pointer;
+}
 
 .search-wrapper .user-name-personal {
   font-weight: 600;
@@ -60,6 +63,12 @@
 
 .header-nav span i {
   color: #979eab;
+  transition: 0.3s ease;
+}
+.header-nav span i:hover{
+  cursor: pointer;
+  color: rgb(87, 128, 247);
+
 }
 
 .header-nav .user-name-personal {

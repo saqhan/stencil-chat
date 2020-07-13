@@ -18,7 +18,7 @@ export class SAdamProfile implements ComponentInterface {
    * */
   @Prop() theme: "comp" | "mobile" | "module" = "comp";
 
-  @Event() clickToLink: EventEmitter;
+  @Event() clickToShowDialogs: EventEmitter;
 
   render() {
     return (
@@ -27,7 +27,7 @@ export class SAdamProfile implements ComponentInterface {
           <div class="links-wrapper">
             <a
               onClick={() =>
-                this.clickToLink.emit({ place: "showPersonalDialog" })
+                this.clickToShowDialogsHandler()
               }
             >
               {" "}
@@ -104,5 +104,8 @@ export class SAdamProfile implements ComponentInterface {
     return {
       [this.theme]: true,
     };
+  }
+  public clickToShowDialogsHandler() {
+    this.clickToShowDialogs.emit()
   }
 }

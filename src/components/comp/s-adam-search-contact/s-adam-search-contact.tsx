@@ -1,4 +1,5 @@
 import {Component, ComponentInterface, h, Event, EventEmitter} from '@stencil/core';
+import {ChatDialogInterface} from "../../../index";
 
 @Component({
   tag: 's-adam-search-contact',
@@ -9,7 +10,7 @@ export class SAdamSearchContact implements ComponentInterface {
   /**
    * Поиск по контактам
    */
-  @Event() searchContact: EventEmitter;
+  @Event() searchDialogs: EventEmitter<ChatDialogInterface>;
 
   render() {
     return (
@@ -17,7 +18,7 @@ export class SAdamSearchContact implements ComponentInterface {
         <div class="search-contact-wrapper">
           <i class="fas fa-search"></i>
           <input
-            onInput={(e) => this.searchContact.emit(e)}
+            onInput={(e) => this.searchDialogHandler(e)}
             class="search-contact"
             type="text"
             placeholder="Search contact"
@@ -26,4 +27,12 @@ export class SAdamSearchContact implements ComponentInterface {
       </div>
     );
   }
+
+  /**
+   * Фильтрация диалогов
+   */
+  public searchDialogHandler(e) {
+    this.searchDialogs.emit(e)
+  }
 }
+

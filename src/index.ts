@@ -1,4 +1,4 @@
-export * from './components';
+export * from "./components";
 
 /**
  *
@@ -115,22 +115,22 @@ export interface ChatCategoryInterface {
 }
 
 export interface ChatContactInterface {
-  id: string | number,
-  img: string,
-  name: string,
-  mess: string,
+  id: string | number;
+  img: string;
+  name: string;
+  mess: string;
   time: {
-    created: Date,
-  },
-  category: string,
-  online: boolean
+    created: Date;
+  };
+  category: string;
+  online: boolean;
 }
 
 export interface ChatDialogInterface {
-  id : number;
-  img : string;
-  name : string;
-  mess : string;
+  id: number;
+  img: string;
+  name: string;
+  mess: string;
   time: {
     /** время создания */
     created: any;
@@ -139,15 +139,25 @@ export interface ChatDialogInterface {
     /** время прочтения */
     read?: any;
   };
-  category : string;
-  online : boolean;
+  category: string;
+  online: boolean;
+}
+
+export interface ChatLogo {
+  id: string;
+  logo: string;
+}
+
+export interface ChatNavItems {
+  id: number;
+  icon: string;
 }
 
 export enum ChatLinkTypeEnum {
-  showFile = 'showFile',
-  showDialogs = 'showDialogs',
-  showPersonalDialog = 'showPersonalDialog',
-  userNamePersonal = 'user-name-personal',
+  showFile = "showFile",
+  showDialogs = "showDialogs",
+  showPersonalDialog = "showPersonalDialog",
+  userNamePersonal = "user-name-personal",
   addDialog = '"add-dialog"',
 
   fromMobileContacts = '"contacts"',
@@ -158,6 +168,6 @@ export enum ChatLinkTypeEnum {
  * эмит при клике на диалог/контакт
  * */
 export interface ChatClickToLinkEmit {
-  place: ChatLinkTypeEnum,
-  data?: ChatDialogInterface,
+  place?: ChatLinkTypeEnum;
+  data?: ChatDialogInterface;
 }

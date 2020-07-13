@@ -1,31 +1,61 @@
-import {Component, ComponentInterface, h, Event, EventEmitter} from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  h,
+  Event,
+  EventEmitter,
+} from "@stencil/core";
 
 @Component({
-  tag: 'm-chat-footer',
-  styleUrl: 'm-chat-footer.css',
+  tag: "m-chat-footer",
+  styleUrl: "m-chat-footer.css",
   shadow: false,
 })
 export class MChatFooter implements ComponentInterface {
-
   /**
-   * clock on clickToLink
+   * click to click To Show Dialogs
    * */
-  @Event() clickToLink: EventEmitter;
+  @Event() clickToShowDialogs: EventEmitter<void>;
+  /**
+   * click to click To Show Contacts
+   * */
+  @Event() clickToShowContacts: EventEmitter<void>;
+  /**
+   * click to click To Show Contacts
+   * */
+  @Event() clickToShowMenuBar: EventEmitter<void>;
 
   render() {
     return (
       <div class="m-chat-footer">
-          <span onClick={() => this.clickToLink.emit({place: 'new-mess'})}>
-            <i class="far fa-comment"></i>
-          </span>
-        <span onClick={() => this.clickToLink.emit({place: 'contacts'})}>
-            <i class="fas fa-user-friends"></i>
-          </span>
-        <span onClick={() => this.clickToLink.emit({place: 'menu-bar'})}>
-            <i class="fas fa-bars"></i>
-          </span>
+        <span onClick={() => this.clickToShowDialogsHandler()}>
+          <i class="far fa-comment"></i>
+        </span>
+        <span onClick={() => this.clickToShowContactsHandler()}>
+          <i class="fas fa-user-friends"></i>
+        </span>
+        <span onClick={() => this.clickToShowMenuBarHandler()}>
+          <i class="fas fa-bars"></i>
+        </span>
       </div>
     );
   }
-
+  /**
+   * click to show dialogs
+   * */
+  public clickToShowDialogsHandler() {
+    this.clickToShowDialogs.emit();
+  }
+  /**
+   * click to show Contacts
+   * */
+  public clickToShowContactsHandler() {
+    this.clickToShowContacts.emit();
+  }
+  /**
+   * click to show Contacts
+   * */
+  public clickToShowMenuBarHandler() {
+    this.clickToShowMenuBar.emit();
+  }
 }
