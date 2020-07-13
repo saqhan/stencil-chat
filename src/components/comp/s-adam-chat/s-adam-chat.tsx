@@ -23,8 +23,6 @@ export class SAdamChat implements ComponentInterface {
    */
   @State() profileVisible = false;
 
-
-
   render() {
     return (
       <div class="main-wrapper">
