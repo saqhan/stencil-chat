@@ -11,6 +11,7 @@ import {
   tag: "footer-text",
   styleUrl: "footer-text.css",
   shadow: false,
+  scoped:true
 })
 export class FooterText implements ComponentInterface {
   @State() showAudioSendButton = true;

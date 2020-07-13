@@ -11,6 +11,7 @@ import {
   tag: "s-adam-profile",
   styleUrl: "s-adam-profile.css",
   shadow: false,
+  scoped: true
 })
 export class SAdamProfile implements ComponentInterface {
   /**

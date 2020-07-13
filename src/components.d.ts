@@ -938,7 +938,7 @@ declare namespace LocalJSX {
         /**
           * click to link
          */
-        "onClickToLink"?: (event: CustomEvent<any>) => void;
+        "onClickToShowDialogs"?: (event: CustomEvent<void>) => void;
     }
     interface SSaqhanChatFormSearch {
         /**
@@ -955,7 +955,7 @@ declare namespace LocalJSX {
         "onSearchDialog"?: (event: CustomEvent<any>) => void;
     }
     interface SSaqhanChatFormSearchFiles {
-        "onClickToLink"?: (event: CustomEvent<any>) => void;
+        "onClickToShowDialogs"?: (event: CustomEvent<any>) => void;
     }
     interface SSaqhanChatUser {
         /**

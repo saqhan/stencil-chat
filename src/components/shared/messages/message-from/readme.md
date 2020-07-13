@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property  | Attribute | Description                          | Type  | Default     |
-| --------- | --------- | ------------------------------------ | ----- | ----------- |
-| `message` | `message` | Принимаем сообщения для пользователя | `any` | `undefined` |
+| Property  | Attribute | Description                          | Type          | Default     |
+| --------- | --------- | ------------------------------------ | ------------- | ----------- |
+| `message` | --        | Принимаем сообщения для пользователя | `ChatMessage` | `undefined` |
 
 
 ## Dependencies

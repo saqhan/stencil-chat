@@ -5,6 +5,7 @@ import {ChatMessage, ChatMessageDirectionEnum} from "../../../../../../../index"
   tag: "message-text",
   styleUrl: "message-text.css",
   shadow: false,
+  scoped: false
 })
 export class MessageText implements ComponentInterface {
   /**
