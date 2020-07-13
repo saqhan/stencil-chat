@@ -868,10 +868,6 @@ declare namespace LocalJSX {
          */
         "message"?: ChatMessage[];
         /**
-          * Сброс фильтра сообщений
-         */
-        "onResetMessagesFilter"?: (event: CustomEvent<void>) => void;
-        /**
           * Клик по иконке поиска
          */
         "onSearchPersonalMessage"?: (event: CustomEvent<ChatMessage>) => void;
