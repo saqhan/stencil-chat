@@ -37,6 +37,10 @@ export class MobilePersonal implements ComponentInterface {
    * click to user profile
    * */
   @Event() clickToUserProfile: EventEmitter<string>;
+  /**
+   * cancel
+   * */
+  @Event() cancelSearchPersonal: EventEmitter<string>;
 
   render() {
     return (

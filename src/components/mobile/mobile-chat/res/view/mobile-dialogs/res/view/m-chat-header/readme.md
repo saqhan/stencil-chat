@@ -14,10 +14,11 @@
 
 ## Events
 
-| Event              | Description            | Type                               |
-| ------------------ | ---------------------- | ---------------------------------- |
-| `clickToAddDialog` | click to add dialog    | `CustomEvent<void>`                |
-| `searchDialogs`    | clock on searchDialogs | `CustomEvent<ChatDialogInterface>` |
+| Event                  | Description            | Type                               |
+| ---------------------- | ---------------------- | ---------------------------------- |
+| `cancelSearchPersonal` | cancel search          | `CustomEvent<void>`                |
+| `clickToAddDialog`     | click to add dialog    | `CustomEvent<void>`                |
+| `searchDialogs`        | clock on searchDialogs | `CustomEvent<ChatDialogInterface>` |
 
 
 ## Dependencies

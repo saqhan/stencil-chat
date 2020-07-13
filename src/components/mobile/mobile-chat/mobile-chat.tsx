@@ -16,7 +16,7 @@ export class MobileChat implements ComponentInterface {
   /**
    * Выбираем какой контент показывать
    * */
-  @State() showContent = "contacts";
+  @State() showContent = "dialogs";
 
   /**
    * массив данных для диалогов
@@ -116,6 +116,9 @@ export class MobileChat implements ComponentInterface {
   public clickToUserProfile() {
     console.log("clickToUserProfile");
   }
+  public cancelSearchPersonal(){
+    console.log('cancelSearchPersonal')
+  }
 
   render() {
     return <div>{this.getContent(this.showContent)}</div>;
@@ -140,6 +143,7 @@ export class MobileChat implements ComponentInterface {
             onClickToShowContacts={() => this.clickToShowContacts()}
             onClickToShowMenuBar={() => this.clickToShowMenuBar()}
             onSearchDialogs={(detail) => this.searchDialogs({ detail })}
+            onCancelSearchPersonal={() => this.cancelSearchPersonal()}
             categories={categories}
             dialogs={this.dialogs}
           ></mobile-dialogs>
@@ -152,6 +156,7 @@ export class MobileChat implements ComponentInterface {
             message={this.message}
             // onSearchContact={(e) => console.log("mobile-personal", e)}
             onSearchPersonalMessages={(detail) => this.searchPersonalMessages({detail})}
+            onCancelSearchPersonal={() => this.cancelSearchPersonal()}
           ></mobile-personal>
         );
       case "profile":

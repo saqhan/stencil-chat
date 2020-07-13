@@ -15,15 +15,16 @@
 
 ## Events
 
-| Event                 | Description                     | Type                                 |
-| --------------------- | ------------------------------- | ------------------------------------ |
-| `clickToAddDialog`    | click to add dialog             | `CustomEvent<string>`                |
-| `clickToCategory`     | clock on Category               | `CustomEvent<ChatCategoryInterface>` |
-| `clickToDialog`       | click to dialog                 | `CustomEvent<string>`                |
-| `clickToShowContacts` | click to click To Show Contacts | `CustomEvent<void>`                  |
-| `clickToShowDialogs`  | click to click To Show Dialogs  | `CustomEvent<void>`                  |
-| `clickToShowMenuBar`  | click to click To Show MenuBar  | `CustomEvent<void>`                  |
-| `searchDialogs`       | clock on searchDialogs          | `CustomEvent<ChatDialogInterface>`   |
+| Event                  | Description                     | Type                                 |
+| ---------------------- | ------------------------------- | ------------------------------------ |
+| `cancelSearchPersonal` | cancel                          | `CustomEvent<void>`                  |
+| `clickToAddDialog`     | click to add dialog             | `CustomEvent<string>`                |
+| `clickToCategory`      | clock on Category               | `CustomEvent<ChatCategoryInterface>` |
+| `clickToDialog`        | click to dialog                 | `CustomEvent<string>`                |
+| `clickToShowContacts`  | click to click To Show Contacts | `CustomEvent<void>`                  |
+| `clickToShowDialogs`   | click to click To Show Dialogs  | `CustomEvent<void>`                  |
+| `clickToShowMenuBar`   | click to click To Show MenuBar  | `CustomEvent<void>`                  |
+| `searchDialogs`        | clock on searchDialogs          | `CustomEvent<ChatDialogInterface>`   |
 
 
 ## Dependencies

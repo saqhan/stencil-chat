@@ -675,6 +675,10 @@ declare namespace LocalJSX {
          */
         "categories"?: ChatCategoryInterface[];
         /**
+          * cancel search
+         */
+        "onCancelSearchPersonal"?: (event: CustomEvent<void>) => void;
+        /**
           * click to add dialog
          */
         "onClickToAddDialog"?: (event: CustomEvent<void>) => void;
@@ -725,6 +729,10 @@ declare namespace LocalJSX {
          */
         "dialogs"?: ChatDialogInterface[];
         /**
+          * cancel
+         */
+        "onCancelSearchPersonal"?: (event: CustomEvent<void>) => void;
+        /**
           * click to add dialog
          */
         "onClickToAddDialog"?: (event: CustomEvent<string>) => void;
@@ -758,6 +766,10 @@ declare namespace LocalJSX {
           * array data personal messages
          */
         "message"?: ChatMessage[];
+        /**
+          * cancel
+         */
+        "onCancelSearchPersonal"?: (event: CustomEvent<string>) => void;
         /**
           * click to show Dialogs
          */

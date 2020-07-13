@@ -29,6 +29,10 @@ export class MChatHeader implements ComponentInterface {
    * */
   @Event() searchDialogs: EventEmitter<ChatDialogInterface>;
   /**
+   * cancel search
+   * */
+  @Event() cancelSearchPersonal: EventEmitter<void>;
+  /**
    *
    * */
   @State() isShowModal = true;
@@ -38,8 +42,14 @@ export class MChatHeader implements ComponentInterface {
    * */
 
   public showModal() {
-    return (this.isShowModal = !this.isShowModal);
+    this.isShowModal = !this.isShowModal;
+
   }
+
+  public cancelSearchPersonalHandler(){
+    this.cancelSearchPersonal.emit()
+  }
+
   /**
    * click to add dialog
    * */
@@ -53,7 +63,9 @@ export class MChatHeader implements ComponentInterface {
             {this.isShowModal ? (
               <i class="fas fa-search"></i>
             ) : (
-              <i class="fas fa-times"></i>
+              <i class="fas fa-times"
+                onClick={()=> this.cancelSearchPersonalHandler()}
+              ></i>
             )}
           </span>
           <span class="title">Messages</span>
