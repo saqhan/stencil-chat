@@ -12,6 +12,7 @@ import { ChatMessage } from '../../../../../../index';
   tag: "mobile-personal",
   styleUrl: "mobile-personal.css",
   shadow: false,
+  scoped: true
 })
 export class MobilePersonal implements ComponentInterface {
   /**

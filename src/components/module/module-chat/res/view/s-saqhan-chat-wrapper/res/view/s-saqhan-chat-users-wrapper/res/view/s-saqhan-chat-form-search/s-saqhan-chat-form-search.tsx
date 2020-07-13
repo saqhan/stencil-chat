@@ -11,6 +11,7 @@ import {ChatCategoryInterface} from "../../../../../../../../../../../../index";
   tag: "s-saqhan-chat-form-search",
   styleUrl: "s-saqhan-chat-form-search.css",
   shadow: false,
+  scoped: true
 })
 export class SSaqhanChatFormSearch implements ComponentInterface {
   /**

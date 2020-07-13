@@ -5,6 +5,7 @@ import {ChatMessage} from "../../../../../../../../../index";
   tag: "personal-message",
   styleUrl: "personal-message.css",
   shadow: false,
+  scoped: true
 })
 export class PersonalMessage implements ComponentInterface {
   /**

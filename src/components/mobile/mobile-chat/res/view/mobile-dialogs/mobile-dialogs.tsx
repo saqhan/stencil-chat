@@ -15,6 +15,7 @@ import {
   tag: "mobile-dialogs",
   styleUrl: "mobile-dialogs.css",
   shadow: false,
+  scoped: true
 })
 export class MobileDialogs implements ComponentInterface {
   /**

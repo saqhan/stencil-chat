@@ -4,12 +4,13 @@ import { Component, ComponentInterface,  h } from '@stencil/core';
   tag: 's-saqhan-chat-files',
   styleUrl: 's-saqhan-chat-files.css',
   shadow: false,
+  scoped: true
 })
 export class SSaqhanChatFiles implements ComponentInterface {
 
   render() {
     return (
-      <div class="col-12 wrapper-files">
+      <div class=" wrapper-files">
         <div class="file-card">
           <div class="file-date">19 ноября 2018</div>
           <div class="block-info">

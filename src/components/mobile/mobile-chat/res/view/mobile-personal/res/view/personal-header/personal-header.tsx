@@ -7,12 +7,13 @@ import {
   Prop,
   State,
 } from "@stencil/core";
-import {ChatMessage} from "../../../../../../../../../index";
+import { ChatMessage } from "../../../../../../../../../index";
 
 @Component({
   tag: "personal-header",
   styleUrl: "personal-header.css",
   shadow: false,
+  scoped: true
 })
 export class PersonalHeader implements ComponentInterface {
   /**
@@ -33,6 +34,7 @@ export class PersonalHeader implements ComponentInterface {
    * click to show user profile
    * */
   @Event() clickToShowDialogs: EventEmitter<string>;
+  @Event() cancelSearchPersonal: EventEmitter<void>;
   @State() isShowDropDown = false;
   @State() isPersonalMess = true;
 
@@ -105,7 +107,9 @@ export class PersonalHeader implements ComponentInterface {
               <input
                 type="text"
                 placeholder="search"
-                onInput={(detail) => this.searchPersonalMessagesHandler({detail})}
+                onInput={(detail) =>
+                  this.searchPersonalMessagesHandler({ detail })
+                }
               />{" "}
               <span
                 onClick={() => this.showInputSearchPersonalMess()}
@@ -134,11 +138,12 @@ export class PersonalHeader implements ComponentInterface {
     return name;
   }
 
-  public showDrop = () => (this.isShowDropDown = !this.isShowDropDown) ;
+  public showDrop = () => (this.isShowDropDown = !this.isShowDropDown);
 
   public showInputSearchPersonalMess(): void {
     this.isPersonalMess = !this.isPersonalMess;
     this.isShowDropDown = false;
+    this.cancelSearchPersonal.emit();
   }
 
   /**
@@ -157,7 +162,7 @@ export class PersonalHeader implements ComponentInterface {
   /**
    * search for private messages
    * */
-  public searchPersonalMessagesHandler({detail}): void {
-    this.searchPersonalMessages.emit(detail)
+  public searchPersonalMessagesHandler({ detail }): void {
+    this.searchPersonalMessages.emit(detail);
   }
 }

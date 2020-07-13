@@ -16,6 +16,7 @@ import {
   tag: "m-chat-header",
   styleUrl: "m-chat-header.css",
   shadow: false,
+  scoped:true
 })
 export class MChatHeader implements ComponentInterface {
   /**

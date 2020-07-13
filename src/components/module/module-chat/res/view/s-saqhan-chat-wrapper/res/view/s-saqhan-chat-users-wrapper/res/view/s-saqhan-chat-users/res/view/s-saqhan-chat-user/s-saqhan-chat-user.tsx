@@ -9,6 +9,7 @@ import {
   tag: "s-saqhan-chat-user",
   styleUrl: "s-saqhan-chat-user.css",
   shadow: false,
+  scoped: true
 })
 export class SSaqhanChatUser implements ComponentInterface {
   /**

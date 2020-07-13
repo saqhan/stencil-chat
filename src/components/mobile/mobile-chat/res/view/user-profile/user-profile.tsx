@@ -10,6 +10,7 @@ import {
   tag: "user-profile",
   styleUrl: "user-profile.css",
   shadow: false,
+  scoped: true
 })
 export class UserProfile implements ComponentInterface {
   @Event() clickToShowDialogs: EventEmitter;

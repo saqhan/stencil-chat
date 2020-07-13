@@ -11,6 +11,7 @@ import {
   tag: "s-saqhan-chat-users-wrapper",
   styleUrl: "s-saqhan-chat-users-wrapper.css",
   shadow: false,
+  scoped: true,
 })
 export class SSaqhanChatUsersWrapper implements ComponentInterface {
   /**

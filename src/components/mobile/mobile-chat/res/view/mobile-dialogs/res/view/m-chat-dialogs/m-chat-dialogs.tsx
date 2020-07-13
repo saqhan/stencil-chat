@@ -5,6 +5,7 @@ import {ChatDialogInterface} from "../../../../../../../../../index";
   tag: "m-chat-dialogs",
   styleUrl: "m-chat-dialogs.css",
   shadow: false,
+  scoped: true
 })
 export class MChatDialogs implements ComponentInterface {
   /**

@@ -5,6 +5,7 @@ import {ChatDialogInterface} from "../../../../../../../../../../../../index";
   tag: "s-saqhan-chat-users",
   styleUrl: "s-saqhan-chat-users.css",
   shadow: false,
+  scoped: true
 })
 export class SSaqhanChatUsers implements ComponentInterface {
   /**

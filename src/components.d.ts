@@ -785,6 +785,7 @@ declare namespace LocalJSX {
           * array data personal messages
          */
         "message"?: ChatMessage[];
+        "onCancelSearchPersonal"?: (event: CustomEvent<void>) => void;
         /**
           * show dialogs
          */
@@ -796,7 +797,7 @@ declare namespace LocalJSX {
         /**
           * search for private messages
          */
-        "onSearchPersonalMessages"?: (event: CustomEvent<any>) => void;
+        "onSearchPersonalMessages"?: (event: CustomEvent<ChatMessage>) => void;
     }
     interface MyComponent {
     }
@@ -812,6 +813,7 @@ declare namespace LocalJSX {
           * array data personal messages
          */
         "message"?: ChatMessage[];
+        "onCancelSearchPersonal"?: (event: CustomEvent<void>) => void;
         /**
           * clock on navigate
          */

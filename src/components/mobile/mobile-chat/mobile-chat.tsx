@@ -10,12 +10,13 @@ import {
   tag: "mobile-chat",
   styleUrl: "mobile-chat.css",
   shadow: false,
+  scoped:true
 })
 export class MobileChat implements ComponentInterface {
   /**
    * Выбираем какой контент показывать
    * */
-  @State() showContent = "dialogs";
+  @State() showContent = "contacts";
 
   /**
    * массив данных для диалогов
@@ -117,7 +118,7 @@ export class MobileChat implements ComponentInterface {
   }
 
   render() {
-    return <div>{this.getContent("dialogs")}</div>;
+    return <div>{this.getContent(this.showContent)}</div>;
   }
 
   componentWillLoad(): Promise<void> | void {

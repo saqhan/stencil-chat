@@ -4,6 +4,7 @@ import {Component, ComponentInterface, EventEmitter, h, Event, Prop} from '@sten
   tag: 'btn-wrapper',
   styleUrl: 'btn-wrapper.css',
   shadow: false,
+  scoped: true
 })
 export class BtnWrapper implements ComponentInterface {
 

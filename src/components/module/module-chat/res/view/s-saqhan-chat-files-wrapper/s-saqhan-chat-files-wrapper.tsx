@@ -4,6 +4,7 @@ import {Component, ComponentInterface, EventEmitter, Event, h} from '@stencil/co
   tag: 's-saqhan-chat-files-wrapper',
   styleUrl: 's-saqhan-chat-files-wrapper.css',
   shadow: false,
+  scoped: true
 })
 export class SSaqhanChatFilesWrapper implements ComponentInterface {
   /**

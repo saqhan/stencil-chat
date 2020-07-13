@@ -10,6 +10,7 @@ import {
   tag: "s-saqhan-chat-form-search-files",
   styleUrl: "s-saqhan-chat-form-search-files.css",
   shadow: false,
+  scoped: true
 })
 export class SSaqhanChatFormSearchFiles implements ComponentInterface {
   @Event() clickToLink: EventEmitter;
