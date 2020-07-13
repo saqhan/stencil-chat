@@ -13,6 +13,7 @@ import {ChatMessage} from "../../../index";
   tag: "s-adam-personal-header",
   styleUrl: "s-adam-personal-header.css",
   shadow: false,
+  scoped: true
 })
 export class SAdamPersonalHeader implements ComponentInterface {
 
@@ -32,6 +33,11 @@ export class SAdamPersonalHeader implements ComponentInterface {
   @Event() searchPersonalMessage: EventEmitter<ChatMessage>;
 
   /**
+   * Сброс фильтра сообщений
+   */
+  @Event() resetMessagesFilter: EventEmitter<void>;
+
+  /**
    * Стейт для переключения окна поиска сообщений
    */
   @State() searchVisible = false;
@@ -45,6 +51,7 @@ export class SAdamPersonalHeader implements ComponentInterface {
    */
   public toggleSearchVisible() {
     this.searchVisible = !this.searchVisible;
+    this.resetMessagesFilter.emit()
   }
 
   /**

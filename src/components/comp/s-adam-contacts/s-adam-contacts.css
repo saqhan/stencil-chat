@@ -1,3 +1,6 @@
+.col-3{
+  padding: 0 !important;
+}
 .contacts-column {
   background-color: #f7f8f9;
   padding: 20px 20px 0 20px;
@@ -41,13 +44,8 @@
   margin-left: auto;
   color: lightgray;
 }
-  ::-webkit-scrollbar { /* chrome based */
-    width: 0px; /* ширина scrollbar'a */
-    background: transparent; /* опционально */
-  }
-input::-moz-placeholder {
-  color: #979eab;
+::-webkit-scrollbar { /* chrome based */
+  width: 0px; /* ширина scrollbar'a */
+  background: transparent; /* опционально */
 }
-input::-webkit-input-placeholder {
-  color: #979eab;
-}
+

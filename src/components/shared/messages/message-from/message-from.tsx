@@ -1,6 +1,6 @@
 import { Component, ComponentInterface, h, Prop } from "@stencil/core";
 import dayjs from "dayjs";
-import {ChatMessageDirectionEnum, ChatMessageTypeEnum} from "../../../../index";
+import {ChatMessage, ChatMessageDirectionEnum, ChatMessageTypeEnum} from "../../../../index";
 
 @Component({
   tag: "message-from",
@@ -11,7 +11,7 @@ export class MessageFrom implements ComponentInterface {
   /**
    * Принимаем сообщения для пользователя
    * */
-  @Prop() message: any;
+  @Prop() message: ChatMessage;
 
   render() {
     return <div>{this.messageFrom(this.message)}</div>;

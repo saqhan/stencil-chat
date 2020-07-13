@@ -1,5 +1,5 @@
 import { Component, ComponentInterface, h, Prop } from "@stencil/core";
-import {ChatMessageDirectionEnum} from "../../../../../../../index";
+import {ChatMessage, ChatMessageDirectionEnum} from "../../../../../../../index";
 
 @Component({
   tag: "message-text",
@@ -10,7 +10,7 @@ export class MessageText implements ComponentInterface {
   /**
    * Принимаем сообщения для пользователя
    * */
-  @Prop() message: any;
+  @Prop() message: ChatMessage;
   /**
    * Получаем время оттправки сообщения
    * */

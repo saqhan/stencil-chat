@@ -13,6 +13,7 @@ import { ChatCategoryInterface, ChatDialogInterface } from "../../../index";
   tag: "s-adam-contacts",
   styleUrl: "s-adam-contacts.css",
   shadow: false,
+  scoped: true
 })
 export class SAdamContacts implements ComponentInterface {
   /**

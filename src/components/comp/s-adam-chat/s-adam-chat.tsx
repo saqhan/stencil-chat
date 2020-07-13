@@ -11,6 +11,7 @@ import {
   tag: "s-adam-chat",
   styleUrl: "s-adam-chat.css",
   shadow: false,
+  scoped: true
 })
 export class SAdamChat implements ComponentInterface {
   /**

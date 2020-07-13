@@ -60,7 +60,7 @@ export namespace Components {
         /**
           * Принимаем сообщения для пользователя
          */
-        "message": any;
+        "message": ChatMessage;
     }
     interface MessageImg {
         /**
@@ -84,7 +84,7 @@ export namespace Components {
         /**
           * Принимаем сообщения для пользователя
          */
-        "message": any;
+        "message": ChatMessage;
     }
     interface MobileChat {
     }
@@ -687,7 +687,7 @@ declare namespace LocalJSX {
         /**
           * Принимаем сообщения для пользователя
          */
-        "message"?: any;
+        "message"?: ChatMessage;
     }
     interface MessageImg {
         /**
@@ -711,7 +711,7 @@ declare namespace LocalJSX {
         /**
           * Принимаем сообщения для пользователя
          */
-        "message"?: any;
+        "message"?: ChatMessage;
     }
     interface MobileChat {
     }
@@ -866,6 +866,10 @@ declare namespace LocalJSX {
          */
         "message"?: ChatMessage[];
         /**
+          * Сброс фильтра сообщений
+         */
+        "onResetMessagesFilter"?: (event: CustomEvent<void>) => void;
+        /**
           * Клик по иконке поиска
          */
         "onSearchPersonalMessage"?: (event: CustomEvent<ChatMessage>) => void;
@@ -897,6 +901,10 @@ declare namespace LocalJSX {
           * Личный диалог
          */
         "message"?: ChatMessage[];
+        /**
+          * Сброс фильтра сообщений
+         */
+        "onResetMessagesFilter"?: (event: CustomEvent<void>) => void;
         /**
           * Клик по иконке поиска
          */
