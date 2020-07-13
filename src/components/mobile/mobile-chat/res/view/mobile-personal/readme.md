@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property      | Attribute | Description                  | Type            | Default     |
-| ------------- | --------- | ---------------------------- | --------------- | ----------- |
-| `messageMock` | --        | array data personal messages | `ChatMessage[]` | `undefined` |
+| Property  | Attribute | Description                  | Type            | Default     |
+| --------- | --------- | ---------------------------- | --------------- | ----------- |
+| `message` | --        | array data personal messages | `ChatMessage[]` | `undefined` |
 
 
 ## Events

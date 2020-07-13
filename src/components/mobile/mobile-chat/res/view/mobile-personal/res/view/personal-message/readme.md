@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property      | Attribute      | Description                  | Type                             | Default     |
-| ------------- | -------------- | ---------------------------- | -------------------------------- | ----------- |
-| `messageMock` | `message-mock` | array data personal messages | `any`                            | `undefined` |
-| `theme`       | `theme`        |                              | `"comp" \| "mobile" \| "module"` | `"mobile"`  |
+| Property  | Attribute | Description                  | Type                             | Default     |
+| --------- | --------- | ---------------------------- | -------------------------------- | ----------- |
+| `message` | --        | array data personal messages | `ChatMessage[]`                  | `undefined` |
+| `theme`   | `theme`   |                              | `"comp" \| "mobile" \| "module"` | `"mobile"`  |
 
 
 ## Dependencies

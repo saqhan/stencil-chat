@@ -7,7 +7,7 @@ import {
   Prop,
   State,
 } from "@stencil/core";
-import { ChatMessage } from "../../../../../../../../../index";
+import {ChatMessage} from "../../../../../../../../../index";
 
 @Component({
   tag: "personal-header",
@@ -18,7 +18,7 @@ export class PersonalHeader implements ComponentInterface {
   /**
    * array data personal messages
    * */
-  @Prop() messageMock: ChatMessage[];
+  @Prop() message: ChatMessage[];
   /**
    * clock on navigate
    * */
@@ -125,7 +125,7 @@ export class PersonalHeader implements ComponentInterface {
   public getNameUser(): string {
     let name = "";
 
-    this.messageMock.forEach((item) => {
+    this.message.forEach((item) => {
       if (name.indexOf(item.sender.name) === -1) {
         name = item.sender.name;
       }

@@ -102,7 +102,7 @@ export namespace Components {
         /**
           * array data personal messages
          */
-        "messageMock": ChatMessage[];
+        "message": ChatMessage[];
     }
     interface ModuleChat {
     }
@@ -113,7 +113,7 @@ export namespace Components {
         /**
           * array data personal messages
          */
-        "messageMock": ChatMessage[];
+        "message": ChatMessage[];
     }
     interface MyComponent {
     }
@@ -124,13 +124,13 @@ export namespace Components {
         /**
           * array data personal messages
          */
-        "messageMock": ChatMessage[];
+        "message": ChatMessage[];
     }
     interface PersonalMessage {
         /**
           * array data personal messages
          */
-        "messageMock": any;
+        "message": ChatMessage[];
         "theme": "mobile" | "module" | "comp";
     }
     interface SAdamChat {
@@ -234,7 +234,7 @@ export namespace Components {
         /**
           * массив данных личных сообщений
          */
-        "messageMock": ChatMessage[];
+        "message": ChatMessage[];
         /**
           * Заголовок для чата
          */
@@ -757,7 +757,7 @@ declare namespace LocalJSX {
         /**
           * array data personal messages
          */
-        "messageMock"?: ChatMessage[];
+        "message"?: ChatMessage[];
         /**
           * click to show Dialogs
          */
@@ -784,7 +784,7 @@ declare namespace LocalJSX {
         /**
           * array data personal messages
          */
-        "messageMock"?: ChatMessage[];
+        "message"?: ChatMessage[];
         /**
           * show dialogs
          */
@@ -811,7 +811,7 @@ declare namespace LocalJSX {
         /**
           * array data personal messages
          */
-        "messageMock"?: ChatMessage[];
+        "message"?: ChatMessage[];
         /**
           * clock on navigate
          */
@@ -831,7 +831,7 @@ declare namespace LocalJSX {
         /**
           * array data personal messages
          */
-        "messageMock"?: any;
+        "message"?: ChatMessage[];
         "theme"?: "mobile" | "module" | "comp";
     }
     interface SAdamChat {
@@ -907,7 +907,7 @@ declare namespace LocalJSX {
         "onVisibleUserProfile"?: (event: CustomEvent<void>) => void;
     }
     interface SAdamProfile {
-        "onClickToLink"?: (event: CustomEvent<any>) => void;
+        "onClickToShowDialogs"?: (event: CustomEvent<any>) => void;
         /**
           * Задаем стиль для мобильной/пк версии
          */
@@ -997,14 +997,14 @@ declare namespace LocalJSX {
         /**
           * массив данных личных сообщений
          */
-        "messageMock"?: ChatMessage[];
+        "message"?: ChatMessage[];
         /**
           * Заголовок для чата
          */
         "titleModule"?: any;
     }
     interface UserProfile {
-        "onClickToLink"?: (event: CustomEvent<any>) => void;
+        "onClickToShowDialogs"?: (event: CustomEvent<any>) => void;
     }
     interface IntrinsicElements {
         "btn-wrapper": BtnWrapper;

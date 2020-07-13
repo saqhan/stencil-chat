@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property   | Attribute | Description      | Type         | Default     |
-| ---------- | --------- | ---------------- | ------------ | ----------- |
-| `logo`     | --        | Логотип          | `logo`       | `undefined` |
-| `navItems` | --        | Иконки навигации | `navItems[]` | `[]`        |
+| Property   | Attribute | Description      | Type             | Default     |
+| ---------- | --------- | ---------------- | ---------------- | ----------- |
+| `logo`     | --        | Логотип          | `ChatLogo`       | `undefined` |
+| `navItems` | --        | Иконки навигации | `ChatNavItems[]` | `[]`        |
 
 
 ## Dependencies

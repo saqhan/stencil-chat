@@ -6,7 +6,7 @@ import {
   h,
   Prop,
 } from "@stencil/core";
-import { ChatMessage } from "../../../../../../index";
+import { ChatMessage } from '../../../../../../index';
 
 @Component({
   tag: "mobile-personal",
@@ -17,7 +17,7 @@ export class MobilePersonal implements ComponentInterface {
   /**
    * array data personal messages
    * */
-  @Prop() messageMock: ChatMessage[];
+  @Prop() message: ChatMessage[];
 
   /**
    * click to show Dialogs
@@ -40,10 +40,10 @@ export class MobilePersonal implements ComponentInterface {
   render() {
     return (
       <div class="personal-wrapper">
-        <personal-header messageMock={this.messageMock}></personal-header>
+        <personal-header message={this.message}></personal-header>
         <personal-message
           theme={"mobile"}
-          messageMock={this.messageMock}
+          message={this.message}
         ></personal-message>
         <personal-footer theme="mobile"></personal-footer>
       </div>

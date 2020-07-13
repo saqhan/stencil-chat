@@ -14,10 +14,10 @@
 
 ## Events
 
-| Event                  | Description                            | Type               |
-| ---------------------- | -------------------------------------- | ------------------ |
-| `clickOnSearchMessage` | Клик по иконке поиска                  | `CustomEvent<any>` |
-| `clickOnUsername`      | клик по имени юзера в личной переписке | `CustomEvent<any>` |
+| Event                   | Description                            | Type                       |
+| ----------------------- | -------------------------------------- | -------------------------- |
+| `searchPersonalMessage` | Клик по иконке поиска                  | `CustomEvent<ChatMessage>` |
+| `visibleUserProfile`    | клик по имени юзера в личной переписке | `CustomEvent<void>`        |
 
 
 ## Dependencies
