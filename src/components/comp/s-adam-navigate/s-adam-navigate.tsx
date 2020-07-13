@@ -5,6 +5,7 @@ import {ChatLogo, ChatNavItems} from "../../../index";
   tag: 's-adam-navigate',
   styleUrl: 's-adam-navigate.css',
   shadow: false,
+  scoped: true
 })
 export class SAdamNavigate implements ComponentInterface {
   /**

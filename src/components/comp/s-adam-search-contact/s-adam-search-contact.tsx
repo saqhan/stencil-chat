@@ -5,6 +5,7 @@ import {ChatDialogInterface} from "../../../index";
   tag: 's-adam-search-contact',
   styleUrl: 's-adam-search-contact.css',
   shadow: false,
+  scoped: true
 })
 export class SAdamSearchContact implements ComponentInterface {
   /**

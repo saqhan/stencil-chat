@@ -4,6 +4,7 @@ import { Component, ComponentInterface, h } from '@stencil/core';
   tag: 's-adam-no-chat',
   styleUrl: 's-adam-no-chat.css',
   shadow: false,
+  scoped: true
 })
 export class SAdamNoChat implements ComponentInterface {
 

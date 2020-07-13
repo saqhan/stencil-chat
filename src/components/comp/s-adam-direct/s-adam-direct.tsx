@@ -12,6 +12,7 @@ import {ChatMessage} from "../../../index";
   tag: "s-adam-direct",
   styleUrl: "s-adam-direct.css",
   shadow: false,
+  scoped: true
 })
 export class SAdamDirect implements ComponentInterface {
   /**
@@ -28,6 +29,11 @@ export class SAdamDirect implements ComponentInterface {
    * Клик по иконке поиска
    */
   @Event() searchPersonalMessage: EventEmitter<ChatMessage>;
+
+  /**
+   * Сброс фильтра сообщений
+   */
+  @Event() resetMessagesFilter: EventEmitter<void>;
 
   render() {
     return (
