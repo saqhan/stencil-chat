@@ -10,7 +10,7 @@ export class SSaqhanChatFilesWrapper implements ComponentInterface {
   /**
    * click to link
    * */
-  @Event() clickToLink: EventEmitter;
+  @Event() clickToShowDialogs: EventEmitter<void>;
 
   render() {
     return (

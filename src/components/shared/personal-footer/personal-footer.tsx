@@ -12,6 +12,7 @@ import {
   tag: "personal-footer",
   styleUrl: "personal-footer.css",
   shadow: false,
+  scoped:true
 })
 export class PersonalFooter implements ComponentInterface {
   @Prop() theme: "comp" | "mobile" = "comp";

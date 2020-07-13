@@ -6,6 +6,7 @@ import {ChatMessage, ChatMessageDirectionEnum, ChatMessageTypeEnum} from "../../
   tag: "message-from",
   styleUrl: "message-from.css",
   shadow: false,
+
 })
 export class MessageFrom implements ComponentInterface {
   /**
@@ -25,9 +26,12 @@ export class MessageFrom implements ComponentInterface {
     switch (array.direction) {
       case ChatMessageDirectionEnum.fromMe:
         return (
-          <div class="from-mess-wrapper">
-            <div class="from-mess-wrap">{this.createType(this.message)}</div>
+          <div>
+            <div class="from-mess-wrapper">
+              <div class="from-mess-wrap">{this.createType(this.message)}</div>
+            </div>
           </div>
+
         );
       case ChatMessageDirectionEnum.toMe:
         return (

@@ -143,7 +143,9 @@ export class SSaqhanChatWrapper implements ComponentInterface {
       case "files":
         return (
           <s-saqhan-chat-files-wrapper
+
           // onClickToLink={(item) => this.clickToLink(item.detail)}
+          onClickToShowDialogs={() => this.clickToShowDialogs()}
           ></s-saqhan-chat-files-wrapper>
         );
       case "profile":
