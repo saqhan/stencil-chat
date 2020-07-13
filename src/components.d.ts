@@ -10,9 +10,6 @@ export namespace Components {
     interface BtnWrapper {
         "showChat": any;
     }
-    interface ChatUserCard {
-        "user": any;
-    }
     interface ContactCard {
         /**
           * Принимаем контакт
@@ -105,7 +102,7 @@ export namespace Components {
         /**
           * array data personal messages
          */
-        "messageMock": ChatMessage[];
+        "message": ChatMessage[];
     }
     interface ModuleChat {
     }
@@ -116,7 +113,7 @@ export namespace Components {
         /**
           * array data personal messages
          */
-        "messageMock": ChatMessage[];
+        "message": ChatMessage[];
     }
     interface MyComponent {
     }
@@ -127,13 +124,13 @@ export namespace Components {
         /**
           * array data personal messages
          */
-        "messageMock": ChatMessage[];
+        "message": ChatMessage[];
     }
     interface PersonalMessage {
         /**
           * array data personal messages
          */
-        "messageMock": any;
+        "message": ChatMessage[];
         "theme": "mobile" | "module" | "comp";
     }
     interface SAdamChat {
@@ -195,7 +192,10 @@ export namespace Components {
     interface SSaqhanChatFilesWrapper {
     }
     interface SSaqhanChatFormSearch {
-        "categories": any;
+        /**
+          * array categories
+         */
+        "categories": ChatCategoryInterface[];
     }
     interface SSaqhanChatFormSearchFiles {
     }
@@ -209,7 +209,7 @@ export namespace Components {
         /**
           * Массив данных с диалогами
          */
-        "messages": any;
+        "messages": ChatDialogInterface;
     }
     interface SSaqhanChatUsersWrapper {
         "categories": any;
@@ -234,7 +234,7 @@ export namespace Components {
         /**
           * массив данных личных сообщений
          */
-        "messageMock": ChatMessage[];
+        "message": ChatMessage[];
         /**
           * Заголовок для чата
          */
@@ -249,12 +249,6 @@ declare global {
     var HTMLBtnWrapperElement: {
         prototype: HTMLBtnWrapperElement;
         new (): HTMLBtnWrapperElement;
-    };
-    interface HTMLChatUserCardElement extends Components.ChatUserCard, HTMLStencilElement {
-    }
-    var HTMLChatUserCardElement: {
-        prototype: HTMLChatUserCardElement;
-        new (): HTMLChatUserCardElement;
     };
     interface HTMLContactCardElement extends Components.ContactCard, HTMLStencilElement {
     }
@@ -522,7 +516,6 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "btn-wrapper": HTMLBtnWrapperElement;
-        "chat-user-card": HTMLChatUserCardElement;
         "contact-card": HTMLContactCardElement;
         "contacts-list": HTMLContactsListElement;
         "contacts-list-body": HTMLContactsListBodyElement;
@@ -576,10 +569,6 @@ declare namespace LocalJSX {
          */
         "onClickToShowChat"?: (event: CustomEvent<any>) => void;
         "showChat"?: any;
-    }
-    interface ChatUserCard {
-        "onSelectPersonal"?: (event: CustomEvent<any>) => void;
-        "user"?: any;
     }
     interface ContactCard {
         /**
@@ -768,7 +757,7 @@ declare namespace LocalJSX {
         /**
           * array data personal messages
          */
-        "messageMock"?: ChatMessage[];
+        "message"?: ChatMessage[];
         /**
           * click to show Dialogs
          */
@@ -795,15 +784,19 @@ declare namespace LocalJSX {
         /**
           * array data personal messages
          */
-        "messageMock"?: ChatMessage[];
+        "message"?: ChatMessage[];
         /**
-          * clock on navigate
+          * show dialogs
          */
-        "onClickToLink"?: (event: CustomEvent<any>) => void;
+        "onClickToShowDialogs"?: (event: CustomEvent<void>) => void;
+        /**
+          * on click to profile user
+         */
+        "onClickToUserProfile"?: (event: CustomEvent<void>) => void;
         /**
           * search for private messages
          */
-        "onSearchPersonalMessage"?: (event: CustomEvent<any>) => void;
+        "onSearchPersonalMessages"?: (event: CustomEvent<any>) => void;
     }
     interface MyComponent {
     }
@@ -818,16 +811,16 @@ declare namespace LocalJSX {
         /**
           * array data personal messages
          */
-        "messageMock"?: ChatMessage[];
+        "message"?: ChatMessage[];
         /**
           * clock on navigate
          */
-        "onClickToLink"?: (event: CustomEvent<any>) => void;
+        "onClickToLink"?: (event: CustomEvent<void>) => void;
         /**
           * click to show user profile
          */
         "onClickToShowDialogs"?: (event: CustomEvent<string>) => void;
-        "onClickToUserProfile"?: (event: CustomEvent<any>) => void;
+        "onClickToUserProfile"?: (event: CustomEvent<void>) => void;
         "onSearchContact"?: (event: CustomEvent<any>) => void;
         /**
           * search for private messages
@@ -838,7 +831,7 @@ declare namespace LocalJSX {
         /**
           * array data personal messages
          */
-        "messageMock"?: any;
+        "message"?: ChatMessage[];
         "theme"?: "mobile" | "module" | "comp";
     }
     interface SAdamChat {
@@ -914,7 +907,7 @@ declare namespace LocalJSX {
         "onVisibleUserProfile"?: (event: CustomEvent<void>) => void;
     }
     interface SAdamProfile {
-        "onClickToLink"?: (event: CustomEvent<any>) => void;
+        "onClickToShowDialogs"?: (event: CustomEvent<any>) => void;
         /**
           * Задаем стиль для мобильной/пк версии
          */
@@ -927,6 +920,7 @@ declare namespace LocalJSX {
         "onSearchDialogs"?: (event: CustomEvent<ChatDialogInterface>) => void;
     }
     interface SSaqhanChatAddQuestion {
+        "onSendNewMessModal"?: (event: CustomEvent<void>) => void;
     }
     interface SSaqhanChatFiles {
     }
@@ -937,11 +931,14 @@ declare namespace LocalJSX {
         "onClickToLink"?: (event: CustomEvent<any>) => void;
     }
     interface SSaqhanChatFormSearch {
-        "categories"?: any;
+        /**
+          * array categories
+         */
+        "categories"?: ChatCategoryInterface[];
         /**
           * Клик по кнопке files
          */
-        "onClickToLink"?: (event: CustomEvent<any>) => void;
+        "onClickToFilesBtn"?: (event: CustomEvent<any>) => void;
         /**
           * Клик по кнопке в чате
          */
@@ -960,7 +957,7 @@ declare namespace LocalJSX {
         /**
           * Массив данных с диалогами
          */
-        "messages"?: any;
+        "messages"?: ChatDialogInterface;
     }
     interface SSaqhanChatUsersWrapper {
         "categories"?: any;
@@ -969,8 +966,20 @@ declare namespace LocalJSX {
          */
         "messages"?: any;
         "onClickToCategory"?: (event: CustomEvent<any>) => void;
+        /**
+          * click to dialog
+         */
+        "onClickToDialog"?: (event: CustomEvent<any>) => void;
+        /**
+          * click to files button
+         */
+        "onClickToFilesBtn"?: (event: CustomEvent<any>) => void;
         "onClickToLink"?: (event: CustomEvent<any>) => void;
         "onSearchDialog"?: (event: CustomEvent<any>) => void;
+        /**
+          * send new mess
+         */
+        "onSendNewMessModal"?: (event: CustomEvent<any>) => void;
         /**
           * Массив данных с личным чатом
          */
@@ -988,18 +997,17 @@ declare namespace LocalJSX {
         /**
           * массив данных личных сообщений
          */
-        "messageMock"?: ChatMessage[];
+        "message"?: ChatMessage[];
         /**
           * Заголовок для чата
          */
         "titleModule"?: any;
     }
     interface UserProfile {
-        "onClickToLink"?: (event: CustomEvent<any>) => void;
+        "onClickToShowDialogs"?: (event: CustomEvent<any>) => void;
     }
     interface IntrinsicElements {
         "btn-wrapper": BtnWrapper;
-        "chat-user-card": ChatUserCard;
         "contact-card": ContactCard;
         "contacts-list": ContactsList;
         "contacts-list-body": ContactsListBody;
@@ -1051,7 +1059,6 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "btn-wrapper": LocalJSX.BtnWrapper & JSXBase.HTMLAttributes<HTMLBtnWrapperElement>;
-            "chat-user-card": LocalJSX.ChatUserCard & JSXBase.HTMLAttributes<HTMLChatUserCardElement>;
             "contact-card": LocalJSX.ContactCard & JSXBase.HTMLAttributes<HTMLContactCardElement>;
             "contacts-list": LocalJSX.ContactsList & JSXBase.HTMLAttributes<HTMLContactsListElement>;
             "contacts-list-body": LocalJSX.ContactsListBody & JSXBase.HTMLAttributes<HTMLContactsListBodyElement>;

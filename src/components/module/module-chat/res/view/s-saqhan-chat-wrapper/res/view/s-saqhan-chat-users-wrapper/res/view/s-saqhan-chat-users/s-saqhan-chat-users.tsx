@@ -1,4 +1,5 @@
 import { Component, ComponentInterface, h, Prop } from "@stencil/core";
+import {ChatDialogInterface} from "../../../../../../../../../../../../index";
 
 @Component({
   tag: "s-saqhan-chat-users",
@@ -9,7 +10,7 @@ export class SSaqhanChatUsers implements ComponentInterface {
   /**
    * Массив данных с диалогами
    * */
-  @Prop() messages:any;
+  @Prop() messages:ChatDialogInterface;
 
 
   render() {

@@ -15,9 +15,9 @@
 
 ## Events
 
-| Event         | Description       | Type                               |
-| ------------- | ----------------- | ---------------------------------- |
-| `clickToLink` | clock on navigate | `CustomEvent<ChatClickToLinkEmit>` |
+| Event           | Description     | Type                               |
+| --------------- | --------------- | ---------------------------------- |
+| `clickToDialog` | clock on dialog | `CustomEvent<ChatClickToLinkEmit>` |
 
 
 ## Dependencies

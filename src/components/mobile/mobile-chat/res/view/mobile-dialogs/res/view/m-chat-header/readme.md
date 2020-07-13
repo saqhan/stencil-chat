@@ -14,10 +14,10 @@
 
 ## Events
 
-| Event           | Description          | Type                               |
-| --------------- | -------------------- | ---------------------------------- |
-| `clickToLink`   | clock on clickToLink | `CustomEvent<ChatClickToLinkEmit>` |
-| `searchContact` |                      | `CustomEvent<string>`              |
+| Event              | Description            | Type                               |
+| ------------------ | ---------------------- | ---------------------------------- |
+| `clickToAddDialog` | click to add dialog    | `CustomEvent<void>`                |
+| `searchDialogs`    | clock on searchDialogs | `CustomEvent<ChatDialogInterface>` |
 
 
 ## Dependencies

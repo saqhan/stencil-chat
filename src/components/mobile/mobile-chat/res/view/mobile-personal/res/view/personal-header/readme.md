@@ -7,17 +7,20 @@
 
 ## Properties
 
-| Property      | Attribute      | Description                  | Type  | Default     |
-| ------------- | -------------- | ---------------------------- | ----- | ----------- |
-| `messageMock` | `message-mock` | array data personal messages | `any` | `undefined` |
+| Property  | Attribute | Description                  | Type            | Default     |
+| --------- | --------- | ---------------------------- | --------------- | ----------- |
+| `message` | --        | array data personal messages | `ChatMessage[]` | `undefined` |
 
 
 ## Events
 
-| Event           | Description       | Type               |
-| --------------- | ----------------- | ------------------ |
-| `clickToLink`   | clock on navigate | `CustomEvent<any>` |
-| `searchContact` |                   | `CustomEvent<any>` |
+| Event                    | Description                 | Type                  |
+| ------------------------ | --------------------------- | --------------------- |
+| `clickToLink`            | clock on navigate           | `CustomEvent<void>`   |
+| `clickToShowDialogs`     | click to show user profile  | `CustomEvent<string>` |
+| `clickToUserProfile`     |                             | `CustomEvent<void>`   |
+| `searchContact`          |                             | `CustomEvent<any>`    |
+| `searchPersonalMessages` | search for private messages | `CustomEvent<any>`    |
 
 
 ## Dependencies

@@ -11,21 +11,8 @@
 | ------------- | -------------- | ------------------------------ | ------------------------- | ----------- |
 | `categories`  | --             | array categories               | `ChatCategoryInterface[]` | `undefined` |
 | `dialogs`     | --             | массив данных для диалогов     | `ChatDialogInterface[]`   | `undefined` |
-| `messageMock` | --             | массив данных личных сообщений | `ChatMessage[]`           | `undefined` |
+| `message`     | --             | массив данных личных сообщений | `ChatMessage[]`           | `undefined` |
 | `titleModule` | `title-module` | Заголовок для чата             | `any`                     | `undefined` |
-
-
-## Methods
-
-### `searchMessage({ detail }: { detail: any; }) => Promise<void>`
-
-Метод поиска по чату
-
-#### Returns
-
-Type: `Promise<void>`
-
-
 
 
 ## Dependencies

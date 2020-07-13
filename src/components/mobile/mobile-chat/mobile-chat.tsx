@@ -30,7 +30,7 @@ export class MobileChat implements ComponentInterface {
   /**
    * массив данных личных диалогово
    * */
-  @State() messageMock = MessageMock;
+  @State() message = MessageMock;
 
   /**
    * click to Link
@@ -148,7 +148,7 @@ export class MobileChat implements ComponentInterface {
           <mobile-personal
             onClickToShowDialogs={() => this.clickToShowDialogs()}
             onClickToUserProfile={() => this.clickToUserProfile()}
-            messageMock={this.messageMock}
+            message={this.message}
             // onSearchContact={(e) => console.log("mobile-personal", e)}
             onSearchPersonalMessages={(detail) => this.searchPersonalMessages({detail})}
           ></mobile-personal>
@@ -156,7 +156,7 @@ export class MobileChat implements ComponentInterface {
       case "profile":
         return (
           <user-profile
-            onClickToLink={(item) => this.clickToLink(item)}
+            onClickToShowDialogs={() => this.clickToShowDialogs()}
           ></user-profile>
         );
       case "contacts":

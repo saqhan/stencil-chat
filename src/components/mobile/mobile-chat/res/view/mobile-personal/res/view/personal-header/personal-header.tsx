@@ -7,7 +7,7 @@ import {
   Prop,
   State,
 } from "@stencil/core";
-import { ChatMessage } from "../../../../../../../../../index";
+import {ChatMessage} from "../../../../../../../../../index";
 
 @Component({
   tag: "personal-header",
@@ -18,12 +18,12 @@ export class PersonalHeader implements ComponentInterface {
   /**
    * array data personal messages
    * */
-  @Prop() messageMock: ChatMessage[];
+  @Prop() message: ChatMessage[];
   /**
    * clock on navigate
    * */
-  @Event() clickToLink: EventEmitter;
-  @Event() clickToUserProfile: EventEmitter;
+  @Event() clickToLink: EventEmitter<void>;
+  @Event() clickToUserProfile: EventEmitter<void>;
   @Event() searchContact: EventEmitter;
   /**
    * search for private messages
@@ -105,7 +105,7 @@ export class PersonalHeader implements ComponentInterface {
               <input
                 type="text"
                 placeholder="search"
-                onInput={(event) => this.searchPersonalMessagesHandler(event)}
+                onInput={(detail) => this.searchPersonalMessagesHandler({detail})}
               />{" "}
               <span
                 onClick={() => this.showInputSearchPersonalMess()}
@@ -125,7 +125,7 @@ export class PersonalHeader implements ComponentInterface {
   public getNameUser(): string {
     let name = "";
 
-    this.messageMock.forEach((item) => {
+    this.message.forEach((item) => {
       if (name.indexOf(item.sender.name) === -1) {
         name = item.sender.name;
       }
@@ -157,7 +157,7 @@ export class PersonalHeader implements ComponentInterface {
   /**
    * search for private messages
    * */
-  public searchPersonalMessagesHandler(event): void {
-    this.searchPersonalMessages.emit(event)
+  public searchPersonalMessagesHandler({detail}): void {
+    this.searchPersonalMessages.emit(detail)
   }
 }

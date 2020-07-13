@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property     | Attribute | Description | Type                             | Default     |
-| ------------ | --------- | ----------- | -------------------------------- | ----------- |
-| `categories` | --        |             | `ChatCategoryInterface[]`        | `undefined` |
-| `theme`      | `theme`   |             | `"comp" \| "mobile" \| "module"` | `"comp"`    |
+| Property     | Attribute | Description | Type                             | Default  |
+| ------------ | --------- | ----------- | -------------------------------- | -------- |
+| `categories` | --        |             | `ChatCategoryInterface[]`        | `[]`     |
+| `theme`      | `theme`   |             | `"comp" \| "mobile" \| "module"` | `"comp"` |
 
 
 ## Events

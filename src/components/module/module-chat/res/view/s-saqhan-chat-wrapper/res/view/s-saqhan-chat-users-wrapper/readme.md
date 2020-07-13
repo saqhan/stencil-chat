@@ -16,11 +16,14 @@
 
 ## Events
 
-| Event             | Description | Type               |
-| ----------------- | ----------- | ------------------ |
-| `clickToCategory` |             | `CustomEvent<any>` |
-| `clickToLink`     |             | `CustomEvent<any>` |
-| `searchDialog`    |             | `CustomEvent<any>` |
+| Event              | Description           | Type               |
+| ------------------ | --------------------- | ------------------ |
+| `clickToCategory`  |                       | `CustomEvent<any>` |
+| `clickToDialog`    | click to dialog       | `CustomEvent<any>` |
+| `clickToFilesBtn`  | click to files button | `CustomEvent<any>` |
+| `clickToLink`      |                       | `CustomEvent<any>` |
+| `searchDialog`     |                       | `CustomEvent<any>` |
+| `sendNewMessModal` | send new mess         | `CustomEvent<any>` |
 
 
 ## Dependencies

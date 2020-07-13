@@ -21,7 +21,7 @@ export class ModuleChat implements ComponentInterface {
         categories={categories}
         dialogs={dialogs}
         titleModule={titleModule}
-        messageMock={MessageMock}
+        message={MessageMock}
       ></s-saqhan-chat-wrapper>
     );
   }

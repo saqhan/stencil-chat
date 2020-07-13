@@ -43,6 +43,20 @@ export class SSaqhanChatUsersWrapper implements ComponentInterface {
    * */
   @Event() clickToLink: EventEmitter;
 
+  /**
+   * click to dialog
+   * */
+  @Event() clickToDialog: EventEmitter;
+
+  /**
+   * click to files button
+   * */
+  @Event() clickToFilesBtn: EventEmitter;
+  /**
+   * send new mess
+   * */
+  @Event() sendNewMessModal: EventEmitter;
+
   render() {
     return (
       <div>

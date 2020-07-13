@@ -7,9 +7,9 @@
 
 ## Events
 
-| Event           | Description        | Type               |
-| --------------- | ------------------ | ------------------ |
-| `searchContact` | Поиск по контактам | `CustomEvent<any>` |
+| Event           | Description        | Type                               |
+| --------------- | ------------------ | ---------------------------------- |
+| `searchDialogs` | Поиск по контактам | `CustomEvent<ChatDialogInterface>` |
 
 
 ## Dependencies

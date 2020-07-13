@@ -7,16 +7,9 @@
 
 ## Properties
 
-| Property   | Attribute  | Description | Type  | Default     |
-| ---------- | ---------- | ----------- | ----- | ----------- |
-| `contacts` | `contacts` |             | `any` | `undefined` |
-
-
-## Events
-
-| Event         | Description          | Type               |
-| ------------- | -------------------- | ------------------ |
-| `clickToLink` | clock on clickToLink | `CustomEvent<any>` |
+| Property   | Attribute | Description | Type                     | Default     |
+| ---------- | --------- | ----------- | ------------------------ | ----------- |
+| `contacts` | --        |             | `ChatContactInterface[]` | `undefined` |
 
 
 ## Dependencies

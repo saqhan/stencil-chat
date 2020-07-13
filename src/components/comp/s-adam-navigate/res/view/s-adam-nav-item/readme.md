@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property   | Attribute   | Description      | Type  | Default     |
-| ---------- | ----------- | ---------------- | ----- | ----------- |
-| `navItems` | `nav-items` | Иконки навигации | `any` | `undefined` |
+| Property   | Attribute | Description      | Type           | Default     |
+| ---------- | --------- | ---------------- | -------------- | ----------- |
+| `navItems` | --        | Иконки навигации | `ChatNavItems` | `undefined` |
 
 
 ## Dependencies

@@ -1,18 +1,12 @@
-import {
-  Component,
-  ComponentInterface,
-  h,
-  State,
-  Prop,
-} from "@stencil/core";
+import { Component, ComponentInterface, h, State, Prop } from "@stencil/core";
 import {
   ChatCategoryInterface,
-  ChatClickToLinkEmit,
+  // ChatClickToLinkEmit,
   ChatDialogInterface,
-  ChatLinkTypeEnum,
+  // ChatLinkTypeEnum,
   ChatMessage,
 } from "../../../../../../index";
-import { SelectChatTypeEnum } from "./res/enum/common.enum";
+// import { SelectChatTypeEnum } from "./res/enum/common.enum";
 
 @Component({
   tag: "s-saqhan-chat-wrapper",
@@ -31,7 +25,7 @@ export class SSaqhanChatWrapper implements ComponentInterface {
   /**
    * массив данных личных сообщений
    * */
-  @Prop() messageMock: ChatMessage[];
+  @Prop() message: ChatMessage[];
   /**
    * массив данных для диалогов
    * */
@@ -40,11 +34,11 @@ export class SSaqhanChatWrapper implements ComponentInterface {
   /**
    * select content default
    * */
-  @State() showSelectContent: string = 'dialogs';
+  @State() showSelectContent: string = "dialogs";
 
   @State() categoriesState = this.categories;
   @State() dialogsState = this.dialogs;
-  @State() MessageMockState = this.messageMock;
+  @State() messageState = this.message;
   @State() messagesState = this.dialogs;
   /**
    * Перменная для включения/отключения показа чата в развернутом виде
@@ -63,9 +57,9 @@ export class SSaqhanChatWrapper implements ComponentInterface {
   }
 
   /**
-   * Метод поиски диалогов
+   * dialogue search
    * */
-  searchDialog({ detail }) {
+  public searchDialog({ detail }) {
     this.dialogsState =
       detail.data !== "" && detail.data !== null
         ? this.dialogs.filter((item) => {
@@ -76,20 +70,20 @@ export class SSaqhanChatWrapper implements ComponentInterface {
         : this.dialogs;
   }
 
-
   /**
    * search for private messages
    * */
 
-   searchPersonalMessage({ detail }) {
-    this.MessageMockState =
+  public searchPersonalMessages({ detail }) {
+    console.log("searchPersonalMessages", detail);
+    this.messageState =
       detail.data !== "" && detail.data !== null
-        ? this.MessageMockState.filter((item) => {
+        ? this.messageState.filter((item) => {
             return typeof item.content === "string"
               ? item.content.toLowerCase().includes(detail.data.toLowerCase())
               : false;
           })
-        : this.messageMock;
+        : this.message;
   }
 
   render() {
@@ -115,6 +109,10 @@ export class SSaqhanChatWrapper implements ComponentInterface {
       </div>
     );
   }
+
+  public sendNewMessModal() {
+    console.log("sendNewMessModal");
+  }
   /**
    * Select show content
    * */
@@ -126,9 +124,12 @@ export class SSaqhanChatWrapper implements ComponentInterface {
           <s-saqhan-chat-users-wrapper
             messages={this.dialogsState}
             categories={this.categoriesState}
-            onClickToLink={(item) => this.clickToLink(item.detail)}
+            // onClickToLink={(item) => this.clickToLink(item.detail)}
             onClickToCategory={(item) => this.clickToCategory(item)}
+            onClickToDialog={(item) => this.clickToDialog(item)}
+            onClickToFilesBtn={() => this.clickToFilesBtn()}
             onSearchDialog={(item) => this.searchDialog(item)}
+            onSendNewMessModal={() => this.sendNewMessModal()}
           ></s-saqhan-chat-users-wrapper>
         );
       case "personal":
@@ -137,22 +138,25 @@ export class SSaqhanChatWrapper implements ComponentInterface {
           //   <s-adam-copying></s-adam-copying>
           // </div>
           <module-personal
-            onClickToLink={(item) => this.clickToLink(item.detail)}
-            messageMock={this.MessageMockState}
-            onSearchPersonalMessage={(e) => this.searchPersonalMessage(e)}
+            // onClickToLink={(item) => this.clickToLink(item.detail)}
+            message={this.message}
+            onSearchPersonalMessages={(e) => this.searchPersonalMessages(e)}
+            onClickToShowDialogs={() => this.clickToShowDialogs()}
+            onClickToUserProfile={() => this.clickToUserProfile()}
           ></module-personal>
         );
       case "files":
         return (
           <s-saqhan-chat-files-wrapper
-            onClickToLink={(item) => this.clickToLink(item.detail)}
+            // onClickToLink={(item) => this.clickToLink(item.detail)}
           ></s-saqhan-chat-files-wrapper>
         );
       case "profile":
         return (
           <s-adam-profile
             theme={"module"}
-            onClickToLink={(item) => this.clickToLink(item.detail)}
+            onClickToShowDialogs={() => this.clickToShowDialogs()}
+            // onClickToLink={(item) => this.clickToLink(item.detail)}
           ></s-adam-profile>
         );
       default:
@@ -163,39 +167,34 @@ export class SSaqhanChatWrapper implements ComponentInterface {
   /**
    * Метод для изменения состояния чата
    * */
-  public isShowChat() {
+  public isShowChat(): void {
     this.showChat = !this.showChat;
   }
   /**
    * Метод для закрытия чата
    * */
-  public onClose() {
+  public onClose(): void {
     this.showChat = false;
   }
   /**
    * click to Link
    * */
-  public clickToLink(detail: ChatClickToLinkEmit): string {
-    switch (detail.place) {
-      case ChatLinkTypeEnum.showFile:
-        this.showSelectContent = SelectChatTypeEnum.files;
-        break;
-      case ChatLinkTypeEnum.showDialogs:
-        this.showSelectContent = SelectChatTypeEnum.dialogs;
-        break;
-      case ChatLinkTypeEnum.showPersonalDialog:
-        this.showSelectContent = SelectChatTypeEnum.personal;
-        break;
-      case ChatLinkTypeEnum.userNamePersonal:
-        this.showSelectContent = SelectChatTypeEnum.profile;
-        break;
-      default:
-        this.showSelectContent = SelectChatTypeEnum.users;
-    }
+  public clickToLink(): string {
 
     return this.showSelectContent;
+
   }
-  public clickToDialog(){
-    this.showSelectContent = 'dialogs';
+  public clickToDialog({ detail }): void {
+    console.log("clickToDialog", detail);
+    this.showSelectContent = "personal";
+  }
+  public clickToFilesBtn(): void {
+    this.showSelectContent = "files";
+  }
+  public clickToShowDialogs(): void {
+    this.showSelectContent = "dialogs";
+  }
+  public clickToUserProfile(): void {
+    this.showSelectContent = "profile";
   }
 }
