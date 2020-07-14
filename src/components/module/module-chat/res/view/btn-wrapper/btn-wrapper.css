@@ -19,17 +19,21 @@
   bottom: 20px;
 }
 
-.open-chat::after {
-  content: "1";
-  background-color: #c73f45;
+.btn-green {
   position: relative;
-  top: -25px;
-  left: -20px;
-  color: #fff;
-  font-size: 12px;
-  padding: 5px 10px;
-  border-radius: 50%;
 }
+
+.counterNewMess {
+  position: absolute;
+  right: 0px;
+  color: #fff;
+  padding: 2px 7px;
+  border-radius: 50%;
+  background-color: #c73f45;
+  font-size: 12px;
+}
+
+
 
 @media (max-width: 414px) {
   .btn-open {

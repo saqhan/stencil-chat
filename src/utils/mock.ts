@@ -33,6 +33,7 @@ export const dialogs = [
     time: {
       created: new Date(),
     },
+    newMessage: 0,
     category: 'friends',
     online: false,
   },
@@ -56,6 +57,7 @@ export const dialogs = [
     time: {
       created: new Date(),
     },
+    newMessage: 1,
     category: 'work',
     online: false,
   },
@@ -91,6 +93,7 @@ export const dialogs = [
     time: {
       created: new Date(),
     },
+    newMessage: 4,
     category: 'family',
     online: true,
   },

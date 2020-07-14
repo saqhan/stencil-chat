@@ -8,7 +8,8 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { ChatCategoryInterface, ChatClickToLinkEmit, ChatContactInterface, ChatDialogInterface, ChatLogo, ChatMessage, ChatNavItems, ChatWritingUserInterface, titleModule, } from "./index";
 export namespace Components {
     interface BtnWrapper {
-        "showChat": any;
+        "dialogs": any;
+        "showChat": boolean;
     }
     interface ContactCard {
         /**
@@ -255,7 +256,7 @@ export namespace Components {
         /**
           * Заголовок для чата
          */
-        "titleModule": any;
+        "titleModule": titleModule;
     }
     interface UserProfile {
     }
@@ -581,11 +582,12 @@ declare global {
 }
 declare namespace LocalJSX {
     interface BtnWrapper {
+        "dialogs"?: any;
         /**
           * clock on clickToLink
          */
-        "onClickToShowChat"?: (event: CustomEvent<any>) => void;
-        "showChat"?: any;
+        "onClickToShowChat"?: (event: CustomEvent<void>) => void;
+        "showChat"?: boolean;
     }
     interface ContactCard {
         /**
@@ -1058,7 +1060,7 @@ declare namespace LocalJSX {
         /**
           * Заголовок для чата
          */
-        "titleModule"?: any;
+        "titleModule"?: titleModule;
     }
     interface UserProfile {
         "onClickToShowDialogs"?: (event: CustomEvent<any>) => void;
