@@ -57,6 +57,9 @@
   text-align: left;
 }
 
+.module .personal-footer .footer-wrapper  {
+  border-radius: 15px 15px 0px 0px;
+}
 
 .mobile .footer-wrapper {
   border-radius: 15px 15px 0px 0px;
@@ -70,4 +73,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.fa-microphone {
+  z-index: 1;
+  position: absolute;
+  top: 24px;
+  right: 23px;
 }

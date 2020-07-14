@@ -5,18 +5,28 @@ import {
   Event,
   h,
   State,
+  Prop,
 } from "@stencil/core";
 
 @Component({
   tag: "footer-text",
   styleUrl: "footer-text.css",
   shadow: false,
-  scoped:true
+  scoped: true,
 })
 export class FooterText implements ComponentInterface {
+  /**
+   * Пропс с классом
+   */
+  @Prop() theme: "comp" | "mobile" | "module" = "comp";
+
   @State() showAudioSendButton = true;
 
   @Event() showSendFileFooter: EventEmitter<void>;
+
+  /**
+   * Пока футера аудио
+   */
   @Event() showRecordAudioFooter: EventEmitter<void>;
 
   /**
@@ -33,31 +43,44 @@ export class FooterText implements ComponentInterface {
 
   render() {
     return (
-      <div class="personal-footer">
-        <div class="footer-wrapper">
-          <div
-            class="file"
-            onClick={() => this.showSendFileFooter.emit()}
-          >
-            <i class="fas fa-paperclip"></i>
-          </div>
-          <div class="input-wrapper">
-            <form onSubmit={(e) => this.sendMessageFromForm(e)}>
-              <input
-                type="text"
-                ref={ (el) => this.inputElement = el}
-                onInput={(e: any) => this.switchIconInput(e.target.value)}
-                placeholder="Type something ..."
-              />
-            </form>
-          </div>
-          <div class="audio" id="audio">
-            <SendButtonTag showAudio={this.showAudioSendButton} sendMessageFromButton={this.sendMessageFromButton.bind(this)} clickOnAudio={this.showRecordAudioFooter}></SendButtonTag>
+      <div class={this.getClassForHost()}>
+        <div class="personal-footer">
+          <div class="footer-wrapper">
+            <div class="file" onClick={() => this.showSendFileFooter.emit()}>
+              <i class="fas fa-paperclip"></i>
+            </div>
+            <div class="input-wrapper">
+              <form onSubmit={(e) => this.sendMessageFromForm(e)}>
+                <input
+                  type="text"
+                  ref={(el) => (this.inputElement = el)}
+                  onInput={(e: any) => this.switchIconInput(e.target.value)}
+                  placeholder="Type something ..."
+                />
+              </form>
+            </div>
+            <div class="audio" id="audio">
+              <SendButtonTag
+                showAudio={this.showAudioSendButton}
+                sendMessageFromButton={this.sendMessageFromButton.bind(this)}
+                clickOnAudio={this.showRecordAudioFooter}
+              ></SendButtonTag>
+            </div>
           </div>
         </div>
       </div>
     );
   }
+
+  /**
+   * Смена класса
+   */
+  public getClassForHost() {
+    return {
+      [this.theme]: true,
+    };
+  }
+
   /**
    * when sending message-from
    * */
@@ -69,15 +92,14 @@ export class FooterText implements ComponentInterface {
       // скрипт отправки сообщения
       console.log("send mess:", input.value);
       // скрипт отправки сообщения
-      this.switchIconInput(input.value = "")
+      this.switchIconInput((input.value = ""));
     }
   }
 
   /**
    * send message from form
    * */
-  public sendMessageFromForm (e)
-  {
+  public sendMessageFromForm(e) {
     e.preventDefault();
     this.sendingNewMess();
   }
@@ -85,8 +107,7 @@ export class FooterText implements ComponentInterface {
   /**
    * send message from send button
    * */
-  public sendMessageFromButton ()
-  {
+  public sendMessageFromButton() {
     this.sendingNewMess();
   }
 
@@ -94,28 +115,23 @@ export class FooterText implements ComponentInterface {
    * Функция для для отправки сообщения
    * */
   public switchIconInput(value: string) {
-    this.showAudioSendButton = !value.replace(/[\t\n\r ]+/g, '').length;
+    this.showAudioSendButton = !value.replace(/[\t\n\r ]+/g, "").length;
   }
 }
 
-
 /**
- *
+ * Смена иконки микрофона на стрелку
  * */
-const SendButtonTag = (
-  props: any
-) => {
-  return (props?.showAudio)
-  ? (
-      <i
-        class="fas fa-microphone"
-        onMouseDown={() => props.clickOnAudio.emit()}
-      ></i>
-  )
-  : (
-      <i
-        class="fas fa-location-arrow"
-        onClick={() => props.sendMessageFromButton()}
-      ></i>
-  )
-}
+const SendButtonTag = (props: any) => {
+  return props?.showAudio ? (
+    <i
+      class="fas fa-microphone"
+      onMouseDown={() => props.clickOnAudio.emit()}
+    ></i>
+  ) : (
+    <i
+      class="fas fa-location-arrow"
+      onClick={() => props.sendMessageFromButton()}
+    ></i>
+  );
+};

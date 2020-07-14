@@ -30,11 +30,6 @@ export class SAdamDirect implements ComponentInterface {
    */
   @Event() searchPersonalMessage: EventEmitter<ChatMessage>;
 
-  /**
-   * Сброс фильтра сообщений
-   */
-  @Event() resetMessagesFilter: EventEmitter<void>;
-
   render() {
     return (
       <div class="direct-comp">

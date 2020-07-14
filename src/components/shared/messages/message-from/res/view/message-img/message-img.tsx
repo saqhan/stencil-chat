@@ -5,7 +5,7 @@ import {ChatMessageDirectionEnum} from "../../../../../../../index";
   tag: "message-img",
   styleUrl: "message-img.css",
   shadow: false,
-  scoped:false
+  scoped: true
 })
 export class MessageImg implements ComponentInterface {
   /**
@@ -18,10 +18,7 @@ export class MessageImg implements ComponentInterface {
   @Prop() checkSendMess: any;
   render() {
     return (
-      <div
-        class="mess-img"
-        style={{ backgroundImage: `url(${this.message.content})` }}
-      >
+      <div class="mess-img-content">
         {
           this.message.direction === ChatMessageDirectionEnum.fromMe
           ? this.checkSendMess :  ''

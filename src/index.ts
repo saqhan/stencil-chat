@@ -148,6 +148,11 @@ export interface ChatLogo {
   logo: string;
 }
 
+export interface titleModule {
+  id: string,
+  title: string
+}
+
 export interface ChatNavItems {
   id: number;
   icon: string;

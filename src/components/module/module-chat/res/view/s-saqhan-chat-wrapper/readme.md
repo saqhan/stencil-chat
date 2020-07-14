@@ -7,12 +7,14 @@
 
 ## Properties
 
-| Property      | Attribute      | Description                    | Type                      | Default     |
-| ------------- | -------------- | ------------------------------ | ------------------------- | ----------- |
-| `categories`  | --             | array categories               | `ChatCategoryInterface[]` | `undefined` |
-| `dialogs`     | --             | массив данных для диалогов     | `ChatDialogInterface[]`   | `undefined` |
-| `message`     | --             | массив данных личных сообщений | `ChatMessage[]`           | `undefined` |
-| `titleModule` | `title-module` | Заголовок для чата             | `any`                     | `undefined` |
+| Property                     | Attribute                       | Description                    | Type                      | Default     |
+| ---------------------------- | ------------------------------- | ------------------------------ | ------------------------- | ----------- |
+| `categories`                 | --                              | array categories               | `ChatCategoryInterface[]` | `undefined` |
+| `dialogs`                    | --                              | массив данных для диалогов     | `ChatDialogInterface[]`   | `undefined` |
+| `disableInnerSearchDialogs`  | `disable-inner-search-dialogs`  | отключение поиска диалогов     | `boolean`                 | `undefined` |
+| `disableInnerSearchMessages` | `disable-inner-search-messages` | отключение поиска сообщений    | `boolean`                 | `undefined` |
+| `message`                    | --                              | массив данных личных сообщений | `ChatMessage[]`           | `undefined` |
+| `titleModule`                | `title-module`                  | Заголовок для чата             | `any`                     | `undefined` |
 
 
 ## Dependencies
