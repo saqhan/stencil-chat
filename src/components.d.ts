@@ -42,13 +42,13 @@ export namespace Components {
         /**
           * Пропс с классом CSS
          */
-        "theme": "comp" | "mobile";
+        "theme": "comp" | "mobile" | "module";
     }
     interface FooterText {
         /**
           * Пропс с классом
          */
-        "theme": "comp" | "mobile";
+        "theme": "comp" | "mobile" | "module";
     }
     interface MChatDialogs {
         /**
@@ -126,7 +126,7 @@ export namespace Components {
     interface MyComponent {
     }
     interface PersonalFooter {
-        "theme": "comp" | "mobile";
+        "theme": "comp" | "mobile" | "module";
     }
     interface PersonalHeader {
         /**
@@ -666,7 +666,7 @@ declare namespace LocalJSX {
         /**
           * Пропс с классом CSS
          */
-        "theme"?: "comp" | "mobile";
+        "theme"?: "comp" | "mobile" | "module";
     }
     interface FooterText {
         /**
@@ -677,7 +677,7 @@ declare namespace LocalJSX {
         /**
           * Пропс с классом
          */
-        "theme"?: "comp" | "mobile";
+        "theme"?: "comp" | "mobile" | "module";
     }
     interface MChatDialogs {
         /**
@@ -848,7 +848,7 @@ declare namespace LocalJSX {
           * click on navigate
          */
         "onClickToLink"?: (event: CustomEvent<any>) => void;
-        "theme"?: "comp" | "mobile";
+        "theme"?: "comp" | "mobile" | "module";
     }
     interface PersonalHeader {
         /**

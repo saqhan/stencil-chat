@@ -98,3 +98,11 @@ input.input-audio {
   justify-content: center;
   font-size: 14px;
 }
+
+.module .personal-footer .footer-wrapper  {
+  border-radius: 15px 15px 0px 0px;
+}
+
+.mobile .footer-wrapper {
+  border-radius: 15px 15px 0px 0px;
+}

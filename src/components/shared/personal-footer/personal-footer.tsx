@@ -15,7 +15,7 @@ import {
   scoped:true
 })
 export class PersonalFooter implements ComponentInterface {
-  @Prop() theme: "comp" | "mobile" = "comp";
+  @Prop() theme: "comp" | "mobile" | "module" = "comp";
 
   /**
    * click on navigate
@@ -39,9 +39,9 @@ export class PersonalFooter implements ComponentInterface {
     return (
       <div>
         {this.switchFooter ? (
-          <footer-text onShowRecordAudioFooter={() => this.toggleFooter()}></footer-text>
+          <footer-text theme={this.theme} onShowRecordAudioFooter={() => this.toggleFooter()}></footer-text>
         ) : (
-          <footer-audio
+          <footer-audio theme={this.theme}
             onRecordFinished={(state) => this.recordFinished(state.detail)}
           ></footer-audio>
         )}
