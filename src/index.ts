@@ -1,5 +1,4 @@
 export * from "./components";
-
 /**
  *
  * */
@@ -139,6 +138,7 @@ export interface ChatDialogInterface {
     /** время прочтения */
     read?: any;
   };
+  newMessage?: number;
   category: string;
   online: boolean;
 }
@@ -175,4 +175,49 @@ export enum ChatLinkTypeEnum {
 export interface ChatClickToLinkEmit {
   place?: ChatLinkTypeEnum;
   data?: ChatDialogInterface;
+}
+
+export interface ChatWritingUserInterface {
+  uid: string;
+  icon: string;
+  phone: string;
+  name: string
+}
+
+/**
+ *
+ * */
+export function chatConvertWritingStatusToMessage (
+  writing: ChatWritingUserInterface
+): ChatMessage
+{
+  return {
+    /**
+     * содержимое сообщения
+     * */
+    content: null,
+    /**
+     * тип сообщения
+     * */
+    type: ChatMessageTypeEnum.loading,
+    /** время создание */
+    time: {
+      /** время создания */
+      created: Date.now()
+    },
+    /**
+     * направления сообщения
+     * */
+    direction: ChatMessageDirectionEnum.toMe,
+
+    /**
+     * отправитель
+     * */
+    sender: {
+      uid: writing.uid,
+      icon: writing.icon,
+      name: writing.name,
+      phone: writing.phone
+    }
+  }
 }

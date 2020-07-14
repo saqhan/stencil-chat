@@ -14,12 +14,12 @@
 
 ## Events
 
-| Event                    | Description                 | Type                       |
-| ------------------------ | --------------------------- | -------------------------- |
-| `cancelSearchPersonal`   |                             | `CustomEvent<void>`        |
-| `clickToShowDialogs`     | show dialogs                | `CustomEvent<void>`        |
-| `clickToUserProfile`     | on click to profile user    | `CustomEvent<void>`        |
-| `searchPersonalMessages` | search for private messages | `CustomEvent<ChatMessage>` |
+| Event                    | Description                 | Type                  |
+| ------------------------ | --------------------------- | --------------------- |
+| `cancelSearchPersonal`   |                             | `CustomEvent<void>`   |
+| `clickToShowDialogs`     | show dialogs                | `CustomEvent<void>`   |
+| `clickToUserProfile`     | on click to profile user    | `CustomEvent<void>`   |
+| `searchPersonalMessages` | search for private messages | `CustomEvent<string>` |
 
 
 ## Dependencies

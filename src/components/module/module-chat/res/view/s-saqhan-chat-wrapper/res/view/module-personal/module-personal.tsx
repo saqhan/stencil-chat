@@ -28,7 +28,7 @@ export class ModulePersonal implements ComponentInterface {
   /**
    * search for private messages
    * */
-  @Event() searchPersonalMessages: EventEmitter<ChatMessage>;
+  @Event() searchPersonalMessages: EventEmitter<string>;
   /**
    * show dialogs
    * */

@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property | Attribute | Description     | Type                 | Default  |
-| -------- | --------- | --------------- | -------------------- | -------- |
-| `theme`  | `theme`   | Пропс с классом | `"comp" \| "mobile"` | `"comp"` |
+| Property | Attribute | Description     | Type                             | Default  |
+| -------- | --------- | --------------- | -------------------------------- | -------- |
+| `theme`  | `theme`   | Пропс с классом | `"comp" \| "mobile" \| "module"` | `"comp"` |
 
 
 ## Events

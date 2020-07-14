@@ -13,6 +13,11 @@ import {
   // ChatLinkTypeEnum,
   ChatMessage,
 } from "../../../../../../index";
+import {
+  filterDialogsByCategory,
+  filterDialogsBySearchValue,
+  filterMessageBySearchValue
+} from "../../../../../../utils/utils";
 // import { SelectChatTypeEnum } from "./res/enum/common.enum";
 
 @Component({
@@ -34,6 +39,7 @@ export class SSaqhanChatWrapper implements ComponentInterface {
    * массив данных личных сообщений
    * */
   @Prop() message: ChatMessage[];
+
   /**
    * массив данных для диалогов
    * */
@@ -51,18 +57,21 @@ export class SSaqhanChatWrapper implements ComponentInterface {
    * select content default
    * */
   @State() showSelectContent: string = "dialogs";
+
   /**
    * массив данных категорий
    * */
-  @State() categoriesState = this.categories;
+  @State() categoriesState: ChatCategoryInterface[] = this.categories;
+
   /**
    * массив данных диалогов
    * */
-  @State() dialogsState = this.dialogs;
+  @State() dialogsState: ChatDialogInterface[] = this.dialogs;
+
   /**
    * массив данных персонального чата
    * */
-  @State() messageState = this.message;
+  @State() messageState: ChatMessage[] = this.message;
 
   @Watch("dialogs")
   watchDialogsHandler(newValue: boolean, oldValue: boolean) {
@@ -114,52 +123,65 @@ export class SSaqhanChatWrapper implements ComponentInterface {
   /**
    *  Фильтр диалогов
    * */
-
   public clearSearchInputDialog() {
     return 1;
   }
 
-  clickToCategory({ detail }) {
-    this.dialogsState =
-      detail.id !== "all"
-        ? this.dialogs.filter((dialog) => dialog.category === detail.id)
-        : this.dialogs;
+  /**
+   * */
+  public clickToCategory( value: ChatCategoryInterface){
+    this.dialogsState = filterDialogsByCategory(value, this.dialogs)
+      // value.id !== "all"
+      //   ? this.dialogs.filter((dialog) => dialog.category === value.id)
+      //   : this.dialogs;
   }
 
   /**
    * dialogue search
    * */
-  public searchDialog({ detail }) {
+  public searchDialog(value: string) {
     if (!this.disableInnerSearchDialogs) {
-      this.dialogsState =
-        detail.data !== "" && detail.data !== null
-          ? this.dialogs.filter((item) => {
-              return typeof item.name === "string"
-                ? item.name.toLowerCase().includes(detail.data.toLowerCase())
-                : false;
-            })
-          : this.dialogs;
-    } else {
-      this.dialogs;
+      this.dialogsState = filterDialogsBySearchValue(
+        value,
+        this.dialogs
+      );
+      // value !== "" && value !== null
+      //   ? this.dialogs.filter((item) => {
+      //       return typeof item.name === "string"
+      //         ? item.name.toLowerCase().includes(value.toLowerCase())
+      //         : false;
+      //     })
+      //   : this.dialogs;
     }
+    /* else {
+      this.dialogs;
+    }*/
   }
 
   /**
    * search for private messages
    * */
-  public searchPersonalMessages({ detail }) {
+  public searchPersonalMessages(value: string ) {
+    console.log(
+      'searchPersonalMessages',
+      {value, disableInnerSearchMessages: this.disableInnerSearchMessages}
+    )
     if (!this.disableInnerSearchMessages) {
-      this.message =
-        detail.data !== "" && detail.data !== null
-          ? this.message.filter((item) => {
-              return typeof item.content === "string"
-                ? item.content.toLowerCase().includes(detail.data.toLowerCase())
-                : false;
-            })
-          : this.messageState;
-    } else {
+      this.messageState = filterMessageBySearchValue(
+        value,
+        this.message
+      )
+      // this.messageState =
+      //   detail.data !== "" && detail.data !== null
+      //     ? this.message.filter((item) => {
+      //         return typeof item.content === "string"
+      //           ? item.content.toLowerCase().includes(detail.data.toLowerCase())
+      //           : false;
+      //       })
+      //     : this.messageState;
+    }/* else {
       this.messageState;
-    }
+    }*/
   }
   /**
    * Select show content
@@ -172,10 +194,10 @@ export class SSaqhanChatWrapper implements ComponentInterface {
           <s-saqhan-chat-users-wrapper
             dialogs={this.dialogsState}
             categories={this.categoriesState}
-            onClickToCategory={(item) => this.clickToCategory(item)}
+            onClickToCategory={(item: CustomEvent<ChatCategoryInterface>) => this.clickToCategory(item.detail)}
             onClickToDialog={(item) => this.clickToDialog(item)}
             onClickToFilesBtn={() => this.clickToFilesBtn()}
-            onSearchDialog={(item) => this.searchDialog(item)}
+            onSearchDialog={(item: CustomEvent<string>) => this.searchDialog(item.detail)}
             onSendNewMessModal={() => this.sendNewMessModal()}
           ></s-saqhan-chat-users-wrapper>
         );
@@ -185,8 +207,8 @@ export class SSaqhanChatWrapper implements ComponentInterface {
           //   <s-adam-copying></s-adam-copying>
           // </div>
           <module-personal
-            message={this.message}
-            onSearchPersonalMessages={(e) => this.searchPersonalMessages(e)}
+            message={this.messageState}
+            onSearchPersonalMessages={(e: CustomEvent<string>) => this.searchPersonalMessages(e.detail)}
             onClickToShowDialogs={() => this.clickToShowDialogs()}
             onClickToUserProfile={() => this.clickToUserProfile()}
             onCancelSearchPersonal={() => this.cancelSearchPersonal()}

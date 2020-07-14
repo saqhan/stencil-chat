@@ -7,9 +7,9 @@
 
 ## Events
 
-| Event                | Description | Type               |
-| -------------------- | ----------- | ------------------ |
-| `clickToShowDialogs` |             | `CustomEvent<any>` |
+| Event                | Description | Type                |
+| -------------------- | ----------- | ------------------- |
+| `clickToShowDialogs` |             | `CustomEvent<void>` |
 
 
 ## Dependencies

@@ -28,6 +28,7 @@ export class MobilePersonal implements ComponentInterface {
    * Поиск среди контактов
    * */
   // @Event() searchContact: EventEmitter<string>;
+
   /**
    * search for private messages
    * */
@@ -37,6 +38,7 @@ export class MobilePersonal implements ComponentInterface {
    * click to user profile
    * */
   @Event() clickToUserProfile: EventEmitter<string>;
+
   /**
    * cancel
    * */

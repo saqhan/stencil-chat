@@ -1,5 +1,9 @@
 import { Component, ComponentInterface, h, Prop } from "@stencil/core";
-import {ChatMessage} from "../../../../../../../../../index";
+import {
+  chatConvertWritingStatusToMessage,
+  ChatMessage,
+  ChatWritingUserInterface
+} from "../../../../../../../../../index";
 
 @Component({
   tag: "personal-message",
@@ -12,14 +16,37 @@ export class PersonalMessage implements ComponentInterface {
    * array data personal messages
    * */
   @Prop() message: ChatMessage[];
+
+  /**
+   * */
   @Prop() theme: "mobile" | "module" | "comp" = "mobile";
+
+  /**
+   * */
+  @Prop() writing: ChatWritingUserInterface[] = [
+    {
+      uid: 'test',
+      icon: "https://via.placeholder.com/60x60?text=User",
+      name: '',
+      phone: ''
+    }
+  ];
+
   render() {
     return (
       <div class={this.getClassForHost()}>
         <div class="personal-message">
-          {this.message.map((message) => {
-            return <message-from  message={message}></message-from>;
-          })}
+          {
+            this.message.map(
+              (message) => {
+                return <message-from
+                  message={message}></message-from>;
+              }
+            )
+          }
+          {
+            this.writing?.length ? <message-from message={chatConvertWritingStatusToMessage(this.writing[0])}/> : ''
+          }
         </div>
       </div>
     );

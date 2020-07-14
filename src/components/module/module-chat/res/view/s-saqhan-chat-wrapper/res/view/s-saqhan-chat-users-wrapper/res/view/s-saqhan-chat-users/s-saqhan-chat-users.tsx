@@ -14,7 +14,6 @@ export class SSaqhanChatUsers implements ComponentInterface {
   @Prop() dialogs:ChatDialogInterface[] = [];
 
 
-
   render() {
     return (
       <div class="user-wrapper">

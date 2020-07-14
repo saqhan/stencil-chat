@@ -21,7 +21,7 @@
 | `clickToShowDialogs`     | click to show user profile  | `CustomEvent<string>` |
 | `clickToUserProfile`     |                             | `CustomEvent<void>`   |
 | `searchContact`          |                             | `CustomEvent<any>`    |
-| `searchPersonalMessages` | search for private messages | `CustomEvent<any>`    |
+| `searchPersonalMessages` | search for private messages | `CustomEvent<string>` |
 
 
 ## Dependencies

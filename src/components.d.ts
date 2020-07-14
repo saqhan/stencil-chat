@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ChatCategoryInterface, ChatClickToLinkEmit, ChatContactInterface, ChatDialogInterface, ChatLogo, ChatMessage, ChatNavItems, titleModule, } from "./index";
+import { ChatCategoryInterface, ChatClickToLinkEmit, ChatContactInterface, ChatDialogInterface, ChatLogo, ChatMessage, ChatNavItems, ChatWritingUserInterface, titleModule, } from "./index";
 export namespace Components {
     interface BtnWrapper {
         "showChat": any;
@@ -68,7 +68,7 @@ export namespace Components {
         /**
           * Принимаем сообщения для пользователя
          */
-        "message": ChatMessage;
+        "message"?: ChatMessage;
     }
     interface MessageImg {
         /**
@@ -140,6 +140,7 @@ export namespace Components {
          */
         "message": ChatMessage[];
         "theme": "mobile" | "module" | "comp";
+        "writing": ChatWritingUserInterface[];
     }
     interface SAdamChat {
     }
@@ -839,7 +840,7 @@ declare namespace LocalJSX {
         /**
           * search for private messages
          */
-        "onSearchPersonalMessages"?: (event: CustomEvent<ChatMessage>) => void;
+        "onSearchPersonalMessages"?: (event: CustomEvent<string>) => void;
     }
     interface MyComponent {
     }
@@ -869,7 +870,7 @@ declare namespace LocalJSX {
         /**
           * search for private messages
          */
-        "onSearchPersonalMessages"?: (event: CustomEvent<any>) => void;
+        "onSearchPersonalMessages"?: (event: CustomEvent<string>) => void;
     }
     interface PersonalMessage {
         /**
@@ -877,6 +878,7 @@ declare namespace LocalJSX {
          */
         "message"?: ChatMessage[];
         "theme"?: "mobile" | "module" | "comp";
+        "writing"?: ChatWritingUserInterface[];
     }
     interface SAdamChat {
     }
@@ -990,7 +992,7 @@ declare namespace LocalJSX {
         /**
           * Клик по кнопке в чате
          */
-        "onSearchDialog"?: (event: CustomEvent<ChatDialogInterface>) => void;
+        "onSearchDialog"?: (event: CustomEvent<string>) => void;
     }
     interface SSaqhanChatFormSearchFiles {
         "onClickToShowDialogs"?: (event: CustomEvent<void>) => void;
@@ -1022,7 +1024,7 @@ declare namespace LocalJSX {
           * click to files button
          */
         "onClickToFilesBtn"?: (event: CustomEvent<void>) => void;
-        "onSearchDialog"?: (event: CustomEvent<ChatDialogInterface>) => void;
+        "onSearchDialog"?: (event: CustomEvent<string>) => void;
         /**
           * send new mess
          */
