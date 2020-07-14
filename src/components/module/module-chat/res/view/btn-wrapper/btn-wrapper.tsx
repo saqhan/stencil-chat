@@ -9,7 +9,7 @@ import {Component, ComponentInterface, EventEmitter, h, Event, Prop} from '@sten
 export class BtnWrapper implements ComponentInterface {
 
   @Prop() showChat: boolean;
-  @Prop() dialogs: any;
+  @Prop() dialogs: number;
   /**
    * clock on clickToLink
    * */
@@ -29,7 +29,7 @@ export class BtnWrapper implements ComponentInterface {
                 )}
               </span>
             </button>
-            <span class='counterNewMess' >{this.countNewMess(this.dialogs)}</span>
+            <div class='counterNewMess' >{this.dialogs}</div>
           </div>
         </div>
       </div>
@@ -40,12 +40,5 @@ export class BtnWrapper implements ComponentInterface {
     this.clickToShowChat.emit();
   }
 
-  public countNewMess(array) {
-    let counter = 0;
-    array.map((item) => {
-      counter += item.newMessage;
-    });
-    return counter;
-  }
 
 }

@@ -9,7 +9,7 @@ export const dialogs = [
     time: {
       created: new Date(),
     },
-    newMessage: 1,
+    newMessage: 4,
     category: 'work',
     online: true,
   },
@@ -33,7 +33,7 @@ export const dialogs = [
     time: {
       created: new Date(),
     },
-    newMessage: 0,
+    newMessage: 3,
     category: 'friends',
     online: false,
   },
@@ -45,7 +45,7 @@ export const dialogs = [
     time: {
       created: new Date(),
     },
-    newMessage: 3,
+    newMessage: 0,
     category: 'friends',
     online: true,
   },
@@ -93,7 +93,7 @@ export const dialogs = [
     time: {
       created: new Date(),
     },
-    newMessage: 4,
+    newMessage: 0,
     category: 'family',
     online: true,
   },
@@ -105,7 +105,7 @@ export const dialogs = [
     time: {
       created: new Date(),
     },
-    newMessage: 0,
+    newMessage: 1,
     category: 'interesting',
     online: false,
   },
@@ -117,7 +117,7 @@ export const dialogs = [
     time: {
       created: new Date(),
     },
-    newMessage: 4,
+    newMessage: 0,
     category: 'study',
     online: false,
   },

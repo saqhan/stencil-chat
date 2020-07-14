@@ -116,13 +116,20 @@ export class SSaqhanChatWrapper implements ComponentInterface {
         <btn-wrapper
           onClickToShowChat={() => this.isShowChat()}
           showChat={this.showChat}
-          dialogs={this.dialogs}
+          dialogs={this.countNewMess(this.dialogs)}
         ></btn-wrapper>
       </div>
     );
   }
 
 
+  public countNewMess(array) {
+    let counter = 0;
+    array.map((item) => {
+      counter += item.newMessage;
+    });
+    return counter;
+  }
 
   /**
    * */

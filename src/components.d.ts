@@ -8,7 +8,7 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { ChatCategoryInterface, ChatClickToLinkEmit, ChatContactInterface, ChatDialogInterface, ChatLogo, ChatMessage, ChatNavItems, ChatWritingUserInterface, titleModule, } from "./index";
 export namespace Components {
     interface BtnWrapper {
-        "dialogs": any;
+        "dialogs": number;
         "showChat": boolean;
     }
     interface ContactCard {
@@ -582,7 +582,7 @@ declare global {
 }
 declare namespace LocalJSX {
     interface BtnWrapper {
-        "dialogs"?: any;
+        "dialogs"?: number;
         /**
           * clock on clickToLink
          */

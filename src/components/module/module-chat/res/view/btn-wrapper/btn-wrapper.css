@@ -25,9 +25,12 @@
 
 .counterNewMess {
   position: absolute;
-  right: 0px;
+  right: -5px;
+  top: 0px;
   color: #fff;
-  padding: 2px 7px;
+  text-align: center;
+  width: 25px;
+  padding: 5px 5px;
   border-radius: 50%;
   background-color: #c73f45;
   font-size: 12px;
