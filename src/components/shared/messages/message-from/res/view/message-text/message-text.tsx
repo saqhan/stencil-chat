@@ -5,24 +5,27 @@ import {ChatMessage, ChatMessageDirectionEnum} from "../../../../../../../index"
   tag: "message-text",
   styleUrl: "message-text.css",
   shadow: false,
-  scoped: false
+  scoped: true
 })
 export class MessageText implements ComponentInterface {
   /**
    * Принимаем сообщения для пользователя
    * */
   @Prop() message: ChatMessage;
+
   /**
    * Получаем время оттправки сообщения
    * */
   @Prop() createSendTime: any;
+
   /**
    * Проверка статуса доставки сообщения
    * */
   @Prop() checkSendMess: any;
+
   render() {
     return (
-      <div class="from-mess">
+      <div class="mess-content-wrap">
         <div class="text-wrapper">
           <span class="message-text">{this.message.content}</span>
         </div>

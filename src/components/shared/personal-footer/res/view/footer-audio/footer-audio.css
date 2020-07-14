@@ -6,7 +6,8 @@
 }
 
 /*form*/
-.personal-footer-audio {
+
+.personal-footer {
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -40,7 +41,7 @@
   width: 100%;
   text-align: center;
   padding: 10px 0;
-  border:none;
+  border: none;
   font-size: 16px;
   outline: none;
   color: #4c567d;
@@ -63,7 +64,7 @@ input.input-audio {
   width: 40px;
   height: 40px;
   background-color: red;
-  border-radius: 100% ;
+  border-radius: 100%;
   display: flex;
   justify-content: center;
   align-items: center;

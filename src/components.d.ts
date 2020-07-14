@@ -39,8 +39,16 @@ export namespace Components {
         "theme": "comp" | "module" | "mobile";
     }
     interface FooterAudio {
+        /**
+          * Пропс с классом CSS
+         */
+        "theme": "comp" | "mobile";
     }
     interface FooterText {
+        /**
+          * Пропс с классом
+         */
+        "theme": "comp" | "mobile";
     }
     interface MChatDialogs {
         /**
@@ -651,11 +659,25 @@ declare namespace LocalJSX {
         "theme"?: "comp" | "module" | "mobile";
     }
     interface FooterAudio {
+        /**
+          * Эвент окончания записи аудио
+         */
         "onRecordFinished"?: (event: CustomEvent<boolean>) => void;
+        /**
+          * Пропс с классом CSS
+         */
+        "theme"?: "comp" | "mobile";
     }
     interface FooterText {
+        /**
+          * Пока футера аудио
+         */
         "onShowRecordAudioFooter"?: (event: CustomEvent<void>) => void;
         "onShowSendFileFooter"?: (event: CustomEvent<void>) => void;
+        /**
+          * Пропс с классом
+         */
+        "theme"?: "comp" | "mobile";
     }
     interface MChatDialogs {
         /**
@@ -887,10 +909,6 @@ declare namespace LocalJSX {
           * Личный диалог
          */
         "message"?: ChatMessage[];
-        /**
-          * Сброс фильтра сообщений
-         */
-        "onResetMessagesFilter"?: (event: CustomEvent<void>) => void;
         /**
           * Клик по иконке поиска
          */
