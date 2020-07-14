@@ -29,14 +29,7 @@
   background-color: #ebf0fe;
   color: #799af8;
   font-size: 14px;
-  display: flex;
-  justify-content: space-around;
   min-height: 42px;
-}
-
-.from-mess .check {
-  font-size: 10px;
-  margin-left: 5px;
 }
 
 .from-mess-wrapper .mess-img {
@@ -73,15 +66,6 @@
 _________________________________
  */
 
-.text-wrapper {
-  flex: 1;
-}
-.info-wrapper {
-  display: flex;
-  text-align: right;
-  white-space: nowrap;
-}
-
 .to-me-mess-wrapper .from-mess {
   max-width: 350px;
   width: fit-content;
@@ -97,16 +81,6 @@ _________________________________
   min-height: 42px;
 }
 
-.personal-mess-date {
-  font-size: 10px;
-  margin-left: 10px;
-}
-
-.user-mess .check {
-  font-size: 10px;
-  margin-left: 5px;
-}
-
 .to-me-mess-wrapper .mess-img {
   max-width: 350px;
   min-width: 300px;
@@ -116,14 +90,10 @@ _________________________________
   background-size: cover;
 }
 
-.mess-img .check {
-  position: relative;
-  top: 80%;
-  left: 90%;
+.user-mess .check {
   font-size: 10px;
-  color: #fff;
+  margin-left: 5px;
 }
-
 
 /*system-message*/
 
@@ -136,6 +106,7 @@ _________________________________
   display: flex;
   justify-content: center;
 }
+
 .system-message div {
   border: 1px solid #969696;
   padding: 5px 8px;
@@ -240,8 +211,6 @@ message typing animation
   -webkit-animation-delay:1.35s;
   -moz-animation-delay:1.35s;
 }
-
-
 
 @keyframes bounce_circleG{
   0%{}

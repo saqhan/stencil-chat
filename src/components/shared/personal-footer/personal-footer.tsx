@@ -37,7 +37,7 @@ export class PersonalFooter implements ComponentInterface {
 
   render() {
     return (
-      <div class={this.getClassForHost()}>
+      <div>
         {this.switchFooter ? (
           <footer-text onShowRecordAudioFooter={() => this.toggleFooter()}></footer-text>
         ) : (
@@ -47,12 +47,6 @@ export class PersonalFooter implements ComponentInterface {
         )}
       </div>
     );
-  }
-
-  public getClassForHost() {
-    return {
-      [this.theme]: true,
-    };
   }
 
   public recordFinished(state: boolean) {

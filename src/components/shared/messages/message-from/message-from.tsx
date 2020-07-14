@@ -1,12 +1,16 @@
 import { Component, ComponentInterface, h, Prop } from "@stencil/core";
 import dayjs from "dayjs";
-import {ChatMessage, ChatMessageDirectionEnum, ChatMessageTypeEnum} from "../../../../index";
+import {
+  ChatMessage,
+  ChatMessageDirectionEnum,
+  ChatMessageTypeEnum,
+} from "../../../../index";
 
 @Component({
   tag: "message-from",
   styleUrl: "message-from.css",
   shadow: false,
-
+  scoped: true,
 })
 export class MessageFrom implements ComponentInterface {
   /**
@@ -31,7 +35,6 @@ export class MessageFrom implements ComponentInterface {
               <div class="from-mess-wrap">{this.createType(this.message)}</div>
             </div>
           </div>
-
         );
       case ChatMessageDirectionEnum.toMe:
         return (
@@ -64,18 +67,25 @@ export class MessageFrom implements ComponentInterface {
     switch (array.type) {
       case ChatMessageTypeEnum.text:
         return (
-          <message-text
-            checkSendMess={this.checkSendMess(array)}
-            createSendTime={this.createSendTime(array.time.created)}
-            message={array}
-          ></message-text>
+          <div class="from-mess">
+            <message-text
+              checkSendMess={this.checkSendMess(array)}
+              createSendTime={this.createSendTime(array.time.created)}
+              message={array}
+            ></message-text>
+          </div>
         );
       case ChatMessageTypeEnum.image:
         return (
-          <message-img
-            checkSendMess={this.checkSendMess(array)}
-            message={array}
-          ></message-img>
+          <div
+            class="mess-img"
+            style={{ backgroundImage: `url(${this.message.content})` }}
+          >
+            <message-img
+              checkSendMess={this.checkSendMess(array)}
+              message={array}
+            ></message-img>
+          </div>
         );
       case ChatMessageTypeEnum.loading:
         return (
