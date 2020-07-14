@@ -21,7 +21,7 @@
 | `clickToCategory`  |                       | `CustomEvent<ChatCategoryInterface>` |
 | `clickToDialog`    | click to dialog       | `CustomEvent<ChatDialogInterface>`   |
 | `clickToFilesBtn`  | click to files button | `CustomEvent<void>`                  |
-| `searchDialog`     |                       | `CustomEvent<ChatDialogInterface>`   |
+| `searchDialog`     |                       | `CustomEvent<string>`                |
 | `sendNewMessModal` | send new mess         | `CustomEvent<string>`                |
 
 

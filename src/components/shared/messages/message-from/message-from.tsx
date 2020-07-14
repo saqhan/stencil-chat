@@ -1,10 +1,6 @@
-import { Component, ComponentInterface, h, Prop } from "@stencil/core";
+import {Component, ComponentInterface, h, Prop} from "@stencil/core";
 import dayjs from "dayjs";
-import {
-  ChatMessage,
-  ChatMessageDirectionEnum,
-  ChatMessageTypeEnum,
-} from "../../../../index";
+import {ChatMessage, ChatMessageDirectionEnum, ChatMessageTypeEnum, ChatWritingUserInterface,} from "../../../../index";
 
 @Component({
   tag: "message-from",
@@ -16,62 +12,122 @@ export class MessageFrom implements ComponentInterface {
   /**
    * Принимаем сообщения для пользователя
    * */
-  @Prop() message: ChatMessage;
+  @Prop() message?: ChatMessage;
+
 
   render() {
-    return <div>{this.messageFrom(this.message)}</div>;
+    return <div>
+      {this.message ? this.renderMessage(this.message) : ''}
+    </div>;
+  }
+
+  /**
+   * */
+  public getWritingMessage (
+    writing: ChatWritingUserInterface[]
+  )
+  {
+    if (!writing?.length) {
+      return '';
+    }
+
+    // @ts-ignore
+    const message: any = (
+      {
+        sender: {
+          icon: writing[0].icon
+        },
+        type: ChatMessageTypeEnum.loading
+      }
+    );
+
+    return this.getToMeMessage(
+      message
+    )
+  }
+
+  /**
+   *
+   * */
+  private getToMeMessage (
+    message: ChatMessage
+  )
+  {
+    return (
+      <div class="to-me-mess-wrapper">
+        <div class="to-me-mess-wrap">
+        <span
+          class="img"
+          style={{
+            backgroundImage: `url(${message.sender.icon})`,
+          }}
+        ></span>
+          {this.createType(message)}
+        </div>
+      </div>
+    );
+  }
+
+  /**
+   *
+   * */
+  private getCenterMeMessage (
+    message: ChatMessage
+  )
+  {
+    return (
+      <div class="system-message">
+        <div>{this.checkTypeSystemMessage(message.content)}</div>
+      </div>
+    )
+  }
+
+  /**
+   *
+   * */
+  private getFromMeMessage (
+    message: ChatMessage
+  )
+  {
+    return (
+      <div>
+        <div class="from-mess-wrapper ">
+          <div class="from-mess-wrap">{this.createType(message)}</div>
+        </div>
+      </div>
+    );
   }
 
   /**
    * Определяем от кого сообщение
-   * @param array
+   * @param message
    */
-  public messageFrom(array) {
-    switch (array.direction) {
+  public renderMessage(
+    message: ChatMessage
+  ) {
+    switch (message.direction) {
       case ChatMessageDirectionEnum.fromMe:
-        return (
-          <div>
-            <div class="from-mess-wrapper">
-              <div class="from-mess-wrap">{this.createType(this.message)}</div>
-            </div>
-          </div>
-        );
+        return this.getFromMeMessage(message);
       case ChatMessageDirectionEnum.toMe:
-        return (
-          <div class="to-me-mess-wrapper">
-            <div class="to-me-mess-wrap">
-              <span
-                class="img"
-                style={{
-                  backgroundImage: `url(${this.message.sender.icon})`,
-                }}
-              ></span>
-              {this.createType(this.message)}
-            </div>
-          </div>
-        );
+        return this.getToMeMessage(message)
       case ChatMessageDirectionEnum.center:
-        return (
-          <div class="system-message">
-            <div>{this.checkTypeSystemMessage(this.message.content)}</div>
-          </div>
-        );
+        return this.getCenterMeMessage(message);
     }
   }
 
   /**
    * Определяем тип сообщения
-   * @param array
+   * @param message
    */
-  public createType(array) {
-    switch (array.type) {
+  public createType(message) {
+    switch (message.type) {
       case ChatMessageTypeEnum.text:
         return (
           <div class="from-mess">
             <message-text
-              checkSendMess={this.checkSendMess(array)}
-              createSendTime={this.createSendTime(array.time.created)}
-              message={array}
+              checkSendMess={this.checkSendMess(message)}
+              createSendTime={this.createSendTime(message.time.created)}
+              message={message}
             ></message-text>
           </div>
         );
@@ -82,8 +138,8 @@ export class MessageFrom implements ComponentInterface {
             style={{ backgroundImage: `url(${this.message.content})` }}
           >
             <message-img
-              checkSendMess={this.checkSendMess(array)}
-              message={array}
+              checkSendMess={this.checkSendMess(message)}
+              message={message}
             ></message-img>
           </div>
         );

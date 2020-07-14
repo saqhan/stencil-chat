@@ -38,7 +38,7 @@ export class SSaqhanChatUsersWrapper implements ComponentInterface {
   /**
    *
    * */
-  @Event() searchDialog: EventEmitter<ChatDialogInterface>;
+  @Event() searchDialog: EventEmitter<string>;
 
 
   /**
