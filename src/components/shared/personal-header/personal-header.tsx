@@ -7,13 +7,13 @@ import {
   Prop,
   State,
 } from "@stencil/core";
-import { ChatMessage } from "../../../../../../../../../index";
+import { ChatMessage } from "../../../index";
 
 @Component({
   tag: "personal-header",
   styleUrl: "personal-header.css",
   shadow: false,
-  scoped: true
+  scoped: true,
 })
 export class PersonalHeader implements ComponentInterface {
   /**
@@ -108,9 +108,9 @@ export class PersonalHeader implements ComponentInterface {
                 type="text"
                 placeholder="search"
                 onInput={(e: KeyboardEvent) =>
-                  this.searchPersonalMessagesHandler(e.target['value'])
+                  this.searchPersonalMessagesHandler(e.target["value"])
                 }
-              />{" "}
+              />
               <span
                 onClick={() => this.showInputSearchPersonalMess()}
                 class="cancel-search"
@@ -162,7 +162,7 @@ export class PersonalHeader implements ComponentInterface {
   /**
    * search for private messages
    * */
-  public searchPersonalMessagesHandler(value: string ): void {
+  public searchPersonalMessagesHandler(value: string): void {
     this.searchPersonalMessages.emit(value);
   }
 }

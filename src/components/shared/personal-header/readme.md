@@ -28,8 +28,8 @@
 
 ### Used by
 
- - [mobile-personal](../../..)
- - [module-personal](../../../../../../../../module/module-chat/res/view/s-saqhan-chat-wrapper/res/view/module-personal)
+ - [mobile-personal](../../mobile/mobile-chat/res/view/mobile-personal)
+ - [module-personal](../../module/module-chat/res/view/s-saqhan-chat-wrapper/res/view/module-personal)
 
 ### Graph
 ```mermaid

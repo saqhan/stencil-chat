@@ -30,7 +30,7 @@
 
 ### Depends on
 
-- [personal-header](../../../../../../../../mobile/mobile-chat/res/view/mobile-personal/res/view/personal-header)
+- [personal-header](../../../../../../../../shared/personal-header)
 - [personal-message](../../../../../../../../mobile/mobile-chat/res/view/mobile-personal/res/view/personal-message)
 - [personal-footer](../../../../../../../../shared/personal-footer)
 
