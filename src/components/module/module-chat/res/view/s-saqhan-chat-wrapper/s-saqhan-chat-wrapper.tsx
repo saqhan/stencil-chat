@@ -12,6 +12,7 @@ import {
   tag: "s-saqhan-chat-wrapper",
   styleUrl: "s-saqhan-chat-wrapper.css",
   shadow: false,
+  scoped: true,
 })
 export class SSaqhanChatWrapper implements ComponentInterface {
   /**
@@ -39,7 +40,7 @@ export class SSaqhanChatWrapper implements ComponentInterface {
   @State() categoriesState = this.categories;
   @State() dialogsState = this.dialogs;
   @State() messageState = this.message;
-  @State() messagesState = this.dialogs;
+  // @State() messagesState = this.dialogs;
   /**
    * Перменная для включения/отключения показа чата в развернутом виде
    * */
@@ -73,17 +74,15 @@ export class SSaqhanChatWrapper implements ComponentInterface {
   /**
    * search for private messages
    * */
-
   public searchPersonalMessages({ detail }) {
-    console.log("searchPersonalMessages", detail);
-    this.messageState =
+    this.message =
       detail.data !== "" && detail.data !== null
-        ? this.messageState.filter((item) => {
+        ? this.message.filter((item) => {
             return typeof item.content === "string"
               ? item.content.toLowerCase().includes(detail.data.toLowerCase())
               : false;
           })
-        : this.message;
+        : this.messageState;
   }
 
   render() {
@@ -108,10 +107,6 @@ export class SSaqhanChatWrapper implements ComponentInterface {
         ></btn-wrapper>
       </div>
     );
-  }
-
-  public sendNewMessModal() {
-    console.log("sendNewMessModal");
   }
   /**
    * Select show content
@@ -138,17 +133,19 @@ export class SSaqhanChatWrapper implements ComponentInterface {
           //   <s-adam-copying></s-adam-copying>
           // </div>
           <module-personal
-            // onClickToLink={(item) => this.clickToLink(item.detail)}
             message={this.message}
             onSearchPersonalMessages={(e) => this.searchPersonalMessages(e)}
             onClickToShowDialogs={() => this.clickToShowDialogs()}
             onClickToUserProfile={() => this.clickToUserProfile()}
+            onCancelSearchPersonal={() => this.cancelSearchPersonal()}
           ></module-personal>
         );
       case "files":
         return (
           <s-saqhan-chat-files-wrapper
-            // onClickToLink={(item) => this.clickToLink(item.detail)}
+
+          // onClickToLink={(item) => this.clickToLink(item.detail)}
+          onClickToShowDialogs={() => this.clickToShowDialogs()}
           ></s-saqhan-chat-files-wrapper>
         );
       case "profile":
@@ -156,14 +153,22 @@ export class SSaqhanChatWrapper implements ComponentInterface {
           <s-adam-profile
             theme={"module"}
             onClickToShowDialogs={() => this.clickToShowDialogs()}
-            // onClickToLink={(item) => this.clickToLink(item.detail)}
           ></s-adam-profile>
         );
       default:
         "dialogs";
     }
   };
+  public sendNewMessModal() {
+    console.log("sendNewMessModal");
+  }
 
+  /**
+   * Метод отмена поиска
+   * **/
+  public cancelSearchPersonal() {
+    this.message = this.messageState;
+  }
   /**
    * Метод для изменения состояния чата
    * */
@@ -180,9 +185,7 @@ export class SSaqhanChatWrapper implements ComponentInterface {
    * click to Link
    * */
   public clickToLink(): string {
-
     return this.showSelectContent;
-
   }
   public clickToDialog({ detail }): void {
     console.log("clickToDialog", detail);

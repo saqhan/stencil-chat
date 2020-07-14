@@ -10,6 +10,7 @@ import {
   tag: "contacts-list-header",
   styleUrl: "contacts-list-header.css",
   shadow: false,
+  scoped:true
 })
 export class ContactsListHeader implements ComponentInterface {
 

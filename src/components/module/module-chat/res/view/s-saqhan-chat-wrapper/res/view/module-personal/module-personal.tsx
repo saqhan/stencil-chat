@@ -12,6 +12,7 @@ import { ChatMessage } from '../../../../../../../../../index';
   tag: "module-personal",
   styleUrl: "module-personal.css",
   shadow: false,
+  scoped: true
 })
 export class ModulePersonal implements ComponentInterface {
   /**
@@ -27,7 +28,7 @@ export class ModulePersonal implements ComponentInterface {
   /**
    * search for private messages
    * */
-  @Event() searchPersonalMessages: EventEmitter;
+  @Event() searchPersonalMessages: EventEmitter<ChatMessage>;
   /**
    * show dialogs
    * */
@@ -36,6 +37,8 @@ export class ModulePersonal implements ComponentInterface {
    * on click to profile user
    * */
   @Event() clickToUserProfile: EventEmitter<void>;
+
+  @Event() cancelSearchPersonal: EventEmitter<void>;
 
   render() {
     return (

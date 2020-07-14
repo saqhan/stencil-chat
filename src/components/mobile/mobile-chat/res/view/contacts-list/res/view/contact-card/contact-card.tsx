@@ -12,6 +12,7 @@ import { ChatContactInterface } from "../../../../../../../../../index";
   tag: "contact-card",
   styleUrl: "contact-card.css",
   shadow: false,
+  scoped: true
 })
 export class ContactCard implements ComponentInterface {
   /**

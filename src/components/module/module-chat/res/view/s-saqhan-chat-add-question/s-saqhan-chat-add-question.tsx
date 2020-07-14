@@ -4,6 +4,7 @@ import {Component, ComponentInterface, EventEmitter, Event, h} from '@stencil/co
   tag: 's-saqhan-chat-add-question',
   styleUrl: 's-saqhan-chat-add-question.css',
   shadow: false,
+  scoped: true
 })
 export class SSaqhanChatAddQuestion implements ComponentInterface {
 

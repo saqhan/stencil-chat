@@ -1,17 +1,18 @@
 import { Component, ComponentInterface, h, Prop } from "@stencil/core";
 import dayjs from "dayjs";
-import {ChatMessageDirectionEnum, ChatMessageTypeEnum} from "../../../../index";
+import {ChatMessage, ChatMessageDirectionEnum, ChatMessageTypeEnum} from "../../../../index";
 
 @Component({
   tag: "message-from",
   styleUrl: "message-from.css",
   shadow: false,
+
 })
 export class MessageFrom implements ComponentInterface {
   /**
    * Принимаем сообщения для пользователя
    * */
-  @Prop() message: any;
+  @Prop() message: ChatMessage;
 
   render() {
     return <div>{this.messageFrom(this.message)}</div>;
@@ -25,9 +26,12 @@ export class MessageFrom implements ComponentInterface {
     switch (array.direction) {
       case ChatMessageDirectionEnum.fromMe:
         return (
-          <div class="from-mess-wrapper">
-            <div class="from-mess-wrap">{this.createType(this.message)}</div>
+          <div>
+            <div class="from-mess-wrapper">
+              <div class="from-mess-wrap">{this.createType(this.message)}</div>
+            </div>
           </div>
+
         );
       case ChatMessageDirectionEnum.toMe:
         return (

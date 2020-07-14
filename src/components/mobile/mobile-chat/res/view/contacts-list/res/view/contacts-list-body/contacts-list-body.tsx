@@ -4,7 +4,8 @@ import { ChatContactInterface } from "../../../../../../../../../index";
 @Component({
   tag: "contacts-list-body",
   styleUrl: "contacts-list-body.css",
-  shadow: true,
+  shadow: false,
+  scoped: true
 })
 export class ContactsListBody implements ComponentInterface {
   @Prop() contacts: ChatContactInterface[];

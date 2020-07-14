@@ -16,6 +16,7 @@
 
 | Event                    | Description                 | Type                  |
 | ------------------------ | --------------------------- | --------------------- |
+| `cancelSearchPersonal`   |                             | `CustomEvent<void>`   |
 | `clickToLink`            | clock on navigate           | `CustomEvent<void>`   |
 | `clickToShowDialogs`     | click to show user profile  | `CustomEvent<string>` |
 | `clickToUserProfile`     |                             | `CustomEvent<void>`   |

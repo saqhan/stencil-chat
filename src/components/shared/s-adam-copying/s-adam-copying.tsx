@@ -4,6 +4,7 @@ import { Component, ComponentInterface, h } from '@stencil/core';
   tag: 's-adam-copying',
   styleUrl: 's-adam-copying.css',
   shadow: false,
+  scoped:true
 })
 export class SAdamCopying implements ComponentInterface {
 

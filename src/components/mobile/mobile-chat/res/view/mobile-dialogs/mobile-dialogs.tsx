@@ -15,6 +15,7 @@ import {
   tag: "mobile-dialogs",
   styleUrl: "mobile-dialogs.css",
   shadow: false,
+  scoped: true
 })
 export class MobileDialogs implements ComponentInterface {
   /**
@@ -36,6 +37,10 @@ export class MobileDialogs implements ComponentInterface {
    * clock on searchDialogs
    * */
   @Event() searchDialogs: EventEmitter<ChatDialogInterface>;
+  /**
+   * cancel
+   * */
+  @Event() cancelSearchPersonal: EventEmitter<void>;
   /**
    * click to add dialog
    * */

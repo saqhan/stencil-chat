@@ -9,6 +9,7 @@ import {
   tag: "module-chat",
   styleUrl: "module-chat.css",
   shadow: false,
+  scoped: true
 })
 export class ModuleChat implements ComponentInterface {
   /**

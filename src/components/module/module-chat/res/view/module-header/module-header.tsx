@@ -10,6 +10,7 @@ import {
   tag: "module-header",
   styleUrl: "module-header.css",
   shadow: false,
+  scoped: true
 })
 export class ModuleHeader implements ComponentInterface {
   /**

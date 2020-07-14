@@ -1,3 +1,6 @@
+.search-contact-block {
+  margin-bottom: 20px;
+}
 .search-contact-wrapper {
   position: relative;
 }
@@ -7,10 +10,18 @@
   font-size: 12px;
   top: 50%;
   transform: translateY(-50%);
+  color: #bacbe3;
 }
 .search-contact {
   border: none;
   padding: 10px 40px;
   width: 100%;
   outline: none;
+}
+
+input::-moz-placeholder {
+  color: #979eab;
+}
+input::-webkit-input-placeholder {
+  color: #979eab;
 }

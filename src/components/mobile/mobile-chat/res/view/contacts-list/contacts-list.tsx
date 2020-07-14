@@ -12,6 +12,7 @@ import {ChatContactInterface} from "../../../../../../index";
   tag: "contacts-list",
   styleUrl: "contacts-list.css",
   shadow: false,
+  scoped:true
 })
 export class ContactsList implements ComponentInterface {
   @Prop() contacts: ChatContactInterface[];

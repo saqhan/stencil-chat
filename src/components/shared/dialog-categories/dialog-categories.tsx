@@ -4,7 +4,8 @@ import {ChatCategoryInterface} from "../../../index";
 @Component({
   tag: "dialog-categories",
   styleUrl: "dialog-categories.css",
-  shadow: true,
+  shadow: false,
+  scoped: true
 })
 export class DialogCategories implements ComponentInterface {
   /**

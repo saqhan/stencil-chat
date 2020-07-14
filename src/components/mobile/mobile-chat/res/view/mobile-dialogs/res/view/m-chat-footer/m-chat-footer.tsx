@@ -10,6 +10,7 @@ import {
   tag: "m-chat-footer",
   styleUrl: "m-chat-footer.css",
   shadow: false,
+  scoped: true
 })
 export class MChatFooter implements ComponentInterface {
   /**

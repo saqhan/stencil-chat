@@ -10,6 +10,10 @@
   justify-content: space-evenly;
 }
 
+.btn-back {
+  cursor: pointer;
+}
+
 .chat-files .row {
   align-items: center;
 }

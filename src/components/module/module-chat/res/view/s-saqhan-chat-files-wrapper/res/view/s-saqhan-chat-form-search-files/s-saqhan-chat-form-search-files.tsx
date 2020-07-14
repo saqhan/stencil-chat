@@ -10,15 +10,19 @@ import {
   tag: "s-saqhan-chat-form-search-files",
   styleUrl: "s-saqhan-chat-form-search-files.css",
   shadow: false,
+  scoped: true,
 })
 export class SSaqhanChatFormSearchFiles implements ComponentInterface {
-  @Event() clickToLink: EventEmitter;
+  @Event() clickToShowDialogs: EventEmitter;
 
   render() {
     return (
       <div class="header-wrapper">
         <div class="chat-files-search">
-          <div class="btn-back" onClick={() => this.clickToLink.emit({place: 'showDialogs' })}>
+          <div
+            class="btn-back"
+            onClick={() => this.clickToShowDialogsHandler()}
+          >
             <span>
               <i class="fas fa-chevron-left"></i>
             </span>
@@ -36,5 +40,12 @@ export class SSaqhanChatFormSearchFiles implements ComponentInterface {
         </div>
       </div>
     );
+  }
+  /**
+   * show Dialogs
+   * */
+  public clickToShowDialogsHandler(): void {
+    this.clickToShowDialogs.emit();
+
   }
 }

@@ -13,6 +13,7 @@ import {MouseEventUpdated} from "./res/interface/common.interface";
   tag: "footer-audio",
   styleUrl: "footer-audio.css",
   shadow: false,
+  scoped:true
 })
 export class FooterAudio implements ComponentInterface {
   @Event() recordFinished: EventEmitter<boolean>;

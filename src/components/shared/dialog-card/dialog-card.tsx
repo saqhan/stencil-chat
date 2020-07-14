@@ -12,6 +12,7 @@ import { ChatClickToLinkEmit, ChatDialogInterface } from "../../../index";
   tag: "dialog-card",
   styleUrl: "dialog-card.css",
   shadow: false,
+  scoped: true
 })
 export class DialogCard implements ComponentInterface {
   /**

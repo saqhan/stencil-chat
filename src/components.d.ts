@@ -60,7 +60,7 @@ export namespace Components {
         /**
           * Принимаем сообщения для пользователя
          */
-        "message": any;
+        "message": ChatMessage;
     }
     interface MessageImg {
         /**
@@ -84,7 +84,7 @@ export namespace Components {
         /**
           * Принимаем сообщения для пользователя
          */
-        "message": any;
+        "message": ChatMessage;
     }
     interface MobileChat {
     }
@@ -675,6 +675,10 @@ declare namespace LocalJSX {
          */
         "categories"?: ChatCategoryInterface[];
         /**
+          * cancel search
+         */
+        "onCancelSearchPersonal"?: (event: CustomEvent<void>) => void;
+        /**
           * click to add dialog
          */
         "onClickToAddDialog"?: (event: CustomEvent<void>) => void;
@@ -687,7 +691,7 @@ declare namespace LocalJSX {
         /**
           * Принимаем сообщения для пользователя
          */
-        "message"?: any;
+        "message"?: ChatMessage;
     }
     interface MessageImg {
         /**
@@ -711,7 +715,7 @@ declare namespace LocalJSX {
         /**
           * Принимаем сообщения для пользователя
          */
-        "message"?: any;
+        "message"?: ChatMessage;
     }
     interface MobileChat {
     }
@@ -724,6 +728,10 @@ declare namespace LocalJSX {
           * массив сообщений
          */
         "dialogs"?: ChatDialogInterface[];
+        /**
+          * cancel
+         */
+        "onCancelSearchPersonal"?: (event: CustomEvent<void>) => void;
         /**
           * click to add dialog
          */
@@ -759,6 +767,10 @@ declare namespace LocalJSX {
          */
         "message"?: ChatMessage[];
         /**
+          * cancel
+         */
+        "onCancelSearchPersonal"?: (event: CustomEvent<string>) => void;
+        /**
           * click to show Dialogs
          */
         "onClickToShowDialogs"?: (event: CustomEvent<string>) => void;
@@ -785,6 +797,7 @@ declare namespace LocalJSX {
           * array data personal messages
          */
         "message"?: ChatMessage[];
+        "onCancelSearchPersonal"?: (event: CustomEvent<void>) => void;
         /**
           * show dialogs
          */
@@ -796,7 +809,7 @@ declare namespace LocalJSX {
         /**
           * search for private messages
          */
-        "onSearchPersonalMessages"?: (event: CustomEvent<any>) => void;
+        "onSearchPersonalMessages"?: (event: CustomEvent<ChatMessage>) => void;
     }
     interface MyComponent {
     }
@@ -812,6 +825,7 @@ declare namespace LocalJSX {
           * array data personal messages
          */
         "message"?: ChatMessage[];
+        "onCancelSearchPersonal"?: (event: CustomEvent<void>) => void;
         /**
           * clock on navigate
          */
@@ -866,6 +880,10 @@ declare namespace LocalJSX {
          */
         "message"?: ChatMessage[];
         /**
+          * Сброс фильтра сообщений
+         */
+        "onResetMessagesFilter"?: (event: CustomEvent<void>) => void;
+        /**
           * Клик по иконке поиска
          */
         "onSearchPersonalMessage"?: (event: CustomEvent<ChatMessage>) => void;
@@ -898,6 +916,10 @@ declare namespace LocalJSX {
          */
         "message"?: ChatMessage[];
         /**
+          * Сброс фильтра сообщений
+         */
+        "onResetMessagesFilter"?: (event: CustomEvent<void>) => void;
+        /**
           * Клик по иконке поиска
          */
         "onSearchPersonalMessage"?: (event: CustomEvent<ChatMessage>) => void;
@@ -928,7 +950,7 @@ declare namespace LocalJSX {
         /**
           * click to link
          */
-        "onClickToLink"?: (event: CustomEvent<any>) => void;
+        "onClickToShowDialogs"?: (event: CustomEvent<void>) => void;
     }
     interface SSaqhanChatFormSearch {
         /**
@@ -945,7 +967,7 @@ declare namespace LocalJSX {
         "onSearchDialog"?: (event: CustomEvent<any>) => void;
     }
     interface SSaqhanChatFormSearchFiles {
-        "onClickToLink"?: (event: CustomEvent<any>) => void;
+        "onClickToShowDialogs"?: (event: CustomEvent<any>) => void;
     }
     interface SSaqhanChatUser {
         /**

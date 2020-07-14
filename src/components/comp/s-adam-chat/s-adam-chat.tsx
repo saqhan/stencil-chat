@@ -11,6 +11,7 @@ import {
   tag: "s-adam-chat",
   styleUrl: "s-adam-chat.css",
   shadow: false,
+  scoped: true
 })
 export class SAdamChat implements ComponentInterface {
   /**
@@ -22,8 +23,6 @@ export class SAdamChat implements ComponentInterface {
    * Стейт для показа профиля пользователя
    */
   @State() profileVisible = false;
-
-
 
   render() {
     return (
