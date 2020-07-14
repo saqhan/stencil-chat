@@ -3,31 +3,35 @@ import {
   ComponentInterface,
   h,
   Event,
-  EventEmitter, Prop,
+  EventEmitter,
+  Prop,
 } from "@stencil/core";
-import {ChatCategoryInterface} from "../../../../../../../../../../../../index";
+import {
+  ChatCategoryInterface,
+  ChatDialogInterface,
+} from "../../../../../../../../../../../../index";
 
 @Component({
   tag: "s-saqhan-chat-form-search",
   styleUrl: "s-saqhan-chat-form-search.css",
   shadow: false,
-  scoped: true
+  scoped: true,
 })
 export class SSaqhanChatFormSearch implements ComponentInterface {
   /**
    * array categories
    * */
-  @Prop() categories: ChatCategoryInterface[];
+  @Prop() categories: ChatCategoryInterface[] = [];
 
   /**
    * Клик по кнопке files
    * */
-  @Event() clickToFilesBtn: EventEmitter;
+  @Event() clickToFilesBtn: EventEmitter<void>;
 
   /**
    * Клик по кнопке в чате
    * */
-  @Event() searchDialog: EventEmitter;
+  @Event() searchDialog: EventEmitter<ChatDialogInterface>;
 
   render() {
     return (
@@ -41,11 +45,14 @@ export class SSaqhanChatFormSearch implements ComponentInterface {
               onInput={(e) => this.searchDialogsHandler(e)}
             />
           </div>
-          <div class="block-file" onClick={() => this.clickToFilesBtnHandler()} >
+          <div class="block-file" onClick={() => this.clickToFilesBtnHandler()}>
             <i class="far fa-file-alt"></i>
           </div>
         </div>
-        <dialog-categories theme={'module'} categories={this.categories} ></dialog-categories>
+        <dialog-categories
+          theme={"module"}
+          categories={this.categories}
+        ></dialog-categories>
       </div>
     );
   }
@@ -53,12 +60,11 @@ export class SSaqhanChatFormSearch implements ComponentInterface {
   /**
    * click to Files btn
    * */
-  public clickToFilesBtnHandler(){
-    this.clickToFilesBtn.emit()
+  public clickToFilesBtnHandler(): void {
+    this.clickToFilesBtn.emit();
   }
 
-  public searchDialogsHandler(e){
-    this.searchDialog.emit(e)
+  public searchDialogsHandler(e) {
+    this.searchDialog.emit(e);
   }
-
 }

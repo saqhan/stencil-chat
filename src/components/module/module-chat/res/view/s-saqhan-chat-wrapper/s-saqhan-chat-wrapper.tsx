@@ -1,4 +1,11 @@
-import { Component, ComponentInterface, h, State, Prop } from "@stencil/core";
+import {
+  Component,
+  ComponentInterface,
+  h,
+  State,
+  Prop,
+  Watch,
+} from "@stencil/core";
 import {
   ChatCategoryInterface,
   // ChatClickToLinkEmit,
@@ -31,59 +38,54 @@ export class SSaqhanChatWrapper implements ComponentInterface {
    * массив данных для диалогов
    * */
   @Prop() dialogs: ChatDialogInterface[];
+  /**
+   * отключение поиска диалогов
+   * */
+  @Prop() disableInnerSearchDialogs: boolean;
+  /**
+   * отключение поиска сообщений
+   * */
+  @Prop() disableInnerSearchMessages: boolean;
 
   /**
    * select content default
    * */
   @State() showSelectContent: string = "dialogs";
-
+  /**
+   * массив данных категорий
+   * */
   @State() categoriesState = this.categories;
+  /**
+   * массив данных диалогов
+   * */
   @State() dialogsState = this.dialogs;
+  /**
+   * массив данных персонального чата
+   * */
   @State() messageState = this.message;
-  // @State() messagesState = this.dialogs;
+
+  @Watch("dialogs")
+  watchDialogsHandler(newValue: boolean, oldValue: boolean) {
+    console.log("The new value of activated is: ", { newValue, oldValue });
+    this.dialogsState = this.dialogs;
+  }
+
+  @Watch("message")
+  watchMessageHandler(newValue: boolean, oldValue: boolean) {
+    console.log("The new value of activated is: ", { newValue, oldValue });
+    this.messageState = this.message;
+  }
+
+  @Watch("categories")
+  watchCategoriesHandler(newValue: boolean, oldValue: boolean) {
+    console.log("The new value of activated is: ", { newValue, oldValue });
+    this.categoriesState = this.categories;
+  }
+
   /**
    * Перменная для включения/отключения показа чата в развернутом виде
    * */
   @State() showChat: boolean;
-
-  /**
-   *  Фильтр диалогов
-   * */
-  clickToCategory({ detail }) {
-    // console.log(detail);
-    this.dialogsState =
-      detail.id !== "all"
-        ? this.dialogs.filter((dialog) => dialog.category === detail.id)
-        : this.dialogs;
-  }
-
-  /**
-   * dialogue search
-   * */
-  public searchDialog({ detail }) {
-    this.dialogsState =
-      detail.data !== "" && detail.data !== null
-        ? this.dialogs.filter((item) => {
-            return typeof item.name === "string"
-              ? item.name.toLowerCase().includes(detail.data.toLowerCase())
-              : false;
-          })
-        : this.dialogs;
-  }
-
-  /**
-   * search for private messages
-   * */
-  public searchPersonalMessages({ detail }) {
-    this.message =
-      detail.data !== "" && detail.data !== null
-        ? this.message.filter((item) => {
-            return typeof item.content === "string"
-              ? item.content.toLowerCase().includes(detail.data.toLowerCase())
-              : false;
-          })
-        : this.messageState;
-  }
 
   render() {
     return (
@@ -108,6 +110,57 @@ export class SSaqhanChatWrapper implements ComponentInterface {
       </div>
     );
   }
+
+  /**
+   *  Фильтр диалогов
+   * */
+
+  public clearSearchInputDialog() {
+    return 1;
+  }
+
+  clickToCategory({ detail }) {
+    this.dialogsState =
+      detail.id !== "all"
+        ? this.dialogs.filter((dialog) => dialog.category === detail.id)
+        : this.dialogs;
+  }
+
+  /**
+   * dialogue search
+   * */
+  public searchDialog({ detail }) {
+    if (!this.disableInnerSearchDialogs) {
+      this.dialogsState =
+        detail.data !== "" && detail.data !== null
+          ? this.dialogs.filter((item) => {
+              return typeof item.name === "string"
+                ? item.name.toLowerCase().includes(detail.data.toLowerCase())
+                : false;
+            })
+          : this.dialogs;
+    } else {
+      this.dialogs;
+    }
+  }
+
+  /**
+   * search for private messages
+   * */
+  public searchPersonalMessages({ detail }) {
+    if (!this.disableInnerSearchMessages) {
+      this.message =
+        detail.data !== "" && detail.data !== null
+          ? this.message.filter((item) => {
+              return typeof item.content === "string"
+                ? item.content.toLowerCase().includes(detail.data.toLowerCase())
+                : false;
+            })
+          : this.messageState;
+    } else {
+      this.messageState;
+    }
+  }
   /**
    * Select show content
    * */
@@ -117,9 +170,8 @@ export class SSaqhanChatWrapper implements ComponentInterface {
       case "dialogs":
         return (
           <s-saqhan-chat-users-wrapper
-            messages={this.dialogsState}
+            dialogs={this.dialogsState}
             categories={this.categoriesState}
-            // onClickToLink={(item) => this.clickToLink(item.detail)}
             onClickToCategory={(item) => this.clickToCategory(item)}
             onClickToDialog={(item) => this.clickToDialog(item)}
             onClickToFilesBtn={() => this.clickToFilesBtn()}
@@ -143,9 +195,8 @@ export class SSaqhanChatWrapper implements ComponentInterface {
       case "files":
         return (
           <s-saqhan-chat-files-wrapper
-
-          // onClickToLink={(item) => this.clickToLink(item.detail)}
-          onClickToShowDialogs={() => this.clickToShowDialogs()}
+            // onClickToLink={(item) => this.clickToLink(item.detail)}
+            onClickToShowDialogs={() => this.clickToShowDialogs()}
           ></s-saqhan-chat-files-wrapper>
         );
       case "profile":
@@ -159,14 +210,14 @@ export class SSaqhanChatWrapper implements ComponentInterface {
         "dialogs";
     }
   };
-  public sendNewMessModal() {
+  public sendNewMessModal(): void {
     console.log("sendNewMessModal");
   }
 
   /**
    * Метод отмена поиска
    * **/
-  public cancelSearchPersonal() {
+  public cancelSearchPersonal(): void {
     this.message = this.messageState;
   }
   /**

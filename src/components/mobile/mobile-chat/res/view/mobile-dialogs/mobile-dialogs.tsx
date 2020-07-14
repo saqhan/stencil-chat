@@ -38,6 +38,10 @@ export class MobileDialogs implements ComponentInterface {
    * */
   @Event() searchDialogs: EventEmitter<ChatDialogInterface>;
   /**
+   * cancel
+   * */
+  @Event() cancelSearchPersonal: EventEmitter<void>;
+  /**
    * click to add dialog
    * */
   @Event() clickToAddDialog: EventEmitter<string>;

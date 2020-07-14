@@ -4,6 +4,7 @@ import {
   h,
   Prop,
 } from "@stencil/core";
+import {ChatDialogInterface} from "../../../../../../../../../../../../../../../index";
 
 @Component({
   tag: "s-saqhan-chat-user",
@@ -15,12 +16,12 @@ export class SSaqhanChatUser implements ComponentInterface {
   /**
    * массив с диалогами
    * */
-  @Prop() messages: any;
+  @Prop() dialogs: ChatDialogInterface[];
 
   render() {
     return (
       <div class="user-wrapper">
-        <UserMessage user={this.messages}></UserMessage>
+        <UserMessage user={this.dialogs}></UserMessage>
       </div>
     );
   }

@@ -11,13 +11,14 @@ export class SSaqhanChatUsers implements ComponentInterface {
   /**
    * Массив данных с диалогами
    * */
-  @Prop() messages:ChatDialogInterface;
+  @Prop() dialogs:ChatDialogInterface[] = [];
+
 
 
   render() {
     return (
       <div class="user-wrapper">
-        <s-saqhan-chat-user  messages={this.messages}></s-saqhan-chat-user>
+        <s-saqhan-chat-user  dialogs={this.dialogs}></s-saqhan-chat-user>
       </div>
     );
   }

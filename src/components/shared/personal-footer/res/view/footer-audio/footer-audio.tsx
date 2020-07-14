@@ -20,7 +20,7 @@ export class FooterAudio implements ComponentInterface {
   /**
    * Пропс с классом CSS
    */
-  @Prop() theme: "comp" | "mobile" = "comp";
+  @Prop() theme: "comp" | "mobile" | "module" = "comp";
 
   /**
    * Эвент окончания записи аудио

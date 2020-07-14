@@ -16,6 +16,7 @@
 
 | Event                    | Description                 | Type                  |
 | ------------------------ | --------------------------- | --------------------- |
+| `cancelSearchPersonal`   | cancel                      | `CustomEvent<string>` |
 | `clickToShowDialogs`     | click to show Dialogs       | `CustomEvent<string>` |
 | `clickToUserProfile`     | click to user profile       | `CustomEvent<string>` |
 | `searchPersonalMessages` | search for private messages | `CustomEvent<string>` |

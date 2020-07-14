@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ChatCategoryInterface, ChatClickToLinkEmit, ChatContactInterface, ChatDialogInterface, ChatLogo, ChatMessage, ChatNavItems, } from "./index";
+import { ChatCategoryInterface, ChatClickToLinkEmit, ChatContactInterface, ChatDialogInterface, ChatLogo, ChatMessage, ChatNavItems, titleModule, } from "./index";
 export namespace Components {
     interface BtnWrapper {
         "showChat": any;
@@ -42,13 +42,13 @@ export namespace Components {
         /**
           * Пропс с классом CSS
          */
-        "theme": "comp" | "mobile";
+        "theme": "comp" | "mobile" | "module";
     }
     interface FooterText {
         /**
           * Пропс с классом
          */
-        "theme": "comp" | "mobile";
+        "theme": "comp" | "mobile" | "module";
     }
     interface MChatDialogs {
         /**
@@ -115,7 +115,7 @@ export namespace Components {
     interface ModuleChat {
     }
     interface ModuleHeader {
-        "titleModule": any;
+        "titleModule": titleModule;
     }
     interface ModulePersonal {
         /**
@@ -126,7 +126,7 @@ export namespace Components {
     interface MyComponent {
     }
     interface PersonalFooter {
-        "theme": "comp" | "mobile";
+        "theme": "comp" | "mobile" | "module";
     }
     interface PersonalHeader {
         /**
@@ -211,24 +211,24 @@ export namespace Components {
         /**
           * массив с диалогами
          */
-        "messages": any;
+        "dialogs": ChatDialogInterface[];
     }
     interface SSaqhanChatUsers {
         /**
           * Массив данных с диалогами
          */
-        "messages": ChatDialogInterface;
+        "dialogs": ChatDialogInterface[];
     }
     interface SSaqhanChatUsersWrapper {
-        "categories": any;
+        "categories": ChatCategoryInterface[];
         /**
           * Массив данных с диалогами
          */
-        "messages": any;
+        "dialogs": ChatDialogInterface[];
         /**
           * Массив данных с личным чатом
          */
-        "personalMessage": any;
+        "personalMessage": ChatMessage[];
     }
     interface SSaqhanChatWrapper {
         /**
@@ -239,6 +239,14 @@ export namespace Components {
           * массив данных для диалогов
          */
         "dialogs": ChatDialogInterface[];
+        /**
+          * отключение поиска диалогов
+         */
+        "disableInnerSearchDialogs": boolean;
+        /**
+          * отключение поиска сообщений
+         */
+        "disableInnerSearchMessages": boolean;
         /**
           * массив данных личных сообщений
          */
@@ -658,7 +666,7 @@ declare namespace LocalJSX {
         /**
           * Пропс с классом CSS
          */
-        "theme"?: "comp" | "mobile";
+        "theme"?: "comp" | "mobile" | "module";
     }
     interface FooterText {
         /**
@@ -669,7 +677,7 @@ declare namespace LocalJSX {
         /**
           * Пропс с классом
          */
-        "theme"?: "comp" | "mobile";
+        "theme"?: "comp" | "mobile" | "module";
     }
     interface MChatDialogs {
         /**
@@ -696,6 +704,10 @@ declare namespace LocalJSX {
           * массив категорий диалогов
          */
         "categories"?: ChatCategoryInterface[];
+        /**
+          * cancel search
+         */
+        "onCancelSearchPersonal"?: (event: CustomEvent<void>) => void;
         /**
           * click to add dialog
          */
@@ -747,6 +759,10 @@ declare namespace LocalJSX {
          */
         "dialogs"?: ChatDialogInterface[];
         /**
+          * cancel
+         */
+        "onCancelSearchPersonal"?: (event: CustomEvent<void>) => void;
+        /**
           * click to add dialog
          */
         "onClickToAddDialog"?: (event: CustomEvent<string>) => void;
@@ -781,6 +797,10 @@ declare namespace LocalJSX {
          */
         "message"?: ChatMessage[];
         /**
+          * cancel
+         */
+        "onCancelSearchPersonal"?: (event: CustomEvent<string>) => void;
+        /**
           * click to show Dialogs
          */
         "onClickToShowDialogs"?: (event: CustomEvent<string>) => void;
@@ -799,8 +819,8 @@ declare namespace LocalJSX {
         /**
           * close modal
          */
-        "onClose"?: (event: CustomEvent<any>) => void;
-        "titleModule"?: any;
+        "onClose"?: (event: CustomEvent<void>) => void;
+        "titleModule"?: titleModule;
     }
     interface ModulePersonal {
         /**
@@ -828,7 +848,7 @@ declare namespace LocalJSX {
           * click on navigate
          */
         "onClickToLink"?: (event: CustomEvent<any>) => void;
-        "theme"?: "comp" | "mobile";
+        "theme"?: "comp" | "mobile" | "module";
     }
     interface PersonalHeader {
         /**
@@ -966,52 +986,51 @@ declare namespace LocalJSX {
         /**
           * Клик по кнопке files
          */
-        "onClickToFilesBtn"?: (event: CustomEvent<any>) => void;
+        "onClickToFilesBtn"?: (event: CustomEvent<void>) => void;
         /**
           * Клик по кнопке в чате
          */
-        "onSearchDialog"?: (event: CustomEvent<any>) => void;
+        "onSearchDialog"?: (event: CustomEvent<ChatDialogInterface>) => void;
     }
     interface SSaqhanChatFormSearchFiles {
-        "onClickToShowDialogs"?: (event: CustomEvent<any>) => void;
+        "onClickToShowDialogs"?: (event: CustomEvent<void>) => void;
     }
     interface SSaqhanChatUser {
         /**
           * массив с диалогами
          */
-        "messages"?: any;
+        "dialogs"?: ChatDialogInterface[];
     }
     interface SSaqhanChatUsers {
         /**
           * Массив данных с диалогами
          */
-        "messages"?: ChatDialogInterface;
+        "dialogs"?: ChatDialogInterface[];
     }
     interface SSaqhanChatUsersWrapper {
-        "categories"?: any;
+        "categories"?: ChatCategoryInterface[];
         /**
           * Массив данных с диалогами
          */
-        "messages"?: any;
-        "onClickToCategory"?: (event: CustomEvent<any>) => void;
+        "dialogs"?: ChatDialogInterface[];
+        "onClickToCategory"?: (event: CustomEvent<ChatCategoryInterface>) => void;
         /**
           * click to dialog
          */
-        "onClickToDialog"?: (event: CustomEvent<any>) => void;
+        "onClickToDialog"?: (event: CustomEvent<ChatDialogInterface>) => void;
         /**
           * click to files button
          */
-        "onClickToFilesBtn"?: (event: CustomEvent<any>) => void;
-        "onClickToLink"?: (event: CustomEvent<any>) => void;
-        "onSearchDialog"?: (event: CustomEvent<any>) => void;
+        "onClickToFilesBtn"?: (event: CustomEvent<void>) => void;
+        "onSearchDialog"?: (event: CustomEvent<ChatDialogInterface>) => void;
         /**
           * send new mess
          */
-        "onSendNewMessModal"?: (event: CustomEvent<any>) => void;
+        "onSendNewMessModal"?: (event: CustomEvent<string>) => void;
         /**
           * Массив данных с личным чатом
          */
-        "personalMessage"?: any;
+        "personalMessage"?: ChatMessage[];
     }
     interface SSaqhanChatWrapper {
         /**
@@ -1022,6 +1041,14 @@ declare namespace LocalJSX {
           * массив данных для диалогов
          */
         "dialogs"?: ChatDialogInterface[];
+        /**
+          * отключение поиска диалогов
+         */
+        "disableInnerSearchDialogs"?: boolean;
+        /**
+          * отключение поиска сообщений
+         */
+        "disableInnerSearchMessages"?: boolean;
         /**
           * массив данных личных сообщений
          */

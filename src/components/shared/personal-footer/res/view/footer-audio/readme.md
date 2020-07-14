@@ -5,11 +5,18 @@
 <!-- Auto Generated Below -->
 
 
+## Properties
+
+| Property | Attribute | Description         | Type                 | Default  |
+| -------- | --------- | ------------------- | -------------------- | -------- |
+| `theme`  | `theme`   | Пропс с классом CSS | `"comp" \| "mobile"` | `"comp"` |
+
+
 ## Events
 
-| Event            | Description | Type                   |
-| ---------------- | ----------- | ---------------------- |
-| `recordFinished` |             | `CustomEvent<boolean>` |
+| Event            | Description                  | Type                   |
+| ---------------- | ---------------------------- | ---------------------- |
+| `recordFinished` | Эвент окончания записи аудио | `CustomEvent<boolean>` |
 
 
 ## Dependencies

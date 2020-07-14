@@ -5,12 +5,19 @@
 <!-- Auto Generated Below -->
 
 
+## Properties
+
+| Property | Attribute | Description     | Type                 | Default  |
+| -------- | --------- | --------------- | -------------------- | -------- |
+| `theme`  | `theme`   | Пропс с классом | `"comp" \| "mobile"` | `"comp"` |
+
+
 ## Events
 
-| Event                   | Description | Type                |
-| ----------------------- | ----------- | ------------------- |
-| `showRecordAudioFooter` |             | `CustomEvent<void>` |
-| `showSendFileFooter`    |             | `CustomEvent<void>` |
+| Event                   | Description       | Type                |
+| ----------------------- | ----------------- | ------------------- |
+| `showRecordAudioFooter` | Пока футера аудио | `CustomEvent<void>` |
+| `showSendFileFooter`    |                   | `CustomEvent<void>` |
 
 
 ## Dependencies

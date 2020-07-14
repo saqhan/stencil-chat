@@ -18,7 +18,7 @@ export class FooterText implements ComponentInterface {
   /**
    * Пропс с классом
    */
-  @Prop() theme: "comp" | "mobile" = "comp";
+  @Prop() theme: "comp" | "mobile" | "module" = "comp";
 
   @State() showAudioSendButton = true;
 
