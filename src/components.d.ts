@@ -232,6 +232,14 @@ export namespace Components {
          */
         "dialogs": ChatDialogInterface[];
         /**
+          * отключение поиска диалогов
+         */
+        "disableInnerSearchDialogs": boolean;
+        /**
+          * отключение поиска сообщений
+         */
+        "disableInnerSearchMessages": boolean;
+        /**
           * массив данных личных сообщений
          */
         "message": ChatMessage[];
@@ -1016,6 +1024,14 @@ declare namespace LocalJSX {
           * массив данных для диалогов
          */
         "dialogs"?: ChatDialogInterface[];
+        /**
+          * отключение поиска диалогов
+         */
+        "disableInnerSearchDialogs"?: boolean;
+        /**
+          * отключение поиска сообщений
+         */
+        "disableInnerSearchMessages"?: boolean;
         /**
           * массив данных личных сообщений
          */

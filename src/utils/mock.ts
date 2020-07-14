@@ -4,7 +4,7 @@ export const dialogs = [
   {
     id: 1,
     img: "https://via.placeholder.com/300x300?text=User",
-    name: "Anna Dalonzo",
+    name: "Randolph Newman",
     mess: "rebuild finished",
     time: {
       created: new Date(),
@@ -15,7 +15,7 @@ export const dialogs = [
   {
     id: 2,
     img: "https://via.placeholder.com/300x300?text=User",
-    name: "Anna Dalonzo",
+    name: "Harry Sutton",
     mess: "generate lazy started",
     time: {
       created: new Date(),
@@ -26,7 +26,7 @@ export const dialogs = [
   {
     id: 3,
     img: "https://via.placeholder.com/300x300?text=User",
-    name: "Anna Dalonzo",
+    name: "Константин Михалков",
     mess: "generate lazy finished in 141 ms",
     time: {
       created: new Date(),
@@ -37,7 +37,7 @@ export const dialogs = [
   {
     id: 4,
     img: "https://via.placeholder.com/300x300?text=User",
-    name: "Anna Dalonzo",
+    name: "Зинедин Зидан",
     mess: "Hello everyone!!!",
     time: {
       created: new Date(),
@@ -48,7 +48,7 @@ export const dialogs = [
   {
     id: 5,
     img: "https://via.placeholder.com/300x300?text=User",
-    name: "Anna Dalonzo",
+    name: "Владимир Путин",
     mess: "transpile started",
     time: {
       created: new Date(),
@@ -59,7 +59,7 @@ export const dialogs = [
   {
     id: 6,
     img: "https://via.placeholder.com/300x300?text=User",
-    name: "Anna Dalonzo",
+    name: "Филипп Лам",
     mess: "Hello everyone!!!",
     time: {
       created: new Date(),
@@ -70,7 +70,7 @@ export const dialogs = [
   {
     id: 7,
     img: "https://via.placeholder.com/300x300?text=User",
-    name: "Anna Dalonzo",
+    name: "Френсис",
     mess: "Hello everyone!!!",
     time: {
       created: new Date(),

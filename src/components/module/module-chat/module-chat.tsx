@@ -15,6 +15,9 @@ export class ModuleChat implements ComponentInterface {
   /**
    * массив данных для диалогов
    * */
+  public disableInnerSearchDialogs: boolean = false;
+  public disableInnerSearchMessages: boolean = false;
+
 
   render() {
     return (
@@ -23,6 +26,8 @@ export class ModuleChat implements ComponentInterface {
         dialogs={dialogs}
         titleModule={titleModule}
         message={MessageMock}
+        disableInnerSearchDialogs={this.disableInnerSearchDialogs}
+        disableInnerSearchMessages={this.disableInnerSearchMessages}
       ></s-saqhan-chat-wrapper>
     );
   }
