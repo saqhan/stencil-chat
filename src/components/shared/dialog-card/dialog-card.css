@@ -28,6 +28,11 @@
 }
 
 .unfo-user {
+  width: 80%;
+  overflow: hidden;
+}
+
+.mobile .unfo-user {
   max-width: 250px;
   overflow: hidden;
 }
