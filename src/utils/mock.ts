@@ -3,148 +3,140 @@ import {ChatMessage, ChatMessageDirectionEnum, ChatMessageTypeEnum} from "../ind
 export const dialogs = [
   {
     id: 1,
-    img: "https://via.placeholder.com/300x300?text=User",
-    name: "Randolph Newman",
-    mess: "rebuild finished",
+    img: 'https://via.placeholder.com/300x300?text=User',
+    name: 'Даниил Копылов',
+    mess: 'Конфликтный гештальт',
     time: {
       created: new Date(),
     },
-    category: "work",
+    category: 'work',
     online: true,
   },
   {
     id: 2,
-    img: "https://via.placeholder.com/300x300?text=User",
-    name: "Harry Sutton",
-    mess: "generate lazy started",
+    img: 'https://via.placeholder.com/300x300?text=User',
+    name: 'Ярослав Кириллов',
+    mess: 'Реакция, по определению, доступна.',
     time: {
       created: new Date(),
     },
-    category: "family",
+    category: 'family',
     online: true,
   },
   {
     id: 3,
-    img: "https://via.placeholder.com/300x300?text=User",
-    name: "Константин Михалков",
-    mess: "generate lazy finished in 141 ms",
+    img: 'https://via.placeholder.com/300x300?text=User',
+    name: 'Марина Коновалова',
+    mess: 'Чем больше люди узнают друг друга, тем больше воспитание',
     time: {
       created: new Date(),
     },
-    category: "friends",
+    category: 'friends',
     online: false,
   },
   {
     id: 4,
-    img: "https://via.placeholder.com/300x300?text=User",
-    name: "Зинедин Зидан",
-    mess: "Hello everyone!!!",
+    img: 'https://via.placeholder.com/300x300?text=User',
+    name: 'Алина Брагина',
+    mess: 'Предсознательное стабильно. Рефлексия вызывает стимул. ',
     time: {
       created: new Date(),
     },
-    category: "friends",
+    category: 'friends',
     online: true,
   },
   {
     id: 5,
-    img: "https://via.placeholder.com/300x300?text=User",
-    name: "Владимир Путин",
-    mess: "transpile started",
+    img: 'https://via.placeholder.com/300x300?text=User',
+    name: 'Иван Степанович',
+    mess: 'Эскапизм осознаёт импульс.',
     time: {
       created: new Date(),
     },
-    category: "work",
+    category: 'work',
     online: false,
   },
   {
     id: 6,
-    img: "https://via.placeholder.com/300x300?text=User",
-    name: "Филипп Лам",
-    mess: "Hello everyone!!!",
+    img: 'https://via.placeholder.com/300x300?text=User',
+    name: 'Элеонора Тимофеевна',
+    mess: 'Психе выбирает закон. Психоз изменяем.',
     time: {
       created: new Date(),
     },
-    category: "work",
+    category: 'work',
     online: true,
   },
   {
     id: 7,
-    img: "https://via.placeholder.com/300x300?text=User",
-    name: "Френсис",
-    mess: "Hello everyone!!!",
+    img: 'https://via.placeholder.com/300x300?text=User',
+    name: 'Александра Дмитриевна',
+    mess: 'Конформизм понимает психоз.',
     time: {
       created: new Date(),
     },
-    category: "work",
+    category: 'work',
     online: false,
   },
   {
     id: 8,
-    img: "https://via.placeholder.com/300x300?text=User",
-    name: "Saqhan Dalonzo",
-    mess: "Hello everyone!!!",
+    img: 'https://via.placeholder.com/300x300?text=User',
+    name: 'Вадим Тимофеевич',
+    mess: 'Как было показано выше, психоз притягивает',
     time: {
       created: new Date(),
     },
-    category: "family",
+    category: 'family',
     online: true,
   },
   {
     id: 9,
-    img: "https://via.placeholder.com/300x300?text=User",
-    name: "Saqhan Chrome",
-    mess: "Hello everyone!!! category",
+    img: 'https://via.placeholder.com/300x300?text=User',
+    name: 'Яков Даниилович',
+    mess: 'Придерживаясь жестких принципов социального Дарвинизма',
     time: {
       created: new Date(),
     },
-    category: "friends",
+    category: 'interesting',
     online: false,
   },
   {
     id: 10,
-    img: "https://via.placeholder.com/300x300?text=User",
-    name: "Saqhan Chrome",
-    mess: "Generate lazy started",
+    img: 'https://via.placeholder.com/300x300?text=User',
+    name: 'Виктория Ильина',
+    mess: 'Предсознательное вызывает позитивистский генезис.',
     time: {
       created: new Date(),
     },
-    category: "friends",
+    category: 'study',
     online: false,
   },
 ];
 
 export const categories = [
   {
-    name: "All",
-    id: "all",
+    name: 'Все',
+    id: 'all',
   },
   {
-    name: "Work",
-    id: "work",
+    name: 'Работа',
+    id: 'work',
   },
   {
-    name: "Family",
-    id: "family",
+    name: 'Семья',
+    id: 'family',
   },
   {
-    name: "Friends",
-    id: "friends",
+    name: 'Друзья',
+    id: 'friends',
   },
   {
-    name: "Friends2",
-    id: "friends",
+    name: 'Учеба',
+    id: 'study',
   },
   {
-    name: "Friends3",
-    id: "friends",
-  },
-  {
-    name: "Friends4",
-    id: "friends",
-  },
-  {
-    name: "Friends5",
-    id: "friends",
+    name: 'Интересное',
+    id: 'interesting',
   },
 ];
 
@@ -309,21 +301,7 @@ export const MessageMock: ChatMessage[] = [
     time: {
       created: new Date(),
     },
-  },
-  // {
-  //   content: "",
-  //   sender: {
-  //     uid: "test-id-1",
-  //     icon: "https://via.placeholder.com/60x60?text=User",
-  //     name: "Сайхан",
-  //     phone: "79291234567",
-  //   },
-  //   type: ChatMessageTypeEnum.loading,
-  //   direction: ChatMessageDirectionEnum.toMe,
-  //   time: {
-  //     created: new Date(),
-  //   },
-  // },
+  }
 ];
 
 export const logo = {

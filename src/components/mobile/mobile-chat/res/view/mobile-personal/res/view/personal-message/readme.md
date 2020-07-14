@@ -7,10 +7,11 @@
 
 ## Properties
 
-| Property  | Attribute | Description                  | Type                             | Default     |
-| --------- | --------- | ---------------------------- | -------------------------------- | ----------- |
-| `message` | --        | array data personal messages | `ChatMessage[]`                  | `undefined` |
-| `theme`   | `theme`   |                              | `"comp" \| "mobile" \| "module"` | `"mobile"`  |
+| Property  | Attribute | Description                  | Type                             | Default                                                                                                                           |
+| --------- | --------- | ---------------------------- | -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `message` | --        | array data personal messages | `ChatMessage[]`                  | `undefined`                                                                                                                       |
+| `theme`   | `theme`   |                              | `"comp" \| "mobile" \| "module"` | `"mobile"`                                                                                                                        |
+| `writing` | --        |                              | `ChatWritingUserInterface[]`     | `[     {       uid: 'test',       icon: "https://via.placeholder.com/60x60?text=User",       name: '',       phone: ''     }   ]` |
 
 
 ## Dependencies

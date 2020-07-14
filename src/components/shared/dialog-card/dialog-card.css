@@ -28,7 +28,7 @@
 }
 
 .unfo-user {
-  width: 80%;
+  max-width: 250px;
   overflow: hidden;
 }
 
