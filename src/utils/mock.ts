@@ -316,6 +316,7 @@ export const logo = {
 };
 
 export const titleModule = {
+  id: 'modal',
   title: 'Модульный чат'
 }
 

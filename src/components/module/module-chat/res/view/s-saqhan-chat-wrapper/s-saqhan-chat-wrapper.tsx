@@ -87,9 +87,38 @@ export class SSaqhanChatWrapper implements ComponentInterface {
    * */
   @State() showChat: boolean;
 
+  render() {
+    return (
+      <div class="wrapper-modal">
+        {this.showChat ? (
+          <div class="wrapper-chat">
+            <module-header
+              titleModule={this.titleModule}
+              onClose={() => this.onClose()}
+            ></module-header>
+            <div class="m-chat-wrapper">
+              {this.ShowContent(this.showSelectContent)}
+            </div>
+          </div>
+        ) : (
+          ""
+        )}
+        <btn-wrapper
+          onClickToShowChat={() => this.isShowChat()}
+          showChat={this.showChat}
+        ></btn-wrapper>
+      </div>
+    );
+  }
+
   /**
    *  Фильтр диалогов
    * */
+
+  public clearSearchInputDialog() {
+    return 1;
+  }
+
   clickToCategory({ detail }) {
     this.dialogsState =
       detail.id !== "all"
@@ -132,30 +161,6 @@ export class SSaqhanChatWrapper implements ComponentInterface {
       this.messageState;
     }
   }
-
-  render() {
-    return (
-      <div class="wrapper-modal">
-        {this.showChat ? (
-          <div class="wrapper-chat">
-            <module-header
-              titleModule={this.titleModule}
-              onClose={() => this.onClose()}
-            ></module-header>
-            <div class="m-chat-wrapper">
-              {this.ShowContent(this.showSelectContent)}
-            </div>
-          </div>
-        ) : (
-          ""
-        )}
-        <btn-wrapper
-          onClickToShowChat={() => this.isShowChat()}
-          showChat={this.showChat}
-        ></btn-wrapper>
-      </div>
-    );
-  }
   /**
    * Select show content
    * */
@@ -165,9 +170,8 @@ export class SSaqhanChatWrapper implements ComponentInterface {
       case "dialogs":
         return (
           <s-saqhan-chat-users-wrapper
-            messages={this.dialogsState}
+            dialogs={this.dialogsState}
             categories={this.categoriesState}
-            // onClickToLink={(item) => this.clickToLink(item.detail)}
             onClickToCategory={(item) => this.clickToCategory(item)}
             onClickToDialog={(item) => this.clickToDialog(item)}
             onClickToFilesBtn={() => this.clickToFilesBtn()}

@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ChatCategoryInterface, ChatClickToLinkEmit, ChatContactInterface, ChatDialogInterface, ChatLogo, ChatMessage, ChatNavItems, } from "./index";
+import { ChatCategoryInterface, ChatClickToLinkEmit, ChatContactInterface, ChatDialogInterface, ChatLogo, ChatMessage, ChatNavItems, titleModule, } from "./index";
 export namespace Components {
     interface BtnWrapper {
         "showChat": any;
@@ -115,7 +115,7 @@ export namespace Components {
     interface ModuleChat {
     }
     interface ModuleHeader {
-        "titleModule": any;
+        "titleModule": titleModule;
     }
     interface ModulePersonal {
         /**
@@ -211,24 +211,24 @@ export namespace Components {
         /**
           * массив с диалогами
          */
-        "messages": any;
+        "dialogs": ChatDialogInterface[];
     }
     interface SSaqhanChatUsers {
         /**
           * Массив данных с диалогами
          */
-        "messages": ChatDialogInterface;
+        "dialogs": ChatDialogInterface[];
     }
     interface SSaqhanChatUsersWrapper {
-        "categories": any;
+        "categories": ChatCategoryInterface[];
         /**
           * Массив данных с диалогами
          */
-        "messages": any;
+        "dialogs": ChatDialogInterface[];
         /**
           * Массив данных с личным чатом
          */
-        "personalMessage": any;
+        "personalMessage": ChatMessage[];
     }
     interface SSaqhanChatWrapper {
         /**
@@ -819,8 +819,8 @@ declare namespace LocalJSX {
         /**
           * close modal
          */
-        "onClose"?: (event: CustomEvent<any>) => void;
-        "titleModule"?: any;
+        "onClose"?: (event: CustomEvent<void>) => void;
+        "titleModule"?: titleModule;
     }
     interface ModulePersonal {
         /**
@@ -986,52 +986,51 @@ declare namespace LocalJSX {
         /**
           * Клик по кнопке files
          */
-        "onClickToFilesBtn"?: (event: CustomEvent<any>) => void;
+        "onClickToFilesBtn"?: (event: CustomEvent<void>) => void;
         /**
           * Клик по кнопке в чате
          */
-        "onSearchDialog"?: (event: CustomEvent<any>) => void;
+        "onSearchDialog"?: (event: CustomEvent<ChatDialogInterface>) => void;
     }
     interface SSaqhanChatFormSearchFiles {
-        "onClickToShowDialogs"?: (event: CustomEvent<any>) => void;
+        "onClickToShowDialogs"?: (event: CustomEvent<void>) => void;
     }
     interface SSaqhanChatUser {
         /**
           * массив с диалогами
          */
-        "messages"?: any;
+        "dialogs"?: ChatDialogInterface[];
     }
     interface SSaqhanChatUsers {
         /**
           * Массив данных с диалогами
          */
-        "messages"?: ChatDialogInterface;
+        "dialogs"?: ChatDialogInterface[];
     }
     interface SSaqhanChatUsersWrapper {
-        "categories"?: any;
+        "categories"?: ChatCategoryInterface[];
         /**
           * Массив данных с диалогами
          */
-        "messages"?: any;
-        "onClickToCategory"?: (event: CustomEvent<any>) => void;
+        "dialogs"?: ChatDialogInterface[];
+        "onClickToCategory"?: (event: CustomEvent<ChatCategoryInterface>) => void;
         /**
           * click to dialog
          */
-        "onClickToDialog"?: (event: CustomEvent<any>) => void;
+        "onClickToDialog"?: (event: CustomEvent<ChatDialogInterface>) => void;
         /**
           * click to files button
          */
-        "onClickToFilesBtn"?: (event: CustomEvent<any>) => void;
-        "onClickToLink"?: (event: CustomEvent<any>) => void;
-        "onSearchDialog"?: (event: CustomEvent<any>) => void;
+        "onClickToFilesBtn"?: (event: CustomEvent<void>) => void;
+        "onSearchDialog"?: (event: CustomEvent<ChatDialogInterface>) => void;
         /**
           * send new mess
          */
-        "onSendNewMessModal"?: (event: CustomEvent<any>) => void;
+        "onSendNewMessModal"?: (event: CustomEvent<string>) => void;
         /**
           * Массив данных с личным чатом
          */
-        "personalMessage"?: any;
+        "personalMessage"?: ChatMessage[];
     }
     interface SSaqhanChatWrapper {
         /**

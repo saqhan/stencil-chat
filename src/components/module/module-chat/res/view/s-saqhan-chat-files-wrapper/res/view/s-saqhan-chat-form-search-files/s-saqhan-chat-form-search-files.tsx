@@ -13,7 +13,7 @@ import {
   scoped: true,
 })
 export class SSaqhanChatFormSearchFiles implements ComponentInterface {
-  @Event() clickToShowDialogs: EventEmitter;
+  @Event() clickToShowDialogs: EventEmitter<void>;
 
   render() {
     return (

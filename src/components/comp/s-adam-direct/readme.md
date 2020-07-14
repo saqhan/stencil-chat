@@ -16,7 +16,6 @@
 
 | Event                   | Description                            | Type                       |
 | ----------------------- | -------------------------------------- | -------------------------- |
-| `resetMessagesFilter`   | Сброс фильтра сообщений                | `CustomEvent<void>`        |
 | `searchPersonalMessage` | Клик по иконке поиска                  | `CustomEvent<ChatMessage>` |
 | `visibleUserProfile`    | клик по имени юзера в личной переписке | `CustomEvent<void>`        |
 

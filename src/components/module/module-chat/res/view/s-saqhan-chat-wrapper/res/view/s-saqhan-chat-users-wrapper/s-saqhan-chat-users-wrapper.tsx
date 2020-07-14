@@ -6,6 +6,7 @@ import {
   h,
   Prop,
 } from "@stencil/core";
+import {ChatCategoryInterface, ChatDialogInterface, ChatMessage} from "../../../../../../../../../index";
 
 @Component({
   tag: "s-saqhan-chat-users-wrapper",
@@ -17,46 +18,43 @@ export class SSaqhanChatUsersWrapper implements ComponentInterface {
   /**
    * Массив данных с диалогами
    * */
-  @Prop() messages: any;
+  @Prop() dialogs:ChatDialogInterface[] = [];
 
   /**
    *
    * */
-  @Prop() categories: any;
+  @Prop() categories: ChatCategoryInterface[] = [];
 
   /**
    * Массив данных с личным чатом
    * */
-  @Prop() personalMessage: any;
+  @Prop() personalMessage: ChatMessage[] = [];
 
   /**
    *
    * */
-  @Event() clickToCategory: EventEmitter;
+  @Event() clickToCategory: EventEmitter<ChatCategoryInterface>;
 
   /**
    *
    * */
-  @Event() searchDialog: EventEmitter;
+  @Event() searchDialog: EventEmitter<ChatDialogInterface>;
 
-  /**
-   *
-   * */
-  @Event() clickToLink: EventEmitter;
 
   /**
    * click to dialog
    * */
-  @Event() clickToDialog: EventEmitter;
+  @Event() clickToDialog: EventEmitter<ChatDialogInterface>;
 
   /**
    * click to files button
    * */
-  @Event() clickToFilesBtn: EventEmitter;
+  @Event() clickToFilesBtn: EventEmitter<void>;
   /**
    * send new mess
    * */
-  @Event() sendNewMessModal: EventEmitter;
+  @Event() sendNewMessModal: EventEmitter<string>;
+
 
   render() {
     return (
@@ -66,7 +64,7 @@ export class SSaqhanChatUsersWrapper implements ComponentInterface {
         ></s-saqhan-chat-form-search>
 
         <div class="chat-wrap">
-          <s-saqhan-chat-users messages={this.messages}></s-saqhan-chat-users>
+          <s-saqhan-chat-users dialogs={this.dialogs}></s-saqhan-chat-users>
         </div>
         <s-saqhan-chat-add-question></s-saqhan-chat-add-question>
       </div>
