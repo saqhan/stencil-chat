@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property   | Attribute  | Description        | Type  | Default     |
-| ---------- | ---------- | ------------------ | ----- | ----------- |
-| `messages` | `messages` | массив с диалогами | `any` | `undefined` |
+| Property  | Attribute | Description        | Type                    | Default     |
+| --------- | --------- | ------------------ | ----------------------- | ----------- |
+| `dialogs` | --        | массив с диалогами | `ChatDialogInterface[]` | `undefined` |
 
 
 ## Dependencies

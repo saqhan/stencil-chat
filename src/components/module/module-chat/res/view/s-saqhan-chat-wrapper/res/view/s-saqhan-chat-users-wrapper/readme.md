@@ -7,23 +7,22 @@
 
 ## Properties
 
-| Property          | Attribute          | Description                  | Type  | Default     |
-| ----------------- | ------------------ | ---------------------------- | ----- | ----------- |
-| `categories`      | `categories`       |                              | `any` | `undefined` |
-| `messages`        | `messages`         | Массив данных с диалогами    | `any` | `undefined` |
-| `personalMessage` | `personal-message` | Массив данных с личным чатом | `any` | `undefined` |
+| Property          | Attribute | Description                  | Type                      | Default |
+| ----------------- | --------- | ---------------------------- | ------------------------- | ------- |
+| `categories`      | --        |                              | `ChatCategoryInterface[]` | `[]`    |
+| `dialogs`         | --        | Массив данных с диалогами    | `ChatDialogInterface[]`   | `[]`    |
+| `personalMessage` | --        | Массив данных с личным чатом | `ChatMessage[]`           | `[]`    |
 
 
 ## Events
 
-| Event              | Description           | Type               |
-| ------------------ | --------------------- | ------------------ |
-| `clickToCategory`  |                       | `CustomEvent<any>` |
-| `clickToDialog`    | click to dialog       | `CustomEvent<any>` |
-| `clickToFilesBtn`  | click to files button | `CustomEvent<any>` |
-| `clickToLink`      |                       | `CustomEvent<any>` |
-| `searchDialog`     |                       | `CustomEvent<any>` |
-| `sendNewMessModal` | send new mess         | `CustomEvent<any>` |
+| Event              | Description           | Type                                 |
+| ------------------ | --------------------- | ------------------------------------ |
+| `clickToCategory`  |                       | `CustomEvent<ChatCategoryInterface>` |
+| `clickToDialog`    | click to dialog       | `CustomEvent<ChatDialogInterface>`   |
+| `clickToFilesBtn`  | click to files button | `CustomEvent<void>`                  |
+| `searchDialog`     |                       | `CustomEvent<ChatDialogInterface>`   |
+| `sendNewMessModal` | send new mess         | `CustomEvent<string>`                |
 
 
 ## Dependencies

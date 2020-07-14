@@ -7,16 +7,16 @@
 
 ## Properties
 
-| Property      | Attribute      | Description | Type  | Default     |
-| ------------- | -------------- | ----------- | ----- | ----------- |
-| `titleModule` | `title-module` |             | `any` | `undefined` |
+| Property      | Attribute | Description | Type          | Default     |
+| ------------- | --------- | ----------- | ------------- | ----------- |
+| `titleModule` | --        |             | `titleModule` | `undefined` |
 
 
 ## Events
 
-| Event   | Description | Type               |
-| ------- | ----------- | ------------------ |
-| `close` | close modal | `CustomEvent<any>` |
+| Event   | Description | Type                |
+| ------- | ----------- | ------------------- |
+| `close` | close modal | `CustomEvent<void>` |
 
 
 ## Dependencies

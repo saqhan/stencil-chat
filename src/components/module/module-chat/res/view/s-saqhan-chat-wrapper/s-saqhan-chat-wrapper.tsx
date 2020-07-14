@@ -51,18 +51,20 @@ export class SSaqhanChatWrapper implements ComponentInterface {
    * select content default
    * */
   @State() showSelectContent: string = "dialogs";
+
   /**
    * массив данных категорий
    * */
-  @State() categoriesState = this.categories;
+  @State() categoriesState: ChatCategoryInterface[] = this.categories;
+
   /**
    * массив данных диалогов
    * */
-  @State() dialogsState = this.dialogs;
+  @State() dialogsState: ChatDialogInterface[] = this.dialogs;
   /**
    * массив данных персонального чата
    * */
-  @State() messageState = this.message;
+  @State() messageState: ChatMessage[] = this.message;
 
   @Watch("dialogs")
   watchDialogsHandler(newValue: boolean, oldValue: boolean) {
@@ -129,13 +131,13 @@ export class SSaqhanChatWrapper implements ComponentInterface {
   /**
    * dialogue search
    * */
-  public searchDialog({ detail }) {
+  public searchDialog(value: string) {
     if (!this.disableInnerSearchDialogs) {
       this.dialogsState =
-        detail.data !== "" && detail.data !== null
+        value !== "" && value !== null
           ? this.dialogs.filter((item) => {
               return typeof item.name === "string"
-                ? item.name.toLowerCase().includes(detail.data.toLowerCase())
+                ? item.name.toLowerCase().includes(value.toLowerCase())
                 : false;
             })
           : this.dialogs;
@@ -175,7 +177,7 @@ export class SSaqhanChatWrapper implements ComponentInterface {
             onClickToCategory={(item) => this.clickToCategory(item)}
             onClickToDialog={(item) => this.clickToDialog(item)}
             onClickToFilesBtn={() => this.clickToFilesBtn()}
-            onSearchDialog={(item) => this.searchDialog(item)}
+            onSearchDialog={(item) => this.searchDialog(item.detail)}
             onSendNewMessModal={() => this.sendNewMessModal()}
           ></s-saqhan-chat-users-wrapper>
         );

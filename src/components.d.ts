@@ -990,7 +990,7 @@ declare namespace LocalJSX {
         /**
           * Клик по кнопке в чате
          */
-        "onSearchDialog"?: (event: CustomEvent<ChatDialogInterface>) => void;
+        "onSearchDialog"?: (event: CustomEvent<string>) => void;
     }
     interface SSaqhanChatFormSearchFiles {
         "onClickToShowDialogs"?: (event: CustomEvent<void>) => void;

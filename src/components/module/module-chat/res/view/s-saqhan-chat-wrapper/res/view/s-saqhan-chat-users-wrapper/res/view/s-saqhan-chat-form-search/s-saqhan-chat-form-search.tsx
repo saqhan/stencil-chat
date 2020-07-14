@@ -1,15 +1,5 @@
-import {
-  Component,
-  ComponentInterface,
-  h,
-  Event,
-  EventEmitter,
-  Prop,
-} from "@stencil/core";
-import {
-  ChatCategoryInterface,
-  ChatDialogInterface,
-} from "../../../../../../../../../../../../index";
+import {Component, ComponentInterface, Event, EventEmitter, h, Prop,} from "@stencil/core";
+import {ChatCategoryInterface,} from "../../../../../../../../../../../../index";
 
 @Component({
   tag: "s-saqhan-chat-form-search",
@@ -31,7 +21,7 @@ export class SSaqhanChatFormSearch implements ComponentInterface {
   /**
    * Клик по кнопке в чате
    * */
-  @Event() searchDialog: EventEmitter<ChatDialogInterface>;
+  @Event() searchDialog: EventEmitter<string>;
 
   render() {
     return (
@@ -42,7 +32,7 @@ export class SSaqhanChatFormSearch implements ComponentInterface {
               type="text"
               class="input-search"
               placeholder="Поиск чатов и сообщений"
-              onInput={(e) => this.searchDialogsHandler(e)}
+              onInput={(e: any) => this.searchDialogsHandler(e.target.value)}
             />
           </div>
           <div class="block-file" onClick={() => this.clickToFilesBtnHandler()}>
