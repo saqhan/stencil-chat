@@ -1,7 +1,9 @@
 .btns-nav {
   display: flex;
-  justify-content: center;
   align-items: center;
+  border-bottom: 1px solid #ccc;
+  overflow-x: scroll;
+  overflow-y: hidden;
   height: 30px;
 }
 
@@ -10,23 +12,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 25%;
-  height: 30px;
+  /*width: 25%;*/
   text-align: center;
   font-weight: 600;
   color: #979eab;
   transition: 0.3s ease-in-out;
+  padding: 0 20px;
+  height: 30px;
 }
 
 .btns-nav span:hover {
   cursor: pointer;
   color: #5780f7;
   border-bottom: 1px solid #5780f7;
-}
-
-.comp .btns-nav {
-  border-bottom: 1px solid #ccc;
-  margin: 0 -20px;
 }
 
 .comp .btns-nav span {
@@ -37,14 +35,6 @@
   margin-top: 10px;
 }
 
-/*::-webkit-scrollbar { !* chrome based *!*/
-/*  width: 0px; !* ширина scrollbar'a *!*/
-/*  background: transparent; !* опционально *!*/
-/*}*/
-
-/*.module .btns-nav {*/
-/*  overflow-y: hidden*/
-/*}*/
 
 .module .btns-nav span {
   font-size: 14px;
@@ -52,7 +42,7 @@
   /*justify-content: center;*/
   align-items: center;
   /*width: 25%;*/
-  padding: 0px 10px;
+  padding: 0px 20px;
   height: 30px;
   text-align: center;
   font-weight: 600;
@@ -63,3 +53,11 @@
 .module .btns-nav {
   justify-content:start;
 }
+
+::-webkit-scrollbar {
+  height: 0px; /* высота для горизонтального скролла */
+}
+
+
+
+

@@ -7,9 +7,10 @@
 
 ## Properties
 
-| Property  | Attribute | Description                  | Type            | Default     |
-| --------- | --------- | ---------------------------- | --------------- | ----------- |
-| `message` | --        | array data personal messages | `ChatMessage[]` | `undefined` |
+| Property  | Attribute | Description                  | Type                    | Default     |
+| --------- | --------- | ---------------------------- | ----------------------- | ----------- |
+| `dialogs` | --        | array data dialogs           | `ChatDialogInterface[]` | `undefined` |
+| `message` | --        | array data personal messages | `ChatMessage[]`         | `undefined` |
 
 
 ## Events
