@@ -8,7 +8,8 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { ChatCategoryInterface, ChatClickToLinkEmit, ChatContactInterface, ChatDialogInterface, ChatLogo, ChatMessage, ChatNavItems, ChatWritingUserInterface, titleModule, } from "./index";
 export namespace Components {
     interface BtnWrapper {
-        "showChat": any;
+        "dialogs": number;
+        "showChat": boolean;
     }
     interface ContactCard {
         /**
@@ -119,6 +120,10 @@ export namespace Components {
     }
     interface ModulePersonal {
         /**
+          * array data dialogs
+         */
+        "dialogs": ChatDialogInterface[];
+        /**
           * array data personal messages
          */
         "message": ChatMessage[];
@@ -129,6 +134,10 @@ export namespace Components {
         "theme": "comp" | "mobile" | "module";
     }
     interface PersonalHeader {
+        /**
+          * array data dialogs
+         */
+        "dialogs": ChatDialogInterface[];
         /**
           * array data personal messages
          */
@@ -255,7 +264,7 @@ export namespace Components {
         /**
           * Заголовок для чата
          */
-        "titleModule": any;
+        "titleModule": titleModule;
     }
     interface UserProfile {
     }
@@ -581,11 +590,12 @@ declare global {
 }
 declare namespace LocalJSX {
     interface BtnWrapper {
+        "dialogs"?: number;
         /**
           * clock on clickToLink
          */
-        "onClickToShowChat"?: (event: CustomEvent<any>) => void;
-        "showChat"?: any;
+        "onClickToShowChat"?: (event: CustomEvent<void>) => void;
+        "showChat"?: boolean;
     }
     interface ContactCard {
         /**
@@ -825,6 +835,10 @@ declare namespace LocalJSX {
     }
     interface ModulePersonal {
         /**
+          * array data dialogs
+         */
+        "dialogs"?: ChatDialogInterface[];
+        /**
           * array data personal messages
          */
         "message"?: ChatMessage[];
@@ -853,10 +867,21 @@ declare namespace LocalJSX {
     }
     interface PersonalHeader {
         /**
+          * array data dialogs
+         */
+        "dialogs"?: ChatDialogInterface[];
+        /**
           * array data personal messages
          */
         "message"?: ChatMessage[];
+        /**
+          * отмена поиска
+         */
         "onCancelSearchPersonal"?: (event: CustomEvent<void>) => void;
+        /**
+          * Клик по диалогу
+         */
+        "onClickToDialog"?: (event: CustomEvent<ChatClickToLinkEmit>) => void;
         /**
           * clock on navigate
          */
@@ -1058,7 +1083,7 @@ declare namespace LocalJSX {
         /**
           * Заголовок для чата
          */
-        "titleModule"?: any;
+        "titleModule"?: titleModule;
     }
     interface UserProfile {
         "onClickToShowDialogs"?: (event: CustomEvent<any>) => void;

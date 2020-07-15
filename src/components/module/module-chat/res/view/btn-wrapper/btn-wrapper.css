@@ -15,21 +15,28 @@
   text-align: right;
   z-index: 999;
   position: fixed;
-  right: 10px;
+  right: 20px;
   bottom: 20px;
 }
 
-.open-chat::after {
-  content: "1";
-  background-color: #c73f45;
+.btn-green {
   position: relative;
-  top: -25px;
-  left: -20px;
-  color: #fff;
-  font-size: 12px;
-  padding: 5px 10px;
-  border-radius: 50%;
 }
+
+.counterNewMess {
+  position: absolute;
+  right: -5px;
+  top: 0px;
+  color: #fff;
+  text-align: center;
+  width: 25px;
+  padding: 5px 5px;
+  border-radius: 50%;
+  background-color: #c73f45;
+  font-size: 12px;
+}
+
+
 
 @media (max-width: 414px) {
   .btn-open {
@@ -49,5 +56,16 @@
 
   .btn-open {
     font-size: 18px;
+  }
+  .counterNewMess{
+    width: 18px;
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 375px) {
+  .open-chat {
+    right: 15px;
+    bottom: 60px;
   }
 }

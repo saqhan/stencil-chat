@@ -14,7 +14,7 @@
 | `disableInnerSearchDialogs`  | `disable-inner-search-dialogs`  | отключение поиска диалогов     | `boolean`                 | `undefined` |
 | `disableInnerSearchMessages` | `disable-inner-search-messages` | отключение поиска сообщений    | `boolean`                 | `undefined` |
 | `message`                    | --                              | массив данных личных сообщений | `ChatMessage[]`           | `undefined` |
-| `titleModule`                | `title-module`                  | Заголовок для чата             | `any`                     | `undefined` |
+| `titleModule`                | --                              | Заголовок для чата             | `titleModule`             | `undefined` |
 
 
 ## Dependencies

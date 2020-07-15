@@ -54,12 +54,19 @@ export class DialogCard implements ComponentInterface {
                 {this.createSendTime(this.mess.time.created)}
               </div>
               {/*<div class="new-message-from">Yesterday</div>*/}
-              <span class="add-new-message">1</span>
+              {this.showNewMess(this.mess)}
             </div>
           </div>
         </div>
       </div>
     );
+  }
+
+
+  public showNewMess(dialog){
+    if (dialog.newMessage > 0) {
+     return <span class="add-new-message"> {dialog.newMessage}</span>
+    }
   }
 
   /**

@@ -1,3 +1,5 @@
+import {filterDialogsBySearchValue, filterMessageBySearchValue} from "./utils/utils";
+
 export * from "./components";
 /**
  *
@@ -149,8 +151,8 @@ export interface ChatLogo {
 }
 
 export interface titleModule {
-  id: string,
-  title: string
+  id: string;
+  title: string;
 }
 
 export interface ChatNavItems {
@@ -166,7 +168,7 @@ export enum ChatLinkTypeEnum {
   addDialog = '"add-dialog"',
 
   fromMobileContacts = '"contacts"',
-  fromMobileMenuBar =  'menu-bar',
+  fromMobileMenuBar = "menu-bar",
 }
 
 /**
@@ -181,16 +183,15 @@ export interface ChatWritingUserInterface {
   uid: string;
   icon: string;
   phone: string;
-  name: string
+  name: string;
 }
 
 /**
  *
  * */
-export function chatConvertWritingStatusToMessage (
+export function chatConvertWritingStatusToMessage(
   writing: ChatWritingUserInterface
-): ChatMessage
-{
+): ChatMessage {
   return {
     /**
      * содержимое сообщения
@@ -203,7 +204,7 @@ export function chatConvertWritingStatusToMessage (
     /** время создание */
     time: {
       /** время создания */
-      created: Date.now()
+      created: Date.now(),
     },
     /**
      * направления сообщения
@@ -217,7 +218,33 @@ export function chatConvertWritingStatusToMessage (
       uid: writing.uid,
       icon: writing.icon,
       name: writing.name,
-      phone: writing.phone
-    }
+      phone: writing.phone,
+    },
+  };
+}
+
+/**
+ * dialogue search
+ * */
+ export function ChatSearchDialog(value: string) {
+  if (!this.disableInnerSearchDialogs) {
+    this.dialogsState = filterDialogsBySearchValue(
+      value,
+      this.dialogs
+    );
   }
 }
+
+/**
+ * search for private messages
+ * */
+ export function ChatSearchPersonalMessages(value: string ) {
+  if (!this.disableInnerSearchMessages) {
+    this.messageState = filterMessageBySearchValue(
+      value,
+      this.message
+    )
+  }
+}
+
+

@@ -30,7 +30,7 @@
 
 ### Depends on
 
-- [personal-header](./res/view/personal-header)
+- [personal-header](../../../../../shared/personal-header)
 - [personal-message](./res/view/personal-message)
 - [personal-footer](../../../../../shared/personal-footer)
 

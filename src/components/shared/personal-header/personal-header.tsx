@@ -7,19 +7,27 @@ import {
   Prop,
   State,
 } from "@stencil/core";
-import { ChatMessage } from "../../../../../../../../../index";
+import {
+  ChatClickToLinkEmit,
+  ChatDialogInterface,
+  ChatMessage,
+} from "../../../index";
 
 @Component({
   tag: "personal-header",
   styleUrl: "personal-header.css",
   shadow: false,
-  scoped: true
+  scoped: true,
 })
 export class PersonalHeader implements ComponentInterface {
   /**
    * array data personal messages
    * */
   @Prop() message: ChatMessage[];
+  /**
+   * array data dialogs
+   * */
+  @Prop() dialogs: ChatDialogInterface[];
   /**
    * clock on navigate
    * */
@@ -34,8 +42,21 @@ export class PersonalHeader implements ComponentInterface {
    * click to show user profile
    * */
   @Event() clickToShowDialogs: EventEmitter<string>;
+  /**
+   * отмена поиска
+   * */
   @Event() cancelSearchPersonal: EventEmitter<void>;
+  /**
+   * Клик по диалогу
+   * */
+  @Event() clickToDialog: EventEmitter<ChatClickToLinkEmit>;
+  /**
+   * Показывать/скрывать меню
+   * */
   @State() isShowDropDown = false;
+  /**
+   * Переключение поиска и окна с диалогами в шапке
+   * */
   @State() isPersonalMess = true;
 
   render() {
@@ -83,21 +104,22 @@ export class PersonalHeader implements ComponentInterface {
               </span>
             </div>
             <div class="users-nav">
-              <div class="img-user-other">
-                <div class="img online"></div>
-              </div>
-              <div class="img-user-other">
-                <div class="img online"></div>
-              </div>
-              <div class="img-user-current">
-                <div class="img online"></div>
-              </div>
-              <div class="img-user-other">
-                <div class="img online"></div>
-              </div>
-              <div class="img-user-other">
-                <div class="img online"></div>
-              </div>
+              {/*<div class="img-user-other">*/}
+              {/*  <div class="img online"></div>*/}
+              {/*</div>*/}
+              {/*<div class="img-user-other">*/}
+              {/*  <div class="img online"></div>*/}
+              {/*</div>*/}
+              {/*<div class="img-user-current" >*/}
+              {/*  <div class="img online"></div>*/}
+              {/*</div>*/}
+              {/*<div class="img-user-other">*/}
+              {/*  <div class="img online"></div>*/}
+              {/*</div>*/}
+              {/*<div class="img-user-other">*/}
+              {/*  <div class="img online"></div>*/}
+              {/*</div>*/}
+              {this.getIconDialogs(this.dialogs)}
             </div>
           </div>
         ) : (
@@ -108,9 +130,9 @@ export class PersonalHeader implements ComponentInterface {
                 type="text"
                 placeholder="search"
                 onInput={(e: KeyboardEvent) =>
-                  this.searchPersonalMessagesHandler(e.target['value'])
+                  this.searchPersonalMessagesHandler(e.target["value"])
                 }
-              />{" "}
+              />
               <span
                 onClick={() => this.showInputSearchPersonalMess()}
                 class="cancel-search"
@@ -152,6 +174,7 @@ export class PersonalHeader implements ComponentInterface {
   public clickToShowDialogsHandler(): void {
     this.clickToShowDialogs.emit();
   }
+
   /**
    * click to show user profile
    * */
@@ -162,7 +185,37 @@ export class PersonalHeader implements ComponentInterface {
   /**
    * search for private messages
    * */
-  public searchPersonalMessagesHandler(value: string ): void {
+  public searchPersonalMessagesHandler(value: string): void {
     this.searchPersonalMessages.emit(value);
+  }
+  /**
+   * TODO
+   * Метод для получения изображений предыдущих и следующих диалогов
+   * */
+  public getIconUsers(array) {
+    array.sender.icon;
+  }
+
+  /**
+   * Управление по клику на диалог
+   * */
+  public clickToDialogHandler(item) {
+    this.clickToDialog.emit({ data: item });
+    console.log(item)
+  }
+
+  /**
+   * Метод получения названий категорий
+   * */
+  public getIconDialogs(array) {
+    return array.map((item) => (
+      <div class="img-user-other">
+        <div
+          class="img online"
+          onClick={() => this.clickToDialogHandler(item)}
+          style={{ backgroundImage: `url(${item.img})` }}
+        ></div>
+      </div>
+    )).slice(5);
   }
 }

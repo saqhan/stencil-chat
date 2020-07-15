@@ -12,11 +12,12 @@ import {
   ChatDialogInterface,
   // ChatLinkTypeEnum,
   ChatMessage,
+  titleModule,
 } from "../../../../../../index";
 import {
   filterDialogsByCategory,
   filterDialogsBySearchValue,
-  filterMessageBySearchValue
+  filterMessageBySearchValue,
 } from "../../../../../../utils/utils";
 // import { SelectChatTypeEnum } from "./res/enum/common.enum";
 
@@ -34,7 +35,7 @@ export class SSaqhanChatWrapper implements ComponentInterface {
   /**
    * Заголовок для чата
    * */
-  @Prop() titleModule: any;
+  @Prop() titleModule: titleModule;
   /**
    * массив данных личных сообщений
    * */
@@ -115,25 +116,25 @@ export class SSaqhanChatWrapper implements ComponentInterface {
         <btn-wrapper
           onClickToShowChat={() => this.isShowChat()}
           showChat={this.showChat}
+          dialogs={this.countNewMess(this.dialogs)}
         ></btn-wrapper>
       </div>
     );
   }
 
-  /**
-   *  Фильтр диалогов
-   * */
-  public clearSearchInputDialog() {
-    return 1;
+
+  public countNewMess(array) {
+    let counter = 0;
+    array.map((item) => {
+      counter += item.newMessage;
+    });
+    return counter;
   }
 
   /**
    * */
-  public clickToCategory( value: ChatCategoryInterface){
-    this.dialogsState = filterDialogsByCategory(value, this.dialogs)
-      // value.id !== "all"
-      //   ? this.dialogs.filter((dialog) => dialog.category === value.id)
-      //   : this.dialogs;
+  public clickToCategory(value: ChatCategoryInterface) {
+    this.dialogsState = filterDialogsByCategory(value, this.dialogs);
   }
 
   /**
@@ -141,47 +142,17 @@ export class SSaqhanChatWrapper implements ComponentInterface {
    * */
   public searchDialog(value: string) {
     if (!this.disableInnerSearchDialogs) {
-      this.dialogsState = filterDialogsBySearchValue(
-        value,
-        this.dialogs
-      );
-      // value !== "" && value !== null
-      //   ? this.dialogs.filter((item) => {
-      //       return typeof item.name === "string"
-      //         ? item.name.toLowerCase().includes(value.toLowerCase())
-      //         : false;
-      //     })
-      //   : this.dialogs;
+      this.dialogsState = filterDialogsBySearchValue(value, this.dialogs);
     }
-    /* else {
-      this.dialogs;
-    }*/
   }
 
   /**
    * search for private messages
    * */
-  public searchPersonalMessages(value: string ) {
-    console.log(
-      'searchPersonalMessages',
-      {value, disableInnerSearchMessages: this.disableInnerSearchMessages}
-    )
+  public searchPersonalMessages(value: string) {
     if (!this.disableInnerSearchMessages) {
-      this.messageState = filterMessageBySearchValue(
-        value,
-        this.message
-      )
-      // this.messageState =
-      //   detail.data !== "" && detail.data !== null
-      //     ? this.message.filter((item) => {
-      //         return typeof item.content === "string"
-      //           ? item.content.toLowerCase().includes(detail.data.toLowerCase())
-      //           : false;
-      //       })
-      //     : this.messageState;
-    }/* else {
-      this.messageState;
-    }*/
+      this.messageState = filterMessageBySearchValue(value, this.message);
+    }
   }
   /**
    * Select show content
@@ -194,10 +165,14 @@ export class SSaqhanChatWrapper implements ComponentInterface {
           <s-saqhan-chat-users-wrapper
             dialogs={this.dialogsState}
             categories={this.categoriesState}
-            onClickToCategory={(item: CustomEvent<ChatCategoryInterface>) => this.clickToCategory(item.detail)}
+            onClickToCategory={(item: CustomEvent<ChatCategoryInterface>) =>
+              this.clickToCategory(item.detail)
+            }
             onClickToDialog={(item) => this.clickToDialog(item)}
             onClickToFilesBtn={() => this.clickToFilesBtn()}
-            onSearchDialog={(item: CustomEvent<string>) => this.searchDialog(item.detail)}
+            onSearchDialog={(item: CustomEvent<string>) =>
+              this.searchDialog(item.detail)
+            }
             onSendNewMessModal={() => this.sendNewMessModal()}
           ></s-saqhan-chat-users-wrapper>
         );
@@ -207,8 +182,11 @@ export class SSaqhanChatWrapper implements ComponentInterface {
           //   <s-adam-copying></s-adam-copying>
           // </div>
           <module-personal
+            dialogs={this.dialogsState}
             message={this.messageState}
-            onSearchPersonalMessages={(e: CustomEvent<string>) => this.searchPersonalMessages(e.detail)}
+            onSearchPersonalMessages={(e: CustomEvent<string>) =>
+              this.searchPersonalMessages(e.detail)
+            }
             onClickToShowDialogs={() => this.clickToShowDialogs()}
             onClickToUserProfile={() => this.clickToUserProfile()}
             onCancelSearchPersonal={() => this.cancelSearchPersonal()}

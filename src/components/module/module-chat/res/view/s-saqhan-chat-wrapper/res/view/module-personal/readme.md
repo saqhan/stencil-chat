@@ -7,19 +7,20 @@
 
 ## Properties
 
-| Property  | Attribute | Description                  | Type            | Default     |
-| --------- | --------- | ---------------------------- | --------------- | ----------- |
-| `message` | --        | array data personal messages | `ChatMessage[]` | `undefined` |
+| Property  | Attribute | Description                  | Type                    | Default     |
+| --------- | --------- | ---------------------------- | ----------------------- | ----------- |
+| `dialogs` | --        | array data dialogs           | `ChatDialogInterface[]` | `undefined` |
+| `message` | --        | array data personal messages | `ChatMessage[]`         | `undefined` |
 
 
 ## Events
 
-| Event                    | Description                 | Type                       |
-| ------------------------ | --------------------------- | -------------------------- |
-| `cancelSearchPersonal`   |                             | `CustomEvent<void>`        |
-| `clickToShowDialogs`     | show dialogs                | `CustomEvent<void>`        |
-| `clickToUserProfile`     | on click to profile user    | `CustomEvent<void>`        |
-| `searchPersonalMessages` | search for private messages | `CustomEvent<ChatMessage>` |
+| Event                    | Description                 | Type                  |
+| ------------------------ | --------------------------- | --------------------- |
+| `cancelSearchPersonal`   |                             | `CustomEvent<void>`   |
+| `clickToShowDialogs`     | show dialogs                | `CustomEvent<void>`   |
+| `clickToUserProfile`     | on click to profile user    | `CustomEvent<void>`   |
+| `searchPersonalMessages` | search for private messages | `CustomEvent<string>` |
 
 
 ## Dependencies
@@ -30,7 +31,7 @@
 
 ### Depends on
 
-- [personal-header](../../../../../../../../mobile/mobile-chat/res/view/mobile-personal/res/view/personal-header)
+- [personal-header](../../../../../../../../shared/personal-header)
 - [personal-message](../../../../../../../../mobile/mobile-chat/res/view/mobile-personal/res/view/personal-message)
 - [personal-footer](../../../../../../../../shared/personal-footer)
 

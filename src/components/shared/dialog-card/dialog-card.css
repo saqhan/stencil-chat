@@ -32,6 +32,11 @@
   overflow: hidden;
 }
 
+.mobile .unfo-user {
+  max-width: 250px;
+  overflow: hidden;
+}
+
 .name-user {
   font-size: 14px;
   font-weight: 600;

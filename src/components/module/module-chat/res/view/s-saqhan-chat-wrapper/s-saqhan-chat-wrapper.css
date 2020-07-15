@@ -9,7 +9,7 @@
 
 .m-chat-wrapper {
   height: calc(100vh - 170px);
-  overflow: auto;
+  /*overflow: auto;*/
 }
 
 
