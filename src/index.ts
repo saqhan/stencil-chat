@@ -1,5 +1,3 @@
-import {filterDialogsBySearchValue, filterMessageBySearchValue} from "./utils/utils";
-
 export * from "./components";
 /**
  *
@@ -223,28 +221,75 @@ export function chatConvertWritingStatusToMessage(
   };
 }
 
+// /**
+//  * dialogue search
+//  * */
+//  export function ChatSearchDialog(value: string) {
+//   if (!this.disableInnerSearchDialogs) {
+//     this.dialogsState = filterDialogsBySearchValue(
+//       value,
+//       this.dialogs
+//     );
+//   }
+// }
+
+// /**
+//  * search for private messages
+//  * */
+//  export function ChatSearchPersonalMessages(value: string ) {
+//   if (!this.disableInnerSearchMessages) {
+//     this.messageState = filterMessageBySearchValue(
+//       value,
+//       this.message
+//     )
+//   }
+// }
+
+
+
+
 /**
- * dialogue search
+ * filter message by search value
  * */
- export function ChatSearchDialog(value: string) {
-  if (!this.disableInnerSearchDialogs) {
-    this.dialogsState = filterDialogsBySearchValue(
-      value,
-      this.dialogs
-    );
-  }
+export function filterMessageBySearchValue (
+  value: string,
+  message:  ChatMessage[]
+): ChatMessage[] {
+  return value //(value !== "" && value !== null)
+    ? message.filter((item) => {
+      return typeof item.content === "string"
+        ? item.content.toLowerCase().includes(value.toLowerCase())
+        : false;
+    })
+    : message;
 }
 
 /**
- * search for private messages
+ * filter dialogs by search value
  * */
- export function ChatSearchPersonalMessages(value: string ) {
-  if (!this.disableInnerSearchMessages) {
-    this.messageState = filterMessageBySearchValue(
-      value,
-      this.message
-    )
-  }
+export function filterDialogsBySearchValue (
+  value: string,
+  dialogs:  ChatDialogInterface[]
+): ChatDialogInterface[] {
+  return value !== "" && value !== null
+    ? dialogs.filter((item) => {
+      return typeof item.name === "string"
+        ? item.name.toLowerCase().includes(value.toLowerCase())
+        : false;
+    })
+    : dialogs;
 }
 
 
+
+/**
+ * filter dialogs by category id
+ * */
+export function filterDialogsByCategory (
+  category: ChatCategoryInterface,
+  dialogs:  ChatDialogInterface[]
+): ChatDialogInterface[] {
+  return category.id !== "all"
+    ? dialogs.filter((dialog) => dialog.category === category.id)
+    : dialogs;
+}

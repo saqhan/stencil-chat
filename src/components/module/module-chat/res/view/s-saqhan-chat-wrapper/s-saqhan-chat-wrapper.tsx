@@ -13,13 +13,10 @@ import {
   // ChatLinkTypeEnum,
   ChatMessage,
   titleModule,
-} from "../../../../../../index";
-import {
   filterDialogsByCategory,
   filterDialogsBySearchValue,
   filterMessageBySearchValue,
-} from "../../../../../../utils/utils";
-// import { SelectChatTypeEnum } from "./res/enum/common.enum";
+} from "../../../../../../index";
 
 @Component({
   tag: "s-saqhan-chat-wrapper",
