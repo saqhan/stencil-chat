@@ -239,10 +239,6 @@ export function chatConvertWritingStatusToMessage(
  * search for private messages
  * */
  export function ChatSearchPersonalMessages(value: string ) {
-  console.log(
-    'searchPersonalMessages',
-    {value, disableInnerSearchMessages: this.disableInnerSearchMessages}
-  )
   if (!this.disableInnerSearchMessages) {
     this.messageState = filterMessageBySearchValue(
       value,
@@ -250,3 +246,5 @@ export function chatConvertWritingStatusToMessage(
     )
   }
 }
+
+

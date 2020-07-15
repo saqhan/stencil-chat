@@ -7,16 +7,17 @@
 
 ## Properties
 
-| Property   | Attribute   | Description | Type  | Default     |
-| ---------- | ----------- | ----------- | ----- | ----------- |
-| `showChat` | `show-chat` |             | `any` | `undefined` |
+| Property   | Attribute   | Description | Type      | Default     |
+| ---------- | ----------- | ----------- | --------- | ----------- |
+| `dialogs`  | `dialogs`   |             | `number`  | `undefined` |
+| `showChat` | `show-chat` |             | `boolean` | `undefined` |
 
 
 ## Events
 
-| Event             | Description          | Type               |
-| ----------------- | -------------------- | ------------------ |
-| `clickToShowChat` | clock on clickToLink | `CustomEvent<any>` |
+| Event             | Description          | Type                |
+| ----------------- | -------------------- | ------------------- |
+| `clickToShowChat` | clock on clickToLink | `CustomEvent<void>` |
 
 
 ## Dependencies

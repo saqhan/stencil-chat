@@ -6,7 +6,7 @@ import {
   h,
   Prop,
 } from "@stencil/core";
-import { ChatMessage } from '../../../../../../../../../index';
+import {ChatDialogInterface, ChatMessage} from '../../../../../../../../../index';
 
 @Component({
   tag: "module-personal",
@@ -19,11 +19,10 @@ export class ModulePersonal implements ComponentInterface {
    * array data personal messages
    * */
   @Prop() message: ChatMessage[];
-
   /**
-   * clock on navigate
+   * array data dialogs
    * */
-  // @Event() clickToLink: EventEmitter;
+  @Prop() dialogs: ChatDialogInterface[];
 
   /**
    * search for private messages
@@ -43,7 +42,7 @@ export class ModulePersonal implements ComponentInterface {
   render() {
     return (
       <div class="personal-wrapper">
-        <personal-header message={this.message}></personal-header>
+        <personal-header dialogs={this.dialogs} message={this.message}></personal-header>
         <personal-message
           theme={"module"}
           message={this.message}

@@ -36,3 +36,30 @@
 .mobile .btns-nav {
   margin-top: 10px;
 }
+
+/*::-webkit-scrollbar { !* chrome based *!*/
+/*  width: 0px; !* ширина scrollbar'a *!*/
+/*  background: transparent; !* опционально *!*/
+/*}*/
+
+/*.module .btns-nav {*/
+/*  overflow-y: hidden*/
+/*}*/
+
+.module .btns-nav span {
+  font-size: 14px;
+  display: flex;
+  /*justify-content: center;*/
+  align-items: center;
+  /*width: 25%;*/
+  padding: 0px 10px;
+  height: 30px;
+  text-align: center;
+  font-weight: 600;
+  color: #979eab;
+  transition: 0.3s ease-in-out;
+}
+
+.module .btns-nav {
+  justify-content:start;
+}

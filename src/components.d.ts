@@ -120,6 +120,10 @@ export namespace Components {
     }
     interface ModulePersonal {
         /**
+          * array data dialogs
+         */
+        "dialogs": ChatDialogInterface[];
+        /**
           * array data personal messages
          */
         "message": ChatMessage[];
@@ -130,6 +134,10 @@ export namespace Components {
         "theme": "comp" | "mobile" | "module";
     }
     interface PersonalHeader {
+        /**
+          * array data dialogs
+         */
+        "dialogs": ChatDialogInterface[];
         /**
           * array data personal messages
          */
@@ -827,6 +835,10 @@ declare namespace LocalJSX {
     }
     interface ModulePersonal {
         /**
+          * array data dialogs
+         */
+        "dialogs"?: ChatDialogInterface[];
+        /**
           * array data personal messages
          */
         "message"?: ChatMessage[];
@@ -855,10 +867,21 @@ declare namespace LocalJSX {
     }
     interface PersonalHeader {
         /**
+          * array data dialogs
+         */
+        "dialogs"?: ChatDialogInterface[];
+        /**
           * array data personal messages
          */
         "message"?: ChatMessage[];
+        /**
+          * отмена поиска
+         */
         "onCancelSearchPersonal"?: (event: CustomEvent<void>) => void;
+        /**
+          * Клик по диалогу
+         */
+        "onClickToDialog"?: (event: CustomEvent<ChatClickToLinkEmit>) => void;
         /**
           * clock on navigate
          */

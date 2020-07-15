@@ -150,10 +150,6 @@ export class SSaqhanChatWrapper implements ComponentInterface {
    * search for private messages
    * */
   public searchPersonalMessages(value: string) {
-    console.log("searchPersonalMessages", {
-      value,
-      disableInnerSearchMessages: this.disableInnerSearchMessages,
-    });
     if (!this.disableInnerSearchMessages) {
       this.messageState = filterMessageBySearchValue(value, this.message);
     }
@@ -186,6 +182,7 @@ export class SSaqhanChatWrapper implements ComponentInterface {
           //   <s-adam-copying></s-adam-copying>
           // </div>
           <module-personal
+            dialogs={this.dialogsState}
             message={this.messageState}
             onSearchPersonalMessages={(e: CustomEvent<string>) =>
               this.searchPersonalMessages(e.detail)

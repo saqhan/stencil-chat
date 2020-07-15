@@ -148,6 +148,14 @@ export const categories = [
     name: 'Интересное',
     id: 'interesting',
   },
+  {
+    name: 'Личное',
+    id: 'self',
+  },
+  {
+    name: 'Машины',
+    id: 'auto',
+  },
 ];
 
 export const MessageMock: ChatMessage[] = [
@@ -481,6 +489,9 @@ export const contacts = [
     online: true,
   },
 ];
+
+export const disableInnerSearchDialogs:boolean = true;
+export const disableInnerSearchMessages:boolean = false;
 
 /**
  * module
