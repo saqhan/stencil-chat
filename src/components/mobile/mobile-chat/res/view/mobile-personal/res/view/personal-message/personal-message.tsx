@@ -4,6 +4,7 @@ import {
   ChatMessage,
   ChatWritingUserInterface
 } from "../../../../../../../../../index";
+import {ChatMessagesLogic} from "../../../../../../../../../utils/utils";
 
 @Component({
   tag: "personal-message",
@@ -23,19 +24,34 @@ export class PersonalMessage implements ComponentInterface {
 
   /**
    * */
-  @Prop() writing: ChatWritingUserInterface[] = [
-    {
-      uid: 'test',
-      icon: "https://via.placeholder.com/60x60?text=User",
-      name: '',
-      phone: ''
-    }
-  ];
+  @Prop() writing: ChatWritingUserInterface[] = [];
+// {
+//   uid: 'test',
+//   icon: "https://via.placeholder.com/60x60?text=User",
+//   name: '',
+//   phone: ''
+// }
+
+  /**
+   * */
+  public scrollContainer: HTMLElement;
+
+
+  componentDidLoad() {
+    // this.scrollToBot();
+    ChatMessagesLogic.setScrollToBot(
+      () => {
+        this.scrollToBot();
+      }
+    )
+
+    ChatMessagesLogic.safeScrollToBot();
+  }
 
   render() {
     return (
       <div class={this.getClassForHost()}>
-        <div class="personal-message">
+        <div class="personal-message" ref={(el) => this.scrollContainer = el}>
           {
             this.message.map(
               (message) => {
@@ -59,5 +75,21 @@ export class PersonalMessage implements ComponentInterface {
     return {
       [this.theme]: true
     }
+  }
+
+  /**
+   *
+   * */
+  private scrollToBot ()
+  {
+    setTimeout(
+      () => {
+        this.scrollContainer.scrollBy(
+          0,
+          10000000//,this.scrollContainer.scrollHeight
+        )
+      },
+      100
+    )
   }
 }

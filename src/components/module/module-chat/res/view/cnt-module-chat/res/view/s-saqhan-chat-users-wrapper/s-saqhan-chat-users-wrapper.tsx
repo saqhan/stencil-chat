@@ -50,6 +50,7 @@ export class SSaqhanChatUsersWrapper implements ComponentInterface {
    * click to files button
    * */
   @Event() clickToFilesBtn: EventEmitter<void>;
+
   /**
    * send new mess
    * */

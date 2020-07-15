@@ -52,3 +52,28 @@ export class Timer {
     clearInterval(this.intervalId);
   }
 }
+
+export class ChatMessagesLogic {
+  /**
+   * */
+  private static scrollToBotCallback: () => void;
+
+
+  /**
+   * */
+  public static setScrollToBot (
+    callback: () => void
+  )
+  {
+    this.scrollToBotCallback = callback;
+  }
+
+  /**
+   * */
+  public static safeScrollToBot ()
+  {
+    if (typeof this.scrollToBotCallback === 'function') {
+      this.scrollToBotCallback();
+    }
+  }
+}

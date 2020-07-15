@@ -1,12 +1,5 @@
-import {
-  Component,
-  ComponentInterface,
-  Event,
-  EventEmitter,
-  h,
-  Prop,
-} from "@stencil/core";
-import { ChatClickToLinkEmit, ChatDialogInterface } from "../../../index";
+import {Component, ComponentInterface, Event, EventEmitter, h, Prop,} from "@stencil/core";
+import {ChatDialogInterface} from "../../../index";
 
 @Component({
   tag: "dialog-card",
@@ -28,10 +21,11 @@ export class DialogCard implements ComponentInterface {
    * clock on navigate
    * */
   // @Event() clickToLink: EventEmitter<ChatClickToLinkEmit>;
+
   /**
    * clock on dialog
    * */
-  @Event() clickToDialog: EventEmitter<ChatClickToLinkEmit>;
+  @Event() clickToDialog: EventEmitter<ChatDialogInterface>;
 
   render() {
     return (
@@ -73,7 +67,8 @@ export class DialogCard implements ComponentInterface {
    * Управление по клику на диалог
    * */
   public clickToDialogHandler() {
-    this.clickToDialog.emit({ data: this.mess });
+    // this.clickToDialog.emit({ data: this.mess });
+    this.clickToDialog.emit(this.mess);
   }
 
   // public clickToLinkHandler() {

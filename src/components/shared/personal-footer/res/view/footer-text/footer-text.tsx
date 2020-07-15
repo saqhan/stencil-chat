@@ -20,14 +20,29 @@ export class FooterText implements ComponentInterface {
    */
   @Prop() theme: "comp" | "mobile" | "module" = "comp";
 
+  /**
+   * Возможность записи аудио
+   */
+  @Prop() canRecordAudio = false;
+
+  /**
+   * */
   @State() showAudioSendButton = true;
 
+
+  /**
+  * */
   @Event() showSendFileFooter: EventEmitter<void>;
 
   /**
    * Пока футера аудио
    */
   @Event() showRecordAudioFooter: EventEmitter<void>;
+
+  /**
+   *
+   */
+  @Event() sendTextMessage: EventEmitter<string>;
 
   /**
    *
@@ -61,7 +76,7 @@ export class FooterText implements ComponentInterface {
             </div>
             <div class="audio" id="audio">
               <SendButtonTag
-                showAudio={this.showAudioSendButton}
+                showAudio={this.canRecordAudio && this.showAudioSendButton}
                 sendMessageFromButton={this.sendMessageFromButton.bind(this)}
                 clickOnAudio={this.showRecordAudioFooter}
               ></SendButtonTag>
@@ -90,7 +105,8 @@ export class FooterText implements ComponentInterface {
       return false;
     } else {
       // скрипт отправки сообщения
-      console.log("send mess:", input.value);
+      // console.log("send mess:", input.value);
+      this.sendTextMessage.emit(input.value)
       // скрипт отправки сообщения
       this.switchIconInput((input.value = ""));
     }

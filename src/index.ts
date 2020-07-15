@@ -148,7 +148,7 @@ export interface ChatLogo {
   logo: string;
 }
 
-export interface titleModule {
+export interface TitleModuleInterface {
   id: string;
   title: string;
 }
@@ -245,9 +245,6 @@ export function chatConvertWritingStatusToMessage(
 //   }
 // }
 
-
-
-
 /**
  * filter message by search value
  * */
@@ -292,4 +289,12 @@ export function filterDialogsByCategory (
   return category.id !== "all"
     ? dialogs.filter((dialog) => dialog.category === category.id)
     : dialogs;
+}
+
+export enum ChatViewToShowEnum {
+  files = 'files',
+  dialogs = 'dialogs',
+  personal = 'personal',
+  profile = 'profile',
+  users = 'users',
 }

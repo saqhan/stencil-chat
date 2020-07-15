@@ -6,7 +6,7 @@ import {
   h,
   Prop,
 } from "@stencil/core";
-import {ChatDialogInterface, ChatMessage} from '../../../../../../../../../index';
+import {ChatDialogInterface, ChatMessage, ChatWritingUserInterface} from '../../../../../../../../../index';
 
 @Component({
   tag: "module-personal",
@@ -24,6 +24,16 @@ export class ModulePersonal implements ComponentInterface {
    * */
   @Prop() dialogs: ChatDialogInterface[];
 
+
+  /**
+   * Возможность записи аудио
+   */
+  @Prop() canRecordAudio = false;
+
+  /**
+   * */
+  @Prop() writing: ChatWritingUserInterface[] = [];
+
   /**
    * search for private messages
    * */
@@ -32,11 +42,20 @@ export class ModulePersonal implements ComponentInterface {
    * show dialogs
    * */
   @Event() clickToShowDialogs: EventEmitter<void>;
+
+  /**
+   *
+   */
+  @Event() sendTextMessage: EventEmitter<string>;
+
   /**
    * on click to profile user
    * */
   @Event() clickToUserProfile: EventEmitter<void>;
 
+  /**
+   *
+   */
   @Event() cancelSearchPersonal: EventEmitter<void>;
 
   render() {
@@ -44,10 +63,11 @@ export class ModulePersonal implements ComponentInterface {
       <div class="personal-wrapper">
         <personal-header dialogs={this.dialogs} message={this.message}></personal-header>
         <personal-message
+          writing={this.writing}
           theme={"module"}
           message={this.message}
         ></personal-message>
-        <personal-footer theme="mobile"></personal-footer>
+        <personal-footer canRecordAudio={this.canRecordAudio}  theme="mobile"></personal-footer>
       </div>
     );
   }
