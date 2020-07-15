@@ -2,20 +2,20 @@
   background-color: #ececec;
   padding: 10px 20px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
   position: relative;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .header-chat-title {
-  text-align: center;
-  width: 100%;
+  /*text-align: center;*/
+  /*width: 100%;*/
 }
 
 .header-chat .close {
-  position: absolute;
-  right: 5%;
-  cursor: pointer;
+  /*position: absolute;*/
+  /*right: 5%;*/
+  /*cursor: pointer;*/
 }
 .header-chat .close i {
   font-size: 20px;
@@ -24,5 +24,11 @@
 }
 
 .header-chat .close i:hover {
-  color: #72b94d;
+  color: #4c567d;
+  cursor: pointer;
+}
+
+.showFullChat i {
+  color: #4c567d;
+  cursor: pointer;
 }

@@ -3,7 +3,8 @@ import {
   ComponentInterface,
   Event,
   EventEmitter,
-  h, Prop,
+  h,
+  Prop,
 } from "@stencil/core";
 import { TitleModuleInterface } from "../../../../../../../../..";
 
@@ -11,7 +12,7 @@ import { TitleModuleInterface } from "../../../../../../../../..";
   tag: "module-header",
   styleUrl: "module-header.css",
   shadow: false,
-  scoped: true
+  scoped: true,
 })
 export class ModuleHeader implements ComponentInterface {
   /**
@@ -23,15 +24,31 @@ export class ModuleHeader implements ComponentInterface {
    * close modal
    * */
   @Event() close: EventEmitter<void>;
+  /**
+   * Разворачивать полную версию чата при клике иконку
+   * */
+  @Event() showFullChat: EventEmitter<void>;
 
   render() {
     return (
       <div class="header-chat">
-        <div class='header-chat-title'>{this.titleModule.title} </div>
-        <div class='close'  onClick={() => this.close.emit()}>
+        <div class="showFullChat"
+          onClick={()=> this.showFullChatHandler()}
+        >
+          <i class="fas fa-expand"></i>
+        </div>
+        <div class="header-chat-title">{this.titleModule.title} </div>
+        <div class="close" onClick={() => this.close.emit()}>
           <i class="fas fa-times-circle"></i>
         </div>
       </div>
     );
   }
+  /**
+   * Разворачивать полную версию чата при клике иконку
+   * */
+  private showFullChatHandler(){
+    this.showFullChat.emit();
+  }
+
 }

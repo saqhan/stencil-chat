@@ -131,6 +131,11 @@ _________________________________
   min-width:  260px;
 }
 
+.module  .to-me-mess-wrap {
+  max-width: 315px;
+}
+
+
 /* module**/
 
 @media (max-width: 414px) {

@@ -6,14 +6,22 @@
   height: calc(100vh - 175px);
   overflow: auto;
 }
-.contacts-list-body.sc-contacts-list-body {
+.contacts-list-body {
   padding: 20px 30px 0px;
   border-bottom: 1px solid #ccc;
   height: calc(100vh - 155px);
   overflow: auto;
 }
 
-::-webkit-scrollbar { /* chrome based */
+::-webkit-scrollbar {
+  /* chrome based */
   width: 0px; /* ширина scrollbar'a */
   background: transparent; /* опционально */
 }
+
+.module  .contacts-list-body {
+  height: calc(100vh - 325px);
+}
+
+
+

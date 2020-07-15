@@ -57,6 +57,10 @@
   text-align: left;
 }
 
+.module .input-wrapper  input {
+  text-align: left;
+}
+
 .module .personal-footer .footer-wrapper  {
   border-radius: 15px 15px 0px 0px;
 }

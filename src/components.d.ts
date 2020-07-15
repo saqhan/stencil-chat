@@ -38,6 +38,10 @@ export namespace Components {
          */
         "close": () => Promise<void>;
         /**
+          * масиив данных контактов
+         */
+        "contacts": any;
+        /**
           * массив данных для диалогов
          */
         "dialogs": ChatDialogInterface[];
@@ -99,9 +103,20 @@ export namespace Components {
     }
     interface ContactsList {
         "contacts": ChatContactInterface[];
+        /**
+          * Тема для модульного/мобильного чата
+         */
+        "theme": "mobile" | "module";
     }
     interface ContactsListBody {
+        /**
+          * массив данных контактов
+         */
         "contacts": ChatContactInterface[];
+        /**
+          * Данные выбора темы для Мобильная/Модульной версии
+         */
+        "theme": "mobile" | "module";
     }
     interface ContactsListHeader {
     }
@@ -142,6 +157,10 @@ export namespace Components {
         "dialogs": ChatDialogInterface[];
     }
     interface MChatFooter {
+        /**
+          * Данные выбора темы для Мобильная/Модульной версии
+         */
+        "theme": "mobile" | "module";
     }
     interface MChatHeader {
         /**
@@ -678,6 +697,10 @@ declare namespace LocalJSX {
          */
         "chatViewState"?: ChatViewToShowEnum;
         /**
+          * масиив данных контактов
+         */
+        "contacts"?: any;
+        /**
           * массив данных для диалогов
          */
         "dialogs"?: ChatDialogInterface[];
@@ -756,9 +779,20 @@ declare namespace LocalJSX {
           * search contact
          */
         "onSearchContact"?: (event: CustomEvent<ChatContactInterface>) => void;
+        /**
+          * Тема для модульного/мобильного чата
+         */
+        "theme"?: "mobile" | "module";
     }
     interface ContactsListBody {
+        /**
+          * массив данных контактов
+         */
         "contacts"?: ChatContactInterface[];
+        /**
+          * Данные выбора темы для Мобильная/Модульной версии
+         */
+        "theme"?: "mobile" | "module";
     }
     interface ContactsListHeader {
         /**
@@ -837,6 +871,10 @@ declare namespace LocalJSX {
           * click to click To Show Contacts
          */
         "onClickToShowMenuBar"?: (event: CustomEvent<void>) => void;
+        /**
+          * Данные выбора темы для Мобильная/Модульной версии
+         */
+        "theme"?: "mobile" | "module";
     }
     interface MChatHeader {
         /**
@@ -959,6 +997,10 @@ declare namespace LocalJSX {
           * close modal
          */
         "onClose"?: (event: CustomEvent<void>) => void;
+        /**
+          * Разворачивать полную версию чата при клике иконку
+         */
+        "onShowFullChat"?: (event: CustomEvent<void>) => void;
         "titleModule"?: TitleModuleInterface;
     }
     interface ModulePersonal {
