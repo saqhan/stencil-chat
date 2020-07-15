@@ -53,7 +53,7 @@ export class CntModuleChat implements ComponentInterface {
   /**
    * Перменная для включения/отключения показа чата в развернутом виде
    * */
-  @Prop() openState: boolean = true;
+  @Prop() openState: boolean;
   //==================================================
 
   /**
@@ -89,7 +89,7 @@ export class CntModuleChat implements ComponentInterface {
   /**
    * select content default
    * */
-  @Prop() chatViewState: ChatViewToShowEnum = ChatViewToShowEnum.personal;
+  @Prop() chatViewState: ChatViewToShowEnum = ChatViewToShowEnum.dialogs;
 //============================================================================================
   /**
    * Возможность записи аудио
