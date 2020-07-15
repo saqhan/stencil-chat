@@ -18,6 +18,11 @@ export class PersonalFooter implements ComponentInterface {
   @Prop() theme: "comp" | "mobile" | "module" = "comp";
 
   /**
+   * Возможность записи аудио
+   */
+  @Prop() canRecordAudio = false;
+
+  /**
    * click on navigate
    * */
   @Event() clickToLink: EventEmitter;
@@ -39,7 +44,7 @@ export class PersonalFooter implements ComponentInterface {
     return (
       <div>
         {this.switchFooter ? (
-          <footer-text theme={this.theme} onShowRecordAudioFooter={() => this.toggleFooter()}></footer-text>
+          <footer-text canRecordAudio={this.canRecordAudio} theme={this.theme} onShowRecordAudioFooter={() => this.toggleFooter()}></footer-text>
         ) : (
           <footer-audio theme={this.theme}
             onRecordFinished={(state) => this.recordFinished(state.detail)}

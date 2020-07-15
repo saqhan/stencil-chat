@@ -5,7 +5,7 @@ import {
   EventEmitter,
   h, Prop,
 } from "@stencil/core";
-import {titleModule} from "../../../../../../index";
+import { TitleModuleInterface } from "../../../../../../../../..";
 
 @Component({
   tag: "module-header",
@@ -17,7 +17,7 @@ export class ModuleHeader implements ComponentInterface {
   /**
    *
    * */
-  @Prop() titleModule: titleModule;
+  @Prop() titleModule: TitleModuleInterface;
 
   /**
    * close modal
