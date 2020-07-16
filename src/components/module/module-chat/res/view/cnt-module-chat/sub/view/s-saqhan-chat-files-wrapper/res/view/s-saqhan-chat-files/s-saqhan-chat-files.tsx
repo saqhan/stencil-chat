@@ -21,8 +21,8 @@ export class SSaqhanChatFiles implements ComponentInterface {
                 <div class="file-size">18.8 КБ 13:27</div>
               </div>
               <div class="block-repost">
-                <a href="#"><i class="с-chat с-chat-share"></i></a>
-                <a href="#"><i class="с-chat с-chat-download"></i></a>
+                <a href="#"><i class="c-chat c-chat-share"></i></a>
+                <a href="#"><i class="c-chat c-chat-download"></i></a>
               </div>
             </div>
           </div>
@@ -37,8 +37,8 @@ export class SSaqhanChatFiles implements ComponentInterface {
                 <div class="file-size">18.8 КБ 13:27</div>
               </div>
               <div class="block-repost">
-                <a href="#"><i class="с-chat с-chat-share"></i></a>
-                <a href="#"><i class="с-chat с-chat-download"></i></a>
+                <a href="#"><i class="c-chat c-chat-share"></i></a>
+                <a href="#"><i class="c-chat c-chat-download"></i></a>
               </div>
             </div>
           </div>
@@ -50,8 +50,8 @@ export class SSaqhanChatFiles implements ComponentInterface {
                 <div class="file-size">18.8 КБ 13:27</div>
               </div>
               <div class="block-repost">
-                <a href="#"><i class="с-chat с-chat-share"></i></a>
-                <a href="#"><i class="с-chat с-chat-download"></i></a>
+                <a href="#"><i class="c-chat c-chat-share"></i></a>
+                <a href="#"><i class="c-chat c-chat-download"></i></a>
               </div>
             </div>
           </div>

@@ -33,11 +33,11 @@ export class ModuleHeader implements ComponentInterface {
     return (
       <div class="header-chat">
         <div class="showFullChat" onClick={() => this.showFullChatHandler()}>
-          <i class="с-chat с-chat-expand"></i>
+          <i class="c-chat c-chat-expand"></i>
         </div>
         <div class="header-chat-title">{this.titleModule.title} </div>
         <div class="close" onClick={() => this.close.emit()}>
-          <i class="с-chat с-chat-times-circle"></i>
+          <i class="c-chat c-chat-times-circle"></i>
         </div>
       </div>
     );
