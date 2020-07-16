@@ -68,7 +68,7 @@ export class PersonalHeader implements ComponentInterface {
               class="custom-link"
               onClick={() => this.clickToShowDialogsHandler()}
             >
-              <i class="fas fa-arrow-left"></i>
+              <i class="c-chat c-chat-arrow-left"></i>
             </span>
             <span
               class=" user-name-personal"

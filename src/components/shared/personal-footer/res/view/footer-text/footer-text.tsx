@@ -62,7 +62,7 @@ export class FooterText implements ComponentInterface {
         <div class="personal-footer">
           <div class="footer-wrapper">
             <div class="file" onClick={() => this.showSendFileFooter.emit()}>
-              <i class="fas fa-paperclip"></i>
+              <i class="c-chat c-chat-paperclip"></i>
             </div>
             <div class="input-wrapper">
               <form onSubmit={(e) => this.sendMessageFromForm(e)}>
@@ -141,12 +141,12 @@ export class FooterText implements ComponentInterface {
 const SendButtonTag = (props: any) => {
   return props?.showAudio ? (
     <i
-      class="fas fa-microphone"
+      class="c-chat c-chat-microphone"
       onMouseDown={() => props.clickOnAudio.emit()}
     ></i>
   ) : (
     <i
-      class="fas fa-location-arrow"
+      class="c-chat c-chat-location-arrow"
       onClick={() => props.sendMessageFromButton()}
     ></i>
   );

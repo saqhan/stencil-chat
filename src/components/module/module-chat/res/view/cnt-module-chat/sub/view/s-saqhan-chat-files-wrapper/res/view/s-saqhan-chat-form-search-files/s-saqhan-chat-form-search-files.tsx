@@ -24,7 +24,7 @@ export class SSaqhanChatFormSearchFiles implements ComponentInterface {
             onClick={() => this.clickToShowDialogsHandler()}
           >
             <span>
-              <i class="fas fa-chevron-left"></i>
+              <i class="с-chat с-chat-chevron-left"></i>
             </span>
           </div>
           <div class="block-input-files">
@@ -35,7 +35,7 @@ export class SSaqhanChatFormSearchFiles implements ComponentInterface {
             />
           </div>
           <div class="block-file">
-            <i class="fas fa-filter"></i>
+            <i class="с-chat с-chat-filter"></i>
           </div>
         </div>
       </div>

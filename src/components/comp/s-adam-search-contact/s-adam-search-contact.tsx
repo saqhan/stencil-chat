@@ -17,7 +17,7 @@ export class SAdamSearchContact implements ComponentInterface {
     return (
       <div class="search-contact-block">
         <div class="search-contact-wrapper">
-          <i class="fas fa-search"></i>
+          <i class="c-chat c-chat-search"></i>
           <input
             onInput={(e) => this.searchDialogHandler(e)}
             class="search-contact"

@@ -4,7 +4,7 @@
 .search-contact-wrapper {
   position: relative;
 }
-.search-contact-wrapper .fas {
+.search-contact-wrapper .c-chat {
   position: absolute;
   left: 15px;
   font-size: 12px;
