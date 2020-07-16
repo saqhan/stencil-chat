@@ -46,14 +46,14 @@
   background-color: #f7f8f9;
   outline: none;
 }
-.search-message-wrapper .fas {
+.search-message-wrapper .c-chat {
   position: absolute;
   left: 15px;
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
 }
-.fas, .fab {
+.c-chat {
   color: #bacbe3;
 }
 .hover-link:hover {
@@ -65,4 +65,8 @@
 .nav-item {
   margin-bottom: 20px;
   cursor: pointer;
+}
+.user-name-wrapper {
+  display: flex;
+  align-items: center;
 }
