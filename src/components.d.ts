@@ -354,6 +354,12 @@ export namespace Components {
     }
     interface UserProfile {
     }
+    interface UserStatus {
+        /**
+          * Тема для блока
+         */
+        "theme": "comp" | "mobile" | "module";
+    }
 }
 declare global {
     interface HTMLBtnWrapperElement extends Components.BtnWrapper, HTMLStencilElement {
@@ -626,6 +632,12 @@ declare global {
         prototype: HTMLUserProfileElement;
         new (): HTMLUserProfileElement;
     };
+    interface HTMLUserStatusElement extends Components.UserStatus, HTMLStencilElement {
+    }
+    var HTMLUserStatusElement: {
+        prototype: HTMLUserStatusElement;
+        new (): HTMLUserStatusElement;
+    };
     interface HTMLElementTagNameMap {
         "btn-wrapper": HTMLBtnWrapperElement;
         "cnt-module-chat": HTMLCntModuleChatElement;
@@ -672,6 +684,7 @@ declare global {
         "s-saqhan-chat-users": HTMLSSaqhanChatUsersElement;
         "s-saqhan-chat-users-wrapper": HTMLSSaqhanChatUsersWrapperElement;
         "user-profile": HTMLUserProfileElement;
+        "user-status": HTMLUserStatusElement;
     }
 }
 declare namespace LocalJSX {
@@ -1242,6 +1255,12 @@ declare namespace LocalJSX {
     interface UserProfile {
         "onClickToShowDialogs"?: (event: CustomEvent<any>) => void;
     }
+    interface UserStatus {
+        /**
+          * Тема для блока
+         */
+        "theme"?: "comp" | "mobile" | "module";
+    }
     interface IntrinsicElements {
         "btn-wrapper": BtnWrapper;
         "cnt-module-chat": CntModuleChat;
@@ -1288,6 +1307,7 @@ declare namespace LocalJSX {
         "s-saqhan-chat-users": SSaqhanChatUsers;
         "s-saqhan-chat-users-wrapper": SSaqhanChatUsersWrapper;
         "user-profile": UserProfile;
+        "user-status": UserStatus;
     }
 }
 export { LocalJSX as JSX };
@@ -1339,6 +1359,7 @@ declare module "@stencil/core" {
             "s-saqhan-chat-users": LocalJSX.SSaqhanChatUsers & JSXBase.HTMLAttributes<HTMLSSaqhanChatUsersElement>;
             "s-saqhan-chat-users-wrapper": LocalJSX.SSaqhanChatUsersWrapper & JSXBase.HTMLAttributes<HTMLSSaqhanChatUsersWrapperElement>;
             "user-profile": LocalJSX.UserProfile & JSXBase.HTMLAttributes<HTMLUserProfileElement>;
+            "user-status": LocalJSX.UserStatus & JSXBase.HTMLAttributes<HTMLUserStatusElement>;
         }
     }
 }

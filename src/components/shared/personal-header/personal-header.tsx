@@ -72,7 +72,7 @@ export class PersonalHeader implements ComponentInterface {
             </span>
             <span
               class=" user-name-personal"
-              onClick={() => this.clickToUserProfileHandler()}
+
             >
               <span
                 class="custom-link"
@@ -120,11 +120,7 @@ export class PersonalHeader implements ComponentInterface {
           <div class="users-nav">
             <div class="user-active">
               {this.isPersonalMess ? (
-                <div class="status-user">
-                  {/*<span class="user-online" >online</span>*/}
-                  <span class="last-seen">был недавно</span>
-                  {/*<span class="user-writing">печатает...</span>*/}
-                </div>
+                <user-status theme={"module"} ></user-status>
               ) : (
                 <div class="search-wrapper">
                   <div class="searchPersonalmess">
