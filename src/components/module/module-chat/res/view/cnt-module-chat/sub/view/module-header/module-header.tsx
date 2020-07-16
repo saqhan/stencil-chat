@@ -32,14 +32,12 @@ export class ModuleHeader implements ComponentInterface {
   render() {
     return (
       <div class="header-chat">
-        <div class="showFullChat"
-          onClick={()=> this.showFullChatHandler()}
-        >
-          <i class="fas fa-expand"></i>
+        <div class="showFullChat" onClick={() => this.showFullChatHandler()}>
+          <i class="с-chat с-chat-expand"></i>
         </div>
         <div class="header-chat-title">{this.titleModule.title} </div>
         <div class="close" onClick={() => this.close.emit()}>
-          <i class="fas fa-times-circle"></i>
+          <i class="с-chat с-chat-times-circle"></i>
         </div>
       </div>
     );
@@ -47,8 +45,7 @@ export class ModuleHeader implements ComponentInterface {
   /**
    * Разворачивать полную версию чата при клике иконку
    * */
-  private showFullChatHandler(){
+  private showFullChatHandler() {
     this.showFullChat.emit();
   }
-
 }

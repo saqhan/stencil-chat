@@ -36,13 +36,13 @@ export class MChatFooter implements ComponentInterface {
       <div class={this.getClassForHost()}>
       <div class="m-chat-footer">
         <span class="showDialogs" onClick={() => this.clickToShowDialogsHandler()}>
-          <i class="far fa-comment"></i>
+          <i class="far с-chat-comment"></i>
         </span>
         <span class="showContacts" onClick={() => this.clickToShowContactsHandler()}>
-          <i class="fas fa-user-friends"></i>
+          <i class="с-chat с-chat-user-friends"></i>
         </span>
         <span class="showMenuBar" onClick={() => this.clickToShowMenuBarHandler()}>
-          <i class="fas fa-bars"></i>
+          <i class="с-chat с-chat-bars"></i>
         </span>
       </div>
       </div>

@@ -61,9 +61,9 @@ export class MChatHeader implements ComponentInterface {
         <div class="title-wrapper">
           <span class="search custom-link" onClick={() => this.showModal()}>
             {this.isShowModal ? (
-              <i class="fas fa-search"></i>
+              <i class="с-chat с-chat-search"></i>
             ) : (
-              <i class="fas fa-times"
+              <i class="с-chat с-chat-times"
                 onClick={()=> this.cancelSearchPersonalHandler()}
               ></i>
             )}
@@ -73,7 +73,7 @@ export class MChatHeader implements ComponentInterface {
             class="add custom-link"
             onClick={() => this.clickToAddDialogHandler()}
           >
-            <i class="fas fa-cog hover-link"></i>
+            <i class="с-chat с-chat-cog hover-link"></i>
           </span>
         </div>
         {this.isShowModal ? (

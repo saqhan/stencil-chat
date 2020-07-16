@@ -1,14 +1,27 @@
-import {Component, ComponentInterface, EventEmitter, Event, h, Prop, State, Watch, Method, Host,} from "@stencil/core";
+import {
+  Component,
+  ComponentInterface,
+  EventEmitter,
+  Event,
+  h,
+  Prop,
+  State,
+  Watch,
+  Method,
+  Host,
+} from "@stencil/core";
 import {
   ChatCategoryInterface,
   ChatDialogInterface,
-  ChatMessage, ChatViewToShowEnum, ChatWritingUserInterface,
+  ChatMessage,
+  ChatViewToShowEnum,
+  ChatWritingUserInterface,
   filterDialogsByCategory,
   filterDialogsBySearchValue,
   filterMessageBySearchValue,
   TitleModuleInterface,
 } from "../../../../../../index";
-import {ChatMessagesLogic} from "../../../../../../utils/utils";
+import { ChatMessagesLogic } from "../../../../../../utils/utils";
 
 @Component({
   tag: "cnt-module-chat",
@@ -30,7 +43,6 @@ export class CntModuleChat implements ComponentInterface {
    * добавляем печатающий
    * */
   @Prop() writing: ChatWritingUserInterface[] = [];
-
 
   /**
    * массив данных для диалогов
@@ -90,7 +102,7 @@ export class CntModuleChat implements ComponentInterface {
    * select content default
    * */
   @Prop() chatViewState: ChatViewToShowEnum = ChatViewToShowEnum.dialogs;
-//============================================================================================
+  //============================================================================================
   /**
    * Возможность записи аудио
    */
@@ -99,45 +111,41 @@ export class CntModuleChat implements ComponentInterface {
   /**
    * позволяет установить печатающие данные
    * */
-  @Method() async setWritingState (
-    item?: ChatWritingUserInterface
-  ) {
+  @Method() async setWritingState(item?: ChatWritingUserInterface) {
     this.writing = item ? [item] : null;
   }
 
   /**
    * скрывает весь блок что бы на экране не было вообще видно
    * */
-  @Method() async hide () {
+  @Method() async hide() {
     this.visibleState = false;
   }
 
   /**
    * позволяет активировать/деактивароть возможность записи аудио
    * */
-  @Method() async activeRecordAudioState (state: boolean) {
+  @Method() async activeRecordAudioState(state: boolean) {
     this.canRecordAudio = state;
   }
   /**
    * сменить окно показа
    * */
-  @Method() async changeViewToShow (
-    state: ChatViewToShowEnum
-  ) {
+  @Method() async changeViewToShow(state: ChatViewToShowEnum) {
     this.chatViewState = state;
   }
 
   /**
    * скролит вниз окно сообщений
    * */
-  @Method() async safeScrollToBotMessageView () {
-    this.scrollMessageViewToBot()
+  @Method() async safeScrollToBotMessageView() {
+    this.scrollMessageViewToBot();
   }
 
   /**
    * показывает весь блок после скрытия
    * */
-  @Method() async show () {
+  @Method() async show() {
     // show a prompt
     this.visibleState = true;
   }
@@ -145,22 +153,20 @@ export class CntModuleChat implements ComponentInterface {
   /**
    * показывает только кнопку
    * */
-  @Method() async close () {
+  @Method() async close() {
     this.showChat(false);
   }
 
   /**
    * открывает блок чатов
    * */
-  @Method() async open () {
+  @Method() async open() {
     this.showChat(true);
   }
 
   /**
    * */
-  @Method() async openDialog (
-    dialog: ChatDialogInterface
-  ) {
+  @Method() async openDialog(dialog: ChatDialogInterface) {
     this.open();
     this.clickToDialogHandler(dialog, true);
   }
@@ -210,7 +216,7 @@ export class CntModuleChat implements ComponentInterface {
 
   render() {
     return (
-      <Host style={{display: !this.visibleState ? 'none' : null}}>
+      <Host style={{ display: !this.visibleState ? "none" : null }}>
         <div class="wrapper-modal">
           {this.openState ? (
             <div class="wrapper-chat">
@@ -240,11 +246,10 @@ export class CntModuleChat implements ComponentInterface {
    * Разворачивание полной версии чата
    * */
 
-  public showFullChat(){
+  public showFullChat() {
     this.showFullChatState = true;
-    console.log('showFullChat');
+    console.log("showFullChat");
   }
-
 
   public countNewMess(array) {
     let counter = 0;
@@ -291,7 +296,9 @@ export class CntModuleChat implements ComponentInterface {
             onClickToCategory={(item: CustomEvent<ChatCategoryInterface>) =>
               this.clickToCategory(item.detail)
             }
-            onClickToDialog={(item: CustomEvent<ChatDialogInterface>) => this.clickToDialogHandler(item.detail)}
+            onClickToDialog={(item: CustomEvent<ChatDialogInterface>) =>
+              this.clickToDialogHandler(item.detail)
+            }
             onClickToFilesBtn={() => this.clickToFilesBtnHandler()}
             onSearchDialog={(item: CustomEvent<string>) =>
               this.searchDialog(item.detail)
@@ -349,7 +356,6 @@ export class CntModuleChat implements ComponentInterface {
     }
   };
 
-
   /**
    * Метод отмена поиска
    * **/
@@ -378,7 +384,10 @@ export class CntModuleChat implements ComponentInterface {
   /**
    *
    * */
-  public clickToDialogHandler(dialog: ChatDialogInterface, pseudoClick?: boolean): void {
+  public clickToDialogHandler(
+    dialog: ChatDialogInterface,
+    pseudoClick?: boolean
+  ): void {
     dialog;
     if (pseudoClick) {
       this.clickToDialog.emit(dialog);
@@ -390,42 +399,38 @@ export class CntModuleChat implements ComponentInterface {
    *
    * */
   public clickToFilesBtnHandler(): void {
-    this.updateViewState(ChatViewToShowEnum.files)
+    this.updateViewState(ChatViewToShowEnum.files);
   }
 
   /**
    *
    * */
   public clickToShowDialogsHandler(): void {
-    this.updateViewState(ChatViewToShowEnum.dialogs)
+    this.updateViewState(ChatViewToShowEnum.dialogs);
   }
 
   /**
    *
    * */
   public clickToUserProfileHandler(): void {
-    this.updateViewState(ChatViewToShowEnum.profile)
+    this.updateViewState(ChatViewToShowEnum.profile);
   }
 
   public sendNewMessModal(): void {
-    this.updateViewState(ChatViewToShowEnum.contacts)
+    this.updateViewState(ChatViewToShowEnum.contacts);
     console.log("sendNewMessModal");
   }
-
 
   /**
    *
    * */
   public scrollMessageViewToBot(): void {
-    ChatMessagesLogic.safeScrollToBot()
+    ChatMessagesLogic.safeScrollToBot();
   }
 
   /**
    * */
-  private updateViewState (
-    state: ChatViewToShowEnum
-  )
-  {
-    this.chatViewStateChange.emit(this.chatViewState = state)
+  private updateViewState(state: ChatViewToShowEnum) {
+    this.chatViewStateChange.emit((this.chatViewState = state));
   }
 }
