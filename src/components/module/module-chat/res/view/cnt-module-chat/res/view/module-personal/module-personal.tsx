@@ -7,6 +7,10 @@ import {
   Prop,
 } from "@stencil/core";
 import {ChatDialogInterface, ChatMessage, ChatWritingUserInterface} from '../../../../../../../../../index';
+import {
+  ChatUserActionStatusState,
+  ChatUserPresenceState
+} from "../../../../../../../../shared/user-status/res/abstract/enum/common.enum";
 
 @Component({
   tag: "module-personal",
@@ -19,11 +23,11 @@ export class ModulePersonal implements ComponentInterface {
    * array data personal messages
    * */
   @Prop() message: ChatMessage[];
+
   /**
    * array data dialogs
    * */
   @Prop() dialogs: ChatDialogInterface[];
-
 
   /**
    * Возможность записи аудио
@@ -33,6 +37,20 @@ export class ModulePersonal implements ComponentInterface {
   /**
    * */
   @Prop() writing: ChatWritingUserInterface[] = [];
+
+  /**
+   * */
+  @Prop() chatActionState: ChatUserActionStatusState;
+
+  /**
+   * */
+  @Prop() chatPresenceState: ChatUserPresenceState;
+
+  /**
+   *
+   * */
+  @Prop() openedDialog: ChatDialogInterface;
+
 
   /**
    * search for private messages
@@ -61,7 +79,12 @@ export class ModulePersonal implements ComponentInterface {
   render() {
     return (
       <div class="personal-wrapper">
-        <personal-header dialogs={this.dialogs} message={this.message}></personal-header>
+        <personal-header
+          chatActionState={this.chatActionState}
+          openedDialog={this.openedDialog}
+          chatPresenceState={this.chatPresenceState}
+          dialogs={this.dialogs}
+          message={this.message}></personal-header>
         <personal-message
           writing={this.writing}
           theme={"module"}

@@ -1,10 +1,4 @@
-import {
-  Component,
-  ComponentInterface,
-  Event,
-  EventEmitter,
-  h,
-} from "@stencil/core";
+import {Component, ComponentInterface, Event, EventEmitter, h,} from "@stencil/core";
 
 @Component({
   tag: "contacts-list-header",
@@ -13,7 +7,6 @@ import {
   scoped:true
 })
 export class ContactsListHeader implements ComponentInterface {
-
   /**
    * clock on clickToLink
    * */
@@ -22,7 +15,7 @@ export class ContactsListHeader implements ComponentInterface {
   /**
    * search contact
    * */
-  @Event() searchContact: EventEmitter;
+  @Event() searchContact: EventEmitter<string>;
 
   render() {
     return (
@@ -32,16 +25,16 @@ export class ContactsListHeader implements ComponentInterface {
             class="contacts-list-arraw-back custom-link "
             onClick={() => this.clickToShowDialogsHandler()}
           >
-            <i class="fas fa-arrow-left"></i>
+            <i class="c-chat c-chat-arrow-left"></i>
           </div>
           <div class="contacts-list-title">Contacts</div>
         </div>
         <div class="contacts-list-input">
-          {/*<i class="fas fa-search"></i>*/}
+          {/*<i class="c-chat c-chat-search"></i>*/}
           <input
             type="text"
             placeholder="Search.."
-            onInput={(e) => this.searchContact.emit(e)}
+            onInput={(e: any) => this.searchContactHandler(e.target.value)}
           />
         </div>
       </div>
@@ -52,6 +45,16 @@ export class ContactsListHeader implements ComponentInterface {
    * */
   public clickToShowDialogsHandler(){
     this.clickToShowDialogs.emit();
+  }
+
+  /**
+   *
+   * */
+  public searchContactHandler (
+    value: string
+  )
+  {
+    this.searchContact.emit(value)
   }
 
 }

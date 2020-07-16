@@ -252,7 +252,7 @@ export function filterMessageBySearchValue (
   value: string,
   message:  ChatMessage[]
 ): ChatMessage[] {
-  return value //(value !== "" && value !== null)
+  return value
     ? message.filter((item) => {
       return typeof item.content === "string"
         ? item.content.toLowerCase().includes(value.toLowerCase())
@@ -268,13 +268,29 @@ export function filterDialogsBySearchValue (
   value: string,
   dialogs:  ChatDialogInterface[]
 ): ChatDialogInterface[] {
-  return value !== "" && value !== null
+  return value
     ? dialogs.filter((item) => {
       return typeof item.name === "string"
         ? item.name.toLowerCase().includes(value.toLowerCase())
         : false;
     })
     : dialogs;
+}
+
+/**
+ * filter contact by search value
+ * */
+export function filterContactBySearchValue (
+  value: string,
+  contacts:  ChatContactInterface[]
+): ChatContactInterface[] {
+  return value
+    ? contacts.filter((item) => {
+      return typeof item.name === "string"
+        ? item.name.toLowerCase().includes(value.toLowerCase())
+        : false;
+    })
+    : contacts;
 }
 
 
@@ -298,4 +314,9 @@ export enum ChatViewToShowEnum {
   profile = 'profile',
   users = 'users',
   contacts = 'contacts',
+}
+
+export interface ShowFullChatOutputInterface {
+  view: ChatViewToShowEnum
+  data?: ChatDialogInterface
 }
