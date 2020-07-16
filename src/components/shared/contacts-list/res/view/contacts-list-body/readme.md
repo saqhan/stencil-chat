@@ -7,16 +7,17 @@
 
 ## Properties
 
-| Property   | Attribute | Description | Type                     | Default     |
-| ---------- | --------- | ----------- | ------------------------ | ----------- |
-| `contacts` | --        |             | `ChatContactInterface[]` | `undefined` |
+| Property   | Attribute | Description                                       | Type                     | Default     |
+| ---------- | --------- | ------------------------------------------------- | ------------------------ | ----------- |
+| `contacts` | --        | массив данных контактов                           | `ChatContactInterface[]` | `undefined` |
+| `theme`    | `theme`   | Данные выбора темы для Мобильная/Модульной версии | `"mobile" \| "module"`   | `"mobile"`  |
 
 
 ## Dependencies
 
 ### Used by
 
- - [contacts-list](../../../../../../../../../..)
+ - [contacts-list](../../..)
 
 ### Depends on
 

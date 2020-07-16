@@ -7,10 +7,12 @@
 
 ## Properties
 
-| Property  | Attribute | Description                  | Type                    | Default     |
-| --------- | --------- | ---------------------------- | ----------------------- | ----------- |
-| `dialogs` | --        | array data dialogs           | `ChatDialogInterface[]` | `undefined` |
-| `message` | --        | array data personal messages | `ChatMessage[]`         | `undefined` |
+| Property         | Attribute          | Description                  | Type                         | Default     |
+| ---------------- | ------------------ | ---------------------------- | ---------------------------- | ----------- |
+| `canRecordAudio` | `can-record-audio` | Возможность записи аудио     | `boolean`                    | `false`     |
+| `dialogs`        | --                 | array data dialogs           | `ChatDialogInterface[]`      | `undefined` |
+| `message`        | --                 | array data personal messages | `ChatMessage[]`              | `undefined` |
+| `writing`        | --                 |                              | `ChatWritingUserInterface[]` | `[]`        |
 
 
 ## Events
@@ -21,13 +23,14 @@
 | `clickToShowDialogs`     | show dialogs                | `CustomEvent<void>`   |
 | `clickToUserProfile`     | on click to profile user    | `CustomEvent<void>`   |
 | `searchPersonalMessages` | search for private messages | `CustomEvent<string>` |
+| `sendTextMessage`        |                             | `CustomEvent<string>` |
 
 
 ## Dependencies
 
 ### Used by
 
- - [s-saqhan-chat-wrapper](../../..)
+ - [cnt-module-chat](../../..)
 
 ### Depends on
 
@@ -41,12 +44,13 @@ graph TD;
   module-personal --> personal-header
   module-personal --> personal-message
   module-personal --> personal-footer
+  personal-header --> user-status
   personal-message --> message-from
   message-from --> message-text
   message-from --> message-img
   personal-footer --> footer-text
   personal-footer --> footer-audio
-  s-saqhan-chat-wrapper --> module-personal
+  cnt-module-chat --> module-personal
   style module-personal fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

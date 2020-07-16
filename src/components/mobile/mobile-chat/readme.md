@@ -29,6 +29,7 @@ graph TD;
   mobile-personal --> personal-header
   mobile-personal --> personal-message
   mobile-personal --> personal-footer
+  personal-header --> user-status
   personal-message --> message-from
   message-from --> message-text
   message-from --> message-img

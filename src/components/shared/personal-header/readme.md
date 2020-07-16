@@ -31,11 +31,16 @@
 ### Used by
 
  - [mobile-personal](../../mobile/mobile-chat/res/view/mobile-personal)
- - [module-personal](../../module/module-chat/res/view/s-saqhan-chat-wrapper/res/view/module-personal)
+ - [module-personal](../../module/module-chat/res/view/cnt-module-chat/res/view/module-personal)
+
+### Depends on
+
+- [user-status](../user-status)
 
 ### Graph
 ```mermaid
 graph TD;
+  personal-header --> user-status
   mobile-personal --> personal-header
   module-personal --> personal-header
   style personal-header fill:#f9f,stroke:#333,stroke-width:4px

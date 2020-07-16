@@ -7,11 +7,11 @@
 
 ## Properties
 
-| Property  | Attribute | Description                  | Type                             | Default                                                                                                                           |
-| --------- | --------- | ---------------------------- | -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| `message` | --        | array data personal messages | `ChatMessage[]`                  | `undefined`                                                                                                                       |
-| `theme`   | `theme`   |                              | `"comp" \| "mobile" \| "module"` | `"mobile"`                                                                                                                        |
-| `writing` | --        |                              | `ChatWritingUserInterface[]`     | `[     {       uid: 'test',       icon: "https://via.placeholder.com/60x60?text=User",       name: '',       phone: ''     }   ]` |
+| Property  | Attribute | Description                  | Type                             | Default     |
+| --------- | --------- | ---------------------------- | -------------------------------- | ----------- |
+| `message` | --        | array data personal messages | `ChatMessage[]`                  | `undefined` |
+| `theme`   | `theme`   |                              | `"comp" \| "mobile" \| "module"` | `"mobile"`  |
+| `writing` | --        |                              | `ChatWritingUserInterface[]`     | `[]`        |
 
 
 ## Dependencies
@@ -19,7 +19,7 @@
 ### Used by
 
  - [mobile-personal](../../..)
- - [module-personal](../../../../../../../../module/module-chat/res/view/s-saqhan-chat-wrapper/res/view/module-personal)
+ - [module-personal](../../../../../../../../module/module-chat/res/view/cnt-module-chat/res/view/module-personal)
 
 ### Depends on
 
