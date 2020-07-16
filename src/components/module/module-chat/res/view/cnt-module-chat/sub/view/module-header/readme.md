@@ -7,28 +7,29 @@
 
 ## Properties
 
-| Property      | Attribute | Description | Type          | Default     |
-| ------------- | --------- | ----------- | ------------- | ----------- |
-| `titleModule` | --        |             | `titleModule` | `undefined` |
+| Property      | Attribute | Description | Type                   | Default     |
+| ------------- | --------- | ----------- | ---------------------- | ----------- |
+| `titleModule` | --        |             | `TitleModuleInterface` | `undefined` |
 
 
 ## Events
 
-| Event   | Description | Type                |
-| ------- | ----------- | ------------------- |
-| `close` | close modal | `CustomEvent<void>` |
+| Event          | Description                                       | Type                |
+| -------------- | ------------------------------------------------- | ------------------- |
+| `close`        | close modal                                       | `CustomEvent<void>` |
+| `showFullChat` | Разворачивать полную версию чата при клике иконку | `CustomEvent<void>` |
 
 
 ## Dependencies
 
 ### Used by
 
- - [s-saqhan-chat-wrapper](../s-saqhan-chat-wrapper)
+ - [cnt-module-chat](../../..)
 
 ### Graph
 ```mermaid
 graph TD;
-  s-saqhan-chat-wrapper --> module-header
+  cnt-module-chat --> module-header
   style module-header fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

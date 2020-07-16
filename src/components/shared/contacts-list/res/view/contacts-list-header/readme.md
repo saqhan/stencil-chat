@@ -17,7 +17,7 @@
 
 ### Used by
 
- - [contacts-list](../../../../../../../../../..)
+ - [contacts-list](../../..)
 
 ### Graph
 ```mermaid

@@ -28,7 +28,7 @@ export class SAdamDirect implements ComponentInterface {
   /**
    * Клик по иконке поиска
    */
-  @Event() searchPersonalMessage: EventEmitter<ChatMessage>;
+  @Event() searchPersonalMessage: EventEmitter<string>;
 
   render() {
     return (

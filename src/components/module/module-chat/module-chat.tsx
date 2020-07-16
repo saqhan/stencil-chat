@@ -41,6 +41,7 @@ export class ModuleChat implements ComponentInterface {
         message={this.messages}
         onClickToDialog={(ev) => this.clickToDialog(ev.detail)}
         onSendTextMessage={(ev) => this.sendTextMessage(ev.detail)}
+        onShowFullChat={(ev) => this.showFullChat(ev.detail)}
         titleModule={titleModule}
         disableInnerSearchDialogsState={disableInnerSearchDialogs}
         disableInnerSearchMessagesState={disableInnerSearchMessages}
@@ -70,6 +71,15 @@ export class ModuleChat implements ComponentInterface {
       dialog
     );
 
+  }
+
+  public showFullChat (
+    ev: any
+  ) {
+    console.log(
+      'showFullChat',
+      ev
+    )
   }
 
   public sendTextMessage (

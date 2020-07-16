@@ -58,7 +58,6 @@ export class ChatMessagesLogic {
    * */
   private static scrollToBotCallback: () => void;
 
-
   /**
    * */
   public static setScrollToBot (

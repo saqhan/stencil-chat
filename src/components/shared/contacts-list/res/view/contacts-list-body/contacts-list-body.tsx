@@ -15,19 +15,20 @@ export class ContactsListBody implements ComponentInterface {
   @Prop() contacts: ChatContactInterface[];
 
   /**
-   * Данные выбора темы для Мобильная/Модульной версии
+   * Данные выбора темы для Мобильная/Модульной/Комп версии
    * */
-  @Prop() theme: "mobile" | "module" = "mobile";
+  @Prop() theme: "mobile" | "module" | "comp" = "mobile";
 
   render() {
     return (
       <div class={this.getClassForHost()}>
         <div class="contacts-list-body">
-          <ContactCard contact={this.contacts}></ContactCard>
+          <ContactCard contacts={this.contacts}></ContactCard>
         </div>
       </div>
     );
   }
+
   /**
    * Метод выобра темы для Мобильная/Модульной версии
    * */
@@ -40,8 +41,8 @@ export class ContactsListBody implements ComponentInterface {
 /**
  * Компонент высшего порядка для передачи данных о контактах
  * */
-const ContactCard = (array) => {
-  return array.contact.map((item) => {
+const ContactCard = (props: {contacts: ChatContactInterface[]}) => {
+  return props.contacts.map((item) => {
     return <contact-card contact={item}></contact-card>;
   });
 };

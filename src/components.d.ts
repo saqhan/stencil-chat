@@ -5,7 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ChatCategoryInterface, ChatClickToLinkEmit, ChatContactInterface, ChatDialogInterface, ChatLogo, ChatMessage, ChatNavItems, ChatViewToShowEnum, ChatWritingUserInterface, TitleModuleInterface, } from "./index";
+import { ChatCategoryInterface, ChatClickToLinkEmit, ChatContactInterface, ChatDialogInterface, ChatLogo, ChatMessage, ChatViewToShowEnum, ChatWritingUserInterface, ShowFullChatOutputInterface, TitleModuleInterface, } from "./index";
+import { ChatUserActionStatusState, ChatUserPresenceState, } from "./components/shared/user-status/res/abstract/enum/common.enum";
 import { TitleModuleInterface as TitleModuleInterface1, } from ".";
 export namespace Components {
     interface BtnWrapper {
@@ -17,6 +18,10 @@ export namespace Components {
           * позволяет активировать/деактивароть возможность записи аудио
          */
         "activeRecordAudioState": (state: boolean) => Promise<void>;
+        /**
+          * позволяет активировать/деактивароть возможность октрытие приложение
+         */
+        "activeShowFullChat": (state: boolean) => Promise<void>;
         /**
           * Возможность записи аудио
          */
@@ -30,6 +35,14 @@ export namespace Components {
          */
         "changeViewToShow": (state: ChatViewToShowEnum) => Promise<void>;
         /**
+          * действие сообеседников в чате (печатает, записывает аудио и т.д.)
+         */
+        "chatActionState": ChatUserActionStatusState;
+        /**
+          * присутствие пользователя в сети
+         */
+        "chatPresenceState": ChatUserPresenceState;
+        /**
           * select content default
          */
         "chatViewState": ChatViewToShowEnum;
@@ -40,11 +53,15 @@ export namespace Components {
         /**
           * масиив данных контактов
          */
-        "contacts": any;
+        "contacts": ChatContactInterface[];
         /**
           * массив данных для диалогов
          */
         "dialogs": ChatDialogInterface[];
+        /**
+          * отключение поиска контактов
+         */
+        "disableInnerSearchContactState": boolean;
         /**
           * отключение поиска диалогов
          */
@@ -53,6 +70,10 @@ export namespace Components {
           * отключение поиска сообщений
          */
         "disableInnerSearchMessagesState": boolean;
+        /**
+          * отключение возможности октрытие приложение чата
+         */
+        "disableShowFullChatState": boolean;
         /**
           * скрывает весь блок что бы на экране не было вообще видно
          */
@@ -87,6 +108,14 @@ export namespace Components {
          */
         "titleModule": TitleModuleInterface;
         /**
+          * меняет статусы действия текущих (печатает, записывает и т.д.)
+         */
+        "updateChatActionState": (item: ChatUserActionStatusState) => Promise<void>;
+        /**
+          * меняет статус (присутстия собеседников или контакта) в чате
+         */
+        "updateChatPresenceState": (item: ChatUserPresenceState) => Promise<void>;
+        /**
           * видимость
          */
         "visibleState": boolean;
@@ -100,9 +129,17 @@ export namespace Components {
           * Принимаем контакт
          */
         "contact": ChatContactInterface;
+        /**
+          * Данные выбора темы для Мобильная/Модульной версии
+         */
+        "theme": "mobile" | "module" | "comp";
     }
     interface ContactsList {
         "contacts": ChatContactInterface[];
+        /**
+          * отключение поиска контактов
+         */
+        "disableInnerSearchContactState": boolean;
         /**
           * Тема для модульного/мобильного чата
          */
@@ -114,11 +151,15 @@ export namespace Components {
          */
         "contacts": ChatContactInterface[];
         /**
-          * Данные выбора темы для Мобильная/Модульной версии
+          * Данные выбора темы для Мобильная/Модульной/Комп версии
          */
-        "theme": "mobile" | "module";
+        "theme": "mobile" | "module" | "comp";
     }
     interface ContactsListHeader {
+        /**
+          * Данные выбора темы для Мобильная/Модульной версии
+         */
+        "theme": "mobile" | "module" | "comp";
     }
     interface DialogCard {
         /**
@@ -219,6 +260,10 @@ export namespace Components {
     interface ModuleChat {
     }
     interface ModuleHeader {
+        /**
+          * отключение возможности октрытие приложение чата
+         */
+        "disableShowFullChatState": boolean;
         "titleModule": TitleModuleInterface;
     }
     interface ModulePersonal {
@@ -226,6 +271,8 @@ export namespace Components {
           * Возможность записи аудио
          */
         "canRecordAudio": boolean;
+        "chatActionState": ChatUserActionStatusState;
+        "chatPresenceState": ChatUserPresenceState;
         /**
           * array data dialogs
          */
@@ -234,6 +281,7 @@ export namespace Components {
           * array data personal messages
          */
         "message": ChatMessage[];
+        "openedDialog": ChatDialogInterface;
         "writing": ChatWritingUserInterface[];
     }
     interface MyComponent {
@@ -246,6 +294,8 @@ export namespace Components {
         "theme": "comp" | "mobile" | "module";
     }
     interface PersonalHeader {
+        "chatActionState": ChatUserActionStatusState;
+        "chatPresenceState": ChatUserPresenceState;
         /**
           * array data dialogs
          */
@@ -254,6 +304,7 @@ export namespace Components {
           * array data personal messages
          */
         "message": ChatMessage[];
+        "openedDialog": ChatDialogInterface;
     }
     interface PersonalMessage {
         /**
@@ -264,8 +315,21 @@ export namespace Components {
         "writing": ChatWritingUserInterface[];
     }
     interface SAdamChat {
+        /**
+          * отключение поиска контактов
+         */
+        "disableInnerSearchContactState": boolean;
     }
     interface SAdamContacts {
+        "contacts": ChatContactInterface[];
+        /**
+          * отключение поиска контактов
+         */
+        "disableInnerSearchContactState": boolean;
+        /**
+          * Тема для модульного/мобильного чата
+         */
+        "theme": "mobile" | "module" | "comp";
     }
     interface SAdamCopying {
     }
@@ -286,20 +350,12 @@ export namespace Components {
         "message": ChatMessage[];
     }
     interface SAdamNavItem {
-        /**
-          * Иконки навигации
-         */
-        "navItems": ChatNavItems;
     }
     interface SAdamNavigate {
         /**
           * Логотип
          */
         "logo": ChatLogo;
-        /**
-          * Иконки навигации
-         */
-        "navItems": ChatNavItems[];
     }
     interface SAdamNoChat {
     }
@@ -357,6 +413,8 @@ export namespace Components {
     interface UserProfile {
     }
     interface UserStatus {
+        "chatActionState": ChatUserActionStatusState;
+        "chatPresenceState": ChatUserPresenceState;
         /**
           * Тема для блока
          */
@@ -715,17 +773,29 @@ declare namespace LocalJSX {
          */
         "categories"?: ChatCategoryInterface[];
         /**
+          * действие сообеседников в чате (печатает, записывает аудио и т.д.)
+         */
+        "chatActionState"?: ChatUserActionStatusState;
+        /**
+          * присутствие пользователя в сети
+         */
+        "chatPresenceState"?: ChatUserPresenceState;
+        /**
           * select content default
          */
         "chatViewState"?: ChatViewToShowEnum;
         /**
           * масиив данных контактов
          */
-        "contacts"?: any;
+        "contacts"?: ChatContactInterface[];
         /**
           * массив данных для диалогов
          */
         "dialogs"?: ChatDialogInterface[];
+        /**
+          * отключение поиска контактов
+         */
+        "disableInnerSearchContactState"?: boolean;
         /**
           * отключение поиска диалогов
          */
@@ -734,6 +804,10 @@ declare namespace LocalJSX {
           * отключение поиска сообщений
          */
         "disableInnerSearchMessagesState"?: boolean;
+        /**
+          * отключение возможности октрытие приложение чата
+         */
+        "disableShowFullChatState"?: boolean;
         /**
           * массив данных личных сообщений
          */
@@ -747,7 +821,15 @@ declare namespace LocalJSX {
           * click to files button
          */
         "onClickToFilesBtn"?: (event: CustomEvent<void>) => void;
+        /**
+          * search contact
+         */
+        "onSearchContact"?: (event: CustomEvent<string>) => void;
         "onSendTextMessage"?: (event: CustomEvent<string>) => void;
+        /**
+          * Разворачивать полную версию чата при клике иконку
+         */
+        "onShowFullChat"?: (event: CustomEvent<ShowFullChatOutputInterface>) => void;
         /**
           * Перменная для включения/отключения показа чата в развернутом виде
          */
@@ -774,9 +856,17 @@ declare namespace LocalJSX {
           * clock on navigate
          */
         "onClickToContact"?: (event: CustomEvent<ChatContactInterface>) => void;
+        /**
+          * Данные выбора темы для Мобильная/Модульной версии
+         */
+        "theme"?: "mobile" | "module" | "comp";
     }
     interface ContactsList {
         "contacts"?: ChatContactInterface[];
+        /**
+          * отключение поиска контактов
+         */
+        "disableInnerSearchContactState"?: boolean;
         /**
           * click to click To Dialog
          */
@@ -812,9 +902,9 @@ declare namespace LocalJSX {
          */
         "contacts"?: ChatContactInterface[];
         /**
-          * Данные выбора темы для Мобильная/Модульной версии
+          * Данные выбора темы для Мобильная/Модульной/Комп версии
          */
-        "theme"?: "mobile" | "module";
+        "theme"?: "mobile" | "module" | "comp";
     }
     interface ContactsListHeader {
         /**
@@ -824,7 +914,11 @@ declare namespace LocalJSX {
         /**
           * search contact
          */
-        "onSearchContact"?: (event: CustomEvent<any>) => void;
+        "onSearchContact"?: (event: CustomEvent<string>) => void;
+        /**
+          * Данные выбора темы для Мобильная/Модульной версии
+         */
+        "theme"?: "mobile" | "module" | "comp";
     }
     interface DialogCard {
         /**
@@ -1016,6 +1110,10 @@ declare namespace LocalJSX {
     }
     interface ModuleHeader {
         /**
+          * отключение возможности октрытие приложение чата
+         */
+        "disableShowFullChatState"?: boolean;
+        /**
           * close modal
          */
         "onClose"?: (event: CustomEvent<void>) => void;
@@ -1030,6 +1128,8 @@ declare namespace LocalJSX {
           * Возможность записи аудио
          */
         "canRecordAudio"?: boolean;
+        "chatActionState"?: ChatUserActionStatusState;
+        "chatPresenceState"?: ChatUserPresenceState;
         /**
           * array data dialogs
          */
@@ -1052,6 +1152,7 @@ declare namespace LocalJSX {
          */
         "onSearchPersonalMessages"?: (event: CustomEvent<string>) => void;
         "onSendTextMessage"?: (event: CustomEvent<string>) => void;
+        "openedDialog"?: ChatDialogInterface;
         "writing"?: ChatWritingUserInterface[];
     }
     interface MyComponent {
@@ -1068,6 +1169,8 @@ declare namespace LocalJSX {
         "theme"?: "comp" | "mobile" | "module";
     }
     interface PersonalHeader {
+        "chatActionState"?: ChatUserActionStatusState;
+        "chatPresenceState"?: ChatUserPresenceState;
         /**
           * array data dialogs
          */
@@ -1098,6 +1201,7 @@ declare namespace LocalJSX {
           * search for private messages
          */
         "onSearchPersonalMessages"?: (event: CustomEvent<string>) => void;
+        "openedDialog"?: ChatDialogInterface;
     }
     interface PersonalMessage {
         /**
@@ -1108,8 +1212,21 @@ declare namespace LocalJSX {
         "writing"?: ChatWritingUserInterface[];
     }
     interface SAdamChat {
+        /**
+          * отключение поиска контактов
+         */
+        "disableInnerSearchContactState"?: boolean;
     }
     interface SAdamContacts {
+        "contacts"?: ChatContactInterface[];
+        /**
+          * отключение поиска контактов
+         */
+        "disableInnerSearchContactState"?: boolean;
+        /**
+          * Тема для модульного/мобильного чата
+         */
+        "theme"?: "mobile" | "module" | "comp";
     }
     interface SAdamCopying {
     }
@@ -1129,11 +1246,11 @@ declare namespace LocalJSX {
         /**
           * Cобытие клика по диалогу
          */
-        "onClickToDialog"?: (event: CustomEvent<ChatDialogInterface>) => void;
+        "onClickToDialog"?: (event: CustomEvent<void>) => void;
         /**
           * Поиск по контактам
          */
-        "onSearchDialogs"?: (event: CustomEvent<ChatDialogInterface>) => void;
+        "onSearchDialogs"?: (event: CustomEvent<string>) => void;
     }
     interface SAdamDirect {
         /**
@@ -1143,7 +1260,7 @@ declare namespace LocalJSX {
         /**
           * Клик по иконке поиска
          */
-        "onSearchPersonalMessage"?: (event: CustomEvent<ChatMessage>) => void;
+        "onSearchPersonalMessage"?: (event: CustomEvent<string>) => void;
         /**
           * клик по имени юзера в личной переписке
          */
@@ -1151,9 +1268,9 @@ declare namespace LocalJSX {
     }
     interface SAdamNavItem {
         /**
-          * Иконки навигации
+          * клик по имени юзера в личной переписке
          */
-        "navItems"?: ChatNavItems;
+        "onVisibleContacts"?: (event: CustomEvent<void>) => void;
     }
     interface SAdamNavigate {
         /**
@@ -1161,9 +1278,9 @@ declare namespace LocalJSX {
          */
         "logo"?: ChatLogo;
         /**
-          * Иконки навигации
+          * клик по имени юзера в личной переписке
          */
-        "navItems"?: ChatNavItems[];
+        "onVisibleContacts"?: (event: CustomEvent<void>) => void;
     }
     interface SAdamNoChat {
     }
@@ -1179,7 +1296,7 @@ declare namespace LocalJSX {
         /**
           * Клик по иконке поиска
          */
-        "onSearchPersonalMessage"?: (event: CustomEvent<ChatMessage>) => void;
+        "onSearchPersonalMessage"?: (event: CustomEvent<string>) => void;
         /**
           * клик по имени юзера в личной переписке
          */
@@ -1196,7 +1313,7 @@ declare namespace LocalJSX {
         /**
           * Поиск по контактам
          */
-        "onSearchDialogs"?: (event: CustomEvent<ChatDialogInterface>) => void;
+        "onSearchDialogs"?: (event: CustomEvent<string>) => void;
     }
     interface SSaqhanChatAddQuestion {
         "onSendNewMessModal"?: (event: CustomEvent<void>) => void;
@@ -1267,6 +1384,8 @@ declare namespace LocalJSX {
         "onClickToShowDialogs"?: (event: CustomEvent<any>) => void;
     }
     interface UserStatus {
+        "chatActionState"?: ChatUserActionStatusState;
+        "chatPresenceState"?: ChatUserPresenceState;
         /**
           * Тема для блока
          */

@@ -24,22 +24,26 @@ export class ModuleHeader implements ComponentInterface {
    * close modal
    * */
   @Event() close: EventEmitter<void>;
+
   /**
    * Разворачивать полную версию чата при клике иконку
    * */
-  @Event() showFullChat: EventEmitter<void>;
+  @Event({bubbles: false}) showFullChat: EventEmitter<void>;
+
+  /**
+   * отключение возможности октрытие приложение чата
+   * */
+  @Prop() disableShowFullChatState: boolean;
 
   render() {
     return (
       <div class="header-chat">
-        <div class="showFullChat"
-          onClick={()=> this.showFullChatHandler()}
-        >
-          <i class="fas fa-expand"></i>
+        <div class="showFullChat" style={ {visibility: this.disableShowFullChatState ? 'hidden': null} } onClick={() => this.showFullChatHandler()}>
+          <i class="c-chat c-chat-expand"></i>
         </div>
         <div class="header-chat-title">{this.titleModule.title} </div>
         <div class="close" onClick={() => this.close.emit()}>
-          <i class="fas fa-times-circle"></i>
+          <i class="c-chat c-chat-times-circle"></i>
         </div>
       </div>
     );
@@ -47,8 +51,9 @@ export class ModuleHeader implements ComponentInterface {
   /**
    * Разворачивать полную версию чата при клике иконку
    * */
-  private showFullChatHandler(){
-    this.showFullChat.emit();
+  private showFullChatHandler() {
+    if (!this.disableShowFullChatState) {
+      this.showFullChat.emit();
+    }
   }
-
 }

@@ -143,16 +143,16 @@ export class MessageFrom implements ComponentInterface {
             ></message-img>
           </div>
         );
-      case ChatMessageTypeEnum.loading:
-        return (
-          <div class="from-mess">
-            <div id="circleG">
-              <div id="circleG_1" class="circleG"></div>
-              <div id="circleG_2" class="circleG"></div>
-              <div id="circleG_3" class="circleG"></div>
-            </div>
-          </div>
-        );
+      // case ChatMessageTypeEnum.loading:
+      //   return (
+      //     <div class="from-mess">
+      //       <div id="circleG">
+      //         <div id="circleG_1" class="circleG"></div>
+      //         <div id="circleG_2" class="circleG"></div>
+      //         <div id="circleG_3" class="circleG"></div>
+      //       </div>
+      //     </div>
+      //   );
     }
   }
 
@@ -179,19 +179,19 @@ export class MessageFrom implements ComponentInterface {
     if (array.time.read) {
       return (
         <span class="check">
-          <i class="fa fa-check-double"></i>
+          <i class="c-chat c-chat-check-double"></i>
         </span>
       );
     } else if (array.time.delivery) {
       return (
         <span class="check">
-          <i class="fa fa-check"></i>
+          <i class="c-chat c-chat-check"></i>
         </span>
       );
     } else {
       return (
         <span class="check">
-          <i class="fa fa-check"></i>
+          <i class="c-chat c-chat-check"></i>
         </span>
       );
     }

@@ -1,9 +1,9 @@
-import { Component, ComponentInterface, h, State } from "@stencil/core";
+import { Component, ComponentInterface, h, Prop, State } from "@stencil/core";
 import {
   logo,
-  navItems,
   dialogs,
   MessageMock,
+  contacts,
   categories,
 } from "../../../utils/mock";
 
@@ -11,7 +11,7 @@ import {
   tag: "s-adam-chat",
   styleUrl: "s-adam-chat.css",
   shadow: false,
-  scoped: true
+  scoped: true,
 })
 export class SAdamChat implements ComponentInterface {
   /**
@@ -24,6 +24,16 @@ export class SAdamChat implements ComponentInterface {
    */
   @State() profileVisible = false;
 
+  /**
+   * Стейт для показа контактов или диалогов
+   */
+  @State() contactsVisible = true;
+
+  /**
+   * отключение поиска контактов
+   * */
+  @Prop() disableInnerSearchContactState: boolean;
+
   render() {
     return (
       <div class="main-wrapper">
@@ -31,25 +41,10 @@ export class SAdamChat implements ComponentInterface {
           <div class="container">
             <div class="row">
               <div class="col-1 white-col">
-                <s-adam-navigate
-                  logo={logo}
-                  navItems={navItems}
-                ></s-adam-navigate>
+                <s-adam-navigate onVisibleContacts={() => this.visibleContacts()} logo={logo}></s-adam-navigate>
               </div>
               <div class="col-3">
-                <s-adam-dialogs
-                  onSearchDialogs={() => this.searchDialogs()}
-                  onClickToDialog={() => {
-                    this.toggleChat();
-                  }}
-                  dialogs={dialogs}
-                  categories={categories}
-                  onClickToCategory={({ detail }) =>
-                    this.clickToCategory({ detail })
-                  }
-                ></s-adam-dialogs>
-                {/*<s-adam-contacts>*/}
-                {/*</s-adam-contacts>*/}
+                {this.showContacts(this.contactsVisible)}
               </div>
               <div class="col white-col">
                 <section class="chat">
@@ -76,9 +71,7 @@ export class SAdamChat implements ComponentInterface {
             onVisibleUserProfile={() => {
               this.visibleProfile();
             }}
-            onSearchPersonalMessage={() =>
-              this.searchPersonalMessages()
-            }
+            onSearchPersonalMessage={() => this.searchPersonalMessages()}
             message={MessageMock}
           ></s-adam-direct>
         );
@@ -100,22 +93,63 @@ export class SAdamChat implements ComponentInterface {
       return "";
     }
   }
+
+  /**
+   * Показать контакты или диалоги
+   * @param item
+   */
+  public showContacts(item) {
+    if (item === true) {
+      return (
+        <s-adam-dialogs
+          onSearchDialogs={() => this.searchDialogs()}
+          onClickToDialog={() => {
+            this.toggleChat();
+          }}
+          dialogs={dialogs}
+          categories={categories}
+          onClickToCategory={({ detail }) => this.clickToCategory({ detail })}
+        ></s-adam-dialogs>
+      );
+    } else {
+      return (
+        <s-adam-contacts
+          theme={"comp"}
+          contacts={contacts}
+          disableInnerSearchContactState={this.disableInnerSearchContactState}
+        ></s-adam-contacts>
+      );
+    }
+  }
+
   /**
    * click to Link
    * */
   public clickToLink({ detail }) {
     console.log(detail);
   }
+
+  /**
+   *
+   */
   public searchDialogs() {
     console.log("searchDialogs");
   }
+
+  /**
+   *
+   */
   public searchPersonalMessages() {
     console.log("searchPersonalMessages");
   }
+
+  /**
+   *
+   * @param detail
+   */
   public clickToCategory({ detail }) {
     console.log("clickToCategory", detail);
   }
-
 
   /**
    * Метод для переключения на личный чат
@@ -131,5 +165,12 @@ export class SAdamChat implements ComponentInterface {
    */
   public visibleProfile() {
     this.profileVisible = !this.profileVisible;
+  }
+
+  /**
+   * Метод для переключения на контакты
+   */
+  public visibleContacts() {
+    this.contactsVisible = !this.contactsVisible;
   }
 }

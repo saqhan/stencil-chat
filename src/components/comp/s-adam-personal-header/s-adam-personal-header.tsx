@@ -7,20 +7,24 @@ import {
   Prop,
   State,
 } from "@stencil/core";
-import {ChatMessage} from "../../../index";
+import { ChatMessage } from "../../../index";
 
 @Component({
   tag: "s-adam-personal-header",
   styleUrl: "s-adam-personal-header.css",
   shadow: false,
-  scoped: true
+  scoped: true,
 })
 export class SAdamPersonalHeader implements ComponentInterface {
-
   /**
    * Личный диалог
    */
   @Prop() message: ChatMessage[] = [];
+
+  /**
+   * Стейт для переключения окна поиска сообщений
+   */
+  @State() searchVisible = false;
 
   /**
    * клик по имени юзера в личной переписке
@@ -30,17 +34,12 @@ export class SAdamPersonalHeader implements ComponentInterface {
   /**
    * Клик по иконке поиска
    */
-  @Event() searchPersonalMessage: EventEmitter<ChatMessage>;
+  @Event() searchPersonalMessage: EventEmitter<string>;
 
   /**
    * Сброс фильтра сообщений
    */
   @Event() resetMessagesFilter: EventEmitter<void>;
-
-  /**
-   * Стейт для переключения окна поиска сообщений
-   */
-  @State() searchVisible = false;
 
   render() {
     return <div>{this.toggleHeader()}</div>;
@@ -51,7 +50,7 @@ export class SAdamPersonalHeader implements ComponentInterface {
    */
   public toggleSearchVisible() {
     this.searchVisible = !this.searchVisible;
-    this.resetMessagesFilter.emit()
+    this.resetMessagesFilter.emit();
   }
 
   /**
@@ -69,7 +68,8 @@ export class SAdamPersonalHeader implements ComponentInterface {
           </div>
           <div class="user">
             <div class="user-name-wrapper">
-              <div class="user-name">{this.getNameUser()}</div><div class="online-marker"></div>
+              <div class="user-name">{this.getNameUser()}</div>
+              <div class="online-marker"></div>
             </div>
             <user-status></user-status>
           </div>
@@ -119,7 +119,7 @@ export class SAdamPersonalHeader implements ComponentInterface {
    * Показать личный профиль юзера
    */
   public visibleUserProfileHandler() {
-      this.visibleUserProfile.emit()
+    this.visibleUserProfile.emit();
   }
 
   /**
@@ -127,6 +127,6 @@ export class SAdamPersonalHeader implements ComponentInterface {
    * @param e
    */
   public searchPersonalMessageHandler(e) {
-    this.searchPersonalMessage.emit(e)
+    this.searchPersonalMessage.emit(e);
   }
 }

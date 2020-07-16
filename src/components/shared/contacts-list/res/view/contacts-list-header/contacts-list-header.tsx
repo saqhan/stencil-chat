@@ -4,15 +4,20 @@ import {
   Event,
   EventEmitter,
   h,
+  Prop,
 } from "@stencil/core";
 
 @Component({
   tag: "contacts-list-header",
   styleUrl: "contacts-list-header.css",
   shadow: false,
-  scoped:true
+  scoped: true,
 })
 export class ContactsListHeader implements ComponentInterface {
+  /**
+   * Данные выбора темы для Мобильная/Модульной версии
+   * */
+  @Prop() theme: "mobile" | "module" | "comp" = "mobile";
 
   /**
    * clock on clickToLink
@@ -22,36 +27,54 @@ export class ContactsListHeader implements ComponentInterface {
   /**
    * search contact
    * */
-  @Event() searchContact: EventEmitter;
+  @Event() searchContact: EventEmitter<string>;
 
   render() {
     return (
-      <div class="contacts-list-header">
-        <div class="contacts-list-description">
-          <div
-            class="contacts-list-arraw-back custom-link "
-            onClick={() => this.clickToShowDialogsHandler()}
-          >
-            <i class="fas fa-arrow-left"></i>
+      <div class={this.getClassForHost()}>
+        <div class="contacts-list-header">
+          <div class="contacts-list-description">
+            <div
+              class="contacts-list-arraw-back custom-link "
+              onClick={() => this.clickToShowDialogsHandler()}
+            >
+              <i class="c-chat c-chat-arrow-left"></i>
+            </div>
+            <div class="contacts-list-title">Contacts</div>
           </div>
-          <div class="contacts-list-title">Contacts</div>
-        </div>
-        <div class="contacts-list-input">
-          {/*<i class="fas fa-search"></i>*/}
-          <input
-            type="text"
-            placeholder="Search.."
-            onInput={(e) => this.searchContact.emit(e)}
-          />
+          <div class="contacts-list-input">
+            {/*<i class="c-chat c-chat-search"></i>*/}
+            <input
+              type="text"
+              placeholder="Search.."
+              onInput={(e: any) => this.searchContactHandler(e.target.value)}
+            />
+          </div>
         </div>
       </div>
     );
   }
+
+  /**
+   * Метод выобра темы для Мобильная/Модульной версии
+   * */
+  public getClassForHost() {
+    return {
+      [this.theme]: true,
+    };
+  }
+
   /**
    * show Dialogs
    * */
-  public clickToShowDialogsHandler(){
+  public clickToShowDialogsHandler() {
     this.clickToShowDialogs.emit();
   }
 
+  /**
+   *
+   * */
+  public searchContactHandler(value: string) {
+    this.searchContact.emit(value);
+  }
 }

@@ -1,0 +1,17 @@
+.contacts-column {
+  background-color: #f7f8f9;
+  padding: 20px 20px 0 20px;
+  height: 100vh;
+}
+.col-3 {
+  padding: 0 !important;
+}
+.contacts {
+  overflow-y: auto;
+  height: calc(100vh - 100px);
+  padding-bottom: 20px;
+}
+::-webkit-scrollbar { /* chrome based */
+  width: 0px; /* ширина scrollbar'a */
+  background: transparent; /* опционально */
+}

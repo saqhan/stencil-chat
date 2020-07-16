@@ -29,12 +29,12 @@ export class SAdamDialogs implements ComponentInterface {
   /**
    * Cобытие клика по диалогу
    */
-  @Event() clickToDialog: EventEmitter<ChatDialogInterface>
+  @Event() clickToDialog: EventEmitter<void>
 
   /**
    * Поиск по контактам
    * */
-  @Event() searchDialogs: EventEmitter<ChatDialogInterface>;
+  @Event() searchDialogs: EventEmitter<string>;
 
   /**
    * clock on Category
