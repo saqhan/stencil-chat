@@ -38,6 +38,7 @@ graph TD;
   s-adam-direct --> s-adam-personal-header
   s-adam-direct --> message-from
   s-adam-direct --> personal-footer
+  s-adam-personal-header --> user-status
   message-from --> message-text
   message-from --> message-img
   personal-footer --> footer-text

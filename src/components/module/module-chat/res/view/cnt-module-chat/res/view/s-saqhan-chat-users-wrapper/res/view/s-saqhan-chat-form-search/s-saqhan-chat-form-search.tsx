@@ -28,6 +28,7 @@ export class SSaqhanChatFormSearch implements ComponentInterface {
       <div class="header-wrapper">
         <div class=" chat-files">
           <div class="block-input">
+            <i class="fas fa-search"></i>
             <input
               type="text"
               class="input-search"
@@ -35,7 +36,8 @@ export class SSaqhanChatFormSearch implements ComponentInterface {
               onInput={(e: any) => this.searchDialogsHandler(e.target.value)}
             />
           </div>
-          <div class="block-file" onClick={() => this.clickToFilesBtnHandler()}>
+          {/* TEMP <div class="block-file" onClick={() => this.clickToFilesBtnHandler()}>*/}
+          <div class="block-file">
             <i class="far fa-file-alt"></i>
           </div>
         </div>

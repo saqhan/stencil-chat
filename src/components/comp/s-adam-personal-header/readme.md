@@ -27,9 +27,14 @@
 
  - [s-adam-direct](../s-adam-direct)
 
+### Depends on
+
+- [user-status](../../shared/user-status)
+
 ### Graph
 ```mermaid
 graph TD;
+  s-adam-personal-header --> user-status
   s-adam-direct --> s-adam-personal-header
   style s-adam-personal-header fill:#f9f,stroke:#333,stroke-width:4px
 ```

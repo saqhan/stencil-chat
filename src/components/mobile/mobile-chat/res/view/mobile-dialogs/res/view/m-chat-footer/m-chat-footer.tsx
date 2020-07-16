@@ -3,7 +3,7 @@ import {
   ComponentInterface,
   h,
   Event,
-  EventEmitter,
+  EventEmitter, Prop,
 } from "@stencil/core";
 
 @Component({
@@ -26,20 +26,35 @@ export class MChatFooter implements ComponentInterface {
    * */
   @Event() clickToShowMenuBar: EventEmitter<void>;
 
+  /**
+   * Данные выбора темы для Мобильная/Модульной версии
+   * */
+  @Prop() theme: "mobile" | "module" = "mobile";
+
   render() {
     return (
+      <div class={this.getClassForHost()}>
       <div class="m-chat-footer">
-        <span onClick={() => this.clickToShowDialogsHandler()}>
+        <span class="showDialogs" onClick={() => this.clickToShowDialogsHandler()}>
           <i class="far fa-comment"></i>
         </span>
-        <span onClick={() => this.clickToShowContactsHandler()}>
+        <span class="showContacts" onClick={() => this.clickToShowContactsHandler()}>
           <i class="fas fa-user-friends"></i>
         </span>
-        <span onClick={() => this.clickToShowMenuBarHandler()}>
+        <span class="showMenuBar" onClick={() => this.clickToShowMenuBarHandler()}>
           <i class="fas fa-bars"></i>
         </span>
       </div>
+      </div>
     );
+  }
+  /**
+   * Метод выобра темы для Мобильная/Модульной версии
+   * */
+  public getClassForHost() {
+    return {
+      [this.theme]: true,
+    };
   }
   /**
    * click to show dialogs

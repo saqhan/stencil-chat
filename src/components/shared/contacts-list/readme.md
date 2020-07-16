@@ -7,9 +7,10 @@
 
 ## Properties
 
-| Property   | Attribute | Description | Type                     | Default     |
-| ---------- | --------- | ----------- | ------------------------ | ----------- |
-| `contacts` | --        |             | `ChatContactInterface[]` | `undefined` |
+| Property   | Attribute | Description                         | Type                     | Default     |
+| ---------- | --------- | ----------------------------------- | ------------------------ | ----------- |
+| `contacts` | --        |                                     | `ChatContactInterface[]` | `undefined` |
+| `theme`    | `theme`   | Тема для модульного/мобильного чата | `"mobile" \| "module"`   | `"mobile"`  |
 
 
 ## Events
@@ -28,13 +29,14 @@
 
 ### Used by
 
- - [mobile-chat](../../..)
+ - [cnt-module-chat](../../module/module-chat/res/view/cnt-module-chat)
+ - [mobile-chat](../../mobile/mobile-chat)
 
 ### Depends on
 
 - [contacts-list-header](./res/view/contacts-list-header)
 - [contacts-list-body](./res/view/contacts-list-body)
-- [m-chat-footer](../mobile-dialogs/res/view/m-chat-footer)
+- [m-chat-footer](../../mobile/mobile-chat/res/view/mobile-dialogs/res/view/m-chat-footer)
 
 ### Graph
 ```mermaid
@@ -43,6 +45,7 @@ graph TD;
   contacts-list --> contacts-list-body
   contacts-list --> m-chat-footer
   contacts-list-body --> contact-card
+  cnt-module-chat --> contacts-list
   mobile-chat --> contacts-list
   style contacts-list fill:#f9f,stroke:#333,stroke-width:4px
 ```

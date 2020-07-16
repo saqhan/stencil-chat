@@ -297,4 +297,5 @@ export enum ChatViewToShowEnum {
   personal = 'personal',
   profile = 'profile',
   users = 'users',
+  contacts = 'contacts',
 }

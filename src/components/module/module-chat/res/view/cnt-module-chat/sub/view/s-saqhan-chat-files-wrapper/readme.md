@@ -16,7 +16,7 @@
 
 ### Used by
 
- - [s-saqhan-chat-wrapper](../s-saqhan-chat-wrapper)
+ - [cnt-module-chat](../../..)
 
 ### Depends on
 
@@ -28,7 +28,7 @@
 graph TD;
   s-saqhan-chat-files-wrapper --> s-saqhan-chat-form-search-files
   s-saqhan-chat-files-wrapper --> s-saqhan-chat-files
-  s-saqhan-chat-wrapper --> s-saqhan-chat-files-wrapper
+  cnt-module-chat --> s-saqhan-chat-files-wrapper
   style s-saqhan-chat-files-wrapper fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

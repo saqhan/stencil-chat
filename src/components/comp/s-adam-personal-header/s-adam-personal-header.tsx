@@ -70,6 +70,7 @@ export class SAdamPersonalHeader implements ComponentInterface {
           <div class="user">
             <div class="user-name">{this.getNameUser()}</div>
             <div class="online-marker"></div>
+            <user-status></user-status>
           </div>
           <div
             class="settings"

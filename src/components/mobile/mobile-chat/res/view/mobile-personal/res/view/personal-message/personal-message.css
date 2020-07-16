@@ -5,11 +5,11 @@
 
 .module .personal-message {
   padding: 20px;
-  height: calc(100vh - 360px);
+  height: calc(100vh - 310px);
   overflow: auto;
 }
 .mobile .personal-message {
-  height: calc(100vh - 185px);
+  height: calc(100vh - 145px);
 }
 
 .mobile .personal-message {

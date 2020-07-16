@@ -7,9 +7,10 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type                             | Default  |
-| -------- | --------- | ----------- | -------------------------------- | -------- |
-| `theme`  | `theme`   |             | `"comp" \| "mobile" \| "module"` | `"comp"` |
+| Property         | Attribute          | Description              | Type                             | Default  |
+| ---------------- | ------------------ | ------------------------ | -------------------------------- | -------- |
+| `canRecordAudio` | `can-record-audio` | Возможность записи аудио | `boolean`                        | `false`  |
+| `theme`          | `theme`            |                          | `"comp" \| "mobile" \| "module"` | `"comp"` |
 
 
 ## Events
@@ -24,7 +25,7 @@
 ### Used by
 
  - [mobile-personal](../../mobile/mobile-chat/res/view/mobile-personal)
- - [module-personal](../../module/module-chat/res/view/s-saqhan-chat-wrapper/res/view/module-personal)
+ - [module-personal](../../module/module-chat/res/view/cnt-module-chat/res/view/module-personal)
  - [s-adam-direct](../../comp/s-adam-direct)
 
 ### Depends on

@@ -6,6 +6,7 @@ import {
   disableInnerSearchMessages,
   MessageMock,
   titleModule,
+  contacts
 } from "../../../utils/mock";
 import {ChatDialogInterface, ChatMessage, ChatMessageDirectionEnum, ChatMessageTypeEnum} from "../../../index";
 
@@ -36,6 +37,7 @@ export class ModuleChat implements ComponentInterface {
         ref={ (el) => this.ref = el}
         categories={categories}
         dialogs={dialogs}
+        contacts={contacts}
         message={this.messages}
         onClickToDialog={(ev) => this.clickToDialog(ev.detail)}
         onSendTextMessage={(ev) => this.sendTextMessage(ev.detail)}

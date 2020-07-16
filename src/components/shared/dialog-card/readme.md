@@ -17,7 +17,7 @@
 
 | Event           | Description     | Type                               |
 | --------------- | --------------- | ---------------------------------- |
-| `clickToDialog` | clock on dialog | `CustomEvent<ChatClickToLinkEmit>` |
+| `clickToDialog` | clock on dialog | `CustomEvent<ChatDialogInterface>` |
 
 
 ## Dependencies
@@ -26,7 +26,7 @@
 
  - [m-chat-dialogs](../../mobile/mobile-chat/res/view/mobile-dialogs/res/view/m-chat-dialogs)
  - [s-adam-contacts](../../comp/s-adam-contacts)
- - [s-saqhan-chat-user](../../module/module-chat/res/view/s-saqhan-chat-wrapper/res/view/s-saqhan-chat-users-wrapper/res/view/s-saqhan-chat-users/res/view/s-saqhan-chat-user)
+ - [s-saqhan-chat-user](../../module/module-chat/res/view/cnt-module-chat/res/view/s-saqhan-chat-users-wrapper/res/view/s-saqhan-chat-users/res/view/s-saqhan-chat-user)
 
 ### Graph
 ```mermaid

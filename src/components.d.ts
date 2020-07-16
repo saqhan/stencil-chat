@@ -38,6 +38,10 @@ export namespace Components {
          */
         "close": () => Promise<void>;
         /**
+          * масиив данных контактов
+         */
+        "contacts": any;
+        /**
           * массив данных для диалогов
          */
         "dialogs": ChatDialogInterface[];
@@ -99,9 +103,20 @@ export namespace Components {
     }
     interface ContactsList {
         "contacts": ChatContactInterface[];
+        /**
+          * Тема для модульного/мобильного чата
+         */
+        "theme": "mobile" | "module";
     }
     interface ContactsListBody {
+        /**
+          * массив данных контактов
+         */
         "contacts": ChatContactInterface[];
+        /**
+          * Данные выбора темы для Мобильная/Модульной версии
+         */
+        "theme": "mobile" | "module";
     }
     interface ContactsListHeader {
     }
@@ -142,6 +157,10 @@ export namespace Components {
         "dialogs": ChatDialogInterface[];
     }
     interface MChatFooter {
+        /**
+          * Данные выбора темы для Мобильная/Модульной версии
+         */
+        "theme": "mobile" | "module";
     }
     interface MChatHeader {
         /**
@@ -334,6 +353,12 @@ export namespace Components {
         "personalMessage": ChatMessage[];
     }
     interface UserProfile {
+    }
+    interface UserStatus {
+        /**
+          * Тема для блока
+         */
+        "theme": "comp" | "mobile" | "module";
     }
 }
 declare global {
@@ -607,6 +632,12 @@ declare global {
         prototype: HTMLUserProfileElement;
         new (): HTMLUserProfileElement;
     };
+    interface HTMLUserStatusElement extends Components.UserStatus, HTMLStencilElement {
+    }
+    var HTMLUserStatusElement: {
+        prototype: HTMLUserStatusElement;
+        new (): HTMLUserStatusElement;
+    };
     interface HTMLElementTagNameMap {
         "btn-wrapper": HTMLBtnWrapperElement;
         "cnt-module-chat": HTMLCntModuleChatElement;
@@ -653,6 +684,7 @@ declare global {
         "s-saqhan-chat-users": HTMLSSaqhanChatUsersElement;
         "s-saqhan-chat-users-wrapper": HTMLSSaqhanChatUsersWrapperElement;
         "user-profile": HTMLUserProfileElement;
+        "user-status": HTMLUserStatusElement;
     }
 }
 declare namespace LocalJSX {
@@ -677,6 +709,10 @@ declare namespace LocalJSX {
           * select content default
          */
         "chatViewState"?: ChatViewToShowEnum;
+        /**
+          * масиив данных контактов
+         */
+        "contacts"?: any;
         /**
           * массив данных для диалогов
          */
@@ -756,9 +792,20 @@ declare namespace LocalJSX {
           * search contact
          */
         "onSearchContact"?: (event: CustomEvent<ChatContactInterface>) => void;
+        /**
+          * Тема для модульного/мобильного чата
+         */
+        "theme"?: "mobile" | "module";
     }
     interface ContactsListBody {
+        /**
+          * массив данных контактов
+         */
         "contacts"?: ChatContactInterface[];
+        /**
+          * Данные выбора темы для Мобильная/Модульной версии
+         */
+        "theme"?: "mobile" | "module";
     }
     interface ContactsListHeader {
         /**
@@ -837,6 +884,10 @@ declare namespace LocalJSX {
           * click to click To Show Contacts
          */
         "onClickToShowMenuBar"?: (event: CustomEvent<void>) => void;
+        /**
+          * Данные выбора темы для Мобильная/Модульной версии
+         */
+        "theme"?: "mobile" | "module";
     }
     interface MChatHeader {
         /**
@@ -959,6 +1010,10 @@ declare namespace LocalJSX {
           * close modal
          */
         "onClose"?: (event: CustomEvent<void>) => void;
+        /**
+          * Разворачивать полную версию чата при клике иконку
+         */
+        "onShowFullChat"?: (event: CustomEvent<void>) => void;
         "titleModule"?: TitleModuleInterface;
     }
     interface ModulePersonal {
@@ -1200,6 +1255,12 @@ declare namespace LocalJSX {
     interface UserProfile {
         "onClickToShowDialogs"?: (event: CustomEvent<any>) => void;
     }
+    interface UserStatus {
+        /**
+          * Тема для блока
+         */
+        "theme"?: "comp" | "mobile" | "module";
+    }
     interface IntrinsicElements {
         "btn-wrapper": BtnWrapper;
         "cnt-module-chat": CntModuleChat;
@@ -1246,6 +1307,7 @@ declare namespace LocalJSX {
         "s-saqhan-chat-users": SSaqhanChatUsers;
         "s-saqhan-chat-users-wrapper": SSaqhanChatUsersWrapper;
         "user-profile": UserProfile;
+        "user-status": UserStatus;
     }
 }
 export { LocalJSX as JSX };
@@ -1297,6 +1359,7 @@ declare module "@stencil/core" {
             "s-saqhan-chat-users": LocalJSX.SSaqhanChatUsers & JSXBase.HTMLAttributes<HTMLSSaqhanChatUsersElement>;
             "s-saqhan-chat-users-wrapper": LocalJSX.SSaqhanChatUsersWrapper & JSXBase.HTMLAttributes<HTMLSSaqhanChatUsersWrapperElement>;
             "user-profile": LocalJSX.UserProfile & JSXBase.HTMLAttributes<HTMLUserProfileElement>;
+            "user-status": LocalJSX.UserStatus & JSXBase.HTMLAttributes<HTMLUserStatusElement>;
         }
     }
 }

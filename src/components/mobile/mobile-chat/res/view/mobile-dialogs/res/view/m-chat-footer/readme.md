@@ -5,6 +5,13 @@
 <!-- Auto Generated Below -->
 
 
+## Properties
+
+| Property | Attribute | Description                                       | Type                   | Default    |
+| -------- | --------- | ------------------------------------------------- | ---------------------- | ---------- |
+| `theme`  | `theme`   | Данные выбора темы для Мобильная/Модульной версии | `"mobile" \| "module"` | `"mobile"` |
+
+
 ## Events
 
 | Event                 | Description                     | Type                |
@@ -18,7 +25,7 @@
 
 ### Used by
 
- - [contacts-list](../../../../contacts-list)
+ - [contacts-list](../../../../../../../../shared/contacts-list)
  - [mobile-dialogs](../../..)
 
 ### Graph

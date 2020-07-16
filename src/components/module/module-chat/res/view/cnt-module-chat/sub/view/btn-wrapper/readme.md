@@ -24,12 +24,12 @@
 
 ### Used by
 
- - [s-saqhan-chat-wrapper](../s-saqhan-chat-wrapper)
+ - [cnt-module-chat](../../..)
 
 ### Graph
 ```mermaid
 graph TD;
-  s-saqhan-chat-wrapper --> btn-wrapper
+  cnt-module-chat --> btn-wrapper
   style btn-wrapper fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

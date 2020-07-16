@@ -12,7 +12,7 @@
 - [mobile-dialogs](./res/view/mobile-dialogs)
 - [mobile-personal](./res/view/mobile-personal)
 - [user-profile](./res/view/user-profile)
-- [contacts-list](./res/view/contacts-list)
+- [contacts-list](../../shared/contacts-list)
 
 ### Graph
 ```mermaid
@@ -29,6 +29,7 @@ graph TD;
   mobile-personal --> personal-header
   mobile-personal --> personal-message
   mobile-personal --> personal-footer
+  personal-header --> user-status
   personal-message --> message-from
   message-from --> message-text
   message-from --> message-img

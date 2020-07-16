@@ -16,7 +16,7 @@
 
 ### Used by
 
- - [s-saqhan-chat-users-wrapper](../s-saqhan-chat-wrapper/res/view/s-saqhan-chat-users-wrapper)
+ - [s-saqhan-chat-users-wrapper](../../../res/view/s-saqhan-chat-users-wrapper)
 
 ### Graph
 ```mermaid

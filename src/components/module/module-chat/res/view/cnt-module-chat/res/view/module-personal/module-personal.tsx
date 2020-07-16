@@ -67,7 +67,7 @@ export class ModulePersonal implements ComponentInterface {
           theme={"module"}
           message={this.message}
         ></personal-message>
-        <personal-footer canRecordAudio={this.canRecordAudio}  theme="mobile"></personal-footer>
+        <personal-footer canRecordAudio={this.canRecordAudio}  theme="module"></personal-footer>
       </div>
     );
   }

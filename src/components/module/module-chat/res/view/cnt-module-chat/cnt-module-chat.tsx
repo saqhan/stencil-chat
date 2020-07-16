@@ -54,11 +54,17 @@ export class CntModuleChat implements ComponentInterface {
    * Перменная для включения/отключения показа чата в развернутом виде
    * */
   @Prop() openState: boolean;
+  //==================================================
 
   /**
    * массив данных личных сообщений
    * */
   @Prop() message: ChatMessage[];
+
+  /**
+   * масиив данных контактов
+   * */
+  @Prop() contacts: any;
 
   /**
    * click to dialog
@@ -84,7 +90,7 @@ export class CntModuleChat implements ComponentInterface {
    * select content default
    * */
   @Prop() chatViewState: ChatViewToShowEnum = ChatViewToShowEnum.dialogs;
-
+//============================================================================================
   /**
    * Возможность записи аудио
    */
@@ -160,6 +166,11 @@ export class CntModuleChat implements ComponentInterface {
   }
 
   /**
+   * массив данных для контактов
+   * */
+  @State() contactsState = this.contacts;
+
+  /**
    * массив данных категорий
    * */
   @State() categoriesState: ChatCategoryInterface[] = this.categories;
@@ -173,6 +184,11 @@ export class CntModuleChat implements ComponentInterface {
    * массив данных персонального чата
    * */
   @State() messageState: ChatMessage[] = this.message;
+
+  /**
+   * массив данных персонального чата
+   * */
+  @State() showFullChatState: boolean;
 
   @Watch("dialogs")
   watchDialogsHandler(newValue: boolean, oldValue: boolean) {
@@ -199,6 +215,7 @@ export class CntModuleChat implements ComponentInterface {
           {this.openState ? (
             <div class="wrapper-chat">
               <module-header
+                onShowFullChat={() => this.showFullChat()}
                 titleModule={this.titleModule}
                 onClose={() => this.onClose()}
               ></module-header>
@@ -217,6 +234,15 @@ export class CntModuleChat implements ComponentInterface {
         </div>
       </Host>
     );
+  }
+
+  /**
+   * Разворачивание полной версии чата
+   * */
+
+  public showFullChat(){
+    this.showFullChatState = true;
+    console.log('showFullChat');
   }
 
 
@@ -306,19 +332,29 @@ export class CntModuleChat implements ComponentInterface {
             onClickToShowDialogs={() => this.clickToShowDialogsHandler()}
           ></s-adam-profile>
         );
+      case "contacts":
+        return (
+          <contacts-list
+            theme={"module"}
+            contacts={this.contacts}
+            // onSearchContact={(detail) => this.searchContact({ detail })}
+            onClickToShowDialogs={() => this.clickToShowDialogsHandler()}
+            // onClickToShowContacts={() => this.clickToShowContacts()}
+            // onClickToShowMenuBar={() => this.clickToShowMenuBar()}
+            // onClickToContact={(item) => this.clickToContact(item)}
+          ></contacts-list>
+        );
       default:
         "dialogs";
     }
   };
-  public sendNewMessModal(): void {
-    console.log("sendNewMessModal");
-  }
+
 
   /**
    * Метод отмена поиска
    * **/
   public cancelSearchPersonal(): void {
-    this.message = this.messageState;
+    this.messageState = this.message;
   }
   /**
    * Метод для изменения состояния чата
@@ -370,6 +406,12 @@ export class CntModuleChat implements ComponentInterface {
   public clickToUserProfileHandler(): void {
     this.updateViewState(ChatViewToShowEnum.profile)
   }
+
+  public sendNewMessModal(): void {
+    this.updateViewState(ChatViewToShowEnum.contacts)
+    console.log("sendNewMessModal");
+  }
+
 
   /**
    *

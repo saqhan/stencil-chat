@@ -18,3 +18,7 @@
   display: flex;
   justify-content: space-around;
 }
+
+.module  to-me-mess-wrapper {
+  max-width: 315px;
+}
