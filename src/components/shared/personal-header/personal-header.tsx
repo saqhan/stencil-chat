@@ -1,17 +1,6 @@
-import {
-  Component,
-  ComponentInterface,
-  Event,
-  EventEmitter,
-  h,
-  Prop,
-  State,
-} from "@stencil/core";
-import {
-  ChatClickToLinkEmit,
-  ChatDialogInterface,
-  ChatMessage,
-} from "../../../index";
+import {Component, ComponentInterface, Event, EventEmitter, h, Prop, State,} from "@stencil/core";
+import {ChatClickToLinkEmit, ChatDialogInterface, ChatMessage,} from "../../../index";
+import {ChatUserActionStatusState, ChatUserPresenceState} from "../user-status/res/abstract/enum/common.enum";
 
 @Component({
   tag: "personal-header",
@@ -24,16 +13,32 @@ export class PersonalHeader implements ComponentInterface {
    * array data personal messages
    * */
   @Prop() message: ChatMessage[];
+
+  /**
+   *
+   * */
+  @Prop() openedDialog: ChatDialogInterface;
+
   /**
    * array data dialogs
    * */
   @Prop() dialogs: ChatDialogInterface[];
+
+  /**
+   * */
+  @Prop() chatActionState: ChatUserActionStatusState;
+
+  /**
+   * */
+  @Prop() chatPresenceState: ChatUserPresenceState;
+
   /**
    * clock on navigate
    * */
   @Event() clickToLink: EventEmitter<void>;
   @Event() clickToUserProfile: EventEmitter<void>;
   @Event() searchContact: EventEmitter;
+
   /**
    * search for private messages
    * */
@@ -81,46 +86,21 @@ export class PersonalHeader implements ComponentInterface {
                 {this.getNameUser()}
               </span>
             </span>
-            {/*<span class="custom-link">*/}
-            {/*  <div class="dots-menu" onClick={() => this.showDrop()}>*/}
-            {/*    <i class="fas fa-ellipsis-h"></i>*/}
-            {/*  </div>*/}
-            {/*  {this.isShowDropDown ? (*/}
-            {/*    <div class="drop-down">*/}
-            {/*      <ul>*/}
-            {/*        <li>*/}
-            {/*          <i*/}
-            {/*            class="fas fa-search"*/}
-            {/*            onClick={() => this.showInputSearchPersonalMess()}*/}
-            {/*          ></i>*/}
-            {/*        </li>*/}
-            {/*        <li>*/}
-            {/*          <i class="fas fa-trash"></i>*/}
-            {/*        </li>*/}
-            {/*        <li>*/}
-            {/*          <i class="fas fa-share-alt"></i>*/}
-            {/*        </li>*/}
-            {/*      </ul>*/}
-            {/*    </div>*/}
-            {/*  ) : (*/}
-            {/*    ""*/}
-            {/*  )}*/}
-            {/*</span>*/}
             <span
               class="custom-link"
               onClick={() => this.showInputSearchPersonalMess()}
             >
               {this.isPersonalMess ? (
-                <i class="fas fa-search"></i>
+                <i class="c-chat c-chat-search"></i>
               ) : (
-                <i class="fas fa-times"></i>
+                <i class="c-chat c-chat-times"></i>
               )}
             </span>
           </div>
           <div class="users-nav">
             <div class="user-active">
               {this.isPersonalMess ? (
-                <user-status theme={"module"} ></user-status>
+                <user-status theme={"module"} chatActionState={this.chatActionState} chatPresenceState={this.chatPresenceState}></user-status>
               ) : (
                 <div class="search-wrapper">
                   <div class="searchPersonalmess">
@@ -144,15 +124,8 @@ export class PersonalHeader implements ComponentInterface {
    * get name user
    * */
   public getNameUser(): string {
-    let name = "";
-
-    this.message.forEach((item) => {
-      if (name.indexOf(item.sender.name) === -1) {
-        name = item.sender.name;
-      }
-    });
-
-    return name;
+    return  this.openedDialog?.name;
+    // return ChatMessagesLogic.openedDialog?.name;
   }
 
   public showDrop = () => (this.isShowDropDown = !this.isShowDropDown);

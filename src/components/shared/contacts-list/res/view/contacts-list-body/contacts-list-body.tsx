@@ -23,7 +23,7 @@ export class ContactsListBody implements ComponentInterface {
     return (
       <div class={this.getClassForHost()}>
         <div class="contacts-list-body">
-          <ContactCard contact={this.contacts}></ContactCard>
+          <ContactCard contacts={this.contacts}></ContactCard>
         </div>
       </div>
     );
@@ -40,8 +40,8 @@ export class ContactsListBody implements ComponentInterface {
 /**
  * Компонент высшего порядка для передачи данных о контактах
  * */
-const ContactCard = (array) => {
-  return array.contact.map((item) => {
+const ContactCard = (props: {contacts: ChatContactInterface[]}) => {
+  return props.contacts.map((item) => {
     return <contact-card contact={item}></contact-card>;
   });
 };

@@ -11,17 +11,21 @@ import {
   Host,
 } from "@stencil/core";
 import {
-  ChatCategoryInterface,
+  ChatCategoryInterface, ChatContactInterface,
   ChatDialogInterface,
   ChatMessage,
   ChatViewToShowEnum,
   ChatWritingUserInterface,
   filterDialogsByCategory,
   filterDialogsBySearchValue,
-  filterMessageBySearchValue,
+  filterMessageBySearchValue, ShowFullChatOutputInterface,
   TitleModuleInterface,
 } from "../../../../../../index";
 import { ChatMessagesLogic } from "../../../../../../utils/utils";
+import {
+  ChatUserActionStatusState,
+  ChatUserPresenceState
+} from "../../../../../shared/user-status/res/abstract/enum/common.enum";
 
 @Component({
   tag: "cnt-module-chat",
@@ -58,6 +62,21 @@ export class CntModuleChat implements ComponentInterface {
   @Prop() disableInnerSearchMessagesState: boolean;
 
   /**
+   * отключение поиска контактов
+   * */
+  @Prop() disableInnerSearchContactState: boolean;
+
+  /**
+   * отключение возможности октрытие приложение чата
+   * */
+  @Prop() disableShowFullChatState: boolean;
+
+  /**
+   * Разворачивать полную версию чата при клике иконку
+   * */
+  @Event() showFullChat: EventEmitter<ShowFullChatOutputInterface>;
+
+  /**
    * видимость
    * */
   @Prop() visibleState: boolean = true;
@@ -76,7 +95,7 @@ export class CntModuleChat implements ComponentInterface {
   /**
    * масиив данных контактов
    * */
-  @Prop() contacts: any;
+  @Prop() contacts: ChatContactInterface[];
 
   /**
    * click to dialog
@@ -94,6 +113,11 @@ export class CntModuleChat implements ComponentInterface {
   @Event() clickToFilesBtn: EventEmitter<void>;
 
   /**
+   * search contact
+   * */
+  @Event() searchContact: EventEmitter<string>;
+
+  /**
    *
    * */
   @Event() chatViewStateChange: EventEmitter<ChatViewToShowEnum>;
@@ -102,6 +126,17 @@ export class CntModuleChat implements ComponentInterface {
    * select content default
    * */
   @Prop() chatViewState: ChatViewToShowEnum = ChatViewToShowEnum.dialogs;
+
+  /**
+   * действие сообеседников в чате (печатает, записывает аудио и т.д.)
+   * */
+  @Prop() chatActionState: ChatUserActionStatusState;
+
+  /**
+   * присутствие пользователя в сети
+   * */
+  @Prop() chatPresenceState: ChatUserPresenceState;
+
   //============================================================================================
   /**
    * Возможность записи аудио
@@ -113,6 +148,19 @@ export class CntModuleChat implements ComponentInterface {
    * */
   @Method() async setWritingState(item?: ChatWritingUserInterface) {
     this.writing = item ? [item] : null;
+  }
+  /**
+   * меняет статус (присутстия собеседников или контакта) в чате
+   * */
+  @Method() async updateChatPresenceState(item: ChatUserPresenceState) {
+    this.chatPresenceState = item;
+  }
+
+  /**
+   * меняет статусы действия текущих (печатает, записывает и т.д.)
+   * */
+  @Method() async updateChatActionState(item: ChatUserActionStatusState) {
+    this.chatActionState = item;
   }
 
   /**
@@ -128,6 +176,14 @@ export class CntModuleChat implements ComponentInterface {
   @Method() async activeRecordAudioState(state: boolean) {
     this.canRecordAudio = state;
   }
+
+  /**
+   * позволяет активировать/деактивароть возможность октрытие приложение
+   * */
+  @Method() async activeShowFullChat(state: boolean) {
+    this.disableShowFullChatState = !state;
+  }
+
   /**
    * сменить окно показа
    * */
@@ -177,6 +233,11 @@ export class CntModuleChat implements ComponentInterface {
   @State() contactsState = this.contacts;
 
   /**
+   * открытый диалог
+   * */
+  @State() openedDialog: ChatDialogInterface;
+
+  /**
    * массив данных категорий
    * */
   @State() categoriesState: ChatCategoryInterface[] = this.categories;
@@ -190,11 +251,6 @@ export class CntModuleChat implements ComponentInterface {
    * массив данных персонального чата
    * */
   @State() messageState: ChatMessage[] = this.message;
-
-  /**
-   * массив данных персонального чата
-   * */
-  @State() showFullChatState: boolean;
 
   @Watch("dialogs")
   watchDialogsHandler(newValue: boolean, oldValue: boolean) {
@@ -221,8 +277,9 @@ export class CntModuleChat implements ComponentInterface {
           {this.openState ? (
             <div class="wrapper-chat">
               <module-header
-                onShowFullChat={() => this.showFullChat()}
+                disableShowFullChatState={this.disableShowFullChatState}
                 titleModule={this.titleModule}
+                onShowFullChat={() => this.showFullChatHandler()}
                 onClose={() => this.onClose()}
               ></module-header>
               <div class="m-chat-wrapper">
@@ -240,15 +297,6 @@ export class CntModuleChat implements ComponentInterface {
         </div>
       </Host>
     );
-  }
-
-  /**
-   * Разворачивание полной версии чата
-   * */
-
-  public showFullChat() {
-    this.showFullChatState = true;
-    console.log("showFullChat");
   }
 
   public countNewMess(array) {
@@ -312,6 +360,9 @@ export class CntModuleChat implements ComponentInterface {
           //   <s-adam-copying></s-adam-copying>
           // </div>
           <module-personal
+            chatPresenceState={this.chatPresenceState}
+            openedDialog={this.openedDialog}
+            chatActionState={this.chatActionState}
             writing={this.writing}
             canRecordAudio={this.canRecordAudio}
             onSendTextMessage={() => this.scrollMessageViewToBot()}
@@ -392,6 +443,7 @@ export class CntModuleChat implements ComponentInterface {
     if (pseudoClick) {
       this.clickToDialog.emit(dialog);
     }
+    this.openedDialog = dialog;
     this.updateViewState(ChatViewToShowEnum.personal);
   }
 
@@ -400,6 +452,20 @@ export class CntModuleChat implements ComponentInterface {
    * */
   public clickToFilesBtnHandler(): void {
     this.updateViewState(ChatViewToShowEnum.files);
+  }
+
+  /**
+   *
+   * */
+  public showFullChatHandler(): void {
+    this.showFullChat.emit(
+      {
+        view: this.chatViewState,
+        data: this.chatViewState === ChatViewToShowEnum.personal
+          ? this.openedDialog
+          : null
+      }
+    )
   }
 
   /**
@@ -418,7 +484,6 @@ export class CntModuleChat implements ComponentInterface {
 
   public sendNewMessModal(): void {
     this.updateViewState(ChatViewToShowEnum.contacts);
-    console.log("sendNewMessModal");
   }
 
   /**
