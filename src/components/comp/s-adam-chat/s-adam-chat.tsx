@@ -37,7 +37,7 @@ export class SAdamChat implements ComponentInterface {
                 ></s-adam-navigate>
               </div>
               <div class="col-3">
-                <s-adam-contacts
+                <s-adam-dialogs
                   onSearchDialogs={() => this.searchDialogs()}
                   onClickToDialog={() => {
                     this.toggleChat();
@@ -47,7 +47,9 @@ export class SAdamChat implements ComponentInterface {
                   onClickToCategory={({ detail }) =>
                     this.clickToCategory({ detail })
                   }
-                ></s-adam-contacts>
+                ></s-adam-dialogs>
+                {/*<s-adam-contacts>*/}
+                {/*</s-adam-contacts>*/}
               </div>
               <div class="col white-col">
                 <section class="chat">

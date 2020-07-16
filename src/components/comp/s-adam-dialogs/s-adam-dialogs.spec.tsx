@@ -1,18 +1,18 @@
 // import { newSpecPage } from '@stencil/core/testing';
-// import { SAdamContacts } from './s-adam-contacts';
+// import { SAdamDialogs } from './s-adam-dialogs';
 //
-// describe('s-adam-contacts', () => {
+// describe('s-adam-dialogs', () => {
 //   it('renders', async () => {
 //     const page = await newSpecPage({
-//       components: [SAdamContacts],
-//       html: `<s-adam-contacts></s-adam-contacts>`,
+//       components: [SAdamDialogs],
+//       html: `<s-adam-dialogs></s-adam-dialogs>`,
 //     });
 //     expect(page.root).toEqualHtml(`
-//       <s-adam-contacts>
+//       <s-adam-dialogs>
 //         <mock:shadow-root>
 //           <slot></slot>
 //         </mock:shadow-root>
-//       </s-adam-contacts>
+//       </s-adam-dialogs>
 //     `);
 //   });
 // });

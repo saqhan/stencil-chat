@@ -14,7 +14,7 @@
 ### Depends on
 
 - [s-adam-navigate](../s-adam-navigate)
-- [s-adam-contacts](../s-adam-contacts)
+- [s-adam-contacts](../s-adam-dialogs)
 - [s-adam-direct](../s-adam-direct)
 - [s-adam-no-chat](../s-adam-no-chat)
 - [s-adam-profile](../../shared/s-adam-profile)

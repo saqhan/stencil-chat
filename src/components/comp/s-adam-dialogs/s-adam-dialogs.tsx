@@ -10,12 +10,12 @@ import {
 import { ChatCategoryInterface, ChatDialogInterface } from "../../../index";
 
 @Component({
-  tag: "s-adam-contacts",
-  styleUrl: "s-adam-contacts.css",
+  tag: "s-adam-dialogs",
+  styleUrl: "s-adam-dialogs.css",
   shadow: false,
   scoped: true
 })
-export class SAdamContacts implements ComponentInterface {
+export class SAdamDialogs implements ComponentInterface {
   /**
    * Массив с элементами диалога
    */

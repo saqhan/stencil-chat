@@ -266,6 +266,10 @@ export namespace Components {
     interface SAdamChat {
     }
     interface SAdamContacts {
+    }
+    interface SAdamCopying {
+    }
+    interface SAdamDialogs {
         /**
           * массив категорий диалогов
          */
@@ -274,8 +278,6 @@ export namespace Components {
           * Массив с элементами диалога
          */
         "dialogs": ChatDialogInterface[];
-    }
-    interface SAdamCopying {
     }
     interface SAdamDirect {
         /**
@@ -536,6 +538,12 @@ declare global {
         prototype: HTMLSAdamCopyingElement;
         new (): HTMLSAdamCopyingElement;
     };
+    interface HTMLSAdamDialogsElement extends Components.SAdamDialogs, HTMLStencilElement {
+    }
+    var HTMLSAdamDialogsElement: {
+        prototype: HTMLSAdamDialogsElement;
+        new (): HTMLSAdamDialogsElement;
+    };
     interface HTMLSAdamDirectElement extends Components.SAdamDirect, HTMLStencilElement {
     }
     var HTMLSAdamDirectElement: {
@@ -668,6 +676,7 @@ declare global {
         "s-adam-chat": HTMLSAdamChatElement;
         "s-adam-contacts": HTMLSAdamContactsElement;
         "s-adam-copying": HTMLSAdamCopyingElement;
+        "s-adam-dialogs": HTMLSAdamDialogsElement;
         "s-adam-direct": HTMLSAdamDirectElement;
         "s-adam-nav-item": HTMLSAdamNavItemElement;
         "s-adam-navigate": HTMLSAdamNavigateElement;
@@ -1101,6 +1110,10 @@ declare namespace LocalJSX {
     interface SAdamChat {
     }
     interface SAdamContacts {
+    }
+    interface SAdamCopying {
+    }
+    interface SAdamDialogs {
         /**
           * массив категорий диалогов
          */
@@ -1121,8 +1134,6 @@ declare namespace LocalJSX {
           * Поиск по контактам
          */
         "onSearchDialogs"?: (event: CustomEvent<ChatDialogInterface>) => void;
-    }
-    interface SAdamCopying {
     }
     interface SAdamDirect {
         /**
@@ -1291,6 +1302,7 @@ declare namespace LocalJSX {
         "s-adam-chat": SAdamChat;
         "s-adam-contacts": SAdamContacts;
         "s-adam-copying": SAdamCopying;
+        "s-adam-dialogs": SAdamDialogs;
         "s-adam-direct": SAdamDirect;
         "s-adam-nav-item": SAdamNavItem;
         "s-adam-navigate": SAdamNavigate;
@@ -1343,6 +1355,7 @@ declare module "@stencil/core" {
             "s-adam-chat": LocalJSX.SAdamChat & JSXBase.HTMLAttributes<HTMLSAdamChatElement>;
             "s-adam-contacts": LocalJSX.SAdamContacts & JSXBase.HTMLAttributes<HTMLSAdamContactsElement>;
             "s-adam-copying": LocalJSX.SAdamCopying & JSXBase.HTMLAttributes<HTMLSAdamCopyingElement>;
+            "s-adam-dialogs": LocalJSX.SAdamDialogs & JSXBase.HTMLAttributes<HTMLSAdamDialogsElement>;
             "s-adam-direct": LocalJSX.SAdamDirect & JSXBase.HTMLAttributes<HTMLSAdamDirectElement>;
             "s-adam-nav-item": LocalJSX.SAdamNavItem & JSXBase.HTMLAttributes<HTMLSAdamNavItemElement>;
             "s-adam-navigate": LocalJSX.SAdamNavigate & JSXBase.HTMLAttributes<HTMLSAdamNavigateElement>;

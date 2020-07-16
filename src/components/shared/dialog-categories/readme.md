@@ -25,7 +25,7 @@
 ### Used by
 
  - [m-chat-header](../../mobile/mobile-chat/res/view/mobile-dialogs/res/view/m-chat-header)
- - [s-adam-contacts](../../comp/s-adam-contacts)
+ - [s-adam-contacts](../../comp/s-adam-dialogs)
  - [s-saqhan-chat-form-search](../../module/module-chat/res/view/s-saqhan-chat-wrapper/res/view/s-saqhan-chat-users-wrapper/res/view/s-saqhan-chat-form-search)
 
 ### Graph
