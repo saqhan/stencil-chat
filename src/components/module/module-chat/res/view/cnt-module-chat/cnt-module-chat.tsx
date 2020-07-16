@@ -354,7 +354,7 @@ export class CntModuleChat implements ComponentInterface {
    * Метод отмена поиска
    * **/
   public cancelSearchPersonal(): void {
-    this.message = this.messageState;
+    this.messageState = this.message;
   }
   /**
    * Метод для изменения состояния чата

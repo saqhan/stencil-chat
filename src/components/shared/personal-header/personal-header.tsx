@@ -77,7 +77,9 @@ export class PersonalHeader implements ComponentInterface {
               <span
                 class="custom-link"
                 onClick={() => this.clickToUserProfileHandler()}
-              >{this.getNameUser()}</span>
+              >
+                {this.getNameUser()}
+              </span>
             </span>
             {/*<span class="custom-link">*/}
             {/*  <div class="dots-menu" onClick={() => this.showDrop()}>*/}
@@ -104,15 +106,19 @@ export class PersonalHeader implements ComponentInterface {
             {/*    ""*/}
             {/*  )}*/}
             {/*</span>*/}
-            <span class="custom-link"
-                  onClick={() => this.showInputSearchPersonalMess()}
+            <span
+              class="custom-link"
+              onClick={() => this.showInputSearchPersonalMess()}
             >
-              { this.isPersonalMess ? <i  class="fas fa-search"></i> : <i class="fas fa-times"></i> }
-
+              {this.isPersonalMess ? (
+                <i class="fas fa-search"></i>
+              ) : (
+                <i class="fas fa-times"></i>
+              )}
             </span>
           </div>
           <div class="users-nav">
-            <div class="user-active" >
+            <div class="user-active">
               {this.isPersonalMess ? (
                 <div class="status-user">
                   {/*<span class="user-online" >online</span>*/}
