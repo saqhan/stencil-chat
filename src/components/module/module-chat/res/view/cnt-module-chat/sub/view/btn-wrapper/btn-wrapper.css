@@ -1,0 +1,71 @@
+
+.btn-open {
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  border: none;
+  background-color: #72b94d;
+  color: #fff;
+  border-radius: 50%;
+  outline: none !important;
+  cursor: pointer;
+}
+
+.open-chat {
+  text-align: right;
+  z-index: 999;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}
+
+.btn-green {
+  position: relative;
+}
+
+.counterNewMess {
+  position: absolute;
+  right: -5px;
+  top: 0px;
+  color: #fff;
+  text-align: center;
+  width: 25px;
+  padding: 5px 5px;
+  border-radius: 50%;
+  background-color: #c73f45;
+  font-size: 12px;
+}
+
+
+
+@media (max-width: 414px) {
+  .btn-open {
+    width: 40px;
+    height: 40px;
+  }
+  .open-chat {
+    right: 0px;
+    bottom: 60px;
+  }
+  .open-chat::after {
+    font-size: 10px;
+    padding: 0px 5px;
+    top: -20px;
+    left: -15px;
+  }
+
+  .btn-open {
+    font-size: 18px;
+  }
+  .counterNewMess{
+    width: 18px;
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 375px) {
+  .open-chat {
+    right: 15px;
+    bottom: 60px;
+  }
+}

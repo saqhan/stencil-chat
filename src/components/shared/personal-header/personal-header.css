@@ -1,0 +1,124 @@
+.drop-down {
+  position: absolute;
+  right: 20px;
+  padding: 10px;
+  background-color: #dadada8f;
+  border-radius: 10px 0px 10px 10px;
+}
+
+.drop-down ul li {
+  list-style: none;
+}
+
+.searchPersonalmess {
+  /*position: relative;*/
+  /*display: flex;*/
+  /*align-items: center;*/
+  /*justify-content: space-between;*/
+}
+
+.searchPersonalmess input {
+  text-align: center;
+  border-radius: 5px;
+  border: none;
+  background-color: #eaeaea;
+  width: 100%;
+  height: 25px;
+  font-size: 14px;
+  outline: none;
+}
+
+.cancel-search {
+  padding: 5px;
+  cursor: pointer;
+}
+
+
+.search-wrapper  {
+  margin-bottom: -10px;
+}
+
+.personal-header {
+  padding: 20px 20px 20px;
+  border-bottom: 1px solid #ccc;
+  position: relative;
+  height: 85px;
+}
+
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-nav span i {
+  color: #979eab;
+  transition: 0.3s ease;
+}
+.header-nav span i:hover {
+  cursor: pointer;
+  color: rgb(87, 128, 247);
+}
+
+.header-nav .user-name-personal {
+  font-weight: 600;
+  color: #4c567d;
+  text-align: center;
+  width: 100%;
+}
+
+.users-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: auto;
+  margin-top: 7px;
+}
+
+.img-user-other {
+  text-align: center;
+  border-radius: 50%;
+}
+
+.img-user-other .img {
+  width: 30px;
+  height: 30px;
+  margin: 3px;
+  border-radius: 50%;
+  background-image: url("https://via.placeholder.com/300x300?text=User");
+  background-size: cover;
+  background-position: center;
+}
+
+.img-user-current {
+  text-align: center;
+  border: 2px solid #4c567d;
+  border-radius: 50%;
+}
+
+.img-user-current .img {
+  width: 35px;
+  height: 35px;
+  margin: 3px;
+  border-radius: 50%;
+  background-image: url("https://via.placeholder.com/300x300?text=User");
+  background-size: cover;
+  background-position: center;
+}
+
+/* user status */
+
+.user-active {
+  width: 100%;
+  text-align: center;
+}
+
+.user-active span {
+  color: #4c567d;
+  font-size: 14px;
+}
+
+
+.header-nav span i {
+  width: 14px;
+}

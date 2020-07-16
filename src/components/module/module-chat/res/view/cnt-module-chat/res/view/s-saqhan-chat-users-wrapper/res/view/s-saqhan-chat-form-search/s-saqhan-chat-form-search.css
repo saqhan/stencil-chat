@@ -1,0 +1,88 @@
+
+
+.header-wrapper {
+  border-bottom: 1px solid #ececec;
+}
+
+.chat-files {
+  text-align: center;
+  padding: 10px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chat-files .row {
+  align-items: center;
+}
+
+.block-input {
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+
+.block-input i {
+  position: absolute;
+  top: 12px;
+  left: 20px;
+  color: #97a9c9;
+}
+
+.input-search {
+  width: 100%;
+  border-radius: 3px;
+  border: none;
+  background-color: #ececec;
+  outline: none;
+  color: #5a5a5a;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 40px;
+  margin-left: 8px;
+  margin-right: 20px;
+}
+
+/*.chat-files .block-input::before {*/
+/*  font-family: "Font Awesome 5 Free";*/
+/*  font-weight: 400;*/
+/*  content: "\f002";*/
+/*  position: relative;*/
+/*  left: 25px;*/
+/*  bottom: -10px;*/
+/*  z-index: 999;*/
+/*  color: #5a5a5a;*/
+/*}*/
+
+/*.block-file i {*/
+/*  font-size: 18px;*/
+/*  color: #5a5a5a;*/
+/*}*/
+
+.block-file {
+  padding-right: 15px;
+}
+
+.block-file i {
+  font-size: 18px;
+  color: #ccc;
+}
+
+
+
+@media (max-width: 375px) {
+  .chat-files {
+    /*justify-content: center;*/
+  }
+  .input-search {
+    padding: 10px 30px;
+  }
+  .chat-files .block-input::before {
+    left: 13px;
+  }
+}
+@media (max-width: 320px) {
+  .block-input {
+    text-align: center;
+  }
+}

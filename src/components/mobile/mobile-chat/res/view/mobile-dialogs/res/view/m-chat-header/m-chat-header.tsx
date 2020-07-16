@@ -73,7 +73,7 @@ export class MChatHeader implements ComponentInterface {
             class="add custom-link"
             onClick={() => this.clickToAddDialogHandler()}
           >
-            <i class="fas fa-plus-circle"></i>
+            <i class="fas fa-cog hover-link"></i>
           </span>
         </div>
         {this.isShowModal ? (

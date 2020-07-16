@@ -1,0 +1,34 @@
+.header-chat {
+  background-color: #ececec;
+  padding: 10px 20px;
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-chat-title {
+  /*text-align: center;*/
+  /*width: 100%;*/
+}
+
+.header-chat .close {
+  /*position: absolute;*/
+  /*right: 5%;*/
+  /*cursor: pointer;*/
+}
+.header-chat .close i {
+  font-size: 20px;
+  color: #ccc;
+  transition: 0.3s ease;
+}
+
+.header-chat .close i:hover {
+  color: #4c567d;
+  cursor: pointer;
+}
+
+.showFullChat i {
+  color: #4c567d;
+  cursor: pointer;
+}

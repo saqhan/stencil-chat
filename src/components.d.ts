@@ -5,10 +5,95 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ChatCategoryInterface, ChatClickToLinkEmit, ChatContactInterface, ChatDialogInterface, ChatLogo, ChatMessage, ChatNavItems, ChatWritingUserInterface, titleModule, } from "./index";
+import { ChatCategoryInterface, ChatClickToLinkEmit, ChatContactInterface, ChatDialogInterface, ChatLogo, ChatMessage, ChatNavItems, ChatViewToShowEnum, ChatWritingUserInterface, TitleModuleInterface, } from "./index";
+import { TitleModuleInterface as TitleModuleInterface1, } from ".";
 export namespace Components {
     interface BtnWrapper {
-        "showChat": any;
+        "dialogs": number;
+        "showChat": boolean;
+    }
+    interface CntModuleChat {
+        /**
+          * позволяет активировать/деактивароть возможность записи аудио
+         */
+        "activeRecordAudioState": (state: boolean) => Promise<void>;
+        /**
+          * Возможность записи аудио
+         */
+        "canRecordAudio": boolean;
+        /**
+          * array categories
+         */
+        "categories": ChatCategoryInterface[];
+        /**
+          * сменить окно показа
+         */
+        "changeViewToShow": (state: ChatViewToShowEnum) => Promise<void>;
+        /**
+          * select content default
+         */
+        "chatViewState": ChatViewToShowEnum;
+        /**
+          * показывает только кнопку
+         */
+        "close": () => Promise<void>;
+        /**
+          * масиив данных контактов
+         */
+        "contacts": any;
+        /**
+          * массив данных для диалогов
+         */
+        "dialogs": ChatDialogInterface[];
+        /**
+          * отключение поиска диалогов
+         */
+        "disableInnerSearchDialogsState": boolean;
+        /**
+          * отключение поиска сообщений
+         */
+        "disableInnerSearchMessagesState": boolean;
+        /**
+          * скрывает весь блок что бы на экране не было вообще видно
+         */
+        "hide": () => Promise<void>;
+        /**
+          * массив данных личных сообщений
+         */
+        "message": ChatMessage[];
+        /**
+          * открывает блок чатов
+         */
+        "open": () => Promise<void>;
+        "openDialog": (dialog: ChatDialogInterface) => Promise<void>;
+        /**
+          * Перменная для включения/отключения показа чата в развернутом виде
+         */
+        "openState": boolean;
+        /**
+          * скролит вниз окно сообщений
+         */
+        "safeScrollToBotMessageView": () => Promise<void>;
+        /**
+          * позволяет установить печатающие данные
+         */
+        "setWritingState": (item?: ChatWritingUserInterface) => Promise<void>;
+        /**
+          * показывает весь блок после скрытия
+         */
+        "show": () => Promise<void>;
+        /**
+          * Заголовок для чата
+         */
+        "titleModule": TitleModuleInterface;
+        /**
+          * видимость
+         */
+        "visibleState": boolean;
+        /**
+          * добавляем печатающий
+         */
+        "writing": ChatWritingUserInterface[];
     }
     interface ContactCard {
         /**
@@ -18,9 +103,20 @@ export namespace Components {
     }
     interface ContactsList {
         "contacts": ChatContactInterface[];
+        /**
+          * Тема для модульного/мобильного чата
+         */
+        "theme": "mobile" | "module";
     }
     interface ContactsListBody {
+        /**
+          * массив данных контактов
+         */
         "contacts": ChatContactInterface[];
+        /**
+          * Данные выбора темы для Мобильная/Модульной версии
+         */
+        "theme": "mobile" | "module";
     }
     interface ContactsListHeader {
     }
@@ -46,6 +142,10 @@ export namespace Components {
     }
     interface FooterText {
         /**
+          * Возможность записи аудио
+         */
+        "canRecordAudio": boolean;
+        /**
           * Пропс с классом
          */
         "theme": "comp" | "mobile" | "module";
@@ -57,6 +157,10 @@ export namespace Components {
         "dialogs": ChatDialogInterface[];
     }
     interface MChatFooter {
+        /**
+          * Данные выбора темы для Мобильная/Модульной версии
+         */
+        "theme": "mobile" | "module";
     }
     interface MChatHeader {
         /**
@@ -115,20 +219,37 @@ export namespace Components {
     interface ModuleChat {
     }
     interface ModuleHeader {
-        "titleModule": titleModule;
+        "titleModule": TitleModuleInterface;
     }
     interface ModulePersonal {
+        /**
+          * Возможность записи аудио
+         */
+        "canRecordAudio": boolean;
+        /**
+          * array data dialogs
+         */
+        "dialogs": ChatDialogInterface[];
         /**
           * array data personal messages
          */
         "message": ChatMessage[];
+        "writing": ChatWritingUserInterface[];
     }
     interface MyComponent {
     }
     interface PersonalFooter {
+        /**
+          * Возможность записи аудио
+         */
+        "canRecordAudio": boolean;
         "theme": "comp" | "mobile" | "module";
     }
     interface PersonalHeader {
+        /**
+          * array data dialogs
+         */
+        "dialogs": ChatDialogInterface[];
         /**
           * array data personal messages
          */
@@ -231,33 +352,13 @@ export namespace Components {
          */
         "personalMessage": ChatMessage[];
     }
-    interface SSaqhanChatWrapper {
-        /**
-          * array categories
-         */
-        "categories": ChatCategoryInterface[];
-        /**
-          * массив данных для диалогов
-         */
-        "dialogs": ChatDialogInterface[];
-        /**
-          * отключение поиска диалогов
-         */
-        "disableInnerSearchDialogs": boolean;
-        /**
-          * отключение поиска сообщений
-         */
-        "disableInnerSearchMessages": boolean;
-        /**
-          * массив данных личных сообщений
-         */
-        "message": ChatMessage[];
-        /**
-          * Заголовок для чата
-         */
-        "titleModule": any;
-    }
     interface UserProfile {
+    }
+    interface UserStatus {
+        /**
+          * Тема для блока
+         */
+        "theme": "comp" | "mobile" | "module";
     }
 }
 declare global {
@@ -266,6 +367,12 @@ declare global {
     var HTMLBtnWrapperElement: {
         prototype: HTMLBtnWrapperElement;
         new (): HTMLBtnWrapperElement;
+    };
+    interface HTMLCntModuleChatElement extends Components.CntModuleChat, HTMLStencilElement {
+    }
+    var HTMLCntModuleChatElement: {
+        prototype: HTMLCntModuleChatElement;
+        new (): HTMLCntModuleChatElement;
     };
     interface HTMLContactCardElement extends Components.ContactCard, HTMLStencilElement {
     }
@@ -519,20 +626,21 @@ declare global {
         prototype: HTMLSSaqhanChatUsersWrapperElement;
         new (): HTMLSSaqhanChatUsersWrapperElement;
     };
-    interface HTMLSSaqhanChatWrapperElement extends Components.SSaqhanChatWrapper, HTMLStencilElement {
-    }
-    var HTMLSSaqhanChatWrapperElement: {
-        prototype: HTMLSSaqhanChatWrapperElement;
-        new (): HTMLSSaqhanChatWrapperElement;
-    };
     interface HTMLUserProfileElement extends Components.UserProfile, HTMLStencilElement {
     }
     var HTMLUserProfileElement: {
         prototype: HTMLUserProfileElement;
         new (): HTMLUserProfileElement;
     };
+    interface HTMLUserStatusElement extends Components.UserStatus, HTMLStencilElement {
+    }
+    var HTMLUserStatusElement: {
+        prototype: HTMLUserStatusElement;
+        new (): HTMLUserStatusElement;
+    };
     interface HTMLElementTagNameMap {
         "btn-wrapper": HTMLBtnWrapperElement;
+        "cnt-module-chat": HTMLCntModuleChatElement;
         "contact-card": HTMLContactCardElement;
         "contacts-list": HTMLContactsListElement;
         "contacts-list-body": HTMLContactsListBodyElement;
@@ -575,17 +683,78 @@ declare global {
         "s-saqhan-chat-user": HTMLSSaqhanChatUserElement;
         "s-saqhan-chat-users": HTMLSSaqhanChatUsersElement;
         "s-saqhan-chat-users-wrapper": HTMLSSaqhanChatUsersWrapperElement;
-        "s-saqhan-chat-wrapper": HTMLSSaqhanChatWrapperElement;
         "user-profile": HTMLUserProfileElement;
+        "user-status": HTMLUserStatusElement;
     }
 }
 declare namespace LocalJSX {
     interface BtnWrapper {
+        "dialogs"?: number;
         /**
           * clock on clickToLink
          */
-        "onClickToShowChat"?: (event: CustomEvent<any>) => void;
-        "showChat"?: any;
+        "onClickToShowChat"?: (event: CustomEvent<void>) => void;
+        "showChat"?: boolean;
+    }
+    interface CntModuleChat {
+        /**
+          * Возможность записи аудио
+         */
+        "canRecordAudio"?: boolean;
+        /**
+          * array categories
+         */
+        "categories"?: ChatCategoryInterface[];
+        /**
+          * select content default
+         */
+        "chatViewState"?: ChatViewToShowEnum;
+        /**
+          * масиив данных контактов
+         */
+        "contacts"?: any;
+        /**
+          * массив данных для диалогов
+         */
+        "dialogs"?: ChatDialogInterface[];
+        /**
+          * отключение поиска диалогов
+         */
+        "disableInnerSearchDialogsState"?: boolean;
+        /**
+          * отключение поиска сообщений
+         */
+        "disableInnerSearchMessagesState"?: boolean;
+        /**
+          * массив данных личных сообщений
+         */
+        "message"?: ChatMessage[];
+        "onChatViewStateChange"?: (event: CustomEvent<ChatViewToShowEnum>) => void;
+        /**
+          * click to dialog
+         */
+        "onClickToDialog"?: (event: CustomEvent<ChatDialogInterface>) => void;
+        /**
+          * click to files button
+         */
+        "onClickToFilesBtn"?: (event: CustomEvent<void>) => void;
+        "onSendTextMessage"?: (event: CustomEvent<string>) => void;
+        /**
+          * Перменная для включения/отключения показа чата в развернутом виде
+         */
+        "openState"?: boolean;
+        /**
+          * Заголовок для чата
+         */
+        "titleModule"?: TitleModuleInterface;
+        /**
+          * видимость
+         */
+        "visibleState"?: boolean;
+        /**
+          * добавляем печатающий
+         */
+        "writing"?: ChatWritingUserInterface[];
     }
     interface ContactCard {
         /**
@@ -623,9 +792,20 @@ declare namespace LocalJSX {
           * search contact
          */
         "onSearchContact"?: (event: CustomEvent<ChatContactInterface>) => void;
+        /**
+          * Тема для модульного/мобильного чата
+         */
+        "theme"?: "mobile" | "module";
     }
     interface ContactsListBody {
+        /**
+          * массив данных контактов
+         */
         "contacts"?: ChatContactInterface[];
+        /**
+          * Данные выбора темы для Мобильная/Модульной версии
+         */
+        "theme"?: "mobile" | "module";
     }
     interface ContactsListHeader {
         /**
@@ -645,7 +825,7 @@ declare namespace LocalJSX {
         /**
           * clock on dialog
          */
-        "onClickToDialog"?: (event: CustomEvent<ChatClickToLinkEmit>) => void;
+        "onClickToDialog"?: (event: CustomEvent<ChatDialogInterface>) => void;
         /**
           * карточка диалога
          */
@@ -670,6 +850,11 @@ declare namespace LocalJSX {
         "theme"?: "comp" | "mobile" | "module";
     }
     interface FooterText {
+        /**
+          * Возможность записи аудио
+         */
+        "canRecordAudio"?: boolean;
+        "onSendTextMessage"?: (event: CustomEvent<string>) => void;
         /**
           * Пока футера аудио
          */
@@ -699,6 +884,10 @@ declare namespace LocalJSX {
           * click to click To Show Contacts
          */
         "onClickToShowMenuBar"?: (event: CustomEvent<void>) => void;
+        /**
+          * Данные выбора темы для Мобильная/Модульной версии
+         */
+        "theme"?: "mobile" | "module";
     }
     interface MChatHeader {
         /**
@@ -821,9 +1010,21 @@ declare namespace LocalJSX {
           * close modal
          */
         "onClose"?: (event: CustomEvent<void>) => void;
-        "titleModule"?: titleModule;
+        /**
+          * Разворачивать полную версию чата при клике иконку
+         */
+        "onShowFullChat"?: (event: CustomEvent<void>) => void;
+        "titleModule"?: TitleModuleInterface;
     }
     interface ModulePersonal {
+        /**
+          * Возможность записи аудио
+         */
+        "canRecordAudio"?: boolean;
+        /**
+          * array data dialogs
+         */
+        "dialogs"?: ChatDialogInterface[];
         /**
           * array data personal messages
          */
@@ -841,10 +1042,16 @@ declare namespace LocalJSX {
           * search for private messages
          */
         "onSearchPersonalMessages"?: (event: CustomEvent<string>) => void;
+        "onSendTextMessage"?: (event: CustomEvent<string>) => void;
+        "writing"?: ChatWritingUserInterface[];
     }
     interface MyComponent {
     }
     interface PersonalFooter {
+        /**
+          * Возможность записи аудио
+         */
+        "canRecordAudio"?: boolean;
         /**
           * click on navigate
          */
@@ -853,10 +1060,21 @@ declare namespace LocalJSX {
     }
     interface PersonalHeader {
         /**
+          * array data dialogs
+         */
+        "dialogs"?: ChatDialogInterface[];
+        /**
           * array data personal messages
          */
         "message"?: ChatMessage[];
+        /**
+          * отмена поиска
+         */
         "onCancelSearchPersonal"?: (event: CustomEvent<void>) => void;
+        /**
+          * Клик по диалогу
+         */
+        "onClickToDialog"?: (event: CustomEvent<ChatClickToLinkEmit>) => void;
         /**
           * clock on navigate
          */
@@ -1034,37 +1252,18 @@ declare namespace LocalJSX {
          */
         "personalMessage"?: ChatMessage[];
     }
-    interface SSaqhanChatWrapper {
-        /**
-          * array categories
-         */
-        "categories"?: ChatCategoryInterface[];
-        /**
-          * массив данных для диалогов
-         */
-        "dialogs"?: ChatDialogInterface[];
-        /**
-          * отключение поиска диалогов
-         */
-        "disableInnerSearchDialogs"?: boolean;
-        /**
-          * отключение поиска сообщений
-         */
-        "disableInnerSearchMessages"?: boolean;
-        /**
-          * массив данных личных сообщений
-         */
-        "message"?: ChatMessage[];
-        /**
-          * Заголовок для чата
-         */
-        "titleModule"?: any;
-    }
     interface UserProfile {
         "onClickToShowDialogs"?: (event: CustomEvent<any>) => void;
     }
+    interface UserStatus {
+        /**
+          * Тема для блока
+         */
+        "theme"?: "comp" | "mobile" | "module";
+    }
     interface IntrinsicElements {
         "btn-wrapper": BtnWrapper;
+        "cnt-module-chat": CntModuleChat;
         "contact-card": ContactCard;
         "contacts-list": ContactsList;
         "contacts-list-body": ContactsListBody;
@@ -1107,8 +1306,8 @@ declare namespace LocalJSX {
         "s-saqhan-chat-user": SSaqhanChatUser;
         "s-saqhan-chat-users": SSaqhanChatUsers;
         "s-saqhan-chat-users-wrapper": SSaqhanChatUsersWrapper;
-        "s-saqhan-chat-wrapper": SSaqhanChatWrapper;
         "user-profile": UserProfile;
+        "user-status": UserStatus;
     }
 }
 export { LocalJSX as JSX };
@@ -1116,6 +1315,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "btn-wrapper": LocalJSX.BtnWrapper & JSXBase.HTMLAttributes<HTMLBtnWrapperElement>;
+            "cnt-module-chat": LocalJSX.CntModuleChat & JSXBase.HTMLAttributes<HTMLCntModuleChatElement>;
             "contact-card": LocalJSX.ContactCard & JSXBase.HTMLAttributes<HTMLContactCardElement>;
             "contacts-list": LocalJSX.ContactsList & JSXBase.HTMLAttributes<HTMLContactsListElement>;
             "contacts-list-body": LocalJSX.ContactsListBody & JSXBase.HTMLAttributes<HTMLContactsListBodyElement>;
@@ -1158,8 +1358,8 @@ declare module "@stencil/core" {
             "s-saqhan-chat-user": LocalJSX.SSaqhanChatUser & JSXBase.HTMLAttributes<HTMLSSaqhanChatUserElement>;
             "s-saqhan-chat-users": LocalJSX.SSaqhanChatUsers & JSXBase.HTMLAttributes<HTMLSSaqhanChatUsersElement>;
             "s-saqhan-chat-users-wrapper": LocalJSX.SSaqhanChatUsersWrapper & JSXBase.HTMLAttributes<HTMLSSaqhanChatUsersWrapperElement>;
-            "s-saqhan-chat-wrapper": LocalJSX.SSaqhanChatWrapper & JSXBase.HTMLAttributes<HTMLSSaqhanChatWrapperElement>;
             "user-profile": LocalJSX.UserProfile & JSXBase.HTMLAttributes<HTMLUserProfileElement>;
+            "user-status": LocalJSX.UserStatus & JSXBase.HTMLAttributes<HTMLUserStatusElement>;
         }
     }
 }

@@ -1,12 +1,5 @@
-import {
-  Component,
-  ComponentInterface,
-  Event,
-  EventEmitter,
-  h,
-  Prop,
-} from "@stencil/core";
-import { ChatClickToLinkEmit, ChatDialogInterface } from "../../../index";
+import {Component, ComponentInterface, Event, EventEmitter, h, Prop,} from "@stencil/core";
+import {ChatDialogInterface} from "../../../index";
 
 @Component({
   tag: "dialog-card",
@@ -28,10 +21,11 @@ export class DialogCard implements ComponentInterface {
    * clock on navigate
    * */
   // @Event() clickToLink: EventEmitter<ChatClickToLinkEmit>;
+
   /**
    * clock on dialog
    * */
-  @Event() clickToDialog: EventEmitter<ChatClickToLinkEmit>;
+  @Event() clickToDialog: EventEmitter<ChatDialogInterface>;
 
   render() {
     return (
@@ -54,7 +48,7 @@ export class DialogCard implements ComponentInterface {
                 {this.createSendTime(this.mess.time.created)}
               </div>
               {/*<div class="new-message-from">Yesterday</div>*/}
-              <span class="add-new-message">1</span>
+              {this.showNewMess(this.mess)}
             </div>
           </div>
         </div>
@@ -62,11 +56,19 @@ export class DialogCard implements ComponentInterface {
     );
   }
 
+
+  public showNewMess(dialog){
+    if (dialog.newMessage > 0) {
+     return <span class="add-new-message"> {dialog.newMessage}</span>
+    }
+  }
+
   /**
    * Управление по клику на диалог
    * */
   public clickToDialogHandler() {
-    this.clickToDialog.emit({ data: this.mess });
+    // this.clickToDialog.emit({ data: this.mess });
+    this.clickToDialog.emit(this.mess);
   }
 
   // public clickToLinkHandler() {

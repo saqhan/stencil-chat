@@ -1,7 +1,6 @@
 .btns-nav {
   display: flex;
   align-items: center;
-  margin: 0 -20px;
   border-bottom: 1px solid #ccc;
   overflow-x: scroll;
   overflow-y: hidden;
@@ -35,6 +34,26 @@
 .mobile .btns-nav {
   margin-top: 10px;
 }
+
+
+.module .btns-nav span {
+  font-size: 14px;
+  display: flex;
+  /*justify-content: center;*/
+  align-items: center;
+  /*width: 25%;*/
+  padding: 0px 20px;
+  height: 30px;
+  text-align: center;
+  font-weight: 600;
+  color: #979eab;
+  transition: 0.3s ease-in-out;
+}
+
+.module .btns-nav {
+  justify-content:start;
+}
+
 ::-webkit-scrollbar {
   height: 0px; /* высота для горизонтального скролла */
 }
