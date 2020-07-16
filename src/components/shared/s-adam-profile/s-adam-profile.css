@@ -60,7 +60,7 @@
   font-size: 12px;
   color: #8d8d8d;
 }
-.about-user .fas {
+.about-user .c-chat {
   margin: 0 15px;
 }
 .user-social {
@@ -80,7 +80,7 @@
   justify-content: space-between;
   padding: 20px;
 }
-.user-social-block .fab {
+.user-social-block .c-chat {
   width: 16px;
   text-align: center;
   margin-right: 20px;
@@ -129,8 +129,7 @@
   font-size: 8px;
   font-weight: 600;
 }
-.fas,
-.fab {
+.c-chat {
   color: #bacbe3;
   cursor: pointer;
 }

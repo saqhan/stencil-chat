@@ -32,7 +32,7 @@ export class SAdamProfile implements ComponentInterface {
               }
             >
               {" "}
-              <i class="fas fa-arrow-left"></i>
+              <i class="c-chat c-chat-arrow-left"></i>
             </a>
           </div>
           <div class="about-user">
@@ -46,24 +46,24 @@ export class SAdamProfile implements ComponentInterface {
             <div class="user-name">Tim Ostin</div>
             <div class="user-mail">timostin@gmail.com</div>
             <div class="user-contact">
-              <i class="fas fa-phone-alt hover-link"></i>
-              <i class="fas fa-video hover-link"></i>
-              <i class="fas fa-envelope hover-link"></i>
+              <i class="c-chat c-chat-phone-alt hover-link"></i>
+              <i class="c-chat c-chat-video hover-link"></i>
+              <i class="c-chat c-chat-envelope hover-link"></i>
             </div>
           </div>
           <div class="user-social">
             <div class="user-social-title">Terhubung</div>
             <div class="user-social-block">
               <div class="user-social-link">
-                <i class="fab fa-instagram hover-link"></i>
+                <i class="c-chat c-chat-instagram-brands hover-link"></i>
                 <span class="user-social-name">TimOstin</span>
               </div>
               <div class="user-social-link">
-                <i class="fab fa-twitter hover-link"></i>
+                <i class="c-chat c-chat-twitter-brands hover-link"></i>
                 <span class="user-social-name">Tim Ostin</span>
               </div>
               <div class="user-social-link">
-                <i class="fab fa-facebook-f р"></i>
+                <i class="c-chat c-chat-facebook-f-brands р"></i>
                 <span class="user-social-name">Tim Ostin</span>
               </div>
             </div>

@@ -23,9 +23,9 @@ export class BtnWrapper implements ComponentInterface {
             <button onClick={() => this.clickToShowChatHandler()} class="btn-open">
               <span>
                 {this.showChat ? (
-                  <i class="fas fa-times"></i>
+                  <i class="c-chat c-chat-times"></i>
                 ) : (
-                  <i class="far fa-comment-dots"></i>
+                  <i class="c-chat c-chat-comment-dots"></i>
                 )}
               </span>
             </button>
