@@ -335,23 +335,23 @@ export const titleModule = {
 export const navItems = [
   {
     id: 1,
-    icon: "fas fa-comment-alt",
+    icon: "c-chat c-chat-comment-alt",
   },
   {
     id: 2,
-    icon: "fas fa-shopping-bag",
+    icon: "c-chat c-chat-shopping-bag",
   },
   {
     id: 3,
-    icon: "fas fa-cart-arrow-down",
+    icon: "c-chat c-chat-cart-arrow-down",
   },
   {
     id: 5,
-    icon: "fas fa-calendar-alt",
+    icon: "c-chat c-chat-calendar-alt",
   },
   {
     id: 6,
-    icon: "fas fa-cog",
+    icon: "c-chat c-chat-cog",
   },
 ];
 

@@ -65,7 +65,7 @@ export class SAdamPersonalHeader implements ComponentInterface {
             class="search-message"
             onClick={() => this.toggleSearchVisible()}
           >
-            <i class="fas fa-search hover-link"></i>
+            <i class="c-chat c-chat-search hover-link"></i>
           </div>
           <div class="user">
             <div class="user-name">{this.getNameUser()}</div>
@@ -76,7 +76,7 @@ export class SAdamPersonalHeader implements ComponentInterface {
             class="settings"
             onClick={() => this.visibleUserProfileHandler()}
           >
-            <i class="fas fa-cog hover-link"></i>
+            <i class="c-chat c-chat-cog hover-link"></i>
           </div>
         </div>
       );
