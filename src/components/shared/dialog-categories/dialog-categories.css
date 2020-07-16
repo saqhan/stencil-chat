@@ -27,6 +27,14 @@
   border-bottom: 1px solid #5780f7;
 }
 
+.comp .btns-nav {
+  border-bottom: none;
+}
+.comp {
+  border-bottom: 1px solid #ccc;
+  margin: 0 -20px;
+}
+
 .comp .btns-nav span {
   padding-bottom: 10px;
 }
