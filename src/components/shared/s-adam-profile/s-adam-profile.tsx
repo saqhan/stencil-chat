@@ -6,22 +6,30 @@ import {
   h,
   Prop,
 } from "@stencil/core";
+import { ChatCategoryInterface } from "../../../index";
 
 @Component({
   tag: "s-adam-profile",
   styleUrl: "s-adam-profile.css",
   shadow: false,
-  scoped: true
+  scoped: true,
 })
 export class SAdamProfile implements ComponentInterface {
   /**
    * Задаем стиль для мобильной/пк версии
    * */
   @Prop() theme: "comp" | "mobile" | "module" = "comp";
+
+  /**
+   * Массив категорий
+   * */
+  @Prop() categories: ChatCategoryInterface[];
+
   /**
    * Показываем список диалогов
    * */
   @Event() clickToShowDialogs: EventEmitter<void>;
+
   /**
    * Показываем папки
    * */
@@ -32,11 +40,7 @@ export class SAdamProfile implements ComponentInterface {
       <div class={this.getClassForHost()}>
         <section class="profile">
           <div class="links-wrapper">
-            <a
-              onClick={() =>
-                this.clickToShowDialogsHandler()
-              }
-            >
+            <a onClick={() => this.clickToShowDialogsHandler()}>
               {" "}
               <i class="c-chat c-chat-arrow-left"></i>
             </a>
@@ -58,15 +62,16 @@ export class SAdamProfile implements ComponentInterface {
             </div>
           </div>
           <div class="user-social">
-            <div class="user-social-title">Folders</div>
-            <div class="user-folders-block">
-              <div class="user-social-link"
-                onClick={()=> this.clickToShowFoldersHandler()}
-              >
-                <i class="c-chat c-chat-instagram-brands hover-link"></i>
-                <span class="user-social-name">Chat Folders</span>
+            <div class="user-social-title">Папки</div>
+
+              <div class="user-folders-blocks" onClick={() => this.clickToShowFoldersHandler()}>
+                {/*<i class="c-chat c-chat-instagram-brands hover-link"></i>*/}
+               <ul>
+                 <Folder categories={this.categories}></Folder>
+               </ul>
+
               </div>
-            </div>
+
           </div>
           <div class="user-social">
             <div class="user-social-title">Terhubung</div>
@@ -124,10 +129,21 @@ export class SAdamProfile implements ComponentInterface {
     };
   }
   public clickToShowDialogsHandler() {
-    this.clickToShowDialogs.emit()
+    this.clickToShowDialogs.emit();
   }
   public clickToShowFoldersHandler() {
-    this.clickToShowFolders.emit()
+    this.clickToShowFolders.emit();
   }
-
 }
+
+const Folder = (props) => {
+  return props.categories.map((item) => {
+    if (item.id !== 'all') {
+      return (
+        <li>
+          {item.name}
+        </li>
+      );
+    }
+  });
+};

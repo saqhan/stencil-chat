@@ -439,6 +439,7 @@ export class CntModuleChat implements ComponentInterface {
       case "profile":
         return (
           <s-adam-profile
+            categories={this.categoriesState}
             theme={"module"}
             onClickToShowDialogs={() => this.clickToShowDialogsHandler()}
             onClickToShowFolders={() => this.clickToShowFoldersHandler()}

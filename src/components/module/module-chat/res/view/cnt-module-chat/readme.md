@@ -16,13 +16,13 @@
 | `chatViewState`                   | `chat-view-state`                     | select content default                                            | `ChatViewToShowEnum.contacts \| ChatViewToShowEnum.dialogs \| ChatViewToShowEnum.files \| ChatViewToShowEnum.folders \| ChatViewToShowEnum.personal \| ChatViewToShowEnum.profile \| ChatViewToShowEnum.users` | `ChatViewToShowEnum.dialogs` |
 | `contacts`                        | --                                    | масиив данных контактов                                           | `ChatContactInterface[]`                                                                                                                                                                                       | `undefined`                  |
 | `dialogs`                         | --                                    | массив данных для диалогов                                        | `ChatDialogInterface[]`                                                                                                                                                                                        | `undefined`                  |
+| `dictionary`                      | `dictionary`                          | словарь                                                           | `any`                                                                                                                                                                                                          | `undefined`                  |
 | `disableInnerSearchContactState`  | `disable-inner-search-contact-state`  | отключение поиска контактов                                       | `boolean`                                                                                                                                                                                                      | `undefined`                  |
 | `disableInnerSearchDialogsState`  | `disable-inner-search-dialogs-state`  | отключение поиска диалогов                                        | `boolean`                                                                                                                                                                                                      | `undefined`                  |
 | `disableInnerSearchMessagesState` | `disable-inner-search-messages-state` | отключение поиска сообщений                                       | `boolean`                                                                                                                                                                                                      | `undefined`                  |
 | `disableShowFullChatState`        | `disable-show-full-chat-state`        | отключение возможности октрытие приложение чата                   | `boolean`                                                                                                                                                                                                      | `undefined`                  |
 | `message`                         | --                                    | массив данных личных сообщений                                    | `ChatMessage[]`                                                                                                                                                                                                | `undefined`                  |
 | `openState`                       | `open-state`                          | Перменная для включения/отключения показа чата в развернутом виде | `boolean`                                                                                                                                                                                                      | `undefined`                  |
-| `titleModule`                     | --                                    | Заголовок для чата                                                | `TitleModuleInterface`                                                                                                                                                                                         | `undefined`                  |
 | `visibleState`                    | `visible-state`                       | видимость                                                         | `boolean`                                                                                                                                                                                                      | `true`                       |
 | `writing`                         | --                                    | добавляем печатающий                                              | `ChatWritingUserInterface[]`                                                                                                                                                                                   | `[]`                         |
 
@@ -164,10 +164,6 @@ Type: `Promise<void>`
 
 ## Dependencies
 
-### Used by
-
- - [module-chat](../../..)
-
 ### Depends on
 
 - [s-saqhan-chat-users-wrapper](./res/view/s-saqhan-chat-users-wrapper)
@@ -211,7 +207,6 @@ graph TD;
   contacts-list --> contacts-list-body
   contacts-list --> m-chat-footer
   contacts-list-body --> contact-card
-  module-chat --> cnt-module-chat
   style cnt-module-chat fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

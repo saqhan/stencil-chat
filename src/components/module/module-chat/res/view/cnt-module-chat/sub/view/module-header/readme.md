@@ -7,10 +7,9 @@
 
 ## Properties
 
-| Property                   | Attribute                      | Description                                     | Type                   | Default     |
-| -------------------------- | ------------------------------ | ----------------------------------------------- | ---------------------- | ----------- |
-| `disableShowFullChatState` | `disable-show-full-chat-state` | отключение возможности октрытие приложение чата | `boolean`              | `undefined` |
-| `titleModule`              | --                             |                                                 | `TitleModuleInterface` | `undefined` |
+| Property                   | Attribute                      | Description                                     | Type      | Default     |
+| -------------------------- | ------------------------------ | ----------------------------------------------- | --------- | ----------- |
+| `disableShowFullChatState` | `disable-show-full-chat-state` | отключение возможности октрытие приложение чата | `boolean` | `undefined` |
 
 
 ## Events
