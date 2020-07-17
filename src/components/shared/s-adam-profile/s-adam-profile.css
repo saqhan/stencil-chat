@@ -141,3 +141,22 @@
   width: 0px; /* ширина scrollbar'a */
   background: transparent; /* опционально */
 }
+
+.user-folders-block {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.user-folders-block  .c-chat {
+  width: 16px;
+  text-align: center;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.user-folders-block .user-social-name {
+  cursor: pointer;
+}

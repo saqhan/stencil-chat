@@ -1,5 +1,5 @@
-import {Component, ComponentInterface, h, Prop} from '@stencil/core';
-import {ChatLogo, ChatNavItems} from "../../../index";
+import {Component, ComponentInterface, Event, EventEmitter, h, Prop} from '@stencil/core';
+import {ChatLogo} from "../../../index";
 
 @Component({
   tag: 's-adam-navigate',
@@ -14,20 +14,16 @@ export class SAdamNavigate implements ComponentInterface {
   @Prop() logo: ChatLogo;
 
   /**
-   * Иконки навигации
+   * клик по имени юзера в личной переписке
    */
-  @Prop() navItems: ChatNavItems[] = [];
+  @Event() visibleContacts: EventEmitter<void>;
 
   render() {
     return (
       <div class="nav-column">
         <div class="logo border-radius" style={{backgroundImage: 'url('+this.logo.logo+')'}}>
         </div>
-        {this.navItems.map(item => {
-          return (
-            <s-adam-nav-item navItems={item}></s-adam-nav-item>
-          )
-        })}
+        <s-adam-nav-item></s-adam-nav-item>
       </div>
     );
   }

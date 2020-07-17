@@ -11,20 +11,22 @@ import {
   Host,
 } from "@stencil/core";
 import {
-  ChatCategoryInterface, ChatContactInterface,
+  ChatCategoryInterface,
+  ChatContactInterface,
   ChatDialogInterface,
   ChatMessage,
   ChatViewToShowEnum,
   ChatWritingUserInterface,
   filterDialogsByCategory,
   filterDialogsBySearchValue,
-  filterMessageBySearchValue, ShowFullChatOutputInterface,
+  filterMessageBySearchValue,
+  ShowFullChatOutputInterface,
   TitleModuleInterface,
 } from "../../../../../../index";
 import { ChatMessagesLogic } from "../../../../../../utils/utils";
 import {
   ChatUserActionStatusState,
-  ChatUserPresenceState
+  ChatUserPresenceState,
 } from "../../../../../shared/user-status/res/abstract/enum/common.enum";
 
 @Component({
@@ -388,6 +390,7 @@ export class CntModuleChat implements ComponentInterface {
           <s-adam-profile
             theme={"module"}
             onClickToShowDialogs={() => this.clickToShowDialogsHandler()}
+            onClickToShowFolders={() => this.clickToShowFoldersHandler()}
           ></s-adam-profile>
         );
       case "contacts":
@@ -401,6 +404,12 @@ export class CntModuleChat implements ComponentInterface {
             // onClickToShowMenuBar={() => this.clickToShowMenuBar()}
             // onClickToContact={(item) => this.clickToContact(item)}
           ></contacts-list>
+        );
+      case "folders":
+        return (
+          <user-folders
+            onClickToUserProfile={() => this.clickToUserProfileHandler()}
+          ></user-folders>
         );
       default:
         "dialogs";
@@ -458,14 +467,13 @@ export class CntModuleChat implements ComponentInterface {
    *
    * */
   public showFullChatHandler(): void {
-    this.showFullChat.emit(
-      {
-        view: this.chatViewState,
-        data: this.chatViewState === ChatViewToShowEnum.personal
+    this.showFullChat.emit({
+      view: this.chatViewState,
+      data:
+        this.chatViewState === ChatViewToShowEnum.personal
           ? this.openedDialog
-          : null
-      }
-    )
+          : null,
+    });
   }
 
   /**
@@ -481,9 +489,18 @@ export class CntModuleChat implements ComponentInterface {
   public clickToUserProfileHandler(): void {
     this.updateViewState(ChatViewToShowEnum.profile);
   }
-
+  /**
+   *
+   * */
   public sendNewMessModal(): void {
     this.updateViewState(ChatViewToShowEnum.contacts);
+  }
+
+  /**
+   *
+   * */
+  public clickToShowFoldersHandler(): void {
+    this.updateViewState(ChatViewToShowEnum.folders);
   }
 
   /**

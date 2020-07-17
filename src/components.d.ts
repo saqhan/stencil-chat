@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ChatCategoryInterface, ChatClickToLinkEmit, ChatContactInterface, ChatDialogInterface, ChatLogo, ChatMessage, ChatNavItems, ChatViewToShowEnum, ChatWritingUserInterface, ShowFullChatOutputInterface, TitleModuleInterface, } from "./index";
+import { ChatCategoryInterface, ChatClickToLinkEmit, ChatContactInterface, ChatDialogInterface, ChatLogo, ChatMessage, ChatViewToShowEnum, ChatWritingUserInterface, ShowFullChatOutputInterface, TitleModuleInterface, } from "./index";
 import { ChatUserActionStatusState, ChatUserPresenceState, } from "./components/shared/user-status/res/abstract/enum/common.enum";
 import { TitleModuleInterface as TitleModuleInterface1, } from ".";
 export namespace Components {
@@ -129,6 +129,10 @@ export namespace Components {
           * Принимаем контакт
          */
         "contact": ChatContactInterface;
+        /**
+          * Данные выбора темы для Мобильная/Модульной версии
+         */
+        "theme": "mobile" | "module" | "comp";
     }
     interface ContactsList {
         "contacts": ChatContactInterface[];
@@ -147,11 +151,15 @@ export namespace Components {
          */
         "contacts": ChatContactInterface[];
         /**
-          * Данные выбора темы для Мобильная/Модульной версии
+          * Данные выбора темы для Мобильная/Модульной/Комп версии
          */
-        "theme": "mobile" | "module";
+        "theme": "mobile" | "module" | "comp";
     }
     interface ContactsListHeader {
+        /**
+          * Данные выбора темы для Мобильная/Модульной версии
+         */
+        "theme": "mobile" | "module" | "comp";
     }
     interface DialogCard {
         /**
@@ -307,8 +315,25 @@ export namespace Components {
         "writing": ChatWritingUserInterface[];
     }
     interface SAdamChat {
+        /**
+          * отключение поиска контактов
+         */
+        "disableInnerSearchContactState": boolean;
     }
     interface SAdamContacts {
+        "contacts": ChatContactInterface[];
+        /**
+          * отключение поиска контактов
+         */
+        "disableInnerSearchContactState": boolean;
+        /**
+          * Тема для модульного/мобильного чата
+         */
+        "theme": "mobile" | "module" | "comp";
+    }
+    interface SAdamCopying {
+    }
+    interface SAdamDialogs {
         /**
           * массив категорий диалогов
          */
@@ -318,8 +343,6 @@ export namespace Components {
          */
         "dialogs": ChatDialogInterface[];
     }
-    interface SAdamCopying {
-    }
     interface SAdamDirect {
         /**
           * Личный диалог
@@ -327,20 +350,12 @@ export namespace Components {
         "message": ChatMessage[];
     }
     interface SAdamNavItem {
-        /**
-          * Иконки навигации
-         */
-        "navItems": ChatNavItems;
     }
     interface SAdamNavigate {
         /**
           * Логотип
          */
         "logo": ChatLogo;
-        /**
-          * Иконки навигации
-         */
-        "navItems": ChatNavItems[];
     }
     interface SAdamNoChat {
     }
@@ -394,6 +409,8 @@ export namespace Components {
           * Массив данных с личным чатом
          */
         "personalMessage": ChatMessage[];
+    }
+    interface UserFolders {
     }
     interface UserProfile {
     }
@@ -581,6 +598,12 @@ declare global {
         prototype: HTMLSAdamCopyingElement;
         new (): HTMLSAdamCopyingElement;
     };
+    interface HTMLSAdamDialogsElement extends Components.SAdamDialogs, HTMLStencilElement {
+    }
+    var HTMLSAdamDialogsElement: {
+        prototype: HTMLSAdamDialogsElement;
+        new (): HTMLSAdamDialogsElement;
+    };
     interface HTMLSAdamDirectElement extends Components.SAdamDirect, HTMLStencilElement {
     }
     var HTMLSAdamDirectElement: {
@@ -671,6 +694,12 @@ declare global {
         prototype: HTMLSSaqhanChatUsersWrapperElement;
         new (): HTMLSSaqhanChatUsersWrapperElement;
     };
+    interface HTMLUserFoldersElement extends Components.UserFolders, HTMLStencilElement {
+    }
+    var HTMLUserFoldersElement: {
+        prototype: HTMLUserFoldersElement;
+        new (): HTMLUserFoldersElement;
+    };
     interface HTMLUserProfileElement extends Components.UserProfile, HTMLStencilElement {
     }
     var HTMLUserProfileElement: {
@@ -713,6 +742,7 @@ declare global {
         "s-adam-chat": HTMLSAdamChatElement;
         "s-adam-contacts": HTMLSAdamContactsElement;
         "s-adam-copying": HTMLSAdamCopyingElement;
+        "s-adam-dialogs": HTMLSAdamDialogsElement;
         "s-adam-direct": HTMLSAdamDirectElement;
         "s-adam-nav-item": HTMLSAdamNavItemElement;
         "s-adam-navigate": HTMLSAdamNavigateElement;
@@ -728,6 +758,7 @@ declare global {
         "s-saqhan-chat-user": HTMLSSaqhanChatUserElement;
         "s-saqhan-chat-users": HTMLSSaqhanChatUsersElement;
         "s-saqhan-chat-users-wrapper": HTMLSSaqhanChatUsersWrapperElement;
+        "user-folders": HTMLUserFoldersElement;
         "user-profile": HTMLUserProfileElement;
         "user-status": HTMLUserStatusElement;
     }
@@ -834,6 +865,10 @@ declare namespace LocalJSX {
           * clock on navigate
          */
         "onClickToContact"?: (event: CustomEvent<ChatContactInterface>) => void;
+        /**
+          * Данные выбора темы для Мобильная/Модульной версии
+         */
+        "theme"?: "mobile" | "module" | "comp";
     }
     interface ContactsList {
         "contacts"?: ChatContactInterface[];
@@ -876,9 +911,9 @@ declare namespace LocalJSX {
          */
         "contacts"?: ChatContactInterface[];
         /**
-          * Данные выбора темы для Мобильная/Модульной версии
+          * Данные выбора темы для Мобильная/Модульной/Комп версии
          */
-        "theme"?: "mobile" | "module";
+        "theme"?: "mobile" | "module" | "comp";
     }
     interface ContactsListHeader {
         /**
@@ -889,6 +924,10 @@ declare namespace LocalJSX {
           * search contact
          */
         "onSearchContact"?: (event: CustomEvent<string>) => void;
+        /**
+          * Данные выбора темы для Мобильная/Модульной версии
+         */
+        "theme"?: "mobile" | "module" | "comp";
     }
     interface DialogCard {
         /**
@@ -1182,8 +1221,25 @@ declare namespace LocalJSX {
         "writing"?: ChatWritingUserInterface[];
     }
     interface SAdamChat {
+        /**
+          * отключение поиска контактов
+         */
+        "disableInnerSearchContactState"?: boolean;
     }
     interface SAdamContacts {
+        "contacts"?: ChatContactInterface[];
+        /**
+          * отключение поиска контактов
+         */
+        "disableInnerSearchContactState"?: boolean;
+        /**
+          * Тема для модульного/мобильного чата
+         */
+        "theme"?: "mobile" | "module" | "comp";
+    }
+    interface SAdamCopying {
+    }
+    interface SAdamDialogs {
         /**
           * массив категорий диалогов
          */
@@ -1199,13 +1255,11 @@ declare namespace LocalJSX {
         /**
           * Cобытие клика по диалогу
          */
-        "onClickToDialog"?: (event: CustomEvent<ChatDialogInterface>) => void;
+        "onClickToDialog"?: (event: CustomEvent<void>) => void;
         /**
           * Поиск по контактам
          */
-        "onSearchDialogs"?: (event: CustomEvent<ChatDialogInterface>) => void;
-    }
-    interface SAdamCopying {
+        "onSearchDialogs"?: (event: CustomEvent<string>) => void;
     }
     interface SAdamDirect {
         /**
@@ -1215,7 +1269,7 @@ declare namespace LocalJSX {
         /**
           * Клик по иконке поиска
          */
-        "onSearchPersonalMessage"?: (event: CustomEvent<ChatMessage>) => void;
+        "onSearchPersonalMessage"?: (event: CustomEvent<string>) => void;
         /**
           * клик по имени юзера в личной переписке
          */
@@ -1223,9 +1277,9 @@ declare namespace LocalJSX {
     }
     interface SAdamNavItem {
         /**
-          * Иконки навигации
+          * клик по имени юзера в личной переписке
          */
-        "navItems"?: ChatNavItems;
+        "onVisibleContacts"?: (event: CustomEvent<void>) => void;
     }
     interface SAdamNavigate {
         /**
@@ -1233,9 +1287,9 @@ declare namespace LocalJSX {
          */
         "logo"?: ChatLogo;
         /**
-          * Иконки навигации
+          * клик по имени юзера в личной переписке
          */
-        "navItems"?: ChatNavItems[];
+        "onVisibleContacts"?: (event: CustomEvent<void>) => void;
     }
     interface SAdamNoChat {
     }
@@ -1251,14 +1305,21 @@ declare namespace LocalJSX {
         /**
           * Клик по иконке поиска
          */
-        "onSearchPersonalMessage"?: (event: CustomEvent<ChatMessage>) => void;
+        "onSearchPersonalMessage"?: (event: CustomEvent<string>) => void;
         /**
           * клик по имени юзера в личной переписке
          */
         "onVisibleUserProfile"?: (event: CustomEvent<void>) => void;
     }
     interface SAdamProfile {
-        "onClickToShowDialogs"?: (event: CustomEvent<any>) => void;
+        /**
+          * Показываем список диалогов
+         */
+        "onClickToShowDialogs"?: (event: CustomEvent<void>) => void;
+        /**
+          * Показываем папки
+         */
+        "onClickToShowFolders"?: (event: CustomEvent<void>) => void;
         /**
           * Задаем стиль для мобильной/пк версии
          */
@@ -1268,7 +1329,7 @@ declare namespace LocalJSX {
         /**
           * Поиск по контактам
          */
-        "onSearchDialogs"?: (event: CustomEvent<ChatDialogInterface>) => void;
+        "onSearchDialogs"?: (event: CustomEvent<string>) => void;
     }
     interface SSaqhanChatAddQuestion {
         "onSendNewMessModal"?: (event: CustomEvent<void>) => void;
@@ -1335,6 +1396,9 @@ declare namespace LocalJSX {
          */
         "personalMessage"?: ChatMessage[];
     }
+    interface UserFolders {
+        "onClickToUserProfile"?: (event: CustomEvent<void>) => void;
+    }
     interface UserProfile {
         "onClickToShowDialogs"?: (event: CustomEvent<any>) => void;
     }
@@ -1376,6 +1440,7 @@ declare namespace LocalJSX {
         "s-adam-chat": SAdamChat;
         "s-adam-contacts": SAdamContacts;
         "s-adam-copying": SAdamCopying;
+        "s-adam-dialogs": SAdamDialogs;
         "s-adam-direct": SAdamDirect;
         "s-adam-nav-item": SAdamNavItem;
         "s-adam-navigate": SAdamNavigate;
@@ -1391,6 +1456,7 @@ declare namespace LocalJSX {
         "s-saqhan-chat-user": SSaqhanChatUser;
         "s-saqhan-chat-users": SSaqhanChatUsers;
         "s-saqhan-chat-users-wrapper": SSaqhanChatUsersWrapper;
+        "user-folders": UserFolders;
         "user-profile": UserProfile;
         "user-status": UserStatus;
     }
@@ -1428,6 +1494,7 @@ declare module "@stencil/core" {
             "s-adam-chat": LocalJSX.SAdamChat & JSXBase.HTMLAttributes<HTMLSAdamChatElement>;
             "s-adam-contacts": LocalJSX.SAdamContacts & JSXBase.HTMLAttributes<HTMLSAdamContactsElement>;
             "s-adam-copying": LocalJSX.SAdamCopying & JSXBase.HTMLAttributes<HTMLSAdamCopyingElement>;
+            "s-adam-dialogs": LocalJSX.SAdamDialogs & JSXBase.HTMLAttributes<HTMLSAdamDialogsElement>;
             "s-adam-direct": LocalJSX.SAdamDirect & JSXBase.HTMLAttributes<HTMLSAdamDirectElement>;
             "s-adam-nav-item": LocalJSX.SAdamNavItem & JSXBase.HTMLAttributes<HTMLSAdamNavItemElement>;
             "s-adam-navigate": LocalJSX.SAdamNavigate & JSXBase.HTMLAttributes<HTMLSAdamNavigateElement>;
@@ -1443,6 +1510,7 @@ declare module "@stencil/core" {
             "s-saqhan-chat-user": LocalJSX.SSaqhanChatUser & JSXBase.HTMLAttributes<HTMLSSaqhanChatUserElement>;
             "s-saqhan-chat-users": LocalJSX.SSaqhanChatUsers & JSXBase.HTMLAttributes<HTMLSSaqhanChatUsersElement>;
             "s-saqhan-chat-users-wrapper": LocalJSX.SSaqhanChatUsersWrapper & JSXBase.HTMLAttributes<HTMLSSaqhanChatUsersWrapperElement>;
+            "user-folders": LocalJSX.UserFolders & JSXBase.HTMLAttributes<HTMLUserFoldersElement>;
             "user-profile": LocalJSX.UserProfile & JSXBase.HTMLAttributes<HTMLUserProfileElement>;
             "user-status": LocalJSX.UserStatus & JSXBase.HTMLAttributes<HTMLUserStatusElement>;
         }

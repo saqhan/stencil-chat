@@ -23,28 +23,46 @@ export class ContactCard implements ComponentInterface {
    * clock on navigate
    * */
   @Event() clickToContact: EventEmitter<ChatContactInterface>;
+
+  /**
+   * Данные выбора темы для Мобильная/Модульной версии
+   * */
+  @Prop() theme: "mobile" | "module" | "comp" = "mobile";
+
   render() {
     return (
-      <div class="contacts-list-card">
-        <div class="m-contact-card" onClick={() => this.clickToDialogHandler()}>
-          <div class="img-user">
-            <div
-              class="img"
-              style={{ backgroundImage: `url(${this.contact.img})` }}
-            ></div>
-          </div>
-          <div class="info-card">
-            <div class="unfo-user">
-              <div class="name-user">{this.contact.name}</div>
-              <div class="message-user">
-                {" "}
-                last seen {this.createSendTime(this.contact.time.created)}
+      <div class={this.getClassForHost()}>
+        <div class="contacts-list-card">
+          <div class="m-contact-card" onClick={() => this.clickToDialogHandler()}>
+            <div class="img-user">
+              <div
+                class="img"
+                style={{ backgroundImage: `url(${this.contact.img})` }}
+              ></div>
+            </div>
+            <div class="info-card">
+              <div class="unfo-user">
+                <div class="name-user">{this.contact.name}</div>
+                <div class="message-user">
+                  {" "}
+                  last seen {this.createSendTime(this.contact.time.created)}
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     );
+  }
+
+  /**
+   * Метод выобра темы для Мобильная/Модульной версии
+   * */
+  public getClassForHost() {
+    console.log(this.theme)
+    return {
+      [this.theme]: true,
+    };
   }
 
   /**

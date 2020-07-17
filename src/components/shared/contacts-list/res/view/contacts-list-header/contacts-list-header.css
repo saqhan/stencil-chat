@@ -6,6 +6,18 @@
   padding: 20px 0px 10px 0px;
 }
 
+.comp .contacts-list-header {
+  background-color: transparent;
+  padding: 0 0 20px 0;
+  border-bottom: none;
+}
+.comp {
+  border-bottom: 1px solid #ccc;
+  margin: 0 -20px;
+  padding: 0 20px;
+
+}
+
 .custom-link {
   cursor: pointer;
 }
@@ -15,6 +27,10 @@
   justify-content: center;
   align-items: center;
   position: relative;
+}
+
+.comp .contacts-list-description {
+  display: none;
 }
 
 .contacts-list-arraw-back i {
@@ -39,6 +55,10 @@
   position: relative;
 }
 
+.comp .contacts-list-input {
+  margin: 0;
+}
+
 .contacts-list-input input {
   text-align: center;
   border-radius: 5px;
@@ -50,11 +70,28 @@
   outline: none;
 }
 
+.comp .contacts-list-input input {
+  text-align: left;
+  border-radius: 0;
+  background-color: white;
+  width: 100%;
+  padding: 10px 40px;
+  font-size: 13px;
+
+}
+
 .contacts-list-input i {
   position: absolute;
   top: 30%;
   z-index: 2;
   left: 39%;
   font-size: 14px;
+  color: #979eab;
+}
+
+.comp input::-moz-placeholder {
+  color: #979eab;
+}
+.comp input::-webkit-input-placeholder {
   color: #979eab;
 }
