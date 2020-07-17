@@ -5,11 +5,11 @@
 <!-- Auto Generated Below -->
 
 
-## Properties
+## Events
 
-| Property   | Attribute | Description      | Type           | Default     |
-| ---------- | --------- | ---------------- | -------------- | ----------- |
-| `navItems` | --        | Иконки навигации | `ChatNavItems` | `undefined` |
+| Event             | Description                            | Type                |
+| ----------------- | -------------------------------------- | ------------------- |
+| `visibleContacts` | клик по имени юзера в личной переписке | `CustomEvent<void>` |
 
 
 ## Dependencies

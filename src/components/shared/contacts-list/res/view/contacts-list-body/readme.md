@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property   | Attribute | Description                                       | Type                     | Default     |
-| ---------- | --------- | ------------------------------------------------- | ------------------------ | ----------- |
-| `contacts` | --        | массив данных контактов                           | `ChatContactInterface[]` | `undefined` |
-| `theme`    | `theme`   | Данные выбора темы для Мобильная/Модульной версии | `"mobile" \| "module"`   | `"mobile"`  |
+| Property   | Attribute | Description                                            | Type                             | Default     |
+| ---------- | --------- | ------------------------------------------------------ | -------------------------------- | ----------- |
+| `contacts` | --        | массив данных контактов                                | `ChatContactInterface[]`         | `undefined` |
+| `theme`    | `theme`   | Данные выбора темы для Мобильная/Модульной/Комп версии | `"comp" \| "mobile" \| "module"` | `"mobile"`  |
 
 
 ## Dependencies

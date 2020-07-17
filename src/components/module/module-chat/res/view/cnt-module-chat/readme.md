@@ -7,30 +7,36 @@
 
 ## Properties
 
-| Property                          | Attribute                             | Description                                                       | Type                                                                                                                                                                             | Default                      |
-| --------------------------------- | ------------------------------------- | ----------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- |
-| `canRecordAudio`                  | `can-record-audio`                    | Возможность записи аудио                                          | `boolean`                                                                                                                                                                        | `false`                      |
-| `categories`                      | --                                    | array categories                                                  | `ChatCategoryInterface[]`                                                                                                                                                        | `undefined`                  |
-| `chatViewState`                   | `chat-view-state`                     | select content default                                            | `ChatViewToShowEnum.contacts \| ChatViewToShowEnum.dialogs \| ChatViewToShowEnum.files \| ChatViewToShowEnum.personal \| ChatViewToShowEnum.profile \| ChatViewToShowEnum.users` | `ChatViewToShowEnum.dialogs` |
-| `contacts`                        | `contacts`                            | масиив данных контактов                                           | `any`                                                                                                                                                                            | `undefined`                  |
-| `dialogs`                         | --                                    | массив данных для диалогов                                        | `ChatDialogInterface[]`                                                                                                                                                          | `undefined`                  |
-| `disableInnerSearchDialogsState`  | `disable-inner-search-dialogs-state`  | отключение поиска диалогов                                        | `boolean`                                                                                                                                                                        | `undefined`                  |
-| `disableInnerSearchMessagesState` | `disable-inner-search-messages-state` | отключение поиска сообщений                                       | `boolean`                                                                                                                                                                        | `undefined`                  |
-| `message`                         | --                                    | массив данных личных сообщений                                    | `ChatMessage[]`                                                                                                                                                                  | `undefined`                  |
-| `openState`                       | `open-state`                          | Перменная для включения/отключения показа чата в развернутом виде | `boolean`                                                                                                                                                                        | `undefined`                  |
-| `titleModule`                     | --                                    | Заголовок для чата                                                | `TitleModuleInterface`                                                                                                                                                           | `undefined`                  |
-| `visibleState`                    | `visible-state`                       | видимость                                                         | `boolean`                                                                                                                                                                        | `true`                       |
-| `writing`                         | --                                    | добавляем печатающий                                              | `ChatWritingUserInterface[]`                                                                                                                                                     | `[]`                         |
+| Property                          | Attribute                             | Description                                                       | Type                                                                                                                                                                                                           | Default                      |
+| --------------------------------- | ------------------------------------- | ----------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- |
+| `canRecordAudio`                  | `can-record-audio`                    | Возможность записи аудио                                          | `boolean`                                                                                                                                                                                                      | `false`                      |
+| `categories`                      | --                                    | array categories                                                  | `ChatCategoryInterface[]`                                                                                                                                                                                      | `undefined`                  |
+| `chatActionState`                 | `chat-action-state`                   | действие сообеседников в чате (печатает, записывает аудио и т.д.) | `ChatUserActionStatusState.audioRecording \| ChatUserActionStatusState.writing`                                                                                                                                | `undefined`                  |
+| `chatPresenceState`               | `chat-presence-state`                 | присутствие пользователя в сети                                   | `ChatUserPresenceState.offline \| ChatUserPresenceState.online`                                                                                                                                                | `undefined`                  |
+| `chatViewState`                   | `chat-view-state`                     | select content default                                            | `ChatViewToShowEnum.contacts \| ChatViewToShowEnum.dialogs \| ChatViewToShowEnum.files \| ChatViewToShowEnum.folders \| ChatViewToShowEnum.personal \| ChatViewToShowEnum.profile \| ChatViewToShowEnum.users` | `ChatViewToShowEnum.dialogs` |
+| `contacts`                        | --                                    | масиив данных контактов                                           | `ChatContactInterface[]`                                                                                                                                                                                       | `undefined`                  |
+| `dialogs`                         | --                                    | массив данных для диалогов                                        | `ChatDialogInterface[]`                                                                                                                                                                                        | `undefined`                  |
+| `disableInnerSearchContactState`  | `disable-inner-search-contact-state`  | отключение поиска контактов                                       | `boolean`                                                                                                                                                                                                      | `undefined`                  |
+| `disableInnerSearchDialogsState`  | `disable-inner-search-dialogs-state`  | отключение поиска диалогов                                        | `boolean`                                                                                                                                                                                                      | `undefined`                  |
+| `disableInnerSearchMessagesState` | `disable-inner-search-messages-state` | отключение поиска сообщений                                       | `boolean`                                                                                                                                                                                                      | `undefined`                  |
+| `disableShowFullChatState`        | `disable-show-full-chat-state`        | отключение возможности октрытие приложение чата                   | `boolean`                                                                                                                                                                                                      | `undefined`                  |
+| `message`                         | --                                    | массив данных личных сообщений                                    | `ChatMessage[]`                                                                                                                                                                                                | `undefined`                  |
+| `openState`                       | `open-state`                          | Перменная для включения/отключения показа чата в развернутом виде | `boolean`                                                                                                                                                                                                      | `undefined`                  |
+| `titleModule`                     | --                                    | Заголовок для чата                                                | `TitleModuleInterface`                                                                                                                                                                                         | `undefined`                  |
+| `visibleState`                    | `visible-state`                       | видимость                                                         | `boolean`                                                                                                                                                                                                      | `true`                       |
+| `writing`                         | --                                    | добавляем печатающий                                              | `ChatWritingUserInterface[]`                                                                                                                                                                                   | `[]`                         |
 
 
 ## Events
 
-| Event                 | Description           | Type                                                                                                                                                                                          |
-| --------------------- | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `chatViewStateChange` |                       | `CustomEvent<ChatViewToShowEnum.contacts \| ChatViewToShowEnum.dialogs \| ChatViewToShowEnum.files \| ChatViewToShowEnum.personal \| ChatViewToShowEnum.profile \| ChatViewToShowEnum.users>` |
-| `clickToDialog`       | click to dialog       | `CustomEvent<ChatDialogInterface>`                                                                                                                                                            |
-| `clickToFilesBtn`     | click to files button | `CustomEvent<void>`                                                                                                                                                                           |
-| `sendTextMessage`     |                       | `CustomEvent<string>`                                                                                                                                                                         |
+| Event                 | Description                                       | Type                                                                                                                                                                                                                        |
+| --------------------- | ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `chatViewStateChange` |                                                   | `CustomEvent<ChatViewToShowEnum.contacts \| ChatViewToShowEnum.dialogs \| ChatViewToShowEnum.files \| ChatViewToShowEnum.folders \| ChatViewToShowEnum.personal \| ChatViewToShowEnum.profile \| ChatViewToShowEnum.users>` |
+| `clickToDialog`       | click to dialog                                   | `CustomEvent<ChatDialogInterface>`                                                                                                                                                                                          |
+| `clickToFilesBtn`     | click to files button                             | `CustomEvent<void>`                                                                                                                                                                                                         |
+| `searchContact`       | search contact                                    | `CustomEvent<string>`                                                                                                                                                                                                       |
+| `sendTextMessage`     |                                                   | `CustomEvent<string>`                                                                                                                                                                                                       |
+| `showFullChat`        | Разворачивать полную версию чата при клике иконку | `CustomEvent<ShowFullChatOutputInterface>`                                                                                                                                                                                  |
 
 
 ## Methods
@@ -38,6 +44,16 @@
 ### `activeRecordAudioState(state: boolean) => Promise<void>`
 
 позволяет активировать/деактивароть возможность записи аудио
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `activeShowFullChat(state: boolean) => Promise<void>`
+
+позволяет активировать/деактивароть возможность октрытие приложение
 
 #### Returns
 
@@ -125,6 +141,26 @@ Type: `Promise<void>`
 
 
 
+### `updateChatActionState(item: ChatUserActionStatusState) => Promise<void>`
+
+меняет статусы действия текущих (печатает, записывает и т.д.)
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `updateChatPresenceState(item: ChatUserPresenceState) => Promise<void>`
+
+меняет статус (присутстия собеседников или контакта) в чате
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
 
 ## Dependencies
 
@@ -139,6 +175,7 @@ Type: `Promise<void>`
 - [s-saqhan-chat-files-wrapper](./sub/view/s-saqhan-chat-files-wrapper)
 - [s-adam-profile](../../../../../shared/s-adam-profile)
 - [contacts-list](../../../../../shared/contacts-list)
+- [user-folders](../../../../../shared/user-folders)
 - [module-header](./sub/view/module-header)
 - [btn-wrapper](./sub/view/btn-wrapper)
 
@@ -150,6 +187,7 @@ graph TD;
   cnt-module-chat --> s-saqhan-chat-files-wrapper
   cnt-module-chat --> s-adam-profile
   cnt-module-chat --> contacts-list
+  cnt-module-chat --> user-folders
   cnt-module-chat --> module-header
   cnt-module-chat --> btn-wrapper
   s-saqhan-chat-users-wrapper --> s-saqhan-chat-form-search

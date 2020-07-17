@@ -18,8 +18,8 @@
 | Event             | Description              | Type                                 |
 | ----------------- | ------------------------ | ------------------------------------ |
 | `clickToCategory` | clock on Category        | `CustomEvent<ChatCategoryInterface>` |
-| `clickToDialog`   | Cобытие клика по диалогу | `CustomEvent<ChatDialogInterface>`   |
-| `searchDialogs`   | Поиск по контактам       | `CustomEvent<ChatDialogInterface>`   |
+| `clickToDialog`   | Cобытие клика по диалогу | `CustomEvent<void>`                  |
+| `searchDialogs`   | Поиск по контактам       | `CustomEvent<string>`                |
 
 
 ## Dependencies
@@ -37,11 +37,11 @@
 ### Graph
 ```mermaid
 graph TD;
-  s-adam-contacts --> s-adam-search-contact
-  s-adam-contacts --> dialog-categories
-  s-adam-contacts --> dialog-card
-  s-adam-chat --> s-adam-contacts
-  style s-adam-contacts fill:#f9f,stroke:#333,stroke-width:4px
+  s-adam-dialogs --> s-adam-search-contact
+  s-adam-dialogs --> dialog-categories
+  s-adam-dialogs --> dialog-card
+  s-adam-chat --> s-adam-dialogs
+  style s-adam-dialogs fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

@@ -14,9 +14,10 @@
 
 ## Events
 
-| Event                | Description | Type               |
-| -------------------- | ----------- | ------------------ |
-| `clickToShowDialogs` |             | `CustomEvent<any>` |
+| Event                | Description                | Type                |
+| -------------------- | -------------------------- | ------------------- |
+| `clickToShowDialogs` | Показываем список диалогов | `CustomEvent<void>` |
+| `clickToShowFolders` | Показываем папки           | `CustomEvent<void>` |
 
 
 ## Dependencies

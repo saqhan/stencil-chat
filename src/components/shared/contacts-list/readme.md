@@ -7,10 +7,11 @@
 
 ## Properties
 
-| Property   | Attribute | Description                         | Type                     | Default     |
-| ---------- | --------- | ----------------------------------- | ------------------------ | ----------- |
-| `contacts` | --        |                                     | `ChatContactInterface[]` | `undefined` |
-| `theme`    | `theme`   | Тема для модульного/мобильного чата | `"mobile" \| "module"`   | `"mobile"`  |
+| Property                         | Attribute                            | Description                         | Type                     | Default     |
+| -------------------------------- | ------------------------------------ | ----------------------------------- | ------------------------ | ----------- |
+| `contacts`                       | --                                   |                                     | `ChatContactInterface[]` | `undefined` |
+| `disableInnerSearchContactState` | `disable-inner-search-contact-state` | отключение поиска контактов         | `boolean`                | `undefined` |
+| `theme`                          | `theme`                              | Тема для модульного/мобильного чата | `"mobile" \| "module"`   | `"mobile"`  |
 
 
 ## Events
