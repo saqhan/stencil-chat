@@ -137,6 +137,7 @@ export class UserFolders implements ComponentInterface {
       // скрипт отправки сообщения
       this.toCreateFolder.emit(input.value)
       // console.log("toCreatingFolderHandler", input.value);
+      input.value = '';
     }
   }
 
