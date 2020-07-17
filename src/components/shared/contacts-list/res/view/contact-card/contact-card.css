@@ -32,6 +32,10 @@
   overflow: hidden;
 }
 
+.comp .unfo-user {
+  width: auto;
+}
+
 .name-user {
   font-size: 14px;
   font-weight: 600;

@@ -16,7 +16,7 @@
 
 ### Used by
 
- - [s-adam-contacts](../s-adam-contacts)
+ - [s-adam-contacts](../s-adam-dialogs)
 
 ### Graph
 ```mermaid

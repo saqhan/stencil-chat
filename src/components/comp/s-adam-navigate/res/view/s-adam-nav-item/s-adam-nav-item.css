@@ -3,11 +3,14 @@
 }
 .hover-link:hover {
   color: #6328f8;
+  cursor: pointer;
 }
 .hover-link:active {
   color: #6328f8;
 }
 .nav-item {
   margin-bottom: 20px;
-  cursor: pointer;
+}
+.nav-item-wrapper {
+  text-align: center;
 }

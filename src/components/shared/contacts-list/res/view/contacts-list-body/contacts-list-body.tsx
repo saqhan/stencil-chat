@@ -15,9 +15,9 @@ export class ContactsListBody implements ComponentInterface {
   @Prop() contacts: ChatContactInterface[];
 
   /**
-   * Данные выбора темы для Мобильная/Модульной версии
+   * Данные выбора темы для Мобильная/Модульной/Комп версии
    * */
-  @Prop() theme: "mobile" | "module" = "mobile";
+  @Prop() theme: "mobile" | "module" | "comp" = "mobile";
 
   render() {
     return (
@@ -28,6 +28,7 @@ export class ContactsListBody implements ComponentInterface {
       </div>
     );
   }
+
   /**
    * Метод выобра темы для Мобильная/Модульной версии
    * */

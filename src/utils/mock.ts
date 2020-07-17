@@ -332,28 +332,28 @@ export const titleModule = {
   title: 'Модульный чат'
 }
 
-export const navItems = [
-  {
-    id: 1,
-    icon: "c-chat c-chat-comment-alt",
-  },
-  {
-    id: 2,
-    icon: "c-chat c-chat-shopping-bag",
-  },
-  {
-    id: 3,
-    icon: "c-chat c-chat-cart-arrow-down",
-  },
-  {
-    id: 5,
-    icon: "c-chat c-chat-calendar-alt",
-  },
-  {
-    id: 6,
-    icon: "c-chat c-chat-cog",
-  },
-];
+// export const navItems = [
+//   {
+//     id: 1,
+//     icon: "c-chat c-chat-comment-alt",
+//   },
+//   {
+//     id: 2,
+//     icon: "c-chat c-chat-shopping-bag",
+//   },
+//   {
+//     id: 3,
+//     icon: "c-chat c-chat-cart-arrow-down",
+//   },
+//   {
+//     id: 4,
+//     icon: "c-chat c-chat-calendar-alt",
+//   },
+//   {
+//     id: 5,
+//     icon: "c-chat c-chat-cog",
+//   },
+// ];
 
 export const contacts = [
   {
