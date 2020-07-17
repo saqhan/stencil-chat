@@ -18,8 +18,14 @@ export class SAdamProfile implements ComponentInterface {
    * Задаем стиль для мобильной/пк версии
    * */
   @Prop() theme: "comp" | "mobile" | "module" = "comp";
-
-  @Event() clickToShowDialogs: EventEmitter;
+  /**
+   * Показываем список диалогов
+   * */
+  @Event() clickToShowDialogs: EventEmitter<void>;
+  /**
+   * Показываем папки
+   * */
+  @Event() clickToShowFolders: EventEmitter<void>;
 
   render() {
     return (
@@ -49,6 +55,17 @@ export class SAdamProfile implements ComponentInterface {
               <i class="c-chat c-chat-phone-alt hover-link"></i>
               <i class="c-chat c-chat-video hover-link"></i>
               <i class="c-chat c-chat-envelope hover-link"></i>
+            </div>
+          </div>
+          <div class="user-social">
+            <div class="user-social-title">Folders</div>
+            <div class="user-folders-block">
+              <div class="user-social-link"
+                onClick={()=> this.clickToShowFoldersHandler()}
+              >
+                <i class="c-chat c-chat-instagram-brands hover-link"></i>
+                <span class="user-social-name">Chat Folders</span>
+              </div>
             </div>
           </div>
           <div class="user-social">
@@ -109,4 +126,8 @@ export class SAdamProfile implements ComponentInterface {
   public clickToShowDialogsHandler() {
     this.clickToShowDialogs.emit()
   }
+  public clickToShowFoldersHandler() {
+    this.clickToShowFolders.emit()
+  }
+
 }

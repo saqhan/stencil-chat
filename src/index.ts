@@ -314,6 +314,7 @@ export enum ChatViewToShowEnum {
   profile = 'profile',
   users = 'users',
   contacts = 'contacts',
+  folders = 'folders',
 }
 
 export interface ShowFullChatOutputInterface {

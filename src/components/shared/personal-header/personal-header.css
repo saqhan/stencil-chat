@@ -60,11 +60,12 @@
   color: rgb(87, 128, 247);
 }
 
-.header-nav .user-name-personal {
+.header-nav .user-name-personal-wrapper {
   font-weight: 600;
   color: #4c567d;
   text-align: center;
   width: 100%;
+  position: relative;
 }
 
 .users-nav {
@@ -121,4 +122,30 @@
 
 .header-nav span i {
   width: 14px;
+}
+
+.user-name-personal{
+  position: relative;
+}
+
+.user-online-status {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #7dbd27;
+  display: inline-block;
+  position: absolute;
+  top: 0px;
+  right: -10px;
+}
+
+.user-ofline-status {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #ccc;
+  display: inline-block;
+  position: absolute;
+  top: 0px;
+  right: -10px;
 }

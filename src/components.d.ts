@@ -410,6 +410,8 @@ export namespace Components {
          */
         "personalMessage": ChatMessage[];
     }
+    interface UserFolders {
+    }
     interface UserProfile {
     }
     interface UserStatus {
@@ -692,6 +694,12 @@ declare global {
         prototype: HTMLSSaqhanChatUsersWrapperElement;
         new (): HTMLSSaqhanChatUsersWrapperElement;
     };
+    interface HTMLUserFoldersElement extends Components.UserFolders, HTMLStencilElement {
+    }
+    var HTMLUserFoldersElement: {
+        prototype: HTMLUserFoldersElement;
+        new (): HTMLUserFoldersElement;
+    };
     interface HTMLUserProfileElement extends Components.UserProfile, HTMLStencilElement {
     }
     var HTMLUserProfileElement: {
@@ -750,6 +758,7 @@ declare global {
         "s-saqhan-chat-user": HTMLSSaqhanChatUserElement;
         "s-saqhan-chat-users": HTMLSSaqhanChatUsersElement;
         "s-saqhan-chat-users-wrapper": HTMLSSaqhanChatUsersWrapperElement;
+        "user-folders": HTMLUserFoldersElement;
         "user-profile": HTMLUserProfileElement;
         "user-status": HTMLUserStatusElement;
     }
@@ -1303,7 +1312,14 @@ declare namespace LocalJSX {
         "onVisibleUserProfile"?: (event: CustomEvent<void>) => void;
     }
     interface SAdamProfile {
-        "onClickToShowDialogs"?: (event: CustomEvent<any>) => void;
+        /**
+          * Показываем список диалогов
+         */
+        "onClickToShowDialogs"?: (event: CustomEvent<void>) => void;
+        /**
+          * Показываем папки
+         */
+        "onClickToShowFolders"?: (event: CustomEvent<void>) => void;
         /**
           * Задаем стиль для мобильной/пк версии
          */
@@ -1380,6 +1396,9 @@ declare namespace LocalJSX {
          */
         "personalMessage"?: ChatMessage[];
     }
+    interface UserFolders {
+        "onClickToUserProfile"?: (event: CustomEvent<void>) => void;
+    }
     interface UserProfile {
         "onClickToShowDialogs"?: (event: CustomEvent<any>) => void;
     }
@@ -1437,6 +1456,7 @@ declare namespace LocalJSX {
         "s-saqhan-chat-user": SSaqhanChatUser;
         "s-saqhan-chat-users": SSaqhanChatUsers;
         "s-saqhan-chat-users-wrapper": SSaqhanChatUsersWrapper;
+        "user-folders": UserFolders;
         "user-profile": UserProfile;
         "user-status": UserStatus;
     }
@@ -1490,6 +1510,7 @@ declare module "@stencil/core" {
             "s-saqhan-chat-user": LocalJSX.SSaqhanChatUser & JSXBase.HTMLAttributes<HTMLSSaqhanChatUserElement>;
             "s-saqhan-chat-users": LocalJSX.SSaqhanChatUsers & JSXBase.HTMLAttributes<HTMLSSaqhanChatUsersElement>;
             "s-saqhan-chat-users-wrapper": LocalJSX.SSaqhanChatUsersWrapper & JSXBase.HTMLAttributes<HTMLSSaqhanChatUsersWrapperElement>;
+            "user-folders": LocalJSX.UserFolders & JSXBase.HTMLAttributes<HTMLUserFoldersElement>;
             "user-profile": LocalJSX.UserProfile & JSXBase.HTMLAttributes<HTMLUserProfileElement>;
             "user-status": LocalJSX.UserStatus & JSXBase.HTMLAttributes<HTMLUserStatusElement>;
         }

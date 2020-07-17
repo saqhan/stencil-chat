@@ -1,0 +1,70 @@
+
+.folders-wrapper{
+  height: 100vh;
+  background-color: #f7f8f9;
+  padding: 20px;
+}
+
+.folders-title {
+  display: flex;
+  border-bottom: 1px solid #cccccc;
+  padding: 0px 20px;
+  padding-bottom: 20px;
+  margin: 0px -20px;
+}
+
+.folders-title .title {
+  padding-left: 20px;
+}
+
+.left-back {
+  cursor: pointer;
+}
+
+.left-back i {
+  color: #979eab;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+  width: 14px;
+}
+
+.advice {
+  padding: 10px;
+  font-size: 14px;
+  background-color: #ececec;
+  color: grey;
+  margin-bottom: 10px;
+}
+.user-folders-block {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+.user-folders-block  .c-chat {
+  width: 16px;
+  text-align: center;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.user-folders-block .user-social-name {
+  cursor: pointer;
+}
+
+.user-social-title,
+.media-title {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.user-folder {
+  margin-top: 20px;
+}
+
+.user-folder-link {
+  padding: 10px 0px;
+  font-size: 14px;
+}

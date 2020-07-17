@@ -1,6 +1,21 @@
-import {Component, ComponentInterface, Event, EventEmitter, h, Prop, State,} from "@stencil/core";
-import {ChatClickToLinkEmit, ChatDialogInterface, ChatMessage,} from "../../../index";
-import {ChatUserActionStatusState, ChatUserPresenceState} from "../user-status/res/abstract/enum/common.enum";
+import {
+  Component,
+  ComponentInterface,
+  Event,
+  EventEmitter,
+  h,
+  Prop,
+  State,
+} from "@stencil/core";
+import {
+  ChatClickToLinkEmit,
+  ChatDialogInterface,
+  ChatMessage,
+} from "../../../index";
+import {
+  ChatUserActionStatusState,
+  ChatUserPresenceState,
+} from "../user-status/res/abstract/enum/common.enum";
 
 @Component({
   tag: "personal-header",
@@ -75,16 +90,19 @@ export class PersonalHeader implements ComponentInterface {
             >
               <i class="c-chat c-chat-arrow-left"></i>
             </span>
-            <span
-              class=" user-name-personal"
-
-            >
+            <span class=" user-name-personal-wrapper">
               <span
-                class="custom-link"
+                class="custom-link user-name-personal"
                 onClick={() => this.clickToUserProfileHandler()}
               >
                 {this.getNameUser()}
+                {this.openedDialog.online ? (
+                  <span class="user-online-status"></span>
+                ) : (
+                  <span class="user-ofline-status"></span>
+                )}
               </span>
+
             </span>
             <span
               class="custom-link"
@@ -100,7 +118,11 @@ export class PersonalHeader implements ComponentInterface {
           <div class="users-nav">
             <div class="user-active">
               {this.isPersonalMess ? (
-                <user-status theme={"module"} chatActionState={this.chatActionState} chatPresenceState={this.chatPresenceState}></user-status>
+                <user-status
+                  theme={"module"}
+                  chatActionState={this.chatActionState}
+                  chatPresenceState={this.chatPresenceState}
+                ></user-status>
               ) : (
                 <div class="search-wrapper">
                   <div class="searchPersonalmess">
@@ -124,7 +146,7 @@ export class PersonalHeader implements ComponentInterface {
    * get name user
    * */
   public getNameUser(): string {
-    return  this.openedDialog?.name;
+    return this.openedDialog?.name;
     // return ChatMessagesLogic.openedDialog?.name;
   }
 
