@@ -164,6 +164,10 @@ Type: `Promise<void>`
 
 ## Dependencies
 
+### Used by
+
+ - [module-chat](../../..)
+
 ### Depends on
 
 - [s-saqhan-chat-users-wrapper](./res/view/s-saqhan-chat-users-wrapper)
@@ -207,6 +211,7 @@ graph TD;
   contacts-list --> contacts-list-body
   contacts-list --> m-chat-footer
   contacts-list-body --> contact-card
+  module-chat --> cnt-module-chat
   style cnt-module-chat fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

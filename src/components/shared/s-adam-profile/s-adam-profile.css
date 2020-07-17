@@ -164,26 +164,21 @@
 
 /*folders*/
 
-.user-folders-blocks {
-  background-color: #fff;
-  max-height: 245px;
-  overflow: scroll;
 
-}
 
-.user-folders-blocks ul li {
-  list-style: none;
-  border-bottom: 1px solid #bacbe3;
-  padding: 10px;
+.user-add-folder {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 15px 20px;
+  margin-bottom: 30px;
   cursor: pointer;
-  font-size: 12px;
-  font-weight: 600;
-  color:#8d8d8d;
-  transition: 0.3s ease;
 }
 
-.user-folders-blocks ul li:hover{
-  background-color: #ccc;
-  color: #fff;
+.user-add-btn {
+  margin-left: 20px;
+  font-size: 12px;
+  color: #8d8d8d;
+  font-weight: 600;
 }
 

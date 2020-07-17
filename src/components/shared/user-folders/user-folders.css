@@ -1,12 +1,18 @@
-
-.folders-wrapper{
+.folders-wrapper {
   height: 100vh;
   background-color: #f7f8f9;
   padding: 20px;
+  overflow: auto;
+}
+::-webkit-scrollbar {
+  /* chrome based */
+  width: 0px; /* ширина scrollbar'a */
+  background: transparent; /* опционально */
 }
 
 .folders-title {
   display: flex;
+  justify-content: space-between;
   border-bottom: 1px solid #cccccc;
   padding: 0px 20px;
   padding-bottom: 20px;
@@ -15,6 +21,16 @@
 
 .folders-title .title {
   padding-left: 20px;
+}
+
+.folders-title .left {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.folders-title .right {
+  cursor: pointer;
 }
 
 .left-back {
@@ -33,7 +49,7 @@
   font-size: 14px;
   background-color: #ececec;
   color: grey;
-  margin-bottom: 10px;
+  margin: 30px 0px;
 }
 .user-folders-block {
   background: white;
@@ -43,16 +59,16 @@
   padding: 10px 20px;
 }
 
-.user-folders-block  .c-chat {
+.user-folders-block .c-chat {
   width: 16px;
   text-align: center;
   margin-right: 20px;
   cursor: pointer;
 }
 
-.user-folders-block .user-social-name {
-  cursor: pointer;
-}
+/*.user-folders-block {*/
+/*  cursor: pointer;*/
+/*}*/
 
 .user-social-title,
 .media-title {
@@ -61,10 +77,106 @@
   margin-bottom: 10px;
 }
 .user-folder {
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .user-folder-link {
   padding: 10px 0px;
   font-size: 14px;
+  cursor: pointer;
+}
+
+.user-folders-blocks {
+  background-color: #fff;
+  max-height: 215px;
+  overflow: auto;
+}
+
+.user-folders-blocks ul li {
+  list-style: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: #8d8d8d;
+  transition: 0.3s ease;
+}
+
+.list-item-wrapper:hover {
+  color: #4c567d;
+  border-bottom: 1px solid #4c567d;
+}
+
+.list-item-wrapper {
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+  align-items: center;
+  transition: 0.3s ease;
+}
+
+.list-item-wrapper i {
+  margin-right: 20px;
+  margin-left: 10px;
+  font-size: 16px;
+}
+
+.list-folders {
+  display: flex;
+  justify-content: space-between;
+}
+
+.delete-folder {
+  width: 40px;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+  transition: 0.3s ease;
+  font-size: 16px;
+}
+
+.delete-folder:hover {
+  border-bottom: 1px solid darkred;
+  color: darkred;
+}
+
+.user-folders {
+  margin: 30px 0px;
+}
+
+.user-folders-title {
+  margin-bottom: 10px;
+}
+
+.folders-content {
+  height: 100vh;
+  overflow: auto;
+}
+
+.user-social-title {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #4c567d;
+}
+
+.user-social-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #8d8d8d;
+}
+
+/** creating folder */
+.creating-folder-block {
+  display: flex;
+  align-items: center;
+}
+.creating-folder-block i {
+  color: #4c567d;
+}
+.creating-folder-block input {
+  border: none;
+  padding: 10px;
+  outline: none;
+  width: 100%;
 }
