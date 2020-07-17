@@ -5,9 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ChatCategoryInterface, ChatClickToLinkEmit, ChatContactInterface, ChatDialogInterface, ChatLogo, ChatMessage, ChatViewToShowEnum, ChatWritingUserInterface, ShowFullChatOutputInterface, TitleModuleInterface, } from "./index";
+import { ChatCategoryInterface, ChatClickToLinkEmit, ChatContactInterface, ChatDialogInterface, ChatLogo, ChatMessage, ChatViewToShowEnum, ChatWritingUserInterface, ShowFullChatOutputInterface, } from "./index";
 import { ChatUserActionStatusState, ChatUserPresenceState, } from "./components/shared/user-status/res/abstract/enum/common.enum";
-import { TitleModuleInterface as TitleModuleInterface1, } from ".";
 export namespace Components {
     interface BtnWrapper {
         "dialogs": number;
@@ -59,6 +58,10 @@ export namespace Components {
          */
         "dialogs": ChatDialogInterface[];
         /**
+          * словарь
+         */
+        "dictionary": any;
+        /**
           * отключение поиска контактов
          */
         "disableInnerSearchContactState": boolean;
@@ -103,10 +106,6 @@ export namespace Components {
           * показывает весь блок после скрытия
          */
         "show": () => Promise<void>;
-        /**
-          * Заголовок для чата
-         */
-        "titleModule": TitleModuleInterface;
         /**
           * меняет статусы действия текущих (печатает, записывает и т.д.)
          */
@@ -264,7 +263,6 @@ export namespace Components {
           * отключение возможности октрытие приложение чата
          */
         "disableShowFullChatState": boolean;
-        "titleModule": TitleModuleInterface;
     }
     interface ModulePersonal {
         /**
@@ -802,6 +800,10 @@ declare namespace LocalJSX {
          */
         "dialogs"?: ChatDialogInterface[];
         /**
+          * словарь
+         */
+        "dictionary"?: any;
+        /**
           * отключение поиска контактов
          */
         "disableInnerSearchContactState"?: boolean;
@@ -843,10 +845,6 @@ declare namespace LocalJSX {
           * Перменная для включения/отключения показа чата в развернутом виде
          */
         "openState"?: boolean;
-        /**
-          * Заголовок для чата
-         */
-        "titleModule"?: TitleModuleInterface;
         /**
           * видимость
          */
@@ -1130,7 +1128,6 @@ declare namespace LocalJSX {
           * Разворачивать полную версию чата при клике иконку
          */
         "onShowFullChat"?: (event: CustomEvent<void>) => void;
-        "titleModule"?: TitleModuleInterface;
     }
     interface ModulePersonal {
         /**

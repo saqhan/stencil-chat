@@ -1,9 +1,9 @@
-import {Component, ComponentInterface, Event, EventEmitter, h, Prop,} from "@stencil/core";
+import {Component, ComponentInterface, Event, EventEmitter, h, Prop, State,} from "@stencil/core";
 import {ChatCategoryInterface} from "../../../index";
 
 @Component({
   tag: "dialog-categories",
-  styleUrl: "dialog-categories.css",
+  styleUrl: "dialog-categories.scss",
   shadow: false,
   scoped: true
 })
@@ -23,6 +23,10 @@ export class DialogCategories implements ComponentInterface {
    * */
   @Event() clickToCategory: EventEmitter<ChatCategoryInterface>;
 
+  /**
+   * */
+  @State() lastClickedCategory: ChatCategoryInterface;
+
   render() {
     return (
       <div class={this.getClassForHost()}>
@@ -36,14 +40,20 @@ export class DialogCategories implements ComponentInterface {
   public getCategories(array) {
     return array.map((item) => (
       <span
-        class={item.id}
-        onClick={() => this.clickToCategory.emit(item)
-        }
+        class={{active: item.id === this.lastClickedCategory?.id }}
+        onClick={() => this.clickToCategoryHandler(item)}
       >
         {item.name}
       </span>
     ));
   }
+  /**
+   * */
+  public clickToCategoryHandler(item: ChatCategoryInterface)
+  {
+    this.clickToCategory.emit(this.lastClickedCategory = item)
+  }
+
   /**
    *
    * */

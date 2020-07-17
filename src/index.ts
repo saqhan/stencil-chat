@@ -148,10 +148,10 @@ export interface ChatLogo {
   logo: string;
 }
 
-export interface TitleModuleInterface {
-  id: string;
-  title: string;
-}
+// export interface TitleModuleInterface {
+//   id: string;
+//   title: string;
+// }
 
 export interface ChatNavItems {
   id: number;
@@ -302,7 +302,7 @@ export function filterDialogsByCategory (
   category: ChatCategoryInterface,
   dialogs:  ChatDialogInterface[]
 ): ChatDialogInterface[] {
-  return category.id !== "all"
+  return (category && category.id !== "all")
     ? dialogs.filter((dialog) => dialog.category === category.id)
     : dialogs;
 }

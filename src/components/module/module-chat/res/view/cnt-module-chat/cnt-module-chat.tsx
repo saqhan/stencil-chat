@@ -1,14 +1,15 @@
 import {
   Component,
   ComponentInterface,
-  EventEmitter,
+  Element,
   Event,
+  EventEmitter,
   h,
+  Host,
+  Method,
   Prop,
   State,
   Watch,
-  Method,
-  Host,
 } from "@stencil/core";
 import {
   ChatCategoryInterface,
@@ -20,10 +21,9 @@ import {
   filterDialogsByCategory,
   filterDialogsBySearchValue,
   filterMessageBySearchValue,
-  ShowFullChatOutputInterface,
-  TitleModuleInterface,
+  ShowFullChatOutputInterface
 } from "../../../../../../index";
-import { ChatMessagesLogic } from "../../../../../../utils/utils";
+import {ChatDictionaryService, ChatMessagesLogic} from "../../../../../../utils/utils";
 import {
   ChatUserActionStatusState,
   ChatUserPresenceState,
@@ -40,10 +40,10 @@ export class CntModuleChat implements ComponentInterface {
    * array categories
    * */
   @Prop() categories: ChatCategoryInterface[];
-  /**
-   * Заголовок для чата
-   * */
-  @Prop() titleModule: TitleModuleInterface;
+  // /**
+  //  * Заголовок для чата
+  //  * */
+  // @Prop() titleModule: TitleModuleInterface;
 
   /**
    * добавляем печатающий
@@ -98,6 +98,11 @@ export class CntModuleChat implements ComponentInterface {
    * масиив данных контактов
    * */
   @Prop() contacts: ChatContactInterface[];
+
+  /**
+   * словарь
+   * */
+  @Prop() dictionary: any;
 
   /**
    * click to dialog
@@ -254,10 +259,33 @@ export class CntModuleChat implements ComponentInterface {
    * */
   @State() messageState: ChatMessage[] = this.message;
 
+  /**
+   * текущий элемент
+   * */
+  @Element() el: HTMLElement;
+
+  /**
+   * последние данные для поиска
+   * */
+  public lastSearchDialog: string;
+
+  /**
+   * последняя кликнутая категория
+   * */
+  public lastClickedCategory: ChatCategoryInterface;
+
+  @Watch("dictionary")
+  watchDictionaryHandler(newValue: ChatDialogInterface[]) {
+    this.updateDictionary(newValue);
+  }
+
   @Watch("dialogs")
-  watchDialogsHandler(newValue: boolean, oldValue: boolean) {
-    console.log("The new value of activated is: ", { newValue, oldValue });
-    this.dialogsState = this.dialogs;
+  watchDialogsHandler(newValue: ChatDialogInterface[]) {
+    this.safeFiltersDialog(
+      this.lastSearchDialog,
+      this.lastClickedCategory,
+      newValue
+    );
   }
 
   @Watch("message")
@@ -267,9 +295,18 @@ export class CntModuleChat implements ComponentInterface {
   }
 
   @Watch("categories")
-  watchCategoriesHandler(newValue: boolean, oldValue: boolean) {
-    console.log("The new value of activated is: ", { newValue, oldValue });
-    this.categoriesState = this.categories;
+  watchCategoriesHandler(newValue: ChatCategoryInterface[]) {
+    this.categoriesState = newValue;
+
+    this.safeFiltersDialog(
+      this.lastSearchDialog,
+      this.lastClickedCategory,
+      this.dialogs
+    );
+  }
+
+  componentDidLoad() {
+    this.updateDictionary(this.dictionary);
   }
 
   render() {
@@ -280,7 +317,6 @@ export class CntModuleChat implements ComponentInterface {
             <div class="wrapper-chat">
               <module-header
                 disableShowFullChatState={this.disableShowFullChatState}
-                titleModule={this.titleModule}
                 onShowFullChat={() => this.showFullChatHandler()}
                 onClose={() => this.onClose()}
               ></module-header>
@@ -301,6 +337,14 @@ export class CntModuleChat implements ComponentInterface {
     );
   }
 
+  /**
+   *
+   * */
+  private updateDictionary (newValue: any) {
+    ChatDictionaryService.dictionary$.next(newValue);
+    console.log('changed - dictionary');
+  }
+
   public countNewMess(array) {
     let counter = 0;
     array.map((item) => {
@@ -311,17 +355,24 @@ export class CntModuleChat implements ComponentInterface {
 
   /**
    * */
-  public clickToCategory(value: ChatCategoryInterface) {
-    this.dialogsState = filterDialogsByCategory(value, this.dialogs);
-  }
+  // public clickToCategory(value: ChatCategoryInterface) {
+  //   this.dialogsState = filterDialogsByCategory(value, this.dialogs);
+  // }
 
   /**
    * dialogue search
    * */
-  public searchDialog(value: string) {
+  public safeFiltersDialog(searchValue: string, category: ChatCategoryInterface, allDialogs: ChatDialogInterface[]) {
+    this.lastSearchDialog = searchValue;
+    this.lastClickedCategory = category;
+
+    let filteredDialogsBySearchValue = allDialogs;
+
     if (!this.disableInnerSearchDialogsState) {
-      this.dialogsState = filterDialogsBySearchValue(value, this.dialogs);
+      filteredDialogsBySearchValue =  filterDialogsBySearchValue(searchValue, allDialogs);
     }
+
+    this.dialogsState = filterDialogsByCategory(category, filteredDialogsBySearchValue)
   }
 
   /**
@@ -344,14 +395,14 @@ export class CntModuleChat implements ComponentInterface {
             dialogs={this.dialogsState}
             categories={this.categoriesState}
             onClickToCategory={(item: CustomEvent<ChatCategoryInterface>) =>
-              this.clickToCategory(item.detail)
+              this.safeFiltersDialog(this.lastSearchDialog, item.detail, this.dialogs)
             }
             onClickToDialog={(item: CustomEvent<ChatDialogInterface>) =>
               this.clickToDialogHandler(item.detail)
             }
             onClickToFilesBtn={() => this.clickToFilesBtnHandler()}
             onSearchDialog={(item: CustomEvent<string>) =>
-              this.searchDialog(item.detail)
+              this.safeFiltersDialog(item.detail, this.lastClickedCategory, this.dialogs)
             }
             onSendNewMessModal={() => this.sendNewMessModal()}
           ></s-saqhan-chat-users-wrapper>
