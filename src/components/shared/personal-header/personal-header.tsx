@@ -96,11 +96,15 @@ export class PersonalHeader implements ComponentInterface {
                 onClick={() => this.clickToUserProfileHandler()}
               >
                 {this.getNameUser()}
-                {this.openedDialog.online ? (
-                  <span class="user-online-status"></span>
-                ) : (
-                  <span class="user-ofline-status"></span>
-                )}
+                {
+                  this.chatPresenceState === ChatUserPresenceState.online
+                  ? (
+                    <span class="user-online-status"></span>
+                  )
+                  : (
+                    <span class="user-ofline-status"></span>
+                  )
+                }
               </span>
 
             </span>
@@ -147,7 +151,6 @@ export class PersonalHeader implements ComponentInterface {
    * */
   public getNameUser(): string {
     return this.openedDialog?.name;
-    // return ChatMessagesLogic.openedDialog?.name;
   }
 
   public showDrop = () => (this.isShowDropDown = !this.isShowDropDown);

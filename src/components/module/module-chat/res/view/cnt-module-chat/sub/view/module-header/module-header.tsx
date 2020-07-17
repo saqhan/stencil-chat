@@ -1,12 +1,4 @@
-import {
-  Component,
-  ComponentInterface,
-  Event,
-  EventEmitter,
-  h,
-  Prop,
-} from "@stencil/core";
-import { TitleModuleInterface } from "../../../../../../../../..";
+import {Component, ComponentInterface, Event, EventEmitter, h, Prop,} from "@stencil/core";
 
 @Component({
   tag: "module-header",
@@ -18,7 +10,7 @@ export class ModuleHeader implements ComponentInterface {
   /**
    *
    * */
-  @Prop() titleModule: TitleModuleInterface;
+  // @Prop() titleModule: TitleModuleInterface;
 
   /**
    * close modal
@@ -35,13 +27,27 @@ export class ModuleHeader implements ComponentInterface {
    * */
   @Prop() disableShowFullChatState: boolean;
 
+  /**
+   *
+   * */
+  // @State() dictionary: any;
+  //
+  // componentDidLoad() {
+  //   ChatDictionaryService.dictionary$.subscribe(
+  //     (dictionary) => {
+  //       this.dictionary = dictionary;
+  //     }
+  //   )
+  // }
+
   render() {
     return (
       <div class="header-chat">
         <div class="showFullChat" style={ {visibility: this.disableShowFullChatState ? 'hidden': null} } onClick={() => this.showFullChatHandler()}>
           <i class="c-chat c-chat-expand"></i>
         </div>
-        <div class="header-chat-title">{this.titleModule.title} </div>
+        <div class="header-chat-title">Модульный чат</div>
+        {/*<div class="header-chat-title">{ChatDictionaryService.dictionary?.module?.appName}</div>*/}
         <div class="close" onClick={() => this.close.emit()}>
           <i class="c-chat c-chat-times-circle"></i>
         </div>

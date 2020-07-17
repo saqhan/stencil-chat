@@ -128,24 +128,18 @@
   position: relative;
 }
 
-.user-online-status {
-  width: 7px;
-  height: 7px;
+/* TODO адам потом добавь себе что узнать где...*/
+.user-online-status, .user-ofline-status {
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
-  background-color: #7dbd27;
   display: inline-block;
-  position: absolute;
-  top: 0px;
-  right: -10px;
+  margin-left: 5px;
+}
+.user-online-status {
+  background-color: #7dbd27;
+}
+.user-ofline-status {
+  background-color: #ccc;
 }
 
-.user-ofline-status {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background-color: #ccc;
-  display: inline-block;
-  position: absolute;
-  top: 0px;
-  right: -10px;
-}

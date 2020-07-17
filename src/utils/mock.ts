@@ -1,5 +1,25 @@
 import {ChatMessage, ChatMessageDirectionEnum, ChatMessageTypeEnum} from "../index";
 
+
+export const DictionaryMock = {
+  module: {
+    appName: "Модульный чат"
+  },
+  shared: {
+
+  },
+  comp: {},
+}
+export const DictionaryMockEng = {
+  module: {
+    appName: "Module chat"
+  },
+  shared: {
+
+  },
+  comp: {},
+}
+
 export const dialogs = [
   {
     id: 1,
@@ -327,10 +347,10 @@ export const logo = {
   logo: "https://via.placeholder.com/100x100?text=Text",
 };
 
-export const titleModule = {
-  id: 'modal',
-  title: 'Модульный чат'
-}
+// export const titleModule = {
+//   id: 'modal',
+//   title: 'Модульный чат'
+// }
 
 // export const navItems = [
 //   {
@@ -490,7 +510,7 @@ export const contacts = [
   },
 ];
 
-export const disableInnerSearchDialogs:boolean = true;
+export const disableInnerSearchDialogs:boolean = false;
 export const disableInnerSearchMessages:boolean = false;
 
 /**

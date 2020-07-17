@@ -1,4 +1,5 @@
 import dayjs from "dayjs";
+import {BehaviorSubject} from "rxjs";
 
 export function format(first: string, middle: string, last: string): string {
   return (
@@ -75,4 +76,10 @@ export class ChatMessagesLogic {
       this.scrollToBotCallback();
     }
   }
+}
+
+
+export class ChatDictionaryService {
+  public static dictionary: any;
+  public static dictionary$ = new BehaviorSubject(null);
 }
