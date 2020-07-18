@@ -342,6 +342,7 @@ export namespace Components {
         "dialogs": ChatDialogInterface[];
     }
     interface SAdamDirect {
+        "chatPresenceState": ChatUserPresenceState;
         /**
           * Личный диалог
          */
@@ -358,16 +359,13 @@ export namespace Components {
     interface SAdamNoChat {
     }
     interface SAdamPersonalHeader {
+        "chatPresenceState": ChatUserPresenceState;
         /**
           * Личный диалог
          */
         "message": ChatMessage[];
     }
     interface SAdamProfile {
-        /**
-          * Массив категорий
-         */
-        "categories": ChatCategoryInterface[];
         /**
           * Задаем стиль для мобильной/пк версии
          */
@@ -413,6 +411,10 @@ export namespace Components {
         "personalMessage": ChatMessage[];
     }
     interface UserFolders {
+        /**
+          * Массив категорий
+         */
+        "categories": ChatCategoryInterface[];
     }
     interface UserProfile {
     }
@@ -1263,6 +1265,7 @@ declare namespace LocalJSX {
         "onSearchDialogs"?: (event: CustomEvent<string>) => void;
     }
     interface SAdamDirect {
+        "chatPresenceState"?: ChatUserPresenceState;
         /**
           * Личный диалог
          */
@@ -1295,6 +1298,7 @@ declare namespace LocalJSX {
     interface SAdamNoChat {
     }
     interface SAdamPersonalHeader {
+        "chatPresenceState"?: ChatUserPresenceState;
         /**
           * Личный диалог
          */
@@ -1313,10 +1317,6 @@ declare namespace LocalJSX {
         "onVisibleUserProfile"?: (event: CustomEvent<void>) => void;
     }
     interface SAdamProfile {
-        /**
-          * Массив категорий
-         */
-        "categories"?: ChatCategoryInterface[];
         /**
           * Показываем список диалогов
          */
@@ -1402,7 +1402,18 @@ declare namespace LocalJSX {
         "personalMessage"?: ChatMessage[];
     }
     interface UserFolders {
+        /**
+          * Массив категорий
+         */
+        "categories"?: ChatCategoryInterface[];
+        /**
+          * переход на профиль пользователя
+         */
         "onClickToUserProfile"?: (event: CustomEvent<void>) => void;
+        /**
+          * создание папки
+         */
+        "onToCreateFolder"?: (event: CustomEvent<string>) => void;
     }
     interface UserProfile {
         "onClickToShowDialogs"?: (event: CustomEvent<any>) => void;

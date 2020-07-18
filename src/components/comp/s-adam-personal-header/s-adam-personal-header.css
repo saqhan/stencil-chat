@@ -22,12 +22,15 @@
   font-weight: 700;
   cursor: pointer;
 }
-.online-marker {
-  width: 8px;
-  height: 8px;
+.online-marker, .offline-marker {
+  width: 10px;
+  height: 10px;
   border-radius: 100%;
   background-color: #5dc969;
-  margin-left: 10px;
+  margin-left: 5px;
+}
+.offline-marker {
+  background-color: #ccc;
 }
 .search-message,
 .settings {
@@ -69,4 +72,5 @@
 .user-name-wrapper {
   display: flex;
   align-items: center;
+  line-height: 1;
 }
