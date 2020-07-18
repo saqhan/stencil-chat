@@ -371,6 +371,10 @@ export namespace Components {
     }
     interface SAdamProfile {
         /**
+          * Массив категорий
+         */
+        "categories": ChatCategoryInterface[];
+        /**
           * Задаем стиль для мобильной/пк версии
          */
         "theme": "comp" | "mobile" | "module";
@@ -1326,6 +1330,10 @@ declare namespace LocalJSX {
         "onVisibleUserProfile"?: (event: CustomEvent<void>) => void;
     }
     interface SAdamProfile {
+        /**
+          * Массив категорий
+         */
+        "categories"?: ChatCategoryInterface[];
         /**
           * Показываем список диалогов
          */

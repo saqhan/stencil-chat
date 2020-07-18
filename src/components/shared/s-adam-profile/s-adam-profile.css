@@ -177,8 +177,108 @@
 
 .user-add-btn {
   margin-left: 20px;
-  font-size: 12px;
-  color: #8d8d8d;
+  font-size: 14px;
+  color: #4c567d;
   font-weight: 600;
 }
 
+
+/** категории */
+
+
+.user-social-title,
+.media-title {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.user-folder {
+  margin-top: 30px;
+}
+
+.user-folder-link {
+  padding: 10px 0px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.user-folders-blocks {
+  background-color: #fff;
+  max-height: 215px;
+  overflow: auto;
+}
+
+.user-folders-blocks ul li {
+  list-style: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: #8d8d8d;
+  transition: 0.3s ease;
+}
+
+.list-item-wrapper:hover {
+  color: #4c567d;
+  border-bottom: 1px solid #4c567d;
+}
+
+.list-item-wrapper {
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+  align-items: center;
+  transition: 0.3s ease;
+}
+
+.list-item-wrapper i {
+  margin-right: 20px;
+  margin-left: 10px;
+  font-size: 16px;
+}
+
+.list-folders {
+  display: flex;
+  justify-content: space-between;
+}
+
+.delete-folder {
+  width: 40px;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+  transition: 0.3s ease;
+  font-size: 16px;
+}
+
+.delete-folder:hover {
+  border-bottom: 1px solid darkred;
+  color: darkred;
+}
+
+.user-folders {
+  margin: 30px 0px;
+}
+
+.user-folders-title {
+  margin-bottom: 10px;
+}
+
+.folders-content {
+  height: 100vh;
+  overflow: auto;
+}
+
+.user-social-title {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #4c567d;
+}
+
+.user-social-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #8d8d8d;
+}
+/***/
