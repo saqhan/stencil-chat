@@ -27,7 +27,7 @@ export class SAdamPersonalHeader implements ComponentInterface {
 
   /**
    * */
-  @Prop() chatActionState: ChatUserActionStatusState
+  @Prop() chatActionState: ChatUserActionStatusState;
 
   /**
    * Стейт для переключения окна поиска сообщений

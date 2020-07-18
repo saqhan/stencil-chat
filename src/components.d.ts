@@ -341,6 +341,7 @@ export namespace Components {
         "dialogs": ChatDialogInterface[];
     }
     interface SAdamDirect {
+        "chatActionState": ChatUserActionStatusState;
         "chatPresenceState": ChatUserPresenceState;
         /**
           * Личный диалог
@@ -1277,6 +1278,7 @@ declare namespace LocalJSX {
         "onSearchDialogs"?: (event: CustomEvent<string>) => void;
     }
     interface SAdamDirect {
+        "chatActionState"?: ChatUserActionStatusState;
         "chatPresenceState"?: ChatUserPresenceState;
         /**
           * Личный диалог
