@@ -321,3 +321,19 @@ export interface ShowFullChatOutputInterface {
   view: ChatViewToShowEnum
   data?: ChatDialogInterface
 }
+
+export interface ChatCreateFolderOutputInterface {
+  name: string;
+  chats: ChatDialogInterface[]
+}
+
+
+export enum ChatUserActionStatusState {
+  writing = 'writing',
+  audioRecording = 'audio-recording'
+}
+
+export enum ChatUserPresenceState {
+  offline,
+  online
+}

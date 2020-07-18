@@ -7,7 +7,7 @@ import {
   Prop,
   State,
 } from "@stencil/core";
-import { ChatCategoryInterface } from "../../../index";
+import {ChatCategoryInterface, ChatCreateFolderOutputInterface} from "../../../index";
 
 @Component({
   tag: "user-folders",
@@ -34,7 +34,7 @@ export class UserFolders implements ComponentInterface {
   /**
    * создание папки
    * */
-  @Event() toCreateFolder: EventEmitter<string>;
+  @Event() createFolder: EventEmitter<ChatCreateFolderOutputInterface>;
 
   /**
    *
@@ -67,10 +67,9 @@ export class UserFolders implements ComponentInterface {
                 <div class="creating-folder-block">
                   <i
                     class="c-chat sc-btn-wrapper c-chat-times"
-                    onClick={() => this.toShowInputCreateFolderHandler()}
+                    onClick={() => this.showInputCreateFolderHandler()}
                   ></i>
-                  <form
-                    onSubmit={(e) => this.toCreatingFolderFromInputHandler(e)}
+                  <form onSubmit={(e) => this.creatingFolderFromInputHandler(e)}
                   >
                     <input
                       type="text"
@@ -82,7 +81,7 @@ export class UserFolders implements ComponentInterface {
               ) : (
                 <div
                   class="user-folder-link"
-                  onClick={() => this.toShowInputCreateFolderHandler()}
+                  onClick={() => this.showInputCreateFolderHandler()}
                 >
                   <i class="c-chat c-chat-file-alt hover-link"></i>
                   <span class="user-social-name">Создать новую папку</span>
@@ -124,19 +123,22 @@ export class UserFolders implements ComponentInterface {
   /**
    * показывать инпут для создания папки
    * */
-  public toShowInputCreateFolderHandler() {
+  public showInputCreateFolderHandler() {
     this.showInputCreateFolderState = !this.showInputCreateFolderState;
   }
 
   /**
    *
    * */
-  private toCreatingFolderHandler() {
+  private creatingFolderHandler() {
     const input = this.inputElement;
     if (input.value !== "") {
-      // скрипт отправки сообщения
-      this.toCreateFolder.emit(input.value)
-      // console.log("toCreatingFolderHandler", input.value);
+      this.createFolder.emit(
+        {
+          name: input.value,
+          chats: []
+        }
+      )
       input.value = '';
     }
   }
@@ -145,15 +147,15 @@ export class UserFolders implements ComponentInterface {
    * create folder from send button
    * */
   public createFolderFromButton() {
-    this.toCreatingFolderHandler();
+    this.creatingFolderHandler();
   }
 
   /**
    *
    * */
-  public toCreatingFolderFromInputHandler(e) {
+  public creatingFolderFromInputHandler(e) {
     e.preventDefault();
-    this.toCreatingFolderHandler();
+    this.creatingFolderHandler();
   }
 
   /**

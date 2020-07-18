@@ -7,8 +7,7 @@ import {
   Prop,
   State,
 } from "@stencil/core";
-import { ChatMessage } from "../../../index";
-import { ChatUserPresenceState } from "../../shared/user-status/res/abstract/enum/common.enum";
+import {ChatMessage, ChatUserActionStatusState, ChatUserPresenceState} from "../../../index";
 
 @Component({
   tag: "s-adam-personal-header",
@@ -25,6 +24,10 @@ export class SAdamPersonalHeader implements ComponentInterface {
   /**
    * */
   @Prop() chatPresenceState: ChatUserPresenceState;
+
+  /**
+   * */
+  @Prop() chatActionState: ChatUserActionStatusState
 
   /**
    * Стейт для переключения окна поиска сообщений
@@ -74,13 +77,15 @@ export class SAdamPersonalHeader implements ComponentInterface {
           <div class="user">
             <div class="user-name-wrapper">
               <div class="user-name">{this.getNameUser()}</div>
-              {this.chatPresenceState === ChatUserPresenceState.online ? (
+              {this.chatPresenceState === ChatUserPresenceState.online
+                ? (
                 <div class="online-marker"></div>
               ) : (
-                <span class="ofline-marker"></span>
+                <div class="offline-marker"></div>
               )}
             </div>
             <user-status
+              chatActionState={this.chatActionState}
               chatPresenceState={this.chatPresenceState}
             ></user-status>
           </div>
