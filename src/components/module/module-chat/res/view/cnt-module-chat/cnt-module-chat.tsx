@@ -13,7 +13,7 @@ import {
 } from "@stencil/core";
 import {
   ChatCategoryInterface,
-  ChatContactInterface,
+  ChatContactInterface, ChatCreateFolderOutputInterface,
   ChatDialogInterface,
   ChatMessage,
   ChatViewToShowEnum,
@@ -80,6 +80,11 @@ export class CntModuleChat implements ComponentInterface {
    * Разворачивать полную версию чата при клике иконку
    * */
   @Event() showFullChat: EventEmitter<ShowFullChatOutputInterface>;
+
+  /**
+   * создание папки
+   * */
+  @Event() createFolder: EventEmitter<ChatCreateFolderOutputInterface>;
 
   /**
    * видимость
@@ -480,8 +485,8 @@ export class CntModuleChat implements ComponentInterface {
       case "folders":
         return (
           <user-folders
-            onToCreateFolder={(e: CustomEvent<string>) =>
-              this.toCreateFolderHandler(e.detail)
+            onCreateFolder={(e: CustomEvent<ChatCreateFolderOutputInterface>) =>
+              this.createFolderHandler(e.detail)
             }
             categories={this.categoriesState}
             onClickToUserProfile={() => this.clickToUserProfileHandler()}
@@ -492,8 +497,8 @@ export class CntModuleChat implements ComponentInterface {
     }
   };
 
-  public toCreateFolderHandler(item): void {
-    console.log("toCreateFolderHandler", item);
+  public createFolderHandler(item: ChatCreateFolderOutputInterface): void {
+    console.log("createFolderHandler", item);
   }
 
   /**

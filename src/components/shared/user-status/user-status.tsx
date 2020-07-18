@@ -1,5 +1,5 @@
 import {Component, ComponentInterface, h, Prop} from '@stencil/core';
-import {ChatUserActionStatusState, ChatUserPresenceState} from "./res/abstract/enum/common.enum";
+import {ChatUserActionStatusState, ChatUserPresenceState} from "../../../index";
 
 
 

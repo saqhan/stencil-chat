@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ChatCategoryInterface, ChatClickToLinkEmit, ChatContactInterface, ChatDialogInterface, ChatLogo, ChatMessage, ChatViewToShowEnum, ChatWritingUserInterface, ShowFullChatOutputInterface, } from "./index";
+import { ChatCategoryInterface, ChatClickToLinkEmit, ChatContactInterface, ChatCreateFolderOutputInterface, ChatDialogInterface, ChatLogo, ChatMessage, ChatUserActionStatusState as ChatUserActionStatusState1, ChatUserPresenceState as ChatUserPresenceState1, ChatViewToShowEnum, ChatWritingUserInterface, ShowFullChatOutputInterface, } from "./index";
 import { ChatUserActionStatusState, ChatUserPresenceState, } from "./components/shared/user-status/res/abstract/enum/common.enum";
 export namespace Components {
     interface BtnWrapper {
@@ -109,11 +109,11 @@ export namespace Components {
         /**
           * меняет статусы действия текущих (печатает, записывает и т.д.)
          */
-        "updateChatActionState": (item: ChatUserActionStatusState) => Promise<void>;
+        "updateChatActionState": (item: any) => Promise<void>;
         /**
           * меняет статус (присутстия собеседников или контакта) в чате
          */
-        "updateChatPresenceState": (item: ChatUserPresenceState) => Promise<void>;
+        "updateChatPresenceState": (item: any) => Promise<void>;
         /**
           * видимость
          */
@@ -359,6 +359,7 @@ export namespace Components {
     interface SAdamNoChat {
     }
     interface SAdamPersonalHeader {
+        "chatActionState": ChatUserActionStatusState;
         "chatPresenceState": ChatUserPresenceState;
         /**
           * Личный диалог
@@ -839,6 +840,10 @@ declare namespace LocalJSX {
          */
         "onClickToFilesBtn"?: (event: CustomEvent<void>) => void;
         /**
+          * создание папки
+         */
+        "onCreateFolder"?: (event: CustomEvent<ChatCreateFolderOutputInterface>) => void;
+        /**
           * search contact
          */
         "onSearchContact"?: (event: CustomEvent<string>) => void;
@@ -1298,6 +1303,7 @@ declare namespace LocalJSX {
     interface SAdamNoChat {
     }
     interface SAdamPersonalHeader {
+        "chatActionState"?: ChatUserActionStatusState;
         "chatPresenceState"?: ChatUserPresenceState;
         /**
           * Личный диалог
@@ -1413,7 +1419,7 @@ declare namespace LocalJSX {
         /**
           * создание папки
          */
-        "onToCreateFolder"?: (event: CustomEvent<string>) => void;
+        "onCreateFolder"?: (event: CustomEvent<ChatCreateFolderOutputInterface>) => void;
     }
     interface UserProfile {
         "onClickToShowDialogs"?: (event: CustomEvent<any>) => void;
