@@ -47,6 +47,7 @@ export class PersonalHeader implements ComponentInterface {
    * */
   @Prop() chatPresenceState: ChatUserPresenceState;
 
+
   /**
    * clock on navigate
    * */

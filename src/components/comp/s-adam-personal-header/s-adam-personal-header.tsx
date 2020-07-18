@@ -74,10 +74,11 @@ export class SAdamPersonalHeader implements ComponentInterface {
           <div class="user">
             <div class="user-name-wrapper">
               <div class="user-name">{this.getNameUser()}</div>
-              {this.chatPresenceState === ChatUserPresenceState.online ? (
+              {this.chatPresenceState === ChatUserPresenceState.online
+                ? (
                 <div class="online-marker"></div>
               ) : (
-                <span class="ofline-marker"></span>
+                <div class="offline-marker"></div>
               )}
             </div>
             <user-status
