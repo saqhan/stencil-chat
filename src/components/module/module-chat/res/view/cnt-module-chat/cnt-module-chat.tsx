@@ -15,7 +15,7 @@ import {
   ChatCategoryInterface,
   ChatContactInterface, ChatCreateFolderOutputInterface,
   ChatDialogInterface,
-  ChatMessage,
+  ChatMessage, ChatUserActionStatusState, ChatUserPresenceState,
   ChatViewToShowEnum,
   ChatWritingUserInterface,
   filterDialogsByCategory,
@@ -27,10 +27,7 @@ import {
   ChatDictionaryService,
   ChatMessagesLogic,
 } from "../../../../../../utils/utils";
-import {
-  ChatUserActionStatusState,
-  ChatUserPresenceState,
-} from "../../../../../shared/user-status/res/abstract/enum/common.enum";
+
 
 @Component({
   tag: "cnt-module-chat",

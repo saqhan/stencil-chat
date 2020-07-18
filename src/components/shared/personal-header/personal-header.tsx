@@ -10,12 +10,9 @@ import {
 import {
   ChatClickToLinkEmit,
   ChatDialogInterface,
-  ChatMessage,
+  ChatMessage, ChatUserActionStatusState, ChatUserPresenceState,
 } from "../../../index";
-import {
-  ChatUserActionStatusState,
-  ChatUserPresenceState,
-} from "../user-status/res/abstract/enum/common.enum";
+
 
 @Component({
   tag: "personal-header",

@@ -7,8 +7,7 @@ import {
   Event,
   Method,
 } from "@stencil/core";
-import { ChatMessage } from "../../../index";
-import { ChatUserPresenceState } from "../../shared/user-status/res/abstract/enum/common.enum";
+import {ChatMessage, ChatUserPresenceState} from "../../../index";
 
 @Component({
   tag: "s-adam-direct",
