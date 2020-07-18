@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ChatCategoryInterface, ChatClickToLinkEmit, ChatContactInterface, ChatDialogInterface, ChatLogo, ChatMessage, ChatViewToShowEnum, ChatWritingUserInterface, ShowFullChatOutputInterface, } from "./index";
+import { ChatCategoryInterface, ChatClickToLinkEmit, ChatContactInterface, ChatCreateFolderOutputInterface, ChatDialogInterface, ChatLogo, ChatMessage, ChatUserActionStatusState as ChatUserActionStatusState1, ChatUserPresenceState as ChatUserPresenceState1, ChatViewToShowEnum, ChatWritingUserInterface, ShowFullChatOutputInterface, } from "./index";
 import { ChatUserActionStatusState, ChatUserPresenceState, } from "./components/shared/user-status/res/abstract/enum/common.enum";
 export namespace Components {
     interface BtnWrapper {
@@ -109,11 +109,11 @@ export namespace Components {
         /**
           * меняет статусы действия текущих (печатает, записывает и т.д.)
          */
-        "updateChatActionState": (item: ChatUserActionStatusState) => Promise<void>;
+        "updateChatActionState": (item: any) => Promise<void>;
         /**
           * меняет статус (присутстия собеседников или контакта) в чате
          */
-        "updateChatPresenceState": (item: ChatUserPresenceState) => Promise<void>;
+        "updateChatPresenceState": (item: any) => Promise<void>;
         /**
           * видимость
          */
@@ -256,6 +256,8 @@ export namespace Components {
          */
         "message": ChatMessage[];
     }
+    interface ModuleChat {
+    }
     interface ModuleHeader {
         /**
           * отключение возможности октрытие приложение чата
@@ -361,6 +363,7 @@ export namespace Components {
     interface SAdamNoChat {
     }
     interface SAdamPersonalHeader {
+        "chatActionState": ChatUserActionStatusState;
         "chatPresenceState": ChatUserPresenceState;
         /**
           * Личный диалог
@@ -413,6 +416,10 @@ export namespace Components {
         "personalMessage": ChatMessage[];
     }
     interface UserFolders {
+        /**
+          * Массив категорий
+         */
+        "categories": ChatCategoryInterface[];
     }
     interface UserProfile {
     }
@@ -539,6 +546,12 @@ declare global {
     var HTMLMobilePersonalElement: {
         prototype: HTMLMobilePersonalElement;
         new (): HTMLMobilePersonalElement;
+    };
+    interface HTMLModuleChatElement extends Components.ModuleChat, HTMLStencilElement {
+    }
+    var HTMLModuleChatElement: {
+        prototype: HTMLModuleChatElement;
+        new (): HTMLModuleChatElement;
     };
     interface HTMLModuleHeaderElement extends Components.ModuleHeader, HTMLStencilElement {
     }
@@ -728,6 +741,7 @@ declare global {
         "mobile-chat": HTMLMobileChatElement;
         "mobile-dialogs": HTMLMobileDialogsElement;
         "mobile-personal": HTMLMobilePersonalElement;
+        "module-chat": HTMLModuleChatElement;
         "module-header": HTMLModuleHeaderElement;
         "module-personal": HTMLModulePersonalElement;
         "my-component": HTMLMyComponentElement;
@@ -829,6 +843,10 @@ declare namespace LocalJSX {
           * click to files button
          */
         "onClickToFilesBtn"?: (event: CustomEvent<void>) => void;
+        /**
+          * создание папки
+         */
+        "onCreateFolder"?: (event: CustomEvent<ChatCreateFolderOutputInterface>) => void;
         /**
           * search contact
          */
@@ -1110,6 +1128,8 @@ declare namespace LocalJSX {
          */
         "onSearchPersonalMessages"?: (event: CustomEvent<string>) => void;
     }
+    interface ModuleChat {
+    }
     interface ModuleHeader {
         /**
           * отключение возможности октрытие приложение чата
@@ -1287,6 +1307,7 @@ declare namespace LocalJSX {
     interface SAdamNoChat {
     }
     interface SAdamPersonalHeader {
+        "chatActionState"?: ChatUserActionStatusState;
         "chatPresenceState"?: ChatUserPresenceState;
         /**
           * Личный диалог
@@ -1391,7 +1412,18 @@ declare namespace LocalJSX {
         "personalMessage"?: ChatMessage[];
     }
     interface UserFolders {
+        /**
+          * Массив категорий
+         */
+        "categories"?: ChatCategoryInterface[];
+        /**
+          * переход на профиль пользователя
+         */
         "onClickToUserProfile"?: (event: CustomEvent<void>) => void;
+        /**
+          * создание папки
+         */
+        "onCreateFolder"?: (event: CustomEvent<ChatCreateFolderOutputInterface>) => void;
     }
     interface UserProfile {
         "onClickToShowDialogs"?: (event: CustomEvent<any>) => void;
@@ -1424,6 +1456,7 @@ declare namespace LocalJSX {
         "mobile-chat": MobileChat;
         "mobile-dialogs": MobileDialogs;
         "mobile-personal": MobilePersonal;
+        "module-chat": ModuleChat;
         "module-header": ModuleHeader;
         "module-personal": ModulePersonal;
         "my-component": MyComponent;
@@ -1477,6 +1510,7 @@ declare module "@stencil/core" {
             "mobile-chat": LocalJSX.MobileChat & JSXBase.HTMLAttributes<HTMLMobileChatElement>;
             "mobile-dialogs": LocalJSX.MobileDialogs & JSXBase.HTMLAttributes<HTMLMobileDialogsElement>;
             "mobile-personal": LocalJSX.MobilePersonal & JSXBase.HTMLAttributes<HTMLMobilePersonalElement>;
+            "module-chat": LocalJSX.ModuleChat & JSXBase.HTMLAttributes<HTMLModuleChatElement>;
             "module-header": LocalJSX.ModuleHeader & JSXBase.HTMLAttributes<HTMLModuleHeaderElement>;
             "module-personal": LocalJSX.ModulePersonal & JSXBase.HTMLAttributes<HTMLModulePersonalElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;

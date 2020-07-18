@@ -7,21 +7,21 @@
 
 ## Events
 
-| Event           | Description        | Type                               |
-| --------------- | ------------------ | ---------------------------------- |
-| `searchDialogs` | Поиск по контактам | `CustomEvent<ChatDialogInterface>` |
+| Event           | Description        | Type                  |
+| --------------- | ------------------ | --------------------- |
+| `searchDialogs` | Поиск по контактам | `CustomEvent<string>` |
 
 
 ## Dependencies
 
 ### Used by
 
- - [s-adam-contacts](../s-adam-dialogs)
+ - [s-adam-dialogs](../s-adam-dialogs)
 
 ### Graph
 ```mermaid
 graph TD;
-  s-adam-contacts --> s-adam-search-contact
+  s-adam-dialogs --> s-adam-search-contact
   style s-adam-search-contact fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

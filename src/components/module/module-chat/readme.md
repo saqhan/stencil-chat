@@ -7,10 +7,6 @@
 
 ## Dependencies
 
-### Used by
-
- - [my-component](../../my-component)
-
 ### Depends on
 
 - [cnt-module-chat](./res/view/cnt-module-chat)
@@ -24,6 +20,7 @@ graph TD;
   cnt-module-chat --> s-saqhan-chat-files-wrapper
   cnt-module-chat --> s-adam-profile
   cnt-module-chat --> contacts-list
+  cnt-module-chat --> user-folders
   cnt-module-chat --> module-header
   cnt-module-chat --> btn-wrapper
   s-saqhan-chat-users-wrapper --> s-saqhan-chat-form-search
@@ -47,7 +44,6 @@ graph TD;
   contacts-list --> contacts-list-body
   contacts-list --> m-chat-footer
   contacts-list-body --> contact-card
-  my-component --> module-chat
   style module-chat fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -7,12 +7,15 @@
 
 ## Properties
 
-| Property         | Attribute          | Description                  | Type                         | Default     |
-| ---------------- | ------------------ | ---------------------------- | ---------------------------- | ----------- |
-| `canRecordAudio` | `can-record-audio` | Возможность записи аудио     | `boolean`                    | `false`     |
-| `dialogs`        | --                 | array data dialogs           | `ChatDialogInterface[]`      | `undefined` |
-| `message`        | --                 | array data personal messages | `ChatMessage[]`              | `undefined` |
-| `writing`        | --                 |                              | `ChatWritingUserInterface[]` | `[]`        |
+| Property            | Attribute             | Description                  | Type                                                                            | Default     |
+| ------------------- | --------------------- | ---------------------------- | ------------------------------------------------------------------------------- | ----------- |
+| `canRecordAudio`    | `can-record-audio`    | Возможность записи аудио     | `boolean`                                                                       | `false`     |
+| `chatActionState`   | `chat-action-state`   |                              | `ChatUserActionStatusState.audioRecording \| ChatUserActionStatusState.writing` | `undefined` |
+| `chatPresenceState` | `chat-presence-state` |                              | `ChatUserPresenceState.offline \| ChatUserPresenceState.online`                 | `undefined` |
+| `dialogs`           | --                    | array data dialogs           | `ChatDialogInterface[]`                                                         | `undefined` |
+| `message`           | --                    | array data personal messages | `ChatMessage[]`                                                                 | `undefined` |
+| `openedDialog`      | --                    |                              | `ChatDialogInterface`                                                           | `undefined` |
+| `writing`           | --                    |                              | `ChatWritingUserInterface[]`                                                    | `[]`        |
 
 
 ## Events

@@ -7,18 +7,19 @@
 
 ## Properties
 
-| Property  | Attribute | Description   | Type            | Default |
-| --------- | --------- | ------------- | --------------- | ------- |
-| `message` | --        | Личный диалог | `ChatMessage[]` | `[]`    |
+| Property            | Attribute             | Description   | Type                                                            | Default     |
+| ------------------- | --------------------- | ------------- | --------------------------------------------------------------- | ----------- |
+| `chatPresenceState` | `chat-presence-state` |               | `ChatUserPresenceState.offline \| ChatUserPresenceState.online` | `undefined` |
+| `message`           | --                    | Личный диалог | `ChatMessage[]`                                                 | `[]`        |
 
 
 ## Events
 
-| Event                   | Description                            | Type                       |
-| ----------------------- | -------------------------------------- | -------------------------- |
-| `resetMessagesFilter`   | Сброс фильтра сообщений                | `CustomEvent<void>`        |
-| `searchPersonalMessage` | Клик по иконке поиска                  | `CustomEvent<ChatMessage>` |
-| `visibleUserProfile`    | клик по имени юзера в личной переписке | `CustomEvent<void>`        |
+| Event                   | Description                            | Type                  |
+| ----------------------- | -------------------------------------- | --------------------- |
+| `resetMessagesFilter`   | Сброс фильтра сообщений                | `CustomEvent<void>`   |
+| `searchPersonalMessage` | Клик по иконке поиска                  | `CustomEvent<string>` |
+| `visibleUserProfile`    | клик по имени юзера в личной переписке | `CustomEvent<void>`   |
 
 
 ## Dependencies

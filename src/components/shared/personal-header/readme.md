@@ -7,10 +7,13 @@
 
 ## Properties
 
-| Property  | Attribute | Description                  | Type                    | Default     |
-| --------- | --------- | ---------------------------- | ----------------------- | ----------- |
-| `dialogs` | --        | array data dialogs           | `ChatDialogInterface[]` | `undefined` |
-| `message` | --        | array data personal messages | `ChatMessage[]`         | `undefined` |
+| Property            | Attribute             | Description                  | Type                                                                            | Default     |
+| ------------------- | --------------------- | ---------------------------- | ------------------------------------------------------------------------------- | ----------- |
+| `chatActionState`   | `chat-action-state`   |                              | `ChatUserActionStatusState.audioRecording \| ChatUserActionStatusState.writing` | `undefined` |
+| `chatPresenceState` | `chat-presence-state` |                              | `ChatUserPresenceState.offline \| ChatUserPresenceState.online`                 | `undefined` |
+| `dialogs`           | --                    | array data dialogs           | `ChatDialogInterface[]`                                                         | `undefined` |
+| `message`           | --                    | array data personal messages | `ChatMessage[]`                                                                 | `undefined` |
+| `openedDialog`      | --                    |                              | `ChatDialogInterface`                                                           | `undefined` |
 
 
 ## Events

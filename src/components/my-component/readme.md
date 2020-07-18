@@ -7,41 +7,32 @@
 
 ### Depends on
 
-- [module-chat](../module/module-chat)
+- [s-adam-chat](../comp/s-adam-chat)
 
 ### Graph
 ```mermaid
 graph TD;
-  my-component --> module-chat
-  module-chat --> cnt-module-chat
-  cnt-module-chat --> s-saqhan-chat-users-wrapper
-  cnt-module-chat --> module-personal
-  cnt-module-chat --> s-saqhan-chat-files-wrapper
-  cnt-module-chat --> s-adam-profile
-  cnt-module-chat --> contacts-list
-  cnt-module-chat --> module-header
-  cnt-module-chat --> btn-wrapper
-  s-saqhan-chat-users-wrapper --> s-saqhan-chat-form-search
-  s-saqhan-chat-users-wrapper --> s-saqhan-chat-users
-  s-saqhan-chat-users-wrapper --> s-saqhan-chat-add-question
-  s-saqhan-chat-form-search --> dialog-categories
-  s-saqhan-chat-users --> s-saqhan-chat-user
-  s-saqhan-chat-user --> dialog-card
-  module-personal --> personal-header
-  module-personal --> personal-message
-  module-personal --> personal-footer
-  personal-header --> user-status
-  personal-message --> message-from
+  my-component --> s-adam-chat
+  s-adam-chat --> s-adam-navigate
+  s-adam-chat --> s-adam-direct
+  s-adam-chat --> s-adam-no-chat
+  s-adam-chat --> s-adam-profile
+  s-adam-chat --> s-adam-dialogs
+  s-adam-chat --> s-adam-contacts
+  s-adam-navigate --> s-adam-nav-item
+  s-adam-direct --> s-adam-personal-header
+  s-adam-direct --> message-from
+  s-adam-direct --> personal-footer
+  s-adam-personal-header --> user-status
   message-from --> message-text
   message-from --> message-img
   personal-footer --> footer-text
   personal-footer --> footer-audio
-  s-saqhan-chat-files-wrapper --> s-saqhan-chat-form-search-files
-  s-saqhan-chat-files-wrapper --> s-saqhan-chat-files
-  contacts-list --> contacts-list-header
-  contacts-list --> contacts-list-body
-  contacts-list --> m-chat-footer
-  contacts-list-body --> contact-card
+  s-adam-dialogs --> s-adam-search-contact
+  s-adam-dialogs --> dialog-categories
+  s-adam-dialogs --> dialog-card
+  s-adam-contacts --> contacts-list-header
+  s-adam-contacts --> contact-card
   style my-component fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -13,7 +13,7 @@ import {
 } from "@stencil/core";
 import {
   ChatCategoryInterface,
-  ChatContactInterface,
+  ChatContactInterface, ChatCreateFolderOutputInterface,
   ChatDialogInterface,
   ChatMessage,
   ChatViewToShowEnum,
@@ -21,9 +21,12 @@ import {
   filterDialogsByCategory,
   filterDialogsBySearchValue,
   filterMessageBySearchValue,
-  ShowFullChatOutputInterface
+  ShowFullChatOutputInterface,
 } from "../../../../../../index";
-import {ChatDictionaryService, ChatMessagesLogic} from "../../../../../../utils/utils";
+import {
+  ChatDictionaryService,
+  ChatMessagesLogic,
+} from "../../../../../../utils/utils";
 import {
   ChatUserActionStatusState,
   ChatUserPresenceState,
@@ -77,6 +80,11 @@ export class CntModuleChat implements ComponentInterface {
    * Разворачивать полную версию чата при клике иконку
    * */
   @Event() showFullChat: EventEmitter<ShowFullChatOutputInterface>;
+
+  /**
+   * создание папки
+   * */
+  @Event() createFolder: EventEmitter<ChatCreateFolderOutputInterface>;
 
   /**
    * видимость
@@ -340,9 +348,9 @@ export class CntModuleChat implements ComponentInterface {
   /**
    *
    * */
-  private updateDictionary (newValue: any) {
+  private updateDictionary(newValue: any) {
     ChatDictionaryService.dictionary$.next(newValue);
-    console.log('changed - dictionary');
+    console.log("changed - dictionary");
   }
 
   public countNewMess(array) {
@@ -362,17 +370,27 @@ export class CntModuleChat implements ComponentInterface {
   /**
    * dialogue search
    * */
-  public safeFiltersDialog(searchValue: string, category: ChatCategoryInterface, allDialogs: ChatDialogInterface[]) {
+  public safeFiltersDialog(
+    searchValue: string,
+    category: ChatCategoryInterface,
+    allDialogs: ChatDialogInterface[]
+  ) {
     this.lastSearchDialog = searchValue;
     this.lastClickedCategory = category;
 
     let filteredDialogsBySearchValue = allDialogs;
 
     if (!this.disableInnerSearchDialogsState) {
-      filteredDialogsBySearchValue =  filterDialogsBySearchValue(searchValue, allDialogs);
+      filteredDialogsBySearchValue = filterDialogsBySearchValue(
+        searchValue,
+        allDialogs
+      );
     }
 
-    this.dialogsState = filterDialogsByCategory(category, filteredDialogsBySearchValue)
+    this.dialogsState = filterDialogsByCategory(
+      category,
+      filteredDialogsBySearchValue
+    );
   }
 
   /**
@@ -395,14 +413,22 @@ export class CntModuleChat implements ComponentInterface {
             dialogs={this.dialogsState}
             categories={this.categoriesState}
             onClickToCategory={(item: CustomEvent<ChatCategoryInterface>) =>
-              this.safeFiltersDialog(this.lastSearchDialog, item.detail, this.dialogs)
+              this.safeFiltersDialog(
+                this.lastSearchDialog,
+                item.detail,
+                this.dialogs
+              )
             }
             onClickToDialog={(item: CustomEvent<ChatDialogInterface>) =>
               this.clickToDialogHandler(item.detail)
             }
             onClickToFilesBtn={() => this.clickToFilesBtnHandler()}
             onSearchDialog={(item: CustomEvent<string>) =>
-              this.safeFiltersDialog(item.detail, this.lastClickedCategory, this.dialogs)
+              this.safeFiltersDialog(
+                item.detail,
+                this.lastClickedCategory,
+                this.dialogs
+              )
             }
             onSendNewMessModal={() => this.sendNewMessModal()}
           ></s-saqhan-chat-users-wrapper>
@@ -459,6 +485,10 @@ export class CntModuleChat implements ComponentInterface {
       case "folders":
         return (
           <user-folders
+            onCreateFolder={(e: CustomEvent<ChatCreateFolderOutputInterface>) =>
+              this.createFolderHandler(e.detail)
+            }
+            categories={this.categoriesState}
             onClickToUserProfile={() => this.clickToUserProfileHandler()}
           ></user-folders>
         );
@@ -466,6 +496,10 @@ export class CntModuleChat implements ComponentInterface {
         "dialogs";
     }
   };
+
+  public createFolderHandler(item: ChatCreateFolderOutputInterface): void {
+    console.log("createFolderHandler", item);
+  }
 
   /**
    * Метод отмена поиска
