@@ -160,3 +160,30 @@
 .user-folders-block .user-social-name {
   cursor: pointer;
 }
+
+
+/*folders*/
+
+.user-folders-blocks {
+  background-color: #fff;
+  max-height: 245px;
+  overflow: scroll;
+
+}
+
+.user-folders-blocks ul li {
+  list-style: none;
+  border-bottom: 1px solid #bacbe3;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  color:#8d8d8d;
+  transition: 0.3s ease;
+}
+
+.user-folders-blocks ul li:hover{
+  background-color: #ccc;
+  color: #fff;
+}
+

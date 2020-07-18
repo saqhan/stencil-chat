@@ -7,9 +7,11 @@
 
 ## Properties
 
-| Property | Attribute | Description    | Type                             | Default  |
-| -------- | --------- | -------------- | -------------------------------- | -------- |
-| `theme`  | `theme`   | Тема для блока | `"comp" \| "mobile" \| "module"` | `"comp"` |
+| Property            | Attribute             | Description    | Type                                                                            | Default     |
+| ------------------- | --------------------- | -------------- | ------------------------------------------------------------------------------- | ----------- |
+| `chatActionState`   | `chat-action-state`   |                | `ChatUserActionStatusState.audioRecording \| ChatUserActionStatusState.writing` | `undefined` |
+| `chatPresenceState` | `chat-presence-state` |                | `ChatUserPresenceState.offline \| ChatUserPresenceState.online`                 | `undefined` |
+| `theme`             | `theme`               | Тема для блока | `"comp" \| "mobile" \| "module"`                                                | `"comp"`    |
 
 
 ## Dependencies

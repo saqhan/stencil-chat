@@ -24,6 +24,7 @@ graph TD;
   cnt-module-chat --> s-saqhan-chat-files-wrapper
   cnt-module-chat --> s-adam-profile
   cnt-module-chat --> contacts-list
+  cnt-module-chat --> user-folders
   cnt-module-chat --> module-header
   cnt-module-chat --> btn-wrapper
   s-saqhan-chat-users-wrapper --> s-saqhan-chat-form-search

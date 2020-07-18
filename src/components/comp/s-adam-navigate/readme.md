@@ -7,10 +7,16 @@
 
 ## Properties
 
-| Property   | Attribute | Description      | Type             | Default     |
-| ---------- | --------- | ---------------- | ---------------- | ----------- |
-| `logo`     | --        | Логотип          | `ChatLogo`       | `undefined` |
-| `navItems` | --        | Иконки навигации | `ChatNavItems[]` | `[]`        |
+| Property | Attribute | Description | Type       | Default     |
+| -------- | --------- | ----------- | ---------- | ----------- |
+| `logo`   | --        | Логотип     | `ChatLogo` | `undefined` |
+
+
+## Events
+
+| Event             | Description                            | Type                |
+| ----------------- | -------------------------------------- | ------------------- |
+| `visibleContacts` | клик по имени юзера в личной переписке | `CustomEvent<void>` |
 
 
 ## Dependencies
