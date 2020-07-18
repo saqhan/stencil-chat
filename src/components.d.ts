@@ -256,8 +256,6 @@ export namespace Components {
          */
         "message": ChatMessage[];
     }
-    interface ModuleChat {
-    }
     interface ModuleHeader {
         /**
           * отключение возможности октрытие приложение чата
@@ -342,6 +340,7 @@ export namespace Components {
         "dialogs": ChatDialogInterface[];
     }
     interface SAdamDirect {
+        "chatPresenceState": ChatUserPresenceState;
         /**
           * Личный диалог
          */
@@ -358,6 +357,7 @@ export namespace Components {
     interface SAdamNoChat {
     }
     interface SAdamPersonalHeader {
+        "chatPresenceState": ChatUserPresenceState;
         /**
           * Личный диалог
          */
@@ -535,12 +535,6 @@ declare global {
     var HTMLMobilePersonalElement: {
         prototype: HTMLMobilePersonalElement;
         new (): HTMLMobilePersonalElement;
-    };
-    interface HTMLModuleChatElement extends Components.ModuleChat, HTMLStencilElement {
-    }
-    var HTMLModuleChatElement: {
-        prototype: HTMLModuleChatElement;
-        new (): HTMLModuleChatElement;
     };
     interface HTMLModuleHeaderElement extends Components.ModuleHeader, HTMLStencilElement {
     }
@@ -730,7 +724,6 @@ declare global {
         "mobile-chat": HTMLMobileChatElement;
         "mobile-dialogs": HTMLMobileDialogsElement;
         "mobile-personal": HTMLMobilePersonalElement;
-        "module-chat": HTMLModuleChatElement;
         "module-header": HTMLModuleHeaderElement;
         "module-personal": HTMLModulePersonalElement;
         "my-component": HTMLMyComponentElement;
@@ -1113,8 +1106,6 @@ declare namespace LocalJSX {
          */
         "onSearchPersonalMessages"?: (event: CustomEvent<string>) => void;
     }
-    interface ModuleChat {
-    }
     interface ModuleHeader {
         /**
           * отключение возможности октрытие приложение чата
@@ -1259,6 +1250,7 @@ declare namespace LocalJSX {
         "onSearchDialogs"?: (event: CustomEvent<string>) => void;
     }
     interface SAdamDirect {
+        "chatPresenceState"?: ChatUserPresenceState;
         /**
           * Личный диалог
          */
@@ -1291,6 +1283,7 @@ declare namespace LocalJSX {
     interface SAdamNoChat {
     }
     interface SAdamPersonalHeader {
+        "chatPresenceState"?: ChatUserPresenceState;
         /**
           * Личный диалог
          */
@@ -1427,7 +1420,6 @@ declare namespace LocalJSX {
         "mobile-chat": MobileChat;
         "mobile-dialogs": MobileDialogs;
         "mobile-personal": MobilePersonal;
-        "module-chat": ModuleChat;
         "module-header": ModuleHeader;
         "module-personal": ModulePersonal;
         "my-component": MyComponent;
@@ -1481,7 +1473,6 @@ declare module "@stencil/core" {
             "mobile-chat": LocalJSX.MobileChat & JSXBase.HTMLAttributes<HTMLMobileChatElement>;
             "mobile-dialogs": LocalJSX.MobileDialogs & JSXBase.HTMLAttributes<HTMLMobileDialogsElement>;
             "mobile-personal": LocalJSX.MobilePersonal & JSXBase.HTMLAttributes<HTMLMobilePersonalElement>;
-            "module-chat": LocalJSX.ModuleChat & JSXBase.HTMLAttributes<HTMLModuleChatElement>;
             "module-header": LocalJSX.ModuleHeader & JSXBase.HTMLAttributes<HTMLModuleHeaderElement>;
             "module-personal": LocalJSX.ModulePersonal & JSXBase.HTMLAttributes<HTMLModulePersonalElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
