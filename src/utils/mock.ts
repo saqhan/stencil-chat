@@ -176,7 +176,6 @@ export const categories = [
     name: 'Машины',
     id: 'auto',
   },
-  ,
   {
     name: 'Игры',
     id: 'games',

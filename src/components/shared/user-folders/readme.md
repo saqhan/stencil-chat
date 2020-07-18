@@ -14,10 +14,10 @@
 
 ## Events
 
-| Event                | Description                     | Type                  |
-| -------------------- | ------------------------------- | --------------------- |
-| `clickToUserProfile` | переход на профиль пользователя | `CustomEvent<void>`   |
-| `toCreateFolder`     | создание папки                  | `CustomEvent<string>` |
+| Event                | Description                     | Type                                           |
+| -------------------- | ------------------------------- | ---------------------------------------------- |
+| `clickToUserProfile` | переход на профиль пользователя | `CustomEvent<void>`                            |
+| `createFolder`       | создание папки                  | `CustomEvent<ChatCreateFolderOutputInterface>` |
 
 
 ## Dependencies

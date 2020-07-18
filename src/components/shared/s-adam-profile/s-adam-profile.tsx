@@ -68,14 +68,11 @@ export class SAdamProfile implements ComponentInterface {
               <Folder categories={this.categories}></Folder>
             </ul>
           </div>
-          <div class="user-add-folder"
-               onClick={() => this.clickToShowFoldersHandler()}
-          >
-            <div><i class="c-chat c-chat-instagram-brands hover-link"></i></div>
+          <div class="user-add-folder" onClick={() => this.clickToShowFoldersHandler()}>
+
+              <i class="c-chat c-chat-folder-plus hover-link"></i>
 
             <div class="user-add-btn">Добавить новую папку</div>
-
-
           </div>
 
 
@@ -151,11 +148,11 @@ const Folder = (props) => {
         <li>
           <div class="list-folders">
             <div class="list-item-wrapper">
-              <i class="c-chat c-chat-file-alt hover-link"></i>
+              <i class="c-chat c-chat-folder "></i>
               <div>{item.name}</div>
             </div>
             <div class="delete-folder">
-              <i class="c-chat c-chat-file-alt hover-link"></i>
+              <i class="c-chat c-chat-file-alt "></i>
             </div>
           </div>
         </li>

@@ -166,13 +166,28 @@
 
 
 
-.user-add-folder {
+.user-add-folder  {
   display: flex;
   align-items: center;
   background-color: #ffffff;
   padding: 15px 20px;
   margin-bottom: 30px;
   cursor: pointer;
+}
+.user-add-folder div {
+  color: #8d8d8d;
+  transition: 0.3s ease;
+}
+.user-add-folder i {
+  transition: 0.3s ease;
+}
+
+.user-add-folder div:hover  {
+  color: #4c567d;
+}
+
+.user-add-folder:hover i  {
+  color: #4c567d;
 }
 
 .user-add-btn {
@@ -204,7 +219,7 @@
 
 .user-folders-blocks {
   background-color: #fff;
-  max-height: 215px;
+  max-height: 130px;
   overflow: auto;
 }
 
@@ -220,6 +235,14 @@
 .list-item-wrapper:hover {
   color: #4c567d;
   border-bottom: 1px solid #4c567d;
+}
+
+.list-item-wrapper:hover i {
+  color: #4c567d;
+}
+
+.list-item-wrapper i {
+  transition: 0.3s ease;
 }
 
 .list-item-wrapper {
@@ -249,10 +272,15 @@
   padding: 10px;
   transition: 0.3s ease;
   font-size: 16px;
+  text-replace: 0.3s ease;
 }
 
 .delete-folder:hover {
   border-bottom: 1px solid darkred;
+  color: darkred;
+}
+
+.delete-folder:hover .c-chat {
   color: darkred;
 }
 

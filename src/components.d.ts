@@ -421,9 +421,9 @@ export namespace Components {
     }
     interface UserFolders {
         /**
-          * Массив категорий
+          * Массив dialogs
          */
-        "categories": ChatCategoryInterface[];
+        "dialogs": ChatDialogInterface[];
     }
     interface UserProfile {
     }
@@ -1422,9 +1422,9 @@ declare namespace LocalJSX {
     }
     interface UserFolders {
         /**
-          * Массив категорий
+          * Массив dialogs
          */
-        "categories"?: ChatCategoryInterface[];
+        "dialogs"?: ChatDialogInterface[];
         /**
           * переход на профиль пользователя
          */

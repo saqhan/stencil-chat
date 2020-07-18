@@ -486,7 +486,7 @@ export class CntModuleChat implements ComponentInterface {
             onCreateFolder={(e: CustomEvent<ChatCreateFolderOutputInterface>) =>
               this.createFolderHandler(e.detail)
             }
-            categories={this.categoriesState}
+            dialogs={this.dialogsState}
             onClickToUserProfile={() => this.clickToUserProfileHandler()}
           ></user-folders>
         );

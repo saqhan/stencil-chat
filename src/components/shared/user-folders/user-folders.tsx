@@ -7,7 +7,7 @@ import {
   Prop,
   State,
 } from "@stencil/core";
-import {ChatCategoryInterface, ChatCreateFolderOutputInterface} from "../../../index";
+import {ChatCreateFolderOutputInterface, ChatDialogInterface} from "../../../index";
 
 @Component({
   tag: "user-folders",
@@ -17,9 +17,9 @@ import {ChatCategoryInterface, ChatCreateFolderOutputInterface} from "../../../i
 })
 export class UserFolders implements ComponentInterface {
   /**
-   * Массив категорий
+   * Массив dialogs
    * */
-  @Prop() categories: ChatCategoryInterface[];
+  @Prop() dialogs: ChatDialogInterface[];
 
   /**
    * Показывать/скрывать окно создания папки
@@ -52,23 +52,22 @@ export class UserFolders implements ComponentInterface {
             <div class="title">Папки</div>
           </div>
           <div class="right">
-            {this.showInputCreateFolderState ? (
               <span onClick={() => this.createFolderFromButton()}>Создать</span>
-            ) : (
-              ""
-            )}
           </div>
+        </div>
+        {/*<div class="advice">*/}
+        {/*  Вы можете создавать папки чатов и переключаться между ними*/}
+        {/*</div>*/}
+        <div class="main-icon" >
+          <i class="c-chat sc-btn-wrapper c-chat-folder"></i>
         </div>
         <div class="folders-content">
           <div class="user-folder">
             {/*<div class="user-social-title">Мои папки</div>*/}
             <div class="user-folders-block">
-              {this.showInputCreateFolderState ? (
+              {/*{this.showInputCreateFolderState ? (*/}
                 <div class="creating-folder-block">
-                  <i
-                    class="c-chat sc-btn-wrapper c-chat-times"
-                    onClick={() => this.showInputCreateFolderHandler()}
-                  ></i>
+
                   <form onSubmit={(e) => this.creatingFolderFromInputHandler(e)}
                   >
                     <input
@@ -76,45 +75,40 @@ export class UserFolders implements ComponentInterface {
                       placeholder="Название папки"
                       ref={(el) => (this.inputElement = el)}
                     />
+
                   </form>
+                  <div class="icon-new-folder">
+                    <i
+                    class="c-chat sc-btn-wrapper c-chat-folder"
+                    onClick={() => this.showInputCreateFolderHandler()}
+                  ></i></div>
                 </div>
-              ) : (
-                <div
-                  class="user-folder-link"
-                  onClick={() => this.showInputCreateFolderHandler()}
-                >
-                  <i class="c-chat c-chat-file-alt hover-link"></i>
-                  <span class="user-social-name">Создать новую папку</span>
-                </div>
-              )}
             </div>
-            <div class="advice">
-              Вы можете создавать папки чатов и переключаться между ними
-            </div>
+
           </div>
           <div class="user-folder">
-            <div class="user-folders-title user-social-title">Мои папки</div>
+            <div class="user-folders-title user-social-title">Выберите чаты</div>
 
             <div class="user-folders-blocks">
               {/*<i class="c-chat c-chat-instagram-brands hover-link"></i>*/}
               <ul>
-                <Folder categories={this.categories}></Folder>
+                <Dialogs dialog={this.dialogs}></Dialogs>
               </ul>
             </div>
           </div>
-          <div class="user-folder">
-            <div class="user-social-title">Рекомендованые папки</div>
-            <div class="user-folders-block">
-              <div class="user-folder-link">
-                <i class="c-chat c-chat-file-alt hover-link"></i>
-                <span class="user-social-name">Новые</span>
-              </div>
-              <div class="user-folder-link">
-                <i class="c-chat c-chat-file-alt hover-link"></i>
-                <span class="user-social-name">Личные</span>
-              </div>
-            </div>
-          </div>
+          {/*<div class="user-folder">*/}
+          {/*  <div class="user-social-title">Рекомендованые папки</div>*/}
+          {/*  <div class="user-folders-block">*/}
+          {/*    <div class="user-folder-link">*/}
+          {/*      <i class="c-chat c-chat-file-alt hover-link"></i>*/}
+          {/*      <span class="user-social-name">Новые</span>*/}
+          {/*    </div>*/}
+          {/*    <div class="user-folder-link">*/}
+          {/*      <i class="c-chat c-chat-file-alt hover-link"></i>*/}
+          {/*      <span class="user-social-name">Личные</span>*/}
+          {/*    </div>*/}
+          {/*  </div>*/}
+          {/*</div>*/}
         </div>
       </div>
     );
@@ -166,15 +160,15 @@ export class UserFolders implements ComponentInterface {
   }
 }
 
-const Folder = (props) => {
-  return props.categories.map((item) => {
-    if (item.id !== "all") {
+const Dialogs = (props) => {
+  return props.dialog.map((item) => {
+    // if (item.id !== "all") {
       return (
         <li>
           <div class="list-folders">
             <div class="list-item-wrapper">
-              <i class="c-chat c-chat-file-alt hover-link"></i>
-              <div>{item.name}</div>
+              <input type="checkbox" id={item.name} />
+              <label htmlFor={item.name}><div>{item.name}</div></label>
             </div>
             <div class="delete-folder">
               <i class="c-chat c-chat-file-alt hover-link"></i>
@@ -182,6 +176,6 @@ const Folder = (props) => {
           </div>
         </li>
       );
-    }
+    // }
   });
 };
