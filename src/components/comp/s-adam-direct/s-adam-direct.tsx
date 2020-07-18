@@ -7,6 +7,7 @@ import {
   Event,
 } from "@stencil/core";
 import {ChatMessage} from "../../../index";
+import {ChatUserPresenceState} from "../../shared/user-status/res/abstract/enum/common.enum";
 
 @Component({
   tag: "s-adam-direct",
@@ -30,10 +31,14 @@ export class SAdamDirect implements ComponentInterface {
    */
   @Event() searchPersonalMessage: EventEmitter<string>;
 
+  /**
+   * */
+  @Prop() chatPresenceState: ChatUserPresenceState;
+
   render() {
     return (
       <div class="direct-comp">
-        <s-adam-personal-header message={this.message}></s-adam-personal-header>
+        <s-adam-personal-header chatPresenceState={this.chatPresenceState} message={this.message}></s-adam-personal-header>
         <div class="chat-messages">
           {this.message.map((message) => {
             return <message-from message={message}></message-from>;

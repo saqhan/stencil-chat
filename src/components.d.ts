@@ -342,6 +342,7 @@ export namespace Components {
         "dialogs": ChatDialogInterface[];
     }
     interface SAdamDirect {
+        "chatPresenceState": ChatUserPresenceState;
         /**
           * Личный диалог
          */
@@ -358,6 +359,7 @@ export namespace Components {
     interface SAdamNoChat {
     }
     interface SAdamPersonalHeader {
+        "chatPresenceState": ChatUserPresenceState;
         /**
           * Личный диалог
          */
@@ -1263,6 +1265,7 @@ declare namespace LocalJSX {
         "onSearchDialogs"?: (event: CustomEvent<string>) => void;
     }
     interface SAdamDirect {
+        "chatPresenceState"?: ChatUserPresenceState;
         /**
           * Личный диалог
          */
@@ -1295,6 +1298,7 @@ declare namespace LocalJSX {
     interface SAdamNoChat {
     }
     interface SAdamPersonalHeader {
+        "chatPresenceState"?: ChatUserPresenceState;
         /**
           * Личный диалог
          */

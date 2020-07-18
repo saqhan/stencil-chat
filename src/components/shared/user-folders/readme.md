@@ -5,11 +5,19 @@
 <!-- Auto Generated Below -->
 
 
+## Properties
+
+| Property     | Attribute | Description      | Type                      | Default     |
+| ------------ | --------- | ---------------- | ------------------------- | ----------- |
+| `categories` | --        | Массив категорий | `ChatCategoryInterface[]` | `undefined` |
+
+
 ## Events
 
-| Event                | Description | Type                |
-| -------------------- | ----------- | ------------------- |
-| `clickToUserProfile` |             | `CustomEvent<void>` |
+| Event                | Description                     | Type                  |
+| -------------------- | ------------------------------- | --------------------- |
+| `clickToUserProfile` | переход на профиль пользователя | `CustomEvent<void>`   |
+| `toCreateFolder`     | создание папки                  | `CustomEvent<string>` |
 
 
 ## Dependencies
