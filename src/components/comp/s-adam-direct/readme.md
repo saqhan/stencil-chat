@@ -7,10 +7,11 @@
 
 ## Properties
 
-| Property            | Attribute             | Description   | Type                                                            | Default     |
-| ------------------- | --------------------- | ------------- | --------------------------------------------------------------- | ----------- |
-| `chatPresenceState` | `chat-presence-state` |               | `ChatUserPresenceState.offline \| ChatUserPresenceState.online` | `undefined` |
-| `message`           | --                    | Личный диалог | `ChatMessage[]`                                                 | `[]`        |
+| Property            | Attribute             | Description   | Type                                                                            | Default     |
+| ------------------- | --------------------- | ------------- | ------------------------------------------------------------------------------- | ----------- |
+| `chatActionState`   | `chat-action-state`   |               | `ChatUserActionStatusState.audioRecording \| ChatUserActionStatusState.writing` | `undefined` |
+| `chatPresenceState` | `chat-presence-state` |               | `ChatUserPresenceState.offline \| ChatUserPresenceState.online`                 | `undefined` |
+| `message`           | --                    | Личный диалог | `ChatMessage[]`                                                                 | `[]`        |
 
 
 ## Events
@@ -19,6 +20,19 @@
 | ----------------------- | -------------------------------------- | --------------------- |
 | `searchPersonalMessage` | Клик по иконке поиска                  | `CustomEvent<string>` |
 | `visibleUserProfile`    | клик по имени юзера в личной переписке | `CustomEvent<void>`   |
+
+
+## Methods
+
+### `updateChatPresenceState(item: ChatUserPresenceState) => Promise<void>`
+
+меняет статус (присутстия собеседников или контакта) в чате
+
+#### Returns
+
+Type: `Promise<void>`
+
+
 
 
 ## Dependencies

@@ -7,6 +7,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [my-component](../../my-component)
+
 ### Depends on
 
 - [cnt-module-chat](./res/view/cnt-module-chat)
@@ -44,6 +48,7 @@ graph TD;
   contacts-list --> contacts-list-body
   contacts-list --> m-chat-footer
   contacts-list-body --> contact-card
+  my-component --> module-chat
   style module-chat fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

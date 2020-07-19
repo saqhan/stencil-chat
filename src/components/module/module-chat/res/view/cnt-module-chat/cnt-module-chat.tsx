@@ -15,7 +15,7 @@ import {
   ChatCategoryInterface,
   ChatContactInterface, ChatCreateFolderOutputInterface,
   ChatDialogInterface,
-  ChatMessage,
+  ChatMessage, ChatUserActionStatusState, ChatUserPresenceState,
   ChatViewToShowEnum,
   ChatWritingUserInterface,
   filterDialogsByCategory,
@@ -27,10 +27,7 @@ import {
   ChatDictionaryService,
   ChatMessagesLogic,
 } from "../../../../../../utils/utils";
-import {
-  ChatUserActionStatusState,
-  ChatUserPresenceState,
-} from "../../../../../shared/user-status/res/abstract/enum/common.enum";
+
 
 @Component({
   tag: "cnt-module-chat",
@@ -466,6 +463,7 @@ export class CntModuleChat implements ComponentInterface {
         return (
           <s-adam-profile
             theme={"module"}
+            categories={this.categoriesState}
             onClickToShowDialogs={() => this.clickToShowDialogsHandler()}
             onClickToShowFolders={() => this.clickToShowFoldersHandler()}
           ></s-adam-profile>
@@ -488,7 +486,7 @@ export class CntModuleChat implements ComponentInterface {
             onCreateFolder={(e: CustomEvent<ChatCreateFolderOutputInterface>) =>
               this.createFolderHandler(e.detail)
             }
-            categories={this.categoriesState}
+            dialogs={this.dialogsState}
             onClickToUserProfile={() => this.clickToUserProfileHandler()}
           ></user-folders>
         );

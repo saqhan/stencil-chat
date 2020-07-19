@@ -5,8 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ChatCategoryInterface, ChatClickToLinkEmit, ChatContactInterface, ChatCreateFolderOutputInterface, ChatDialogInterface, ChatLogo, ChatMessage, ChatUserActionStatusState as ChatUserActionStatusState1, ChatUserPresenceState as ChatUserPresenceState1, ChatViewToShowEnum, ChatWritingUserInterface, ShowFullChatOutputInterface, } from "./index";
-import { ChatUserActionStatusState, ChatUserPresenceState, } from "./components/shared/user-status/res/abstract/enum/common.enum";
+import { ChatCategoryInterface, ChatClickToLinkEmit, ChatContactInterface, ChatCreateFolderOutputInterface, ChatDialogInterface, ChatLogo, ChatMessage, ChatUserActionStatusState, ChatUserPresenceState, ChatViewToShowEnum, ChatWritingUserInterface, ShowFullChatOutputInterface, } from "./index";
 export namespace Components {
     interface BtnWrapper {
         "dialogs": number;
@@ -109,11 +108,11 @@ export namespace Components {
         /**
           * меняет статусы действия текущих (печатает, записывает и т.д.)
          */
-        "updateChatActionState": (item: any) => Promise<void>;
+        "updateChatActionState": (item: ChatUserActionStatusState) => Promise<void>;
         /**
           * меняет статус (присутстия собеседников или контакта) в чате
          */
-        "updateChatPresenceState": (item: any) => Promise<void>;
+        "updateChatPresenceState": (item: ChatUserPresenceState) => Promise<void>;
         /**
           * видимость
          */
@@ -342,11 +341,16 @@ export namespace Components {
         "dialogs": ChatDialogInterface[];
     }
     interface SAdamDirect {
+        "chatActionState": ChatUserActionStatusState;
         "chatPresenceState": ChatUserPresenceState;
         /**
           * Личный диалог
          */
         "message": ChatMessage[];
+        /**
+          * меняет статус (присутстия собеседников или контакта) в чате
+         */
+        "updateChatPresenceState": (item: ChatUserPresenceState) => Promise<void>;
     }
     interface SAdamNavItem {
     }
@@ -367,6 +371,10 @@ export namespace Components {
         "message": ChatMessage[];
     }
     interface SAdamProfile {
+        /**
+          * Массив категорий
+         */
+        "categories": ChatCategoryInterface[];
         /**
           * Задаем стиль для мобильной/пк версии
          */
@@ -413,9 +421,9 @@ export namespace Components {
     }
     interface UserFolders {
         /**
-          * Массив категорий
+          * Массив dialogs
          */
-        "categories": ChatCategoryInterface[];
+        "dialogs": ChatDialogInterface[];
     }
     interface UserProfile {
     }
@@ -1270,6 +1278,7 @@ declare namespace LocalJSX {
         "onSearchDialogs"?: (event: CustomEvent<string>) => void;
     }
     interface SAdamDirect {
+        "chatActionState"?: ChatUserActionStatusState;
         "chatPresenceState"?: ChatUserPresenceState;
         /**
           * Личный диалог
@@ -1323,6 +1332,10 @@ declare namespace LocalJSX {
         "onVisibleUserProfile"?: (event: CustomEvent<void>) => void;
     }
     interface SAdamProfile {
+        /**
+          * Массив категорий
+         */
+        "categories"?: ChatCategoryInterface[];
         /**
           * Показываем список диалогов
          */
@@ -1409,9 +1422,9 @@ declare namespace LocalJSX {
     }
     interface UserFolders {
         /**
-          * Массив категорий
+          * Массив dialogs
          */
-        "categories"?: ChatCategoryInterface[];
+        "dialogs"?: ChatDialogInterface[];
         /**
           * переход на профиль пользователя
          */

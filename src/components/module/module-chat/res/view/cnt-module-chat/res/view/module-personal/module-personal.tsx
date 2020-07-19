@@ -6,11 +6,13 @@ import {
   h,
   Prop,
 } from "@stencil/core";
-import {ChatDialogInterface, ChatMessage, ChatWritingUserInterface} from '../../../../../../../../../index';
 import {
-  ChatUserActionStatusState,
-  ChatUserPresenceState
-} from "../../../../../../../../shared/user-status/res/abstract/enum/common.enum";
+  ChatDialogInterface,
+  ChatMessage,
+  ChatUserActionStatusState, ChatUserPresenceState,
+  ChatWritingUserInterface
+} from '../../../../../../../../../index';
+
 
 @Component({
   tag: "module-personal",

@@ -5,15 +5,15 @@ import {
   h,
   Prop,
   Event,
+  Method,
 } from "@stencil/core";
-import {ChatMessage} from "../../../index";
-import {ChatUserPresenceState} from "../../shared/user-status/res/abstract/enum/common.enum";
+import {ChatMessage, ChatUserActionStatusState, ChatUserPresenceState} from "../../../index";
 
 @Component({
   tag: "s-adam-direct",
   styleUrl: "s-adam-direct.css",
   shadow: false,
-  scoped: true
+  scoped: true,
 })
 export class SAdamDirect implements ComponentInterface {
   /**
@@ -35,10 +35,25 @@ export class SAdamDirect implements ComponentInterface {
    * */
   @Prop() chatPresenceState: ChatUserPresenceState;
 
+  /**
+   * */
+  @Prop() chatActionState: ChatUserActionStatusState;
+
+  /**
+   * меняет статус (присутстия собеседников или контакта) в чате
+   * */
+  @Method() async updateChatPresenceState(item: ChatUserPresenceState) {
+    this.chatPresenceState = item;
+  }
+
   render() {
     return (
       <div class="direct-comp">
-        <s-adam-personal-header chatPresenceState={this.chatPresenceState} message={this.message}></s-adam-personal-header>
+        <s-adam-personal-header
+          chatPresenceState={this.chatPresenceState}
+          chatActionState={this.chatActionState}
+          message={this.message}
+        ></s-adam-personal-header>
         <div class="chat-messages">
           {this.message.map((message) => {
             return <message-from message={message}></message-from>;

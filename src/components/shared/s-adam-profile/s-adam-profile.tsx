@@ -6,6 +6,7 @@ import {
   h,
   Prop,
 } from "@stencil/core";
+import {ChatCategoryInterface} from "../../../index";
 
 @Component({
   tag: "s-adam-profile",
@@ -19,7 +20,10 @@ export class SAdamProfile implements ComponentInterface {
    * */
   @Prop() theme: "comp" | "mobile" | "module" = "comp";
 
-
+  /**
+   * Массив категорий
+   * */
+  @Prop() categories: ChatCategoryInterface[];
 
   /**
    * Показываем список диалогов
@@ -57,13 +61,18 @@ export class SAdamProfile implements ComponentInterface {
               <i class="c-chat c-chat-envelope hover-link"></i>
             </div>
           </div>
-          <div class="user-add-folder"
-               onClick={() => this.clickToShowFoldersHandler()}
-          >
-            <div><i class="c-chat c-chat-instagram-brands hover-link"></i></div>
-            <div class="user-add-btn">Папки</div>
+          <div class="user-social-title">Папки</div>
+          <div class="user-folders-blocks">
+            {/*<i class="c-chat c-chat-instagram-brands hover-link"></i>*/}
+            <ul>
+              <Folder categories={this.categories}></Folder>
+            </ul>
+          </div>
+          <div class="user-add-folder" onClick={() => this.clickToShowFoldersHandler()}>
 
+              <i class="c-chat c-chat-folder-plus hover-link"></i>
 
+            <div class="user-add-btn">Добавить новую папку</div>
           </div>
 
 
@@ -131,3 +140,23 @@ export class SAdamProfile implements ComponentInterface {
 }
 
 
+
+const Folder = (props) => {
+  return props.categories.map((item) => {
+    if (item.id !== "all") {
+      return (
+        <li>
+          <div class="list-folders">
+            <div class="list-item-wrapper">
+              <i class="c-chat c-chat-folder "></i>
+              <div>{item.name}</div>
+            </div>
+            <div class="delete-folder">
+              <i class="c-chat c-chat-file-alt "></i>
+            </div>
+          </div>
+        </li>
+      );
+    }
+  });
+};

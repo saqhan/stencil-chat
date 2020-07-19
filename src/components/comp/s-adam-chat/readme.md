@@ -14,10 +14,6 @@
 
 ## Dependencies
 
-### Used by
-
- - [my-component](../../my-component)
-
 ### Depends on
 
 - [s-adam-navigate](../s-adam-navigate)
@@ -50,7 +46,6 @@ graph TD;
   s-adam-dialogs --> dialog-card
   s-adam-contacts --> contacts-list-header
   s-adam-contacts --> contact-card
-  my-component --> s-adam-chat
   style s-adam-chat fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
