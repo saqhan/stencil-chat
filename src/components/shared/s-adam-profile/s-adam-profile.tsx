@@ -6,7 +6,7 @@ import {
   h,
   Prop,
 } from "@stencil/core";
-import {ChatCategoryInterface} from "../../../index";
+import { ChatCategoryInterface } from "../../../index";
 
 @Component({
   tag: "s-adam-profile",
@@ -68,13 +68,14 @@ export class SAdamProfile implements ComponentInterface {
               <Folder categories={this.categories}></Folder>
             </ul>
           </div>
-          <div class="user-add-folder" onClick={() => this.clickToShowFoldersHandler()}>
-
-              <i class="c-chat c-chat-folder-plus hover-link"></i>
+          <div
+            class="user-add-folder"
+            onClick={() => this.clickToShowFoldersHandler()}
+          >
+            <i class="c-chat c-chat-folder-plus hover-link"></i>
 
             <div class="user-add-btn">Добавить новую папку</div>
           </div>
-
 
           <div class="user-social">
             <div class="user-social-title">Terhubung</div>
@@ -131,15 +132,13 @@ export class SAdamProfile implements ComponentInterface {
       [this.theme]: true,
     };
   }
-  public clickToShowDialogsHandler() {
+  public clickToShowDialogsHandler(): void {
     this.clickToShowDialogs.emit();
   }
-  public clickToShowFoldersHandler() {
+  public clickToShowFoldersHandler(): void {
     this.clickToShowFolders.emit();
   }
 }
-
-
 
 const Folder = (props) => {
   return props.categories.map((item) => {

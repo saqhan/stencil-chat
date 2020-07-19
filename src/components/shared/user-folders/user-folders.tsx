@@ -7,7 +7,10 @@ import {
   Prop,
   State,
 } from "@stencil/core";
-import {ChatCreateFolderOutputInterface, ChatDialogInterface} from "../../../index";
+import {
+  ChatCreateFolderOutputInterface,
+  ChatDialogInterface,
+} from "../../../index";
 
 @Component({
   tag: "user-folders",
@@ -52,13 +55,13 @@ export class UserFolders implements ComponentInterface {
             <div class="title">Папки</div>
           </div>
           <div class="right">
-              <span onClick={() => this.createFolderFromButton()}>Создать</span>
+            <span onClick={() => this.createFolderFromButton()}>Создать</span>
           </div>
         </div>
         {/*<div class="advice">*/}
         {/*  Вы можете создавать папки чатов и переключаться между ними*/}
         {/*</div>*/}
-        <div class="main-icon" >
+        <div class="main-icon">
           <i class="c-chat sc-btn-wrapper c-chat-folder"></i>
         </div>
         <div class="folders-content">
@@ -66,28 +69,27 @@ export class UserFolders implements ComponentInterface {
             {/*<div class="user-social-title">Мои папки</div>*/}
             <div class="user-folders-block">
               {/*{this.showInputCreateFolderState ? (*/}
-                <div class="creating-folder-block">
-
-                  <form onSubmit={(e) => this.creatingFolderFromInputHandler(e)}
-                  >
-                    <input
-                      type="text"
-                      placeholder="Название папки"
-                      ref={(el) => (this.inputElement = el)}
-                    />
-
-                  </form>
-                  <div class="icon-new-folder">
-                    <i
+              <div class="creating-folder-block">
+                <form onSubmit={(e) => this.creatingFolderFromInputHandler(e)}>
+                  <input
+                    type="text"
+                    placeholder="Название папки"
+                    ref={(el) => (this.inputElement = el)}
+                  />
+                </form>
+                <div class="icon-new-folder">
+                  <i
                     class="c-chat sc-btn-wrapper c-chat-folder"
                     onClick={() => this.showInputCreateFolderHandler()}
-                  ></i></div>
+                  ></i>
                 </div>
+              </div>
             </div>
-
           </div>
           <div class="user-folder">
-            <div class="user-folders-title user-social-title">Выберите чаты</div>
+            <div class="user-folders-title user-social-title">
+              Выберите чаты
+            </div>
 
             <div class="user-folders-blocks">
               {/*<i class="c-chat c-chat-instagram-brands hover-link"></i>*/}
@@ -117,37 +119,35 @@ export class UserFolders implements ComponentInterface {
   /**
    * показывать инпут для создания папки
    * */
-  public showInputCreateFolderHandler() {
+  public showInputCreateFolderHandler(): void {
     this.showInputCreateFolderState = !this.showInputCreateFolderState;
   }
 
   /**
-   *
+   *проверка и отправка данных на создание папки
    * */
-  private creatingFolderHandler() {
+  private creatingFolderHandler(): void {
     const input = this.inputElement;
     if (input.value !== "") {
-      this.createFolder.emit(
-        {
-          name: input.value,
-          chats: []
-        }
-      )
-      input.value = '';
+      this.createFolder.emit({
+        name: input.value,
+        chats: [],
+      });
+      input.value = "";
     }
   }
 
   /**
    * create folder from send button
    * */
-  public createFolderFromButton() {
+  public createFolderFromButton(): void {
     this.creatingFolderHandler();
   }
 
   /**
    *
    * */
-  public creatingFolderFromInputHandler(e) {
+  public creatingFolderFromInputHandler(e): void {
     e.preventDefault();
     this.creatingFolderHandler();
   }
@@ -155,27 +155,29 @@ export class UserFolders implements ComponentInterface {
   /**
    * переход на профиль пользователя
    * */
-  public clickToUserProfileHandler() {
+  public clickToUserProfileHandler(): void {
     this.clickToUserProfile.emit();
   }
 }
 
 const Dialogs = (props) => {
-  return props.dialog.map((item) => {
+  return props.dialog.map((item ) => {
     // if (item.id !== "all") {
-      return (
-        <li>
-          <div class="list-folders">
-            <div class="list-item-wrapper">
-              <input type="checkbox" id={item.name} />
-              <label htmlFor={item.name}><div>{item.name}</div></label>
-            </div>
-            {/*<div class="delete-folder">*/}
-            {/*  <i class="c-chat c-chat-file-alt hover-link"></i>*/}
-            {/*</div>*/}
+    return (
+      <li>
+        <div class="list-folders">
+          <div class="list-item-wrapper">
+            <input type="checkbox" id={item.name} />
+            <label htmlFor={item.name}>
+              <div>{item.name}</div>
+            </label>
           </div>
-        </li>
-      );
+          {/*<div class="delete-folder">*/}
+          {/*  <i class="c-chat c-chat-file-alt hover-link"></i>*/}
+          {/*</div>*/}
+        </div>
+      </li>
+    );
     // }
   });
 };

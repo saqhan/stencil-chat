@@ -174,7 +174,7 @@
 }
 
 .creating-folder-block form {
-  width: 100% ;
+  width: 100%;
 }
 
 .creating-folder-block i {
@@ -192,7 +192,7 @@
   text-align: center;
 }
 
-.icon-new-folder  i {
+.icon-new-folder i {
   color: #bacbe3;
   transition: 0.3s ease;
 }
