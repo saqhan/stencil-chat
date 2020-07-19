@@ -170,9 +170,9 @@ const Dialogs = (props) => {
               <input type="checkbox" id={item.name} />
               <label htmlFor={item.name}><div>{item.name}</div></label>
             </div>
-            <div class="delete-folder">
-              <i class="c-chat c-chat-file-alt hover-link"></i>
-            </div>
+            {/*<div class="delete-folder">*/}
+            {/*  <i class="c-chat c-chat-file-alt hover-link"></i>*/}
+            {/*</div>*/}
           </div>
         </li>
       );

@@ -310,3 +310,7 @@
   color: #8d8d8d;
 }
 /***/
+
+.module  .profile {
+  height: calc(100vh - 170px);
+}
