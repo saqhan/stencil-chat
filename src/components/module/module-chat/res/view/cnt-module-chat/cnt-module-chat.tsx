@@ -463,6 +463,7 @@ export class CntModuleChat implements ComponentInterface {
         return (
           <s-adam-profile
             theme={"module"}
+            categories={this.categoriesState}
             onClickToShowDialogs={() => this.clickToShowDialogsHandler()}
             onClickToShowFolders={() => this.clickToShowFoldersHandler()}
           ></s-adam-profile>
@@ -485,7 +486,7 @@ export class CntModuleChat implements ComponentInterface {
             onCreateFolder={(e: CustomEvent<ChatCreateFolderOutputInterface>) =>
               this.createFolderHandler(e.detail)
             }
-            categories={this.categoriesState}
+            dialogs={this.dialogsState}
             onClickToUserProfile={() => this.clickToUserProfileHandler()}
           ></user-folders>
         );

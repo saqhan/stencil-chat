@@ -7,10 +7,11 @@
 
 ## Properties
 
-| Property            | Attribute             | Description   | Type                                                            | Default     |
-| ------------------- | --------------------- | ------------- | --------------------------------------------------------------- | ----------- |
-| `chatPresenceState` | `chat-presence-state` |               | `ChatUserPresenceState.offline \| ChatUserPresenceState.online` | `undefined` |
-| `message`           | --                    | Личный диалог | `ChatMessage[]`                                                 | `[]`        |
+| Property            | Attribute             | Description   | Type                                                                            | Default     |
+| ------------------- | --------------------- | ------------- | ------------------------------------------------------------------------------- | ----------- |
+| `chatActionState`   | `chat-action-state`   |               | `ChatUserActionStatusState.audioRecording \| ChatUserActionStatusState.writing` | `undefined` |
+| `chatPresenceState` | `chat-presence-state` |               | `ChatUserPresenceState.offline \| ChatUserPresenceState.online`                 | `undefined` |
+| `message`           | --                    | Личный диалог | `ChatMessage[]`                                                                 | `[]`        |
 
 
 ## Events

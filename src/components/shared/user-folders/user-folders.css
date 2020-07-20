@@ -1,5 +1,5 @@
 .folders-wrapper {
-  height: 100vh;
+  /*height: 100vh;*/
   background-color: #f7f8f9;
   padding: 20px;
   overflow: auto;
@@ -49,20 +49,19 @@
   font-size: 14px;
   background-color: #ececec;
   color: grey;
-  margin: 30px 0px;
+  margin-top: 30px;
 }
 .user-folders-block {
   background: white;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 10px 20px;
+  padding: 10px 10px;
 }
 
 .user-folders-block .c-chat {
   width: 16px;
   text-align: center;
-  margin-right: 20px;
   cursor: pointer;
 }
 
@@ -88,7 +87,7 @@
 
 .user-folders-blocks {
   background-color: #fff;
-  max-height: 215px;
+  max-height: 360px;
   overflow: auto;
 }
 
@@ -113,9 +112,10 @@
   padding: 10px;
   align-items: center;
   transition: 0.3s ease;
+  cursor: pointer;
 }
 
-.list-item-wrapper i {
+.list-item-wrapper input {
   margin-right: 20px;
   margin-left: 10px;
   font-size: 16px;
@@ -170,7 +170,13 @@
 .creating-folder-block {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
+
+.creating-folder-block form {
+  width: 100%;
+}
+
 .creating-folder-block i {
   color: #4c567d;
 }
@@ -179,4 +185,26 @@
   padding: 10px;
   outline: none;
   width: 100%;
+}
+
+.icon-new-folder {
+  width: 20px;
+  text-align: center;
+}
+
+.icon-new-folder i {
+  color: #bacbe3;
+  transition: 0.3s ease;
+}
+.icon-new-folder i:hover {
+  color: #6328f8;
+}
+
+.main-icon {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.main-icon i {
+  font-size: 56px;
 }

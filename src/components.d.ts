@@ -368,6 +368,10 @@ export namespace Components {
     }
     interface SAdamProfile {
         /**
+          * Массив категорий
+         */
+        "categories": ChatCategoryInterface[];
+        /**
           * Задаем стиль для мобильной/пк версии
          */
         "theme": "comp" | "mobile" | "module";
@@ -413,9 +417,9 @@ export namespace Components {
     }
     interface UserFolders {
         /**
-          * Массив категорий
+          * Массив dialogs
          */
-        "categories": ChatCategoryInterface[];
+        "dialogs": ChatDialogInterface[];
     }
     interface UserProfile {
     }
@@ -1325,6 +1329,10 @@ declare namespace LocalJSX {
     }
     interface SAdamProfile {
         /**
+          * Массив категорий
+         */
+        "categories"?: ChatCategoryInterface[];
+        /**
           * Показываем список диалогов
          */
         "onClickToShowDialogs"?: (event: CustomEvent<void>) => void;
@@ -1410,9 +1418,9 @@ declare namespace LocalJSX {
     }
     interface UserFolders {
         /**
-          * Массив категорий
+          * Массив dialogs
          */
-        "categories"?: ChatCategoryInterface[];
+        "dialogs"?: ChatDialogInterface[];
         /**
           * переход на профиль пользователя
          */
