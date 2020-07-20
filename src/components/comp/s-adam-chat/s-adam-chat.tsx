@@ -6,6 +6,7 @@ import {
   contacts,
   categories,
 } from "../../../utils/mock";
+import {ChatCreateFolderOutputInterface} from "../../../index";
 
 @Component({
   tag: "s-adam-chat",
@@ -41,11 +42,12 @@ export class SAdamChat implements ComponentInterface {
           <div class="container">
             <div class="row">
               <div class="col-1 white-col">
-                <s-adam-navigate onVisibleContacts={() => this.visibleContacts()} logo={logo}></s-adam-navigate>
+                <s-adam-navigate
+                  onVisibleContacts={() => this.visibleContacts()}
+                  logo={logo}
+                ></s-adam-navigate>
               </div>
-              <div class="col-3">
-                {this.showContacts(this.contactsVisible)}
-              </div>
+              <div class="col-3">{this.showContacts(this.contactsVisible)}</div>
               <div class="col white-col">
                 <section class="chat">
                   {this.showChat(this.dialogVisible)}
@@ -86,12 +88,27 @@ export class SAdamChat implements ComponentInterface {
     if (item === true) {
       return (
         <div class="col-3">
-          <s-adam-profile></s-adam-profile>
+          {/*<s-adam-profile*/}
+          {/*  categories={categories}*/}
+          {/*  onClickToShowFolders={() => this.clickToShowFoldersHandler()}*/}
+          {/*></s-adam-profile>*/}
+          <user-folders
+            onClickToUserProfile={() => this.clickOnUserProfile()}
+            onCreateFolder={(e: CustomEvent<ChatCreateFolderOutputInterface>) =>
+              this.createFolderHandler(e.detail)
+            }
+            dialogs={dialogs}
+            theme={"comp"}
+          ></user-folders>
         </div>
       );
     } else {
       return "";
     }
+  }
+
+  public createFolderHandler(item: ChatCreateFolderOutputInterface): void {
+    console.log("createFolderHandler", item);
   }
 
   /**
@@ -120,6 +137,17 @@ export class SAdamChat implements ComponentInterface {
         ></s-adam-contacts>
       );
     }
+  }
+
+  /**
+   *
+   */
+  public clickOnUserProfile() {
+    console.log("возврат на профиль");
+  }
+
+  public createFolder() {
+    console.log('Создать папку')
   }
 
   /**
@@ -172,5 +200,12 @@ export class SAdamChat implements ComponentInterface {
    */
   public visibleContacts() {
     this.contactsVisible = !this.contactsVisible;
+  }
+
+  /**
+   *
+   */
+  public clickToShowFoldersHandler() {
+    console.log("показать папки");
   }
 }

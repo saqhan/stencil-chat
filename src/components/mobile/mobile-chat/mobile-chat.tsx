@@ -5,18 +5,19 @@ import {
   MessageMock,
   contacts,
 } from "../../../utils/mock";
+import {ChatCreateFolderOutputInterface} from "../../../index";
 
 @Component({
   tag: "mobile-chat",
   styleUrl: "mobile-chat.css",
   shadow: false,
-  scoped:true
+  scoped: true,
 })
 export class MobileChat implements ComponentInterface {
   /**
    * Выбираем какой контент показывать
    * */
-  @State() showContent = "dialogs";
+  @State() showContent = "folders";
 
   /**
    * массив данных для диалогов
@@ -109,15 +110,14 @@ export class MobileChat implements ComponentInterface {
 
   // personal chat
 
-
   /**
    * click to click To Show MenuBar
    * */
   public clickToUserProfile() {
     console.log("clickToUserProfile");
   }
-  public cancelSearchPersonal(){
-    console.log('cancelSearchPersonal')
+  public cancelSearchPersonal() {
+    console.log("cancelSearchPersonal");
   }
 
   render() {
@@ -126,6 +126,27 @@ export class MobileChat implements ComponentInterface {
 
   componentWillLoad(): Promise<void> | void {
     this.dialogs = dialogs;
+  }
+
+  public clickToShowDialogsHandler() {
+    console.log('clickToShowDialogsHandler');
+  }
+  public clickToShowFoldersHandler() {
+    console.log('clickToShowFoldersHandler');
+  }
+
+  /**
+   *
+   * */
+  public clickOnUserProfile(){
+    console.log('clickOnUserProfile')
+  }
+
+  /**
+   *
+   * */
+  public createFolderHandler(e){
+    console.log('createFolderHandler', e)
   }
 
   /**
@@ -155,15 +176,31 @@ export class MobileChat implements ComponentInterface {
             onClickToUserProfile={() => this.clickToUserProfile()}
             message={this.message}
             // onSearchContact={(e) => console.log("mobile-personal", e)}
-            onSearchPersonalMessages={(detail) => this.searchPersonalMessages({detail})}
+            onSearchPersonalMessages={(detail) =>
+              this.searchPersonalMessages({ detail })
+            }
             onCancelSearchPersonal={() => this.cancelSearchPersonal()}
           ></mobile-personal>
         );
       case "profile":
         return (
-          <user-profile
-            onClickToShowDialogs={() => this.clickToShowDialogs()}
-          ></user-profile>
+          <s-adam-profile
+            theme={"mobile"}
+            categories={categories}
+            onClickToShowDialogs={() => this.clickToShowDialogsHandler()}
+            onClickToShowFolders={() => this.clickToShowFoldersHandler()}
+          ></s-adam-profile>
+        );
+      case "folders":
+        return (
+          <user-folders
+            onClickToUserProfile={() => this.clickOnUserProfile()}
+            onCreateFolder={(e: CustomEvent<ChatCreateFolderOutputInterface>) =>
+              this.createFolderHandler(e.detail)
+            }
+            dialogs={dialogs}
+            theme={"mobile"}
+          ></user-folders>
         );
       case "contacts":
         return (

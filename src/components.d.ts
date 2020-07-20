@@ -347,10 +347,6 @@ export namespace Components {
           * Личный диалог
          */
         "message": ChatMessage[];
-        /**
-          * меняет статус (присутстия собеседников или контакта) в чате
-         */
-        "updateChatPresenceState": (item: ChatUserPresenceState) => Promise<void>;
     }
     interface SAdamNavItem {
     }
@@ -424,6 +420,10 @@ export namespace Components {
           * Массив dialogs
          */
         "dialogs": ChatDialogInterface[];
+        /**
+          * Задаем стиль для мобильной/пк версии
+         */
+        "theme": "comp" | "mobile" | "module";
     }
     interface UserProfile {
     }
@@ -1433,6 +1433,10 @@ declare namespace LocalJSX {
           * создание папки
          */
         "onCreateFolder"?: (event: CustomEvent<ChatCreateFolderOutputInterface>) => void;
+        /**
+          * Задаем стиль для мобильной/пк версии
+         */
+        "theme"?: "comp" | "mobile" | "module";
     }
     interface UserProfile {
         "onClickToShowDialogs"?: (event: CustomEvent<any>) => void;

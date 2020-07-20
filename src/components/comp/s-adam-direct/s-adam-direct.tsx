@@ -1,12 +1,4 @@
-import {
-  Component,
-  ComponentInterface,
-  EventEmitter,
-  h,
-  Prop,
-  Event,
-  Method,
-} from "@stencil/core";
+import {Component, ComponentInterface, Event, EventEmitter, h, Prop,} from "@stencil/core";
 import {ChatMessage, ChatUserActionStatusState, ChatUserPresenceState} from "../../../index";
 
 @Component({
@@ -42,9 +34,9 @@ export class SAdamDirect implements ComponentInterface {
   /**
    * меняет статус (присутстия собеседников или контакта) в чате
    * */
-  @Method() async updateChatPresenceState(item: ChatUserPresenceState) {
-    this.chatPresenceState = item;
-  }
+  // @Method() async updateChatPresenceState(item: ChatUserPresenceState) {
+  //   this.chatPresenceState = item;
+  // }
 
   render() {
     return (

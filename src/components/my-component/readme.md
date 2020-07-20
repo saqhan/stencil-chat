@@ -15,7 +15,8 @@ graph TD;
   my-component --> mobile-chat
   mobile-chat --> mobile-dialogs
   mobile-chat --> mobile-personal
-  mobile-chat --> user-profile
+  mobile-chat --> s-adam-profile
+  mobile-chat --> user-folders
   mobile-chat --> contacts-list
   mobile-dialogs --> m-chat-header
   mobile-dialogs --> m-chat-dialogs
@@ -31,7 +32,6 @@ graph TD;
   message-from --> message-img
   personal-footer --> footer-text
   personal-footer --> footer-audio
-  user-profile --> s-adam-profile
   contacts-list --> contacts-list-header
   contacts-list --> contacts-list-body
   contacts-list --> m-chat-footer
