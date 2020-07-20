@@ -2,7 +2,8 @@ import { Component, ComponentInterface, h, Prop } from "@stencil/core";
 import {
   chatConvertWritingStatusToMessage,
   ChatMessage,
-  ChatWritingUserInterface
+  ChatWritingUserInterface,
+  scrollToBot
 } from "../../../../../../../../../index";
 import {ChatMessagesLogic} from "../../../../../../../../../utils/utils";
 
@@ -82,14 +83,11 @@ export class PersonalMessage implements ComponentInterface {
    * */
   private scrollToBot ()
   {
-    setTimeout(
-      () => {
-        this.scrollContainer.scrollBy(
-          0,
-          10000000//,this.scrollContainer.scrollHeight
-        )
-      },
-      100
+    scrollToBot(
+      this.scrollContainer,
+      {
+        timer: 100
+      }
     )
   }
 }
