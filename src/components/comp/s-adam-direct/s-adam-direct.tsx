@@ -44,7 +44,6 @@ export class SAdamDirect implements ComponentInterface {
         <s-adam-personal-header
           chatPresenceState={this.chatPresenceState}
           chatActionState={this.chatActionState}
-          message={this.message}
         ></s-adam-personal-header>
         <div class="chat-messages">
           {this.message.map((message) => {

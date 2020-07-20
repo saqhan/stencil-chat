@@ -347,7 +347,7 @@ export class CntModuleChat implements ComponentInterface {
    * */
   private updateDictionary(newValue: any) {
     ChatDictionaryService.dictionary$.next(newValue);
-    console.log("changed - dictionary");
+    // console.log("changed - dictionary");
   }
 
   public countNewMess(array) {
@@ -495,8 +495,9 @@ export class CntModuleChat implements ComponentInterface {
     }
   };
 
-  public createFolderHandler(item: ChatCreateFolderOutputInterface): void {
-    console.log("createFolderHandler", item);
+  public createFolderHandler(item: ChatCreateFolderOutputInterface) {
+    return item;
+    // console.log("createFolderHandler", item);
   }
 
   /**

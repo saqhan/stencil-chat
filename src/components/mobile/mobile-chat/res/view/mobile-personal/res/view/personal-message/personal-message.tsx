@@ -3,15 +3,15 @@ import {
   chatConvertWritingStatusToMessage,
   ChatMessage,
   ChatWritingUserInterface,
-  scrollToBot
+  scrollToBot,
 } from "../../../../../../../../../index";
-import {ChatMessagesLogic} from "../../../../../../../../../utils/utils";
+import { ChatMessagesLogic } from "../../../../../../../../../utils/utils";
 
 @Component({
   tag: "personal-message",
   styleUrl: "personal-message.css",
   shadow: false,
-  scoped: true
+  scoped: true,
 })
 export class PersonalMessage implements ComponentInterface {
   /**
@@ -26,25 +26,22 @@ export class PersonalMessage implements ComponentInterface {
   /**
    * */
   @Prop() writing: ChatWritingUserInterface[] = [];
-// {
-//   uid: 'test',
-//   icon: "https://via.placeholder.com/60x60?text=User",
-//   name: '',
-//   phone: ''
-// }
+  // {
+  //   uid: 'test',
+  //   icon: "https://via.placeholder.com/60x60?text=User",
+  //   name: '',
+  //   phone: ''
+  // }
 
   /**
    * */
   public scrollContainer: HTMLElement;
 
-
   componentDidLoad() {
     // this.scrollToBot();
-    ChatMessagesLogic.setScrollToBot(
-      () => {
-        this.scrollToBot();
-      }
-    )
+    ChatMessagesLogic.setScrollToBot(() => {
+      this.scrollToBot();
+    });
 
     ChatMessagesLogic.safeScrollToBot();
   }
@@ -52,19 +49,19 @@ export class PersonalMessage implements ComponentInterface {
   render() {
     return (
       <div class={this.getClassForHost()}>
-        <div class="personal-message-wrapper">
-          <div class="personal-message" ref={(el) => this.scrollContainer = el}>
-            {
-              this.message.map(
-                (message) => {
-                  return <message-from
-                    message={message}></message-from>;
-                }
-              )
-            }
-            {
-              this.writing?.length ? <message-from message={chatConvertWritingStatusToMessage(this.writing[0])}/> : ''
-            }
+
+          <div   class="personal-message"  >
+            <div class="personal-message-inner" ref={(el) => (this.scrollContainer = el)}>
+            {this.message.map((message) => {
+              return <message-from message={message}></message-from>;
+            })}
+            {this.writing?.length ? (
+              <message-from
+                message={chatConvertWritingStatusToMessage(this.writing[0])}
+              />
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </div>
@@ -73,23 +70,18 @@ export class PersonalMessage implements ComponentInterface {
   /**
    *
    * */
-  public getClassForHost ()
-  {
+  public getClassForHost() {
     return {
-      [this.theme]: true
-    }
+      [this.theme]: true,
+    };
   }
 
   /**
    *
    * */
-  private scrollToBot ()
-  {
-    scrollToBot(
-      this.scrollContainer,
-      {
-        timer: 100
-      }
-    )
+  private scrollToBot() {
+    scrollToBot(this.scrollContainer, {
+      timer: 100,
+    });
   }
 }

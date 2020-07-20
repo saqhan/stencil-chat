@@ -125,7 +125,7 @@ export class SAdamChat implements ComponentInterface {
           }}
           dialogs={dialogs}
           categories={categories}
-          onClickToCategory={({ detail }) => this.clickToCategory({ detail })}
+          onClickToCategory={() => this.clickToCategory()}
         ></s-adam-dialogs>
       );
     } else {
@@ -143,40 +143,34 @@ export class SAdamChat implements ComponentInterface {
    *
    */
   public clickOnUserProfile() {
-    console.log("возврат на профиль");
   }
 
   public createFolder() {
-    console.log('Создать папку')
   }
 
   /**
    * click to Link
    * */
-  public clickToLink({ detail }) {
-    console.log(detail);
+  public clickToLink() {
   }
 
   /**
    *
    */
   public searchDialogs() {
-    console.log("searchDialogs");
   }
 
   /**
    *
    */
   public searchPersonalMessages() {
-    console.log("searchPersonalMessages");
   }
 
   /**
    *
    * @param detail
    */
-  public clickToCategory({ detail }) {
-    console.log("clickToCategory", detail);
+  public clickToCategory() {
   }
 
   /**
@@ -206,6 +200,5 @@ export class SAdamChat implements ComponentInterface {
    *
    */
   public clickToShowFoldersHandler() {
-    console.log("показать папки");
   }
 }

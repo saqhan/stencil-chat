@@ -339,6 +339,10 @@ export namespace Components {
           * Массив с элементами диалога
          */
         "dialogs": ChatDialogInterface[];
+        /**
+          * Тема для модульного/мобильного чата
+         */
+        "theme": "mobile" | "module" | "comp";
     }
     interface SAdamDirect {
         "chatActionState": ChatUserActionStatusState;
@@ -1277,6 +1281,10 @@ declare namespace LocalJSX {
           * Поиск по контактам
          */
         "onSearchDialogs"?: (event: CustomEvent<string>) => void;
+        /**
+          * Тема для модульного/мобильного чата
+         */
+        "theme"?: "mobile" | "module" | "comp";
     }
     interface SAdamDirect {
         "chatActionState"?: ChatUserActionStatusState;

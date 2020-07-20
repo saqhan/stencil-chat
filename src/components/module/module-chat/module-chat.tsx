@@ -41,18 +41,18 @@ export class ModuleChat implements ComponentInterface {
 
     setInterval(
       () => {
-        console.log(
-          'messages setInterval',
-
-        );
+        // console.log(
+        //   'messages setInterval',
+        //
+        // );
         this.messages = [...MessageMock];
         this.dialogs = [...dialogs];
         this.dictionary = this.dictionary === DictionaryMock ? DictionaryMockEng : DictionaryMock;
 
-        console.log(
-          'updated dictionary',
-          this.dictionary
-        );
+        // console.log(
+        //   'updated dictionary',
+        //   this.dictionary
+        // );
 
         // @ts-ignore
         forceUpdate(this.ref2);
@@ -97,30 +97,31 @@ export class ModuleChat implements ComponentInterface {
         }
       )
     )
-    console.log(
-      'clickToDialog [12]',
-      dialog
-    );
+    // console.log(
+    //   'clickToDialog [12]',
+    //   dialog
+    // );
 
   }
 
   public showFullChat (
     ev: any
   ) {
-    console.log(
-      'showFullChat',
-      ev
-    )
+    return ev
+    // console.log(
+    //   'showFullChat',
+    //   ev
+    // )
   }
 
   public sendTextMessage (
     message: string
   )
   {
-    console.log(
-      'sendTextMessage [2]',
-      message
-    );
+    // console.log(
+    //   'sendTextMessage [2]',
+    //   message
+    // );
     this.messages = [
       ...this.messages,
       createTextMessage(
