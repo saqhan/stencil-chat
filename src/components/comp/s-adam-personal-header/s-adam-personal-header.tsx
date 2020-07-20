@@ -136,6 +136,7 @@ export class SAdamPersonalHeader implements ComponentInterface {
    */
   public visibleUserProfileHandler() {
     this.visibleUserProfile.emit();
+    console.log(this.chatPresenceState)
   }
 
   /**

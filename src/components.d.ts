@@ -347,10 +347,6 @@ export namespace Components {
           * Личный диалог
          */
         "message": ChatMessage[];
-        /**
-          * меняет статус (присутстия собеседников или контакта) в чате
-         */
-        "updateChatPresenceState": (item: ChatUserPresenceState) => Promise<void>;
     }
     interface SAdamNavItem {
     }
