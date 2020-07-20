@@ -7,31 +7,38 @@
 
 ### Depends on
 
-- [mobile-chat](../mobile/mobile-chat)
+- [module-chat](../module/module-chat)
 
 ### Graph
 ```mermaid
 graph TD;
-  my-component --> mobile-chat
-  mobile-chat --> mobile-dialogs
-  mobile-chat --> mobile-personal
-  mobile-chat --> s-adam-profile
-  mobile-chat --> user-folders
-  mobile-chat --> contacts-list
-  mobile-dialogs --> m-chat-header
-  mobile-dialogs --> m-chat-dialogs
-  mobile-dialogs --> m-chat-footer
-  m-chat-header --> dialog-categories
-  m-chat-dialogs --> dialog-card
-  mobile-personal --> personal-header
-  mobile-personal --> personal-message
-  mobile-personal --> personal-footer
+  my-component --> module-chat
+  module-chat --> cnt-module-chat
+  cnt-module-chat --> s-saqhan-chat-users-wrapper
+  cnt-module-chat --> module-personal
+  cnt-module-chat --> s-saqhan-chat-files-wrapper
+  cnt-module-chat --> s-adam-profile
+  cnt-module-chat --> contacts-list
+  cnt-module-chat --> user-folders
+  cnt-module-chat --> module-header
+  cnt-module-chat --> btn-wrapper
+  s-saqhan-chat-users-wrapper --> s-saqhan-chat-form-search
+  s-saqhan-chat-users-wrapper --> s-saqhan-chat-users
+  s-saqhan-chat-users-wrapper --> s-saqhan-chat-add-question
+  s-saqhan-chat-form-search --> dialog-categories
+  s-saqhan-chat-users --> s-saqhan-chat-user
+  s-saqhan-chat-user --> dialog-card
+  module-personal --> personal-header
+  module-personal --> personal-message
+  module-personal --> personal-footer
   personal-header --> user-status
   personal-message --> message-from
   message-from --> message-text
   message-from --> message-img
   personal-footer --> footer-text
   personal-footer --> footer-audio
+  s-saqhan-chat-files-wrapper --> s-saqhan-chat-form-search-files
+  s-saqhan-chat-files-wrapper --> s-saqhan-chat-files
   contacts-list --> contacts-list-header
   contacts-list --> contacts-list-body
   contacts-list --> m-chat-footer
