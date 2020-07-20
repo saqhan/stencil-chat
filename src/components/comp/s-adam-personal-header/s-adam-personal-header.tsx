@@ -1,13 +1,5 @@
-import {
-  Component,
-  ComponentInterface,
-  Event,
-  EventEmitter,
-  h,
-  Prop,
-  State,
-} from "@stencil/core";
-import {ChatMessage, ChatUserActionStatusState, ChatUserPresenceState} from "../../../index";
+import {Component, ComponentInterface, Event, EventEmitter, h, Prop, State,} from "@stencil/core";
+import {ChatDialogInterface, ChatUserActionStatusState, ChatUserPresenceState} from "../../../index";
 
 @Component({
   tag: "s-adam-personal-header",
@@ -19,7 +11,7 @@ export class SAdamPersonalHeader implements ComponentInterface {
   /**
    * Личный диалог
    */
-  @Prop() message: ChatMessage[] = [];
+  @Prop() openedDialog: ChatDialogInterface;
 
   /**
    * */
@@ -120,15 +112,16 @@ export class SAdamPersonalHeader implements ComponentInterface {
    * Вывод имени юзера в шапке личной переписки
    * */
   public getNameUser() {
-    let name = "";
-
-    this.message.forEach((item) => {
-      if (name.indexOf(item.sender.name) === -1) {
-        name = item.sender.name;
-      }
-    });
-
-    return name;
+    return this.openedDialog?.name;
+    // let name = "";
+    //
+    // this.message.forEach((item) => {
+    //   if (name.indexOf(item.sender.name) === -1) {
+    //     name = item.sender.name;
+    //   }
+    // });
+    //
+    // return name;
   }
 
   /**
@@ -144,6 +137,6 @@ export class SAdamPersonalHeader implements ComponentInterface {
    * @param e
    */
   public searchPersonalMessageHandler(e) {
-    this.searchPersonalMessage.emit(e);
+    this.searchPersonalMessage.emit(e.target.value);
   }
 }

@@ -32,7 +32,7 @@ export class SAdamSearchContact implements ComponentInterface {
    * Фильтрация диалогов
    */
   public searchDialogHandler(e) {
-    this.searchDialogs.emit(e)
+    this.searchDialogs.emit(e.target.value)
   }
 }
 

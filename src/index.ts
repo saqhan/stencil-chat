@@ -1,4 +1,25 @@
 export * from "./components";
+
+
+
+export interface ChatMessageSenderInterface {
+  uid: string;
+  icon: string;
+  name: string;
+  phone: string;
+}
+
+
+export interface ChatMessageTimeInterface {
+  /** время создания */
+  created: any;
+  /** время доставки */
+  delivery?: any;
+  /** время прочтения */
+  read?: any;
+}
+
+
 /**
  *
  * */
@@ -14,14 +35,7 @@ export interface ChatMessage {
   type: ChatMessageTypeEnum;
 
   /** время создание */
-  time: {
-    /** время создания */
-    created: any;
-    /** время доставки */
-    delivery?: any;
-    /** время прочтения */
-    read?: any;
-  };
+  time: ChatMessageTimeInterface;
 
   /**
    * направления сообщения
@@ -31,12 +45,7 @@ export interface ChatMessage {
   /**
    * отправитель
    * */
-  sender: {
-    uid: string;
-    icon: string;
-    name: string;
-    phone: string;
-  };
+  sender: ChatMessageSenderInterface;
 }
 
 /**
@@ -221,6 +230,17 @@ export function chatConvertWritingStatusToMessage(
   };
 }
 
+
+
+export interface CreateMessageOptionsInputInterface {
+  direction: ChatMessageDirectionEnum.fromMe,
+  time: {
+    created: Date,
+    delivery: Date,
+    read: Date
+  },
+}
+
 // /**
 //  * dialogue search
 //  * */
@@ -244,6 +264,46 @@ export function chatConvertWritingStatusToMessage(
 //     )
 //   }
 // }
+
+/**
+ * создание текстового сообщения
+ * */
+export function createTextMessage (
+  text: string,
+  sender: ChatMessageSenderInterface,
+  options?: CreateMessageOptionsInputInterface
+): ChatMessage
+{
+  return createMessage(
+    ChatMessageTypeEnum.text,
+    text,
+    sender,
+    options
+  )
+}
+
+/**
+ * создание сообщения
+ * */
+export function createMessage (
+  type: ChatMessageTypeEnum,
+  content: any,
+  sender: ChatMessageSenderInterface,
+  options?: CreateMessageOptionsInputInterface
+): ChatMessage
+{
+  return {
+    content: content,
+    sender: sender,
+    type: type,
+    direction: options?.direction ?? ChatMessageDirectionEnum.fromMe,
+    time: {
+      created: options?.time?.created ?? new Date(),
+      delivery: options?.time?.created ?? null,
+      read: options?.time?.created ?? null
+    },
+  }
+}
 
 /**
  * filter message by search value
@@ -336,4 +396,31 @@ export enum ChatUserActionStatusState {
 export enum ChatUserPresenceState {
   offline,
   online
+}
+
+export function scrollToBot (
+  scrollContainer: HTMLElement,
+  options?: {
+    timer?: number,
+    y?: number
+  }
+)
+{
+  const timer = options?.timer ?? 100,
+    y = options?.y,
+    cb = () => {
+      scrollContainer.scrollBy(
+        0,
+        y ?? scrollContainer.scrollHeight
+      )
+    };
+
+  if (timer) {
+    setTimeout(
+      cb,
+      timer
+    )
+  } else {
+    cb();
+  }
 }
