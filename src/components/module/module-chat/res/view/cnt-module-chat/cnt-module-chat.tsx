@@ -13,9 +13,12 @@ import {
 } from "@stencil/core";
 import {
   ChatCategoryInterface,
-  ChatContactInterface, ChatCreateFolderOutputInterface,
+  ChatContactInterface,
+  ChatCreateFolderOutputInterface,
   ChatDialogInterface,
-  ChatMessage, ChatUserActionStatusState, ChatUserPresenceState,
+  ChatMessage,
+  ChatUserActionStatusState,
+  ChatUserPresenceState,
   ChatViewToShowEnum,
   ChatWritingUserInterface,
   filterDialogsByCategory,
@@ -23,10 +26,7 @@ import {
   filterMessageBySearchValue,
   ShowFullChatOutputInterface,
 } from "../../../../../../index";
-import {
-  ChatDictionaryService,
-  ChatMessagesLogic,
-} from "../../../../../../utils/utils";
+import {ChatDictionaryService, ChatMessagesLogic,} from "../../../../../../utils/utils";
 
 
 @Component({
