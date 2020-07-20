@@ -142,6 +142,6 @@ export class SAdamPersonalHeader implements ComponentInterface {
    * @param e
    */
   public searchPersonalMessageHandler(e) {
-    this.searchPersonalMessage.emit(e);
+    this.searchPersonalMessage.emit(e.target.value);
   }
 }
