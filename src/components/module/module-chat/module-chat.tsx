@@ -8,7 +8,13 @@ import {
   disableInnerSearchMessages,
   MessageMock
 } from "../../../utils/mock";
-import {ChatDialogInterface, ChatMessage, ChatMessageDirectionEnum, ChatMessageTypeEnum} from "../../../index";
+import {
+  ChatDialogInterface,
+  ChatMessage,
+  ChatMessageDirectionEnum,
+  ChatMessageTypeEnum,
+  createTextMessage
+} from "../../../index";
 
 @Component({
   tag: "module-chat",
@@ -117,22 +123,15 @@ export class ModuleChat implements ComponentInterface {
     );
     this.messages = [
       ...this.messages,
-      {
-        content: message,
-        sender: {
-          uid: "test-id-2",
-          icon: "https://via.placeholder.com/60x60?text=User",
-          name: "Адам",
-          phone: "79291234567",
-        },
-        type: ChatMessageTypeEnum.text,
-        direction: ChatMessageDirectionEnum.fromMe,
-        time: {
-          created: new Date(),
-          delivery: new Date(),
-          read: new Date(),
-        },
-      },
+      createTextMessage(
+        message,
+        {
+            uid: "test-id-2",
+            icon: "https://via.placeholder.com/60x60?text=User",
+            name: "Адам",
+            phone: "79291234567",
+        }
+      )
     ]
   }
 }
