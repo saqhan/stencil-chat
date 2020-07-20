@@ -17,7 +17,7 @@ export class MobileChat implements ComponentInterface {
   /**
    * Выбираем какой контент показывать
    * */
-  @State() showContent = "contacts";
+  @State() showContent = "dialogs";
 
   // profile
   // folders

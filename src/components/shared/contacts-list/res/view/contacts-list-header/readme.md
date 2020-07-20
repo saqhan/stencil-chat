@@ -26,12 +26,14 @@
 
  - [contacts-list](../../..)
  - [s-adam-contacts](../../../../../comp/s-adam-contacts)
+ - [s-adam-dialogs](../../../../../comp/s-adam-dialogs)
 
 ### Graph
 ```mermaid
 graph TD;
   contacts-list --> contacts-list-header
   s-adam-contacts --> contacts-list-header
+  s-adam-dialogs --> contacts-list-header
   style contacts-list-header fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

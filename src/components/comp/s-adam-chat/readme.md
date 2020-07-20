@@ -41,7 +41,7 @@ graph TD;
   message-from --> message-img
   personal-footer --> footer-text
   personal-footer --> footer-audio
-  s-adam-dialogs --> s-adam-search-contact
+  s-adam-dialogs --> contacts-list-header
   s-adam-dialogs --> dialog-categories
   s-adam-dialogs --> dialog-card
   s-adam-contacts --> contacts-list-header
