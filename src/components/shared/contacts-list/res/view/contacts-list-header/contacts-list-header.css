@@ -23,9 +23,10 @@
 
 .contacts-list-description {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   position: relative;
+  padding: 0px 20px;
 }
 
 .comp .contacts-list-description {
@@ -35,17 +36,21 @@
 .contacts-list-arraw-back i {
   font-size: 14px;
   color: #979eab;
-  position: absolute;
-  left: 6%;
-  bottom: 20%;
+  /* position: absolute; */
+  /* left: 6%; */
+  /* bottom: 20%; */
 }
 
 .contacts-list-title {
   font-weight: 600;
   color: #4c567d;
-  display: flex;
-  justify-content: center;
+  /* display: flex; */
+  /* justify-content: center; */
   align-items: center;
+  /* margin: 0 auto; */
+  width: 100%;
+  margin-left: -12px;
+  text-align: center;
 }
 
 .contacts-list-input {
