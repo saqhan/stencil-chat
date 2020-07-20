@@ -365,6 +365,7 @@ export namespace Components {
           * Личный диалог
          */
         "message": ChatMessage[];
+        "openedDialog": ChatDialogInterface;
     }
     interface SAdamProfile {
         /**
@@ -1330,6 +1331,7 @@ declare namespace LocalJSX {
           * клик по имени юзера в личной переписке
          */
         "onVisibleUserProfile"?: (event: CustomEvent<void>) => void;
+        "openedDialog"?: ChatDialogInterface;
     }
     interface SAdamProfile {
         /**
