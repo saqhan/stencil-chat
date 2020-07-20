@@ -397,3 +397,30 @@ export enum ChatUserPresenceState {
   offline,
   online
 }
+
+export function scrollToBot (
+  scrollContainer: HTMLElement,
+  options?: {
+    timer?: number,
+    y?: number
+  }
+)
+{
+  const timer = options?.timer ?? 100,
+    y = options?.y,
+    cb = () => {
+      scrollContainer.scrollBy(
+        0,
+        y ?? scrollContainer.scrollHeight
+      )
+    };
+
+  if (timer) {
+    setTimeout(
+      cb,
+      timer
+    )
+  } else {
+    cb();
+  }
+}
