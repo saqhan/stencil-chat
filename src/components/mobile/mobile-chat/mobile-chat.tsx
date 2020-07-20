@@ -16,7 +16,7 @@ export class MobileChat implements ComponentInterface {
   /**
    * Выбираем какой контент показывать
    * */
-  @State() showContent = "personal";
+  @State() showContent = "dialogs";
 
   /**
    * массив данных для диалогов
@@ -69,7 +69,7 @@ export class MobileChat implements ComponentInterface {
    * Поиск среди диалогов
    * */
   public searchDialogs(e) {
-    console.log("searchDialogs", e);
+    console.log("searchDialogs", e.detail.detail);
   }
 
   /**
