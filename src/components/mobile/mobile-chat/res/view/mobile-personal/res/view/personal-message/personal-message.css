@@ -20,6 +20,11 @@
   max-width: 260px;
 }
 
+.personal-message-wrapper {
+  overflow: hidden;
+  height: 100%;
+}
+
 ::-webkit-scrollbar { /* chrome based */
   width: 0px; /* ширина scrollbar'a */
   background: transparent; /* опционально */
@@ -27,6 +32,6 @@
 
 @media (max-width: 414px) {
   .module .personal-message {
-    height: calc(100vh - 230px);
+    height: calc(100vh - 190px);
   }
 }

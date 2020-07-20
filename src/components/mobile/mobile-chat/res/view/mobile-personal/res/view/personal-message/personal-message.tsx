@@ -52,18 +52,20 @@ export class PersonalMessage implements ComponentInterface {
   render() {
     return (
       <div class={this.getClassForHost()}>
-        <div class="personal-message" ref={(el) => this.scrollContainer = el}>
-          {
-            this.message.map(
-              (message) => {
-                return <message-from
-                  message={message}></message-from>;
-              }
-            )
-          }
-          {
-            this.writing?.length ? <message-from message={chatConvertWritingStatusToMessage(this.writing[0])}/> : ''
-          }
+        <div class="personal-message-wrapper">
+          <div class="personal-message" ref={(el) => this.scrollContainer = el}>
+            {
+              this.message.map(
+                (message) => {
+                  return <message-from
+                    message={message}></message-from>;
+                }
+              )
+            }
+            {
+              this.writing?.length ? <message-from message={chatConvertWritingStatusToMessage(this.writing[0])}/> : ''
+            }
+          </div>
         </div>
       </div>
     );
