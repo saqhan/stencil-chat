@@ -387,7 +387,6 @@ export interface ChatCreateFolderOutputInterface {
   chats: ChatDialogInterface[]
 }
 
-
 export enum ChatUserActionStatusState {
   writing = 'writing',
   audioRecording = 'audio-recording'

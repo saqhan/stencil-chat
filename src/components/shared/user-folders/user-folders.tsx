@@ -68,7 +68,8 @@ export class UserFolders implements ComponentInterface {
           {/*  Вы можете создавать папки чатов и переключаться между ними*/}
           {/*</div>*/}
           <div class="main-icon">
-            <i class="c-chat sc-btn-wrapper c-chat-folder"></i>
+            <img src="http://cdn.ramman.net/connect/assets/app/chat/folder.svg" alt=""/>
+            {/*<i class="c-chat sc-btn-wrapper c-chat-folder"></i>*/}
           </div>
           <div class="folders-content">
             <div class="user-folder">

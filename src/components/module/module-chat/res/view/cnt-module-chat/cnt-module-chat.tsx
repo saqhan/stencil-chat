@@ -497,8 +497,8 @@ export class CntModuleChat implements ComponentInterface {
   };
 
   public createFolderHandler(item: ChatCreateFolderOutputInterface) {
-    return item;
-    // console.log("createFolderHandler", item);
+    // return item;
+    console.log("createFolderHandler", item);
   }
 
   /**
