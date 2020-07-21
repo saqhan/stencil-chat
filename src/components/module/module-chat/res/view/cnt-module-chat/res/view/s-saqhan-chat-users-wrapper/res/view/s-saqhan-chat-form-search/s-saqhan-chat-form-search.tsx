@@ -41,10 +41,11 @@ export class SSaqhanChatFormSearch implements ComponentInterface {
             <i class="c-chat c-chat-file-alt"></i>
           </div>
         </div>
-        <dialog-categories
+        {this.categories.length ? <dialog-categories
           theme={"module"}
           categories={this.categories}
         ></dialog-categories>
+        : ''}
       </div>
     );
   }
