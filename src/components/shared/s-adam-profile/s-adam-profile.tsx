@@ -151,7 +151,7 @@ const Folder = (props) => {
               <div>{item.name}</div>
             </div>
             <div class="delete-folder">
-              <i class="c-chat c-chat-file-alt "></i>
+              <i class="c-chat c-chat-times "></i>
             </div>
           </div>
         </li>

@@ -17,7 +17,7 @@ export class MobileChat implements ComponentInterface {
   /**
    * Выбираем какой контент показывать
    * */
-  @State() showContent = "dialogs";
+  @State() showContent = "profile";
 
   // profile
   // folders
@@ -143,7 +143,7 @@ export class MobileChat implements ComponentInterface {
     // console.log('clickToShowDialogsHandler');
   }
   public clickToShowFoldersHandler() {
-    // console.log('clickToShowFoldersHandler');
+    console.log('clickToShowFoldersHandler');
   }
 
   /**
