@@ -11,7 +11,8 @@
 | ------------------- | --------------------- | ------------- | ------------------------------------------------------------------------------- | ----------- |
 | `chatActionState`   | `chat-action-state`   |               | `ChatUserActionStatusState.audioRecording \| ChatUserActionStatusState.writing` | `undefined` |
 | `chatPresenceState` | `chat-presence-state` |               | `ChatUserPresenceState.offline \| ChatUserPresenceState.online`                 | `undefined` |
-| `message`           | --                    | Личный диалог | `ChatMessage[]`                                                                 | `[]`        |
+| `message`           | --                    | Личный диалог | `ChatMessage[]`                                                                 | `undefined` |
+| `openedDialog`      | --                    |               | `ChatDialogInterface`                                                           | `undefined` |
 
 
 ## Events

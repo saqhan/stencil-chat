@@ -22,19 +22,6 @@
 | `visibleUserProfile`    | клик по имени юзера в личной переписке | `CustomEvent<void>`   |
 
 
-## Methods
-
-### `updateChatPresenceState(item: ChatUserPresenceState) => Promise<void>`
-
-меняет статус (присутстия собеседников или контакта) в чате
-
-#### Returns
-
-Type: `Promise<void>`
-
-
-
-
 ## Dependencies
 
 ### Used by

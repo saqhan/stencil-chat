@@ -7,10 +7,11 @@
 
 ## Properties
 
-| Property     | Attribute | Description                 | Type                      | Default |
-| ------------ | --------- | --------------------------- | ------------------------- | ------- |
-| `categories` | --        | массив категорий диалогов   | `ChatCategoryInterface[]` | `[]`    |
-| `dialogs`    | --        | Массив с элементами диалога | `ChatDialogInterface[]`   | `[]`    |
+| Property     | Attribute | Description                         | Type                             | Default    |
+| ------------ | --------- | ----------------------------------- | -------------------------------- | ---------- |
+| `categories` | --        | массив категорий диалогов           | `ChatCategoryInterface[]`        | `[]`       |
+| `dialogs`    | --        | Массив с элементами диалога         | `ChatDialogInterface[]`          | `[]`       |
+| `theme`      | `theme`   | Тема для модульного/мобильного чата | `"comp" \| "mobile" \| "module"` | `"mobile"` |
 
 
 ## Events
@@ -30,14 +31,14 @@
 
 ### Depends on
 
-- [s-adam-search-contact](../s-adam-search-contact)
+- [contacts-list-header](../../shared/contacts-list/res/view/contacts-list-header)
 - [dialog-categories](../../shared/dialog-categories)
 - [dialog-card](../../shared/dialog-card)
 
 ### Graph
 ```mermaid
 graph TD;
-  s-adam-dialogs --> s-adam-search-contact
+  s-adam-dialogs --> contacts-list-header
   s-adam-dialogs --> dialog-categories
   s-adam-dialogs --> dialog-card
   s-adam-chat --> s-adam-dialogs

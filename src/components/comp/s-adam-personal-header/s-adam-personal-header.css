@@ -20,7 +20,6 @@
 }
 .user-name {
   font-weight: 700;
-  cursor: pointer;
 }
 .online-marker, .offline-marker {
   width: 10px;

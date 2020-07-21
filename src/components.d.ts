@@ -339,6 +339,10 @@ export namespace Components {
           * Массив с элементами диалога
          */
         "dialogs": ChatDialogInterface[];
+        /**
+          * Тема для модульного/мобильного чата
+         */
+        "theme": "mobile" | "module" | "comp";
     }
     interface SAdamDirect {
         "chatActionState": ChatUserActionStatusState;
@@ -347,10 +351,6 @@ export namespace Components {
           * Личный диалог
          */
         "message": ChatMessage[];
-        /**
-          * меняет статус (присутстия собеседников или контакта) в чате
-         */
-        "updateChatPresenceState": (item: ChatUserPresenceState) => Promise<void>;
     }
     interface SAdamNavItem {
     }
@@ -368,6 +368,7 @@ export namespace Components {
         /**
           * Личный диалог
          */
+        "message": ChatMessage[];
         "openedDialog": ChatDialogInterface;
     }
     interface SAdamProfile {
@@ -424,6 +425,10 @@ export namespace Components {
           * Массив dialogs
          */
         "dialogs": ChatDialogInterface[];
+        /**
+          * Задаем стиль для мобильной/пк версии
+         */
+        "theme": "comp" | "mobile" | "module";
     }
     interface UserProfile {
     }
@@ -1276,6 +1281,10 @@ declare namespace LocalJSX {
           * Поиск по контактам
          */
         "onSearchDialogs"?: (event: CustomEvent<string>) => void;
+        /**
+          * Тема для модульного/мобильного чата
+         */
+        "theme"?: "mobile" | "module" | "comp";
     }
     interface SAdamDirect {
         "chatActionState"?: ChatUserActionStatusState;
@@ -1315,6 +1324,10 @@ declare namespace LocalJSX {
         "chatActionState"?: ChatUserActionStatusState;
         "chatPresenceState"?: ChatUserPresenceState;
         /**
+          * Личный диалог
+         */
+        "message"?: ChatMessage[];
+        /**
           * Сброс фильтра сообщений
          */
         "onResetMessagesFilter"?: (event: CustomEvent<void>) => void;
@@ -1326,9 +1339,6 @@ declare namespace LocalJSX {
           * клик по имени юзера в личной переписке
          */
         "onVisibleUserProfile"?: (event: CustomEvent<void>) => void;
-        /**
-          * Личный диалог
-         */
         "openedDialog"?: ChatDialogInterface;
     }
     interface SAdamProfile {
@@ -1433,6 +1443,10 @@ declare namespace LocalJSX {
           * создание папки
          */
         "onCreateFolder"?: (event: CustomEvent<ChatCreateFolderOutputInterface>) => void;
+        /**
+          * Задаем стиль для мобильной/пк версии
+         */
+        "theme"?: "comp" | "mobile" | "module";
     }
     interface UserProfile {
         "onClickToShowDialogs"?: (event: CustomEvent<any>) => void;

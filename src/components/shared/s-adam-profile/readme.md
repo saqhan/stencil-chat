@@ -26,14 +26,14 @@
 ### Used by
 
  - [cnt-module-chat](../../module/module-chat/res/view/cnt-module-chat)
- - [s-adam-chat](../../comp/s-adam-chat)
+ - [mobile-chat](../../mobile/mobile-chat)
  - [user-profile](../../mobile/mobile-chat/res/view/user-profile)
 
 ### Graph
 ```mermaid
 graph TD;
   cnt-module-chat --> s-adam-profile
-  s-adam-chat --> s-adam-profile
+  mobile-chat --> s-adam-profile
   user-profile --> s-adam-profile
   style s-adam-profile fill:#f9f,stroke:#333,stroke-width:4px
 ```

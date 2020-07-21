@@ -91,6 +91,12 @@
   overflow: auto;
 }
 
+.comp .user-folders-blocks {
+  max-height: none;
+  height: calc(100vh - 390px);
+  min-height: 121px;
+}
+
 .user-folders-blocks ul li {
   list-style: none;
   cursor: pointer;

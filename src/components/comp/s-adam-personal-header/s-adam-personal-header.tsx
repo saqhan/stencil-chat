@@ -1,5 +1,5 @@
 import {Component, ComponentInterface, Event, EventEmitter, h, Prop, State,} from "@stencil/core";
-import {ChatDialogInterface, ChatUserActionStatusState, ChatUserPresenceState} from "../../../index";
+import {ChatDialogInterface, ChatMessage, ChatUserActionStatusState, ChatUserPresenceState} from "../../../index";
 
 @Component({
   tag: "s-adam-personal-header",
@@ -11,6 +11,11 @@ export class SAdamPersonalHeader implements ComponentInterface {
   /**
    * Личный диалог
    */
+  @Prop() message: ChatMessage[];
+
+  /**
+   *
+   * */
   @Prop() openedDialog: ChatDialogInterface;
 
   /**
