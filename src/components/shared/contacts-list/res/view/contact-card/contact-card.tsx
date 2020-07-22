@@ -59,7 +59,7 @@ export class ContactCard implements ComponentInterface {
    * Метод выобра темы для Мобильная/Модульной версии
    * */
   public getClassForHost() {
-    console.log(this.theme)
+    // console.log(this.theme)
     return {
       [this.theme]: true,
     };

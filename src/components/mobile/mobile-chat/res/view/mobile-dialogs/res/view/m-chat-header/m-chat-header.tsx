@@ -16,7 +16,7 @@ import {
   tag: "m-chat-header",
   styleUrl: "m-chat-header.css",
   shadow: false,
-  scoped:true
+  scoped: true,
 })
 export class MChatHeader implements ComponentInterface {
   /**
@@ -43,11 +43,10 @@ export class MChatHeader implements ComponentInterface {
 
   public showModal() {
     this.isShowModal = !this.isShowModal;
-
   }
 
-  public cancelSearchPersonalHandler(){
-    this.cancelSearchPersonal.emit()
+  public cancelSearchPersonalHandler() {
+    this.cancelSearchPersonal.emit();
   }
 
   /**
@@ -63,8 +62,9 @@ export class MChatHeader implements ComponentInterface {
             {this.isShowModal ? (
               <i class="c-chat c-chat-search"></i>
             ) : (
-              <i class="c-chat c-chat-times"
-                onClick={()=> this.cancelSearchPersonalHandler()}
+              <i
+                class="c-chat c-chat-times"
+                onClick={() => this.cancelSearchPersonalHandler()}
               ></i>
             )}
           </span>
@@ -77,10 +77,14 @@ export class MChatHeader implements ComponentInterface {
           </span>
         </div>
         {this.isShowModal ? (
-          <dialog-categories
-            theme={"mobile"}
-            categories={this.categories}
-          ></dialog-categories>
+          this.categories.length ? (
+            <dialog-categories
+              theme={"mobile"}
+              categories={this.categories}
+            ></dialog-categories>
+          ) : (
+            ""
+          )
         ) : (
           <div class="modal-wrapper">
             <input

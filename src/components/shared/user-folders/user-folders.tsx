@@ -25,6 +25,11 @@ export class UserFolders implements ComponentInterface {
   @Prop() dialogs: ChatDialogInterface[];
 
   /**
+   * Задаем стиль для мобильной/пк версии
+   * */
+  @Prop() theme: "comp" | "mobile" | "module" = "mobile";
+
+  /**
    * Показывать/скрывать окно создания папки
    * */
   @State() showInputCreateFolderState: boolean;
@@ -46,72 +51,76 @@ export class UserFolders implements ComponentInterface {
 
   render() {
     return (
-      <div class="folders-wrapper">
-        <div class="folders-title">
-          <div class="left" onClick={() => this.clickToUserProfileHandler()}>
-            <div class="left-back">
-              <i class="c-chat c-chat-arrow-left"></i>
+      <div class={this.getClassForHost()}>
+        <div class="folders-wrapper">
+          <div class="folders-title">
+            <div class="left" onClick={() => this.clickToUserProfileHandler()}>
+              <div class="left-back">
+                <i class="c-chat c-chat-arrow-left"></i>
+              </div>
+              <div class="title">Папки</div>
             </div>
-            <div class="title">Папки</div>
+            <div class="right">
+              <span onClick={() => this.createFolderFromButton()}>Создать</span>
+            </div>
           </div>
-          <div class="right">
-            <span onClick={() => this.createFolderFromButton()}>Создать</span>
+          {/*<div class="advice">*/}
+          {/*  Вы можете создавать папки чатов и переключаться между ними*/}
+          {/*</div>*/}
+          <div class="main-icon">
+            <img src="http://cdn.ramman.net/connect/assets/app/chat/folder.svg" alt=""/>
+            {/*<i class="c-chat sc-btn-wrapper c-chat-folder"></i>*/}
           </div>
-        </div>
-        {/*<div class="advice">*/}
-        {/*  Вы можете создавать папки чатов и переключаться между ними*/}
-        {/*</div>*/}
-        <div class="main-icon">
-          <i class="c-chat sc-btn-wrapper c-chat-folder"></i>
-        </div>
-        <div class="folders-content">
-          <div class="user-folder">
-            {/*<div class="user-social-title">Мои папки</div>*/}
-            <div class="user-folders-block">
-              {/*{this.showInputCreateFolderState ? (*/}
-              <div class="creating-folder-block">
-                <form onSubmit={(e) => this.creatingFolderFromInputHandler(e)}>
-                  <input
-                    type="text"
-                    placeholder="Название папки"
-                    ref={(el) => (this.inputElement = el)}
-                  />
-                </form>
-                <div class="icon-new-folder">
-                  <i
-                    class="c-chat sc-btn-wrapper c-chat-folder"
-                    onClick={() => this.showInputCreateFolderHandler()}
-                  ></i>
+          <div class="folders-content">
+            <div class="user-folder">
+              {/*<div class="user-social-title">Мои папки</div>*/}
+              <div class="user-folders-block">
+                {/*{this.showInputCreateFolderState ? (*/}
+                <div class="creating-folder-block">
+                  <form onSubmit={(e) => this.creatingFolderFromInputHandler(e)}>
+                    <input
+                      type="text"
+                      placeholder="Название папки"
+                      ref={(el) => (this.inputElement = el)}
+                    />
+                  </form>
+                  <div class="icon-new-folder">
+                    <i
+                      class="c-chat sc-btn-wrapper c-chat-folder"
+                      onClick={() => this.showInputCreateFolderHandler()}
+                    ></i>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="user-folder">
-            <div class="user-folders-title user-social-title">
-              Выберите чаты
-            </div>
+            <div class="user-folder">
+              <div class="user-folders-title user-social-title">
+                Выберите чаты
+              </div>
 
-            <div class="user-folders-blocks">
-              {/*<i class="c-chat c-chat-instagram-brands hover-link"></i>*/}
-              <ul>
-                <Dialogs dialog={this.dialogs}></Dialogs>
-              </ul>
+              <div class="user-folders-blocks">
+                {/*<i class="c-chat c-chat-instagram-brands hover-link"></i>*/}
+                <ul>
+                  <Dialogs dialog={this.dialogs}></Dialogs>
+                </ul>
+              </div>
             </div>
+            {/*<div class="user-folder">*/}
+            {/*  <div class="user-social-title">Рекомендованые папки</div>*/}
+            {/*  <div class="user-folders-block">*/}
+            {/*    <div class="user-folder-link">*/}
+            {/*      <i class="c-chat c-chat-file-alt hover-link"></i>*/}
+            {/*      <span class="user-social-name">Новые</span>*/}
+            {/*    </div>*/}
+            {/*    <div class="user-folder-link">*/}
+            {/*      <i class="c-chat c-chat-file-alt hover-link"></i>*/}
+            {/*      <span class="user-social-name">Личные</span>*/}
+            {/*    </div>*/}
+            {/*  </div>*/}
+            {/*</div>*/}
           </div>
-          {/*<div class="user-folder">*/}
-          {/*  <div class="user-social-title">Рекомендованые папки</div>*/}
-          {/*  <div class="user-folders-block">*/}
-          {/*    <div class="user-folder-link">*/}
-          {/*      <i class="c-chat c-chat-file-alt hover-link"></i>*/}
-          {/*      <span class="user-social-name">Новые</span>*/}
-          {/*    </div>*/}
-          {/*    <div class="user-folder-link">*/}
-          {/*      <i class="c-chat c-chat-file-alt hover-link"></i>*/}
-          {/*      <span class="user-social-name">Личные</span>*/}
-          {/*    </div>*/}
-          {/*  </div>*/}
-          {/*</div>*/}
         </div>
+
       </div>
     );
   }
@@ -158,7 +167,17 @@ export class UserFolders implements ComponentInterface {
   public clickToUserProfileHandler(): void {
     this.clickToUserProfile.emit();
   }
+
+  /**
+   * выводим класс
+   * */
+  public getClassForHost() {
+    return {
+      [this.theme]: true,
+    };
+  }
 }
+
 
 const Dialogs = (props) => {
   return props.dialog.map((item ) => {

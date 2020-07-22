@@ -324,7 +324,7 @@ export function filterMessageBySearchValue (
 /**
  * filter dialogs by search value
  * */
-export function filterDialogsBySearchValue (
+  export function filterDialogsBySearchValue (
   value: string,
   dialogs:  ChatDialogInterface[]
 ): ChatDialogInterface[] {
@@ -386,7 +386,6 @@ export interface ChatCreateFolderOutputInterface {
   name: string;
   chats: ChatDialogInterface[]
 }
-
 
 export enum ChatUserActionStatusState {
   writing = 'writing',

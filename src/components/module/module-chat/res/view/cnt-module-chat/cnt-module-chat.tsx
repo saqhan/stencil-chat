@@ -295,6 +295,7 @@ export class CntModuleChat implements ComponentInterface {
 
   @Watch("message")
   watchMessageHandler(newValue: boolean, oldValue: boolean) {
+    // console.log("The new value of activated is: ", { newValue, oldValue });
     console.log("The new value of activated is: ", { newValue, oldValue });
     this.messageState = this.message;
   }
@@ -347,7 +348,7 @@ export class CntModuleChat implements ComponentInterface {
    * */
   private updateDictionary(newValue: any) {
     ChatDictionaryService.dictionary$.next(newValue);
-    console.log("changed - dictionary");
+    // console.log("changed - dictionary");
   }
 
   public countNewMess(array) {
@@ -495,7 +496,8 @@ export class CntModuleChat implements ComponentInterface {
     }
   };
 
-  public createFolderHandler(item: ChatCreateFolderOutputInterface): void {
+  public createFolderHandler(item: ChatCreateFolderOutputInterface) {
+    // return item;
     console.log("createFolderHandler", item);
   }
 

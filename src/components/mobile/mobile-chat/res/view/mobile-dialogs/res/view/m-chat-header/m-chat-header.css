@@ -29,6 +29,7 @@
 /**/
 .m-chat-header {
   border-bottom: 1px solid #ccc;
+  height: 82px;
 }
 
 .m-chat-header .title {

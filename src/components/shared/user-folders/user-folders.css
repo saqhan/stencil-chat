@@ -4,6 +4,10 @@
   padding: 20px;
   overflow: auto;
 }
+
+.main-icon img {
+  width: 70px;
+}
 ::-webkit-scrollbar {
   /* chrome based */
   width: 0px; /* ширина scrollbar'a */
@@ -89,6 +93,12 @@
   background-color: #fff;
   max-height: 360px;
   overflow: auto;
+}
+
+.comp .user-folders-blocks {
+  max-height: none;
+  height: calc(100vh - 390px);
+  min-height: 121px;
 }
 
 .user-folders-blocks ul li {

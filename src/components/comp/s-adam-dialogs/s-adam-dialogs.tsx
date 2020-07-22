@@ -13,13 +13,18 @@ import { ChatCategoryInterface, ChatDialogInterface } from "../../../index";
   tag: "s-adam-dialogs",
   styleUrl: "s-adam-dialogs.css",
   shadow: false,
-  scoped: true
+  scoped: true,
 })
 export class SAdamDialogs implements ComponentInterface {
   /**
    * Массив с элементами диалога
    */
   @Prop() dialogs: ChatDialogInterface[] = [];
+
+  /**
+   * Тема для модульного/мобильного чата
+   * */
+  @Prop() theme: "mobile" | "module" | "comp" = "mobile";
 
   /**
    * массив категорий диалогов
@@ -29,7 +34,7 @@ export class SAdamDialogs implements ComponentInterface {
   /**
    * Cобытие клика по диалогу
    */
-  @Event() clickToDialog: EventEmitter<void>
+  @Event() clickToDialog: EventEmitter<void>;
 
   /**
    * Поиск по контактам
@@ -44,7 +49,7 @@ export class SAdamDialogs implements ComponentInterface {
   render() {
     return (
       <div class="contacts-column">
-        <s-adam-search-contact></s-adam-search-contact>
+        <contacts-list-header theme={"comp"}></contacts-list-header>
         <dialog-categories categories={this.categories}></dialog-categories>
         <div class="contacts">
           {this.dialogs.map((dialog) => {

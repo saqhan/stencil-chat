@@ -19,7 +19,7 @@
 - [s-adam-navigate](../s-adam-navigate)
 - [s-adam-direct](../s-adam-direct)
 - [s-adam-no-chat](../s-adam-no-chat)
-- [s-adam-profile](../../shared/s-adam-profile)
+- [user-folders](../../shared/user-folders)
 - [s-adam-dialogs](../s-adam-dialogs)
 - [s-adam-contacts](../s-adam-contacts)
 
@@ -29,7 +29,7 @@ graph TD;
   s-adam-chat --> s-adam-navigate
   s-adam-chat --> s-adam-direct
   s-adam-chat --> s-adam-no-chat
-  s-adam-chat --> s-adam-profile
+  s-adam-chat --> user-folders
   s-adam-chat --> s-adam-dialogs
   s-adam-chat --> s-adam-contacts
   s-adam-navigate --> s-adam-nav-item
@@ -41,7 +41,7 @@ graph TD;
   message-from --> message-img
   personal-footer --> footer-text
   personal-footer --> footer-audio
-  s-adam-dialogs --> s-adam-search-contact
+  s-adam-dialogs --> contacts-list-header
   s-adam-dialogs --> dialog-categories
   s-adam-dialogs --> dialog-card
   s-adam-contacts --> contacts-list-header
